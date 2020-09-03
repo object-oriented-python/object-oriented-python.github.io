@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Introduction: abstraction in mathematics and programming &#8212; Object oriented programming in Python for mathematicians 2020.0 documentation</title>
+    <link rel="stylesheet" href="_static/fenics.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/proof.js"></script>
+    <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Programs in files" href="1_programs_in_files.html" />
+    <link rel="prev" title="Object oriented programming in Python for mathematicians" href="index.html" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+<link rel="stylesheet" href="_static/featured.css">
+
+
+<link rel="shortcut icon" href="_static/icon.ico" />
+
+
+  </head><body>
+<div class="wrapper">
+  <a href="index.html"><img src="_static/banner.png" width="900px" alt="FInAT Project Banner" /></a>
+  <div id="access">
+    <div class="menu">
+      <ul>
+          <li class="page_item"><a href="https://github.com/finite-element/finite-element-course" title="GitHub">GitHub</a></li>
+      </ul>
+    </div><!-- .menu -->
+  </div><!-- #access -->
+</div><!-- #wrapper -->
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction-abstraction-in-mathematics-and-programming">
+<h1><span class="section-number">1. </span>Introduction: abstraction in mathematics and programming<a class="headerlink" href="#introduction-abstraction-in-mathematics-and-programming" title="Permalink to this headline">¶</a></h1>
+<p>A core tool of mathematics is to define abstract objects and the
+operations which apply to them. This approach defines all the basic
+building blocks which enable us to reason mathematically and perform
+calculations. We start off with basic objects like numbers and define
+arithmetic operations on them. As we become more sophisticated, we
+define more and more complex objects, with appropriately more involved
+operations: matrices, polynomials, sets, groups, algebras. Being able
+to reason at the level of abstract objects is essential in making
+mathematics comprehensible. Consider matrices: linear algebra would be
+highly impractical at best if we could not define matrix addition and
+multiplication, and had instead to work directly with sums of products
+of scalars. More generally, without abstraction the edifice of higher
+mathematics would rapidly collapse under the weight of its own
+complexity.</p>
+<p>The situation in computer programming is strikingly similar. At the
+simplest level, the central processing unit of a computer is capable
+only of a limited set of rather primitive arithmetic and logical
+operations on a few finite subsets of the integers, and of the
+floating point numbers. However, on this tiny foundation is built
+every piece of software in existence, including very sophisticated
+programs for text manipulation, higher mathematics, sound and
+video. Moreover, this software is routinely created by ordinary people
+using relatively modest amounts of effort. How is this possible? It is
+possible because of the same principle of abstraction which underpins
+mathematics: more abstract objects and the operations on them are
+defined in terms of simpler ones.</p>
+<p>Think about plotting a graph on a computer. As a 21st century
+mathematician you don’t write loops over arrays to compute the pixel
+values that will result in the right curve appearing on a screen, you
+use a high-level language such as Python which has plotting objects
+which take in data and perform all of those calculations for
+you. Where did those plotting objects come from? They are the result
+of the manipulation of lower-level abstract objects in a chain that
+eventually ends up with primitive operations on integers and floating
+point numbers. But, critically, as the person wanting to plot some
+data <em>you don’t care</em>.</p>
+<p>Why, then, as a mathematician should you care about abstraction in
+programming? There are two key reasons. First, because an
+understanding of the abstractions on which software is built will give
+you a better understanding of how that software works and will
+therefore make you a better user of that software. The second is that
+making appropriate use of abstractions will make you a better
+programmer of mathematics and other software. Applied well, objects
+and abstraction produce software which is easier to write, easier to
+understand, easier to debug and easier to extend. Indeed, as with
+abstraction in mathematics, abstraction in coding is a form of
+constructive laziness: it simultaniously allows the mathematician to
+achieve more and do less work.</p>
+<p>This course is a second course in programming, building a previously
+acquired basic understanding of programming in Python. In covering
+more advanced programming, we will pay particular attention to objects
+and abstraction as they occur in Python. Furthermore, we will do so
+from a mathematician’s perspective, understanding programming as a
+process of defining and manipulating mathematical objects, and
+scientifically testing and debugging the results.</p>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019-2020, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7. Inheritance and composition &#8212; Object oriented programming in Python for mathematicians 2020.0 documentation</title>
+    <link rel="stylesheet" href="_static/fenics.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/proof.js"></script>
+    <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="8. Debugging and testing" href="7_debugging.html" />
+    <link rel="prev" title="6. Errors and exceptions" href="5_exceptions.html" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+<link rel="stylesheet" href="_static/featured.css">
+
+
+<link rel="shortcut icon" href="_static/icon.ico" />
+
+
+  </head><body>
+<div class="wrapper">
+  <a href="index.html"><img src="_static/banner.png" width="900px" alt="FInAT Project Banner" /></a>
+  <div id="access">
+    <div class="menu">
+      <ul>
+          <li class="page_item"><a href="https://github.com/finite-element/finite-element-course" title="GitHub">GitHub</a></li>
+      </ul>
+    </div><!-- .menu -->
+  </div><!-- #access -->
+</div><!-- #wrapper -->
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="inheritance-and-composition">
+<span id="inheritance"></span><h1><span class="section-number">7. </span>Inheritance and composition<a class="headerlink" href="#inheritance-and-composition" title="Permalink to this headline">¶</a></h1>
+<p>A key feature of abstractions is composability: the ability to make a
+complex object or operation out of several components. We can compose
+objects by simply making one object a <a class="reference internal" href="2_objects.html#term-attribute"><span class="xref std std-term">attribute</span></a> of another
+object. This combines objects in a “has a” relationship. For example
+the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class introduced in <a class="reference internal" href="2_objects.html#objects"><span class="std std-numref">chapter 3</span></a> has a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of coefficients. Object composition of
+this sort is a core part of <a class="reference internal" href="2_objects.html#term-encapsulation"><span class="xref std std-term">encapsulation</span></a>.</p>
+<p>Another way of composing abstractions is to make a new <a class="reference internal" href="2_objects.html#term-class"><span class="xref std std-term">class</span></a>
+by modifying another class. Typically this is employed to make a more
+specialised <a class="reference internal" href="2_objects.html#term-class"><span class="xref std std-term">class</span></a> from a more general one. In fact, we have
+already seen this in the case of number classes. Recall that all
+numbers are instances of <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Number</span>
+
+<span class="gp">In [2]: </span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Number</span><span class="p">)</span>
+<span class="gh">Out[2]: </span><span class="go">True</span>
+</pre></div>
+</div>
+<p>Hang on, though. <code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span></code> is actually an instance of <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[3]: </span><span class="go">int</span>
+
+<span class="gp">In [4]: </span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="gh">Out[4]: </span><span class="go">True</span>
+</pre></div>
+</div>
+<p>So <code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span></code>, it turns out, has <a class="reference internal" href="2_objects.html#term-type"><span class="xref std std-term">type</span></a> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, and so is an
+instance of <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, but is also somehow an instance of
+<a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>. Mathematically, the answer is obvious:
+integers form a subset of all of the numbers. Object inheritance works
+in much the same way: we say that <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> is a <a class="reference internal" href="#term-subclass"><span class="xref std std-term">subclass</span></a>
+of <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>. Just as <a class="reference external" href="https://docs.python.org/3/library/functions.html#isinstance" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">isinstance()</span></code></a> provides a
+mechanism for determining whether an object is an <a class="reference internal" href="2_objects.html#term-instance"><span class="xref std std-term">instance</span></a> of
+a <a class="reference internal" href="2_objects.html#term-class"><span class="xref std std-term">class</span></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#issubclass" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">issubclass()</span></code></a> will tell us when one
+<a class="reference internal" href="2_objects.html#term-class"><span class="xref std std-term">class</span></a> is a <a class="reference internal" href="#term-subclass"><span class="xref std std-term">subclass</span></a> of another:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">Number</span><span class="p">)</span>
+<span class="gh">Out[5]: </span><span class="go">True</span>
+</pre></div>
+</div>
+<p>In fact, there is a whole hierarchy of
+numeric types in <a class="reference external" href="https://docs.python.org/3/library/numbers.html#module-numbers" title="(in Python v3.8)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numbers</span></code></a>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="kn">import</span> <span class="nn">numbers</span>
+
+<span class="gp">In [7]: </span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">)</span>
+<span class="gh">Out[7]: </span><span class="go">True</span>
+
+<span class="gp">In [8]: </span><span class="nb">issubclass</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Rational</span><span class="p">)</span>
+<span class="gh">Out[8]: </span><span class="go">True</span>
+
+<span class="gp">In [9]: </span><span class="nb">issubclass</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Rational</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Real</span><span class="p">)</span>
+<span class="gh">Out[9]: </span><span class="go">True</span>
+
+<span class="gp">In [10]: </span><span class="nb">issubclass</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Real</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Complex</span><span class="p">)</span>
+<span class="gh">Out[10]: </span><span class="go">True</span>
+</pre></div>
+</div>
+<p>It turns out that <a class="reference external" href="https://docs.python.org/3/library/functions.html#issubclass" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">issubclass()</span></code></a> is reflexive (classes are subclasses of themselves):</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="nb">issubclass</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Real</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Real</span><span class="p">)</span>
+<span class="gh">Out[11]: </span><span class="go">True</span>
+</pre></div>
+</div>
+<p>This means that, in a manner analogous to subset inclusion, the
+<a class="reference internal" href="#term-subclass"><span class="xref std std-term">subclass</span></a> relationship forms a partial order on the set of all
+classes.</p>
+<p>A <a class="reference internal" href="2_objects.html#term-class"><span class="xref std std-term">class</span></a>, by default, has all of the <span class="xref std std-term">methods</span> and <span class="xref std std-term">attributes</span> of the</p>
+<dl class="glossary simple">
+<dt id="term-subclass">subclass</dt><dd><p>A <a class="reference internal" href="2_objects.html#term-class"><span class="xref std std-term">class</span></a> derived from another <a class="reference internal" href="2_objects.html#term-class"><span class="xref std std-term">class</span></a> by
+inheritance. The <a class="reference internal" href="2_objects.html#term-method"><span class="xref std std-term">methods</span></a> and
+<span class="xref std std-term">attributes</span> of the <span class="xref std std-term">parent class(es)</span> are automatically available on the <a class="reference internal" href="#term-subclass"><span class="xref std std-term">subclass</span></a>
+unless it overrides them.</p>
+</dd>
+</dl>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019-2020, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>
