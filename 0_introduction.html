@@ -177,7 +177,114 @@ well you are doing on them is an indication of your progress on the module.</p>
 <div class="section" id="the-exercises">
 <h3><span class="section-number">1.1.4. </span>The exercises<a class="headerlink" href="#the-exercises" title="Permalink to this headline">¶</a></h3>
 <p>As we’ve already noted, really learning to program better is only achieved by
-writing code. The core of each week’s activities is therefore to ß</p>
+writing code. The core of each week’s activities is therefore to put the new
+concepts and programming structures you’ve learned into practice. The
+programming exercises are given at the end of each chapter, just before the
+glossary. Each time there will be a skeleton code available from GitHub
+Classroom (we’ll introduce that in <code class="xref std std-numref docutils literal notranslate"><span class="pre">github_classroom</span></code>) which provides
+the starting point. Sometimes you might be asked to complete a piece of code
+while on other occasions you’ll need to write a whole Python module from
+scratch. Each set of exercises will come with a matching set of tests. These are
+small programs which check whether your code produces the correct responses to a
+range of inputs. Tests like this provide immediate feedback and enable you to
+know how you are doing without having to wait for code to be submitted and
+marked.</p>
+</div>
+<div class="section" id="getting-help">
+<h3><span class="section-number">1.1.5. </span>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Write this bit once the interaction format is finalised.</p>
+</div>
+</div>
+<div class="section" id="writing-an-issue-report">
+<h3><span class="section-number">1.1.6. </span>Writing an issue report<a class="headerlink" href="#writing-an-issue-report" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Write this bit.</p>
+</div>
+</div>
+<div class="section" id="assessment">
+<h3><span class="section-number">1.1.7. </span>Assessment<a class="headerlink" href="#assessment" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="obtaining-the-right-software-tools">
+<h2><span class="section-number">1.2. </span>Obtaining the right software tools<a class="headerlink" href="#obtaining-the-right-software-tools" title="Permalink to this headline">¶</a></h2>
+<p>In order to do this module, you’ll need some core software tools. As the module
+proceeds we’ll also install several more Python packages, but you don’t need to
+install those right now. The core tools you will need are:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Python version 3.6 or later.</p></li>
+<li><p>Git (the revision control system we’re going to use).</p></li>
+<li><p>A Python-aware text editor. Visual Studio Code is recommended, and all
+the instructions in this course will assume that this is what you are using.</p></li>
+</ol>
+</div></blockquote>
+<div class="section" id="windows">
+<h3><span class="section-number">1.2.1. </span>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
+<p>If you already have Python (3.6 or later) installed, for example because you
+have installed Anaconda then this is likely to be fine. Otherwise, Python for
+Windows can be obtained from the <a class="reference external" href="https://www.python.org/downloads/">official Python website</a>. Simply click on the download button and
+follow the instructions.</p>
+<p>Git for Windows can be downloaded from the <a class="reference external" href="https://git-scm.com/download/win">official Git website</a>.</p>
+<p>Visual Studio Code can be downloaded from <a class="reference external" href="https://code.visualstudio.com">Microsoft</a>.</p>
+</div>
+<div class="section" id="macos">
+<h3><span class="section-number">1.2.2. </span>MacOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h3>
+<p>MacOS comes with Python3, but unfortunately it’s a broken version. Usually the
+best option is to install the package manager <a class="reference external" href="https://brew.sh">Homebrew</a> and
+use that to install Python (and Git). In order to do this, you’ll need to open a
+terminal. This is a program which comes with MacOS and enables you to run other
+programs by typing text commands. Press ⌘ + <code class="xref py py-obj docutils literal notranslate"><span class="pre">space</span></code> to open Spotlight Search,
+and type <code class="xref py py-obj docutils literal notranslate"><span class="pre">terminal</span></code> followed by return. Now copy the following line and paste it
+into the terminal:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;</span>
+</pre></div>
+</div>
+<p>and press the return key (⏎). Enter your Mac user password when asked and
+Homebrew will install. Next install Python 3 and git by typing the following in
+the terminal window:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">brew install python git</span>
+</pre></div>
+</div>
+<p>Once again, you finish by pressing the return key (⏎).</p>
+<p>To install Visual Studio Code, follow the instructions on the <a class="reference external" href="https://code.visualstudio.com/docs/setup/mac">Microsoft website</a>.</p>
+</div>
+<div class="section" id="linux">
+<h3><span class="section-number">1.2.3. </span>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<p>If you are running a fairly recent version of Linux then you almost certainly
+have a suitable Python installed already, and may also have git installed. Open
+a terminal (the way you do this depends a little on distribution, but if you’re
+a Linux user we’ll assume you know how to do this). At the terminal prompt run
+this command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python --version</span>
+</pre></div>
+</div>
+<p>so long as it shows at least version 3.6 you should be fine. If an earlier
+version is shown then you’ll need to either update your distribution, or search
+online for how to install a more recent Python. The method will vary from
+distribution to distribution so we can’t provide a general solution.</p>
+<p>Next, type the following command in the terminal:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git --version</span>
+</pre></div>
+</div>
+<p>So long as this actually returns a version number everything is probably fine
+(we don’t need a particularly new git). If you get an error that git is not
+found then you’ll need to install it using the package manager for your
+distribution. For example, if you are running Ubuntu or another Debian-based
+distribution, the command would be:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt-get install git</span>
+</pre></div>
+</div>
+<p>while on RedHat-distributions such as Fedora or CentOS, the command would be:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo dnf install git-all</span>
+</pre></div>
+</div>
+<p>On other distributions the command will be different. The simplest option is to
+search online for how to install git on your distribution.</p>
+<p>In order to install Visual Studio code you simply follow the instructions on the
+<a class="reference external" href="https://code.visualstudio.com/download">Microsoft website</a>.</p>
 </div>
 </div>
 </div>
