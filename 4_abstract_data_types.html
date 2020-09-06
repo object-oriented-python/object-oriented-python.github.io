@@ -50,7 +50,7 @@
           <div class="body" role="main">
             
   <div class="section" id="abstract-data-types">
-<h1><span class="section-number">5. </span>Abstract data types<a class="headerlink" href="#abstract-data-types" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1><span class="section-number">5. </span>Abstract data types<a class="headerlink" href="#abstract-data-types" title="Permalink to this headline">¶</a></h1>
 <p>In <a class="reference internal" href="2_objects.html#objects"><span class="std std-numref">Section 3</span></a>, we introduced the concept of <a class="reference internal" href="2_objects.html#term-type"><span class="xref std std-term">type</span></a> as an
 <a class="reference internal" href="2_objects.html#term-abstraction"><span class="xref std std-term">abstraction</span></a> comprising a set of possible values, and a set of
 operations. All types in Python are abstractions in this sense
@@ -59,7 +59,7 @@ than their actual implementation. However, it can also be useful to
 define purely mathematical types, distinct from their concrete
 realisation in code. Indeed, there are typically multiple possible
 concrete realisations of a mathematical idea.</p>
-<div class="proof proof-type-definition" id="id2">
+<div class="proof proof-type-definition" id="id3">
 
     <div class="proof-title">
         <span class="proof-type">Definition 5.1</span>
@@ -72,7 +72,7 @@ defined independently of its concrete realisation as code.</p>
 </div></div><p>That said, it will frequently be helpful in understanding abstract
 data types to refer to the ways in which they might be implemented.</p>
 <div class="section" id="stacks">
-<span id="id1"></span><h2><span class="section-number">5.1. </span>Stacks<a class="headerlink" href="#stacks" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2><span class="section-number">5.1. </span>Stacks<a class="headerlink" href="#stacks" title="Permalink to this headline">¶</a></h2>
 <p>Possibly the simplest abstract data type which is not synonymous with
 a Python type is the <a class="reference internal" href="#term-stack"><span class="xref std std-term">stack</span></a>. A stack is a sequence of objects
 in which only the most recently added object is accessible. The image
@@ -200,9 +200,9 @@ the stack and pushes the result onto the stack. At the end of the
 calculation, the result of the calculation is on the top of the stack.
 <a class="reference internal" href="#rpcalc"><span class="std std-numref">Listing 5.1</span></a> shows <a class="reference internal" href="2_objects.html#term-pseudocode"><span class="xref std std-term">pseudocode</span></a>, for a reverse Polish
 calculator.</p>
-<div class="literal-block-wrapper docutils container" id="id3">
+<div class="literal-block-wrapper docutils container" id="id4">
 <span id="rpcalc"></span><div class="code-block-caption"><span class="caption-number">Listing 5.1 </span><span class="caption-text">Pseudocode for a reverse Polish calculator implemented
-using a <a class="reference internal" href="#term-stack"><span class="xref std std-term">stack</span></a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+using a <a class="reference internal" href="#term-stack"><span class="xref std std-term">stack</span></a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">inputs</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="n">number</span><span class="p">:</span>
         <span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
@@ -218,10 +218,10 @@ using a <a class="reference internal" href="#term-stack"><span class="xref std s
 because <span class="math notranslate nohighlight">\(4\ 2\ -\)</span> means <span class="math notranslate nohighlight">\(4 - 2\)</span>, not <span class="math notranslate nohighlight">\(2 - 4\)</span>.
 <a class="reference internal" href="#rptable"><span class="std std-numref">Table 5.1</span></a> Shows how a reverse Polish calculator would evaluate
 an arithmetic expression.</p>
-<span id="rptable"></span><table class="colwidths-given docutils align-default" id="id4">
+<span id="rptable"></span><table class="colwidths-given docutils align-default" id="id5">
 <caption><span class="caption-number">Table 5.1 </span><span class="caption-text">Evaluation of the reverse Polish expression
              <code class="xref py py-obj docutils literal notranslate"><span class="pre">6</span> <span class="pre">2</span> <span class="pre">/</span> <span class="pre">2</span> <span class="pre">4</span> <span class="pre">**</span> <span class="pre">+</span></code> using a stack
-             (equivalent to <span class="math notranslate nohighlight">\(6/2 + 2^4 = 3 + 16 = 19\)</span>).</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+             (equivalent to <span class="math notranslate nohighlight">\(6/2 + 2^4 = 3 + 16 = 19\)</span>).</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 46%" />
 <col style="width: 15%" />
@@ -274,10 +274,10 @@ an arithmetic expression.</p>
 <p>While it is strictly true that Python does not have a stack type, the
 <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> class functions as a perfectly good stack. The
 relationship between the two is shown in <a class="reference internal" href="#list-stack"><span class="std std-numref">Table 5.2</span></a>.</p>
-<span id="list-stack"></span><table class="colwidths-given docutils align-default" id="id5">
+<span id="list-stack"></span><table class="colwidths-given docutils align-default" id="id6">
 <caption><span class="caption-number">Table 5.2 </span><span class="caption-text">Correspondence between abstract stack operations, and
              Python list operations. We assume a list called
-             <code class="xref py py-obj docutils literal notranslate"><span class="pre">my_list</span></code></span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+             <code class="xref py py-obj docutils literal notranslate"><span class="pre">my_list</span></code></span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -358,7 +358,7 @@ will have well-defined performance characteristics. In particular, the
 optimal algorithmic complexity, expressed in big ‘O’ notation, of
 operations on abstract data types will be known. Recall the definition
 of big ‘O’:</p>
-<div class="proof proof-type-definition" id="id6">
+<div class="proof proof-type-definition" id="id7">
 <span id="bigo"></span>
     <div class="proof-title">
         <span class="proof-type">Definition 5.2</span>
@@ -393,10 +393,10 @@ number of operations required to execute an algorithm, and space
 complexity, which measures the peak memory usage of an algorithm or
 data structure.</p>
 <div class="badcode docutils container" id="badstack">
-<div class="literal-block-wrapper docutils container" id="id7">
+<div class="literal-block-wrapper docutils container" id="id8">
 <div class="code-block-caption"><span class="caption-number">Listing 5.3 </span><span class="caption-text">A poorly designed stack implementation in which push and pop cost
 <span class="math notranslate nohighlight">\(O(n)\)</span> operations, where <span class="math notranslate nohighlight">\(n\)</span> is the current
-number of objects on the stack.</span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+number of objects on the stack.</span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BadStack</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">()</span>
@@ -767,8 +767,8 @@ are in the list at each point in the
 iteration. <a class="reference internal" href="#iterating-linked-list"><span class="std std-numref">Listing 5.4</span></a> shows the code. The helper
 class <code class="xref py py-class docutils literal notranslate"><span class="pre">LinkIterator</span></code> is never seen by the user, it’s just there
 to keep track of the iteration.</p>
-<div class="literal-block-wrapper docutils container" id="id8">
-<span id="iterating-linked-list"></span><div class="code-block-caption"><span class="caption-number">Listing 5.4 </span><span class="caption-text">A simple linked list implementation that supports the iterator protocol.</span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<span id="iterating-linked-list"></span><div class="code-block-caption"><span class="caption-number">Listing 5.4 </span><span class="caption-text">A simple linked list implementation that supports the iterator protocol.</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Link</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
