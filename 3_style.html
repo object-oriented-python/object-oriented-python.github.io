@@ -372,6 +372,22 @@ function or method is small enough for a reader to understand.</p>
 <p class="admonition-title">Note</p>
 <p>Put in an example here of some horrific code that can be radically simplified.</p>
 </div>
+<div class="badcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9999</span><span class="p">):</span>
+   <span class="k">if</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">6</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9999</span><span class="p">)</span> <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">num</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">))]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="use-comprehensions">
 <h3><span class="section-number">4.5.1. </span>Use comprehensions<a class="headerlink" href="#use-comprehensions" title="Permalink to this headline">¶</a></h3>
 <p>It is very common to write loops to populate collection objects with
@@ -386,7 +402,7 @@ numbers for further use:</p>
 </div>
 <p>This is a fairly typical, if simple, example. It takes three lines of
 code: one to initialise the list, one to loop, and one to add the
-values to the list. Alternatively, if we had used a <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#tut-listcomps" title="(in Python v3.8)"><span class="xref std std-ref">list
+values to the list. Alternatively, if we had used a <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#tut-listcomps" title="(in Python v3.9)"><span class="xref std std-ref">list
 comprehension</span></a>, all three steps would have been subsumed into a single
 operation:</p>
 <div class="goodcode docutils container">
@@ -396,8 +412,8 @@ operation:</p>
 </div>
 <p>At least for fairly simple operations, comprehensions are almost
 always easier for the reader to understand than loops. In addition to
-lists, comprehensions are also available for <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#tut-sets" title="(in Python v3.8)"><span class="xref std std-ref">sets</span></a>
-and <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#tut-dictionaries" title="(in Python v3.8)"><span class="xref std std-ref">dictionaries</span></a>.</p>
+lists, comprehensions are also available for <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#tut-sets" title="(in Python v3.9)"><span class="xref std std-ref">sets</span></a>
+and <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#tut-dictionaries" title="(in Python v3.9)"><span class="xref std std-ref">dictionaries</span></a>.</p>
 </div>
 <div class="section" id="redundant-logical-expressions">
 <h3><span class="section-number">4.5.2. </span>Redundant logical expressions<a class="headerlink" href="#redundant-logical-expressions" title="Permalink to this headline">¶</a></h3>
@@ -408,7 +424,7 @@ and <a class="reference external" href="https://docs.python.org/3/tutorial/datas
 </div>
 </div>
 <p>To see the problem with this statement, let’s write out its truth table:</p>
-<table class="docutils align-default">
+<table class="center-align-center-col docutils align-default">
 <colgroup>
 <col style="width: 28%" />
 <col style="width: 72%" />
@@ -428,7 +444,7 @@ and <a class="reference external" href="https://docs.python.org/3/tutorial/datas
 </tbody>
 </table>
 <p>In other words, the expressions <code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span> <span class="pre">==</span> <span class="pre">True</span></code> are logically
-equivalent (at least assuming <code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span></code> is a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.8)"><span class="xref std std-ref">boolean value</span></a>), so it would
+equivalent (at least assuming <code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span></code> is a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.9)"><span class="xref std std-ref">boolean value</span></a>), so it would
 have been more parsimonious to write:</p>
 <div class="goodcode docutils container">
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">var</span><span class="p">:</span>
@@ -447,7 +463,7 @@ have been more parsimonious to write:</p>
 </pre></div>
 </div>
 </div>
-<p>Finally, the use of <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#else" title="(in Python v3.8)"><span class="xref std std-ref">else</span></a> (or <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#elif" title="(in Python v3.8)"><span class="xref std std-ref">elif</span></a>) can reduce the number
+<p>Finally, the use of <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#else" title="(in Python v3.9)"><span class="xref std std-ref">else</span></a> (or <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#elif" title="(in Python v3.9)"><span class="xref std std-ref">elif</span></a>) can reduce the number
 of logical expressions that the reader has to read and
 understand. This means that:</p>
 <div class="badcode docutils container">
@@ -474,7 +490,7 @@ understanding.</p>
 </div>
 <div class="section" id="use-the-fact-that-every-object-is-true-or-false">
 <h3><span class="section-number">4.5.3. </span>Use the fact that every object is True or False<a class="headerlink" href="#use-the-fact-that-every-object-is-true-or-false" title="Permalink to this headline">¶</a></h3>
-<p>Every Python object is logically either <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.8)"><code class="xref py py-data docutils literal notranslate"><span class="pre">True</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.8)"><code class="xref py py-data docutils literal notranslate"><span class="pre">False</span></code></a> according to the
+<p>Every Python object is logically either <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">True</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">False</span></code></a> according to the
 following rules:</p>
 <ol class="arabic simple">
 <li><p>None is False.</p></li>
@@ -484,16 +500,16 @@ example, an empty list is False, but the list <code class="xref py py-obj docuti
 <li><p>The null string <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> is False, a string containing any characters is True.</p></li>
 <li><p>A user-defined class is True unless:</p>
 <ol class="loweralpha simple">
-<li><p>It defines the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__bool__" title="(in Python v3.8)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__bool__()</span></code></a> <a class="reference internal" href="2_objects.html#term-special-method"><span class="xref std std-term">special
+<li><p>It defines the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__bool__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__bool__()</span></code></a> <a class="reference internal" href="2_objects.html#term-special-method"><span class="xref std std-term">special
 method</span></a>. In this case the truth value is whatever this method
 returns.</p></li>
-<li><p>It doesn’t define <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__bool__" title="(in Python v3.8)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__bool__()</span></code></a> but does define
-<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__len__" title="(in Python v3.8)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></a>. In this case the object is False if the
+<li><p>It doesn’t define <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__bool__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__bool__()</span></code></a> but does define
+<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__len__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></a>. In this case the object is False if the
 length is zero, and True otherwise.</p></li>
 </ol>
 </li>
 </ol>
-<p>These rules are laid out formally in <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#truth" title="(in Python v3.8)"><span class="xref std std-ref">the Python documentation</span></a>. One way that they can be used to write simpler, clearer code
+<p>These rules are laid out formally in <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#truth" title="(in Python v3.9)"><span class="xref std std-ref">the Python documentation</span></a>. One way that they can be used to write simpler, clearer code
 is in the very common case of code that should only execute if a
 collection object actually contains something. In that case, this form
 of test is to be preferred:</p>

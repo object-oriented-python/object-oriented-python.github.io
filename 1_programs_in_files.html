@@ -231,17 +231,17 @@ then run, and any names defined in that code (such as the function
 we begin to compose together code from different parts of mathematics,
 the ability to separate identically named but different objects from
 each other is essential. For example, Python has a module containing
-core real-valued maths functions called <a class="reference external" href="https://docs.python.org/3/library/math.html#module-math" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">math</span></code></a>, and one
+core real-valued maths functions called <a class="reference external" href="https://docs.python.org/3/library/math.html#module-math" title="(in Python v3.9)"><code class="docutils literal notranslate"><span class="pre">math</span></code></a>, and one
 containing complex maths functions called
-<a class="reference external" href="https://docs.python.org/3/library/cmath.html#module-cmath" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">cmath</span></code></a>. Clearly, it’s important that we can distinguish
-between <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">math.sin()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/cmath.html#cmath.sin" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">cmath.sin()</span></code></a>. Here the
-module names <a class="reference external" href="https://docs.python.org/3/library/math.html#module-math" title="(in Python v3.8)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">math</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/cmath.html#module-cmath" title="(in Python v3.8)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cmath</span></code></a> form the namespaces that
+<a class="reference external" href="https://docs.python.org/3/library/cmath.html#module-cmath" title="(in Python v3.9)"><code class="docutils literal notranslate"><span class="pre">cmath</span></code></a>. Clearly, it’s important that we can distinguish
+between <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.9)"><code class="docutils literal notranslate"><span class="pre">math.sin()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/cmath.html#cmath.sin" title="(in Python v3.9)"><code class="docutils literal notranslate"><span class="pre">cmath.sin()</span></code></a>. Here the
+module names <a class="reference external" href="https://docs.python.org/3/library/math.html#module-math" title="(in Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">math</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/cmath.html#module-cmath" title="(in Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cmath</span></code></a> form the namespaces that
 differentiate between the two <code class="xref py py-func docutils literal notranslate"><span class="pre">sin()</span></code> functions. There are
 essentially only two core namespace concepts. One of them is that
 every name is in a namespace, and any given time points to a unique
 value. The second one is that namespaces can be nested, so a name in a
 namespace can itself be another namespace. For example, the math
-namespace contains the value <a class="reference external" href="https://docs.python.org/3/library/math.html#math.pi" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">math.pi</span></code></a>, which itself defines a
+namespace contains the value <a class="reference external" href="https://docs.python.org/3/library/math.html#math.pi" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">math.pi</span></code></a>, which itself defines a
 namespace for some operations that are built into Python numbers. The
 (somewhat uninteresting) imaginary part of π can be accessed as
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">math.pi.imag</span></code>.</p>
@@ -272,7 +272,7 @@ have defined ourselves, and makes it very obvious to a reader where
 the names come from. The downside is that names in namespaces can be
 quite long and cumbersome, which is particularly inconvenient if names
 are to be used frequently or in the middle of formulae: you probably
-don’t really want to write <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> in every trig formula you
+don’t really want to write <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> in every trig formula you
 ever write. One alternative is to rename the module on import. This is
 achieved using the keyword <code class="xref py py-obj docutils literal notranslate"><span class="pre">as</span></code> in an import statement. For example,
 it is usual to import the numerical Python module <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.19)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> in the
@@ -285,12 +285,12 @@ so that the function for creating an evenly spaced sequence of values
 between to end points is now accessible as <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="(in NumPy v1.19)"><code class="xref py py-func docutils literal notranslate"><span class="pre">np.linspace</span></code></a>.</p>
 <p>A second option is to import particular names from a module directly
 into the current namespace. For example, if we planned to use the
-fuctions <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/math.html#math.cos" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.cos()</span></code></a> a lot in our script, we
+fuctions <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/math.html#math.cos" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.cos()</span></code></a> a lot in our script, we
 might use the following import statement:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
 </pre></div>
 </div>
-<p>Now we can use the names <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sin</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/math.html#math.cos" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">cos</span></code></a> directly. What if we also wanted to use a short name for
+<p>Now we can use the names <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sin</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/math.html#math.cos" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">cos</span></code></a> directly. What if we also wanted to use a short name for
 their complex counterparts? We can’t have two functions with the same
 name in a single <a class="reference internal" href="#term-namespace"><span class="xref std std-term">namespace</span></a>. Fortunately, the keyword <code class="xref py py-obj docutils literal notranslate"><span class="pre">as</span></code>
 comes to our rescue again:</p>
@@ -321,7 +321,7 @@ from the module (without any warning or error). This is a frequent
 source of confusion. For this reason, importing <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code> is usually a bad
 idea.</p>
 <p>The full details of all the ways that the import statement can be used
-is in <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.8)"><span class="xref std std-ref">the official Python documentation.</span></a></p>
+is in <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.9)"><span class="xref std std-ref">the official Python documentation.</span></a></p>
 </div>
 </div>
 <div class="section" id="packages">
@@ -419,7 +419,7 @@ arrangement provides a mechanism for the programmer to arrange the
 internal module structure of a package in a logical way while still
 providing users with direct access to the most important or most
 frequently used features.</p>
-<p>The eagle-eyed reader will have noticed the extra <code class="xref py py-obj docutils literal notranslate"></code> in front of
+<p>The eagle-eyed reader will have noticed the extra . in front of
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">module_1</span></code>. This marks this import as a <em>relative import</em>. In other
 words, in looking for <code class="xref py py-obj docutils literal notranslate"><span class="pre">module_1.py</span></code>, Python should look for files in
 the same folder as the module where the import statement occurs,
@@ -433,15 +433,14 @@ reader that the import is from the current package.</p>
 </div>
 <div class="section" id="making-packages-installable">
 <span id="installable-packages"></span><h3><span class="section-number">2.4.2. </span>Making packages installable<a class="headerlink" href="#making-packages-installable" title="Permalink to this headline">¶</a></h3>
-<p>In order for the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.8)"><span class="xref std std-ref">import statement</span></a> to work,
-Python needs to know about the package being imported. This is
-achieved by installing the package. In order to make a package
-installable, we need to provide Python with a bit more information
-about the package. This information is contained in a Python module
-which must be called <code class="xref py py-obj docutils literal notranslate"><span class="pre">setup.py</span></code>. This file isn’t part of the package
-and does not go in the package folder. Instead, it should be placed in
-the top-level folder of your git repository, so that the Python
-package installer will be able to find it.</p>
+<p>In order for the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.9)"><span class="xref std std-ref">import statement</span></a> to work, Python needs
+to know that the package being imported exists, and where to find it. This is
+achieved by <em>installing</em> the package. In order to make a package installable, we
+need to provide Python with a bit more information about the package. This
+information is contained in a Python module which must be called <code class="xref py py-obj docutils literal notranslate"><span class="pre">setup.py</span></code>.
+This file isn’t part of the package and does not go in the package folder.
+Instead, it should be placed in the top-level folder of your git repository, so
+that the Python package installer will be able to find it.</p>
 <p>At the very least, <code class="xref py py-obj docutils literal notranslate"><span class="pre">setup.py</span></code> should contain the following:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_packages</span>
 <span class="n">setup</span><span class="p">(</span>
@@ -487,7 +486,7 @@ files are shared, so a venv takes rather little additional space.</p>
 <h3><span class="section-number">2.5.1. </span>Creating a venv<a class="headerlink" href="#creating-a-venv" title="Permalink to this headline">¶</a></h3>
 <p>The most straightforward way to create a venv is on the terminal
 command line, not from within Python itself. This is accomplished
-using Python’s <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.8)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package. For example, to create a venv
+using Python’s <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package. For example, to create a venv
 called <code class="xref py py-obj docutils literal notranslate"><span class="pre">my_venv</span></code>, you would type:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python3 -m venv my_venv
 </pre></div>
@@ -533,7 +532,7 @@ that you are now using the venv. It might look something like:</p>
 <p>Any subsequent invocations of Python commands such as <code class="xref py py-obj docutils literal notranslate"><span class="pre">python3</span></code> will
 now use the version from the venv, with access to whatever packages
 you have installed in that venv. If you are using a terminal shell
-other than bash or zsh, then see the <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.8)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package documentation
+other than bash or zsh, then see the <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package documentation
 for the correct activation command.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -562,7 +561,7 @@ within Python itself. Don’t forget to activate the venv!</p>
 <h3><span class="section-number">2.6.1. </span>Installing packages from PyPI<a class="headerlink" href="#installing-packages-from-pypi" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://pypi.org">PyPI</a> is the Python Package Index. It is the
 official download location for publicly released Python packages which
-aren’t themselves a part of the built-in <a class="reference external" href="https://docs.python.org/3/library/index.html" title="(in Python v3.8)"><span class="xref std std-doc">Python Standard Library</span></a>. Many important mathematical packages
+aren’t themselves a part of the built-in <a class="reference external" href="https://docs.python.org/3/library/index.html" title="(in Python v3.9)"><span class="xref std std-doc">Python Standard Library</span></a>. Many important mathematical packages
 including <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.19)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://www.sympy.org">sympy</a> are
 distributed from PyPI. Suppose your venv doesn’t have <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.19)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>
 installed and you need it. You would install it with the following
@@ -621,7 +620,7 @@ right from the start, we need to test the code we write, so we will cover
 the practical details of including tests in your code here.</p>
 <p>There are a number of Python packages which support code testing. The
 concepts are largely similar so rather than get bogged down in the
-details of multiple frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v6.0.1.dev168+g4df39e3a)"><span class="xref std std-doc">pytest</span></a>, which is one of the most widely used.</p>
+details of multiple frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v0.1.dev266+g69419cb)"><span class="xref std std-doc">pytest</span></a>, which is one of the most widely used.</p>
 <div class="section" id="pytest-tests">
 <h3><span class="section-number">2.7.1. </span>Pytest tests<a class="headerlink" href="#pytest-tests" title="Permalink to this headline">¶</a></h3>
 <p>A Pytest test is simply a function whose name starts with <code class="xref py py-obj docutils literal notranslate"><span class="pre">test_</span></code>. In
@@ -633,7 +632,7 @@ just want the code to run, it has to get the right answer. However,
 thinking about it the other way around, we certainly want the test to
 fail if an error occurs. It’s also very easy to arrange things such
 that an error occurs when the wrong answer is reached. This is most
-readily achieved using <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#assert" title="(in Python v3.8)"><span class="xref std std-ref">the assert statement</span></a>.
+readily achieved using <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#assert" title="(in Python v3.9)"><span class="xref std std-ref">the assert statement</span></a>.
 This simply consists of <code class="xref py py-obj docutils literal notranslate"><span class="pre">assert</span></code> followed
 by a Python expression. If the expression is true, then execution just
 continues, but if it’s false, then an error occurs. For example:</p>
@@ -720,7 +719,7 @@ wrong. We will learn how to interpret this output in <a class="reference interna
 <h2><span class="section-number">2.8. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><dl class="glossary simple">
-<dt id="term-module">module</dt><dd><p>A text file containing Python code which is accessed using the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.8)"><span class="xref std std-ref">import statement</span></a>.</p>
+<dt id="term-module">module</dt><dd><p>A text file containing Python code which is accessed using the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.9)"><span class="xref std std-ref">import statement</span></a>.</p>
 </dd>
 <dt id="term-namespace">namespace</dt><dd><p>A collection of names. Within a single namespace, each
 name has a single defined meaning. Names in different spaces
