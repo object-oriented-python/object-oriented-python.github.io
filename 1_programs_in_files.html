@@ -436,7 +436,7 @@ reader that the import is from the current package.</p>
 <p>In order for the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.9)"><span class="xref std std-ref">import statement</span></a> to work, Python needs
 to know that the package being imported exists, and where to find it. This is
 achieved by <em>installing</em> the package. In order to make a package installable, we
-need to provide Python with a bit more information about the package. This
+need to provide Python with a bit more information about it. This
 information is contained in a Python module which must be called <code class="xref py py-obj docutils literal notranslate"><span class="pre">setup.py</span></code>.
 This file isn’t part of the package and does not go in the package folder.
 Instead, it should be placed in the top-level folder of your git repository, so
@@ -648,9 +648,9 @@ continues, but if it’s false, then an error occurs. For example:</p>
 </div>
 <div class="section" id="pytest-files">
 <h3><span class="section-number">2.7.2. </span>Pytest files<a class="headerlink" href="#pytest-files" title="Permalink to this headline">¶</a></h3>
-<p>Pytest looks for tests in files whose name starts with <code class="xref py py-obj docutils literal notranslate"><span class="pre">test_</span></code> and
-ends with <code class="xref py py-obj docutils literal notranslate"><span class="pre">py</span></code>. Continuing with our Fibonacci example, we might
-create a file called <code class="xref py py-obj docutils literal notranslate"><span class="pre">test_fibonacci.py</span></code> containing:</p>
+<p>Pytest looks for tests in files whose name starts with <code class="file docutils literal notranslate"><span class="pre">test_</span></code> and
+ends with <code class="file docutils literal notranslate"><span class="pre">.py</span></code>. Continuing with our Fibonacci example, we might
+create a file called <code class="file docutils literal notranslate"><span class="pre">test_fibonacci.py</span></code> containing:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fibonacci</span> <span class="kn">import</span> <span class="n">fib</span>
 
 <span class="k">def</span> <span class="nf">test_fibonacci_values</span><span class="p">():</span>
