@@ -50,7 +50,7 @@
           <div class="body" role="main">
             
   <div class="section" id="a-matter-of-style">
-<h1><span class="section-number">4. </span>A matter of style<a class="headerlink" href="#a-matter-of-style" title="Permalink to this headline">¶</a></h1>
+<span id="style"></span><h1><span class="section-number">4. </span>A matter of style<a class="headerlink" href="#a-matter-of-style" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="the-value-of-convention">
 <h2><span class="section-number">4.1. </span>The value of convention<a class="headerlink" href="#the-value-of-convention" title="Permalink to this headline">¶</a></h2>
 <p>Consider the following definition of the limit of a function <span class="math notranslate nohighlight">\(f\)</span> at a point <span class="math notranslate nohighlight">\(c\)</span>:</p>
@@ -368,23 +368,22 @@ parsimonious and not introduce unnecessary temporary variables. The
 second is to use abstractions such as classes and function interfaces
 to split the problem up into small pieces so that each individual
 function or method is small enough for a reader to understand.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Put in an example here of some horrific code that can be radically simplified.</p>
-</div>
+<p>As a (somewhat contrived) example, assume that you need to create a list of all
+the positive integers less than 9999 which are divisible by all the numbers up
+to seven. You could write this in 5 difficult to understand lines:</p>
 <div class="badcode docutils container">
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9999</span><span class="p">):</span>
-   <span class="k">if</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">6</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-      <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span> \
+       <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">6</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+           <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<p>Much better would be to write a single more abstract but simpler line:</p>
 <div class="goodcode docutils container">
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9999</span><span class="p">)</span> <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">num</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">))]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -526,6 +525,31 @@ of test is to be preferred:</p>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="avoid-repetitition">
+<span id="repetition"></span><h3><span class="section-number">4.5.4. </span>Avoid repetitition<a class="headerlink" href="#avoid-repetitition" title="Permalink to this headline">¶</a></h3>
+<p>Programmers very frequently need to do <em>nearly</em> the same thing over and over.
+One obvious way to do this is to write code for the first case, then copy and
+paste the code for subsequent cases, making changes as required. There are a
+number of significant problems with this approach. First, it multiplies the
+amount of code that a reader has to understand, and does so in a particularly
+pernicious way. A reader will effectively have to play “spot the difference”
+between the different code versions, and hope they don’t miss something. Second,
+it makes it incredibly easy for to get confused about which version of the code
+a programmer is supposed to be working on. There are few things more frustrating
+than attempting to fix a bug and repeatedly seeing that nothing changes, only to
+discover hours (or days) later that you have been working on the wrong piece of
+nearly-identical code. Finally, lets suppose that a bug is fixed - what happens
+to the near-identical clones of that code? The chance is very high that the bug
+stays unfixed in those versions thereby creating yet another spot the difference
+puzzle for the next person encountering a bug.</p>
+<p>Abstractions are essentially tools for removing harmful repetition. For example,
+it may be possible to bundle up the repeated code in a function or class, and to
+encode the differences between versions in the <a class="reference external" href="https://docs.python.org/3/glossary.html#term-parameter" title="(in Python v3.9)"><span class="xref std std-term">parameters</span></a> to
+the function or class constructor. If the differences between the versions of
+the code require different code, as opposed to different values of some
+quantities, then it may be possible to use <a class="reference internal" href="6_inheritance.html#term-inheritance"><span class="xref std std-term">inheritance</span></a> to avoid
+repetition. We will return to this in <a class="reference internal" href="6_inheritance.html#inheritance"><span class="std std-numref">Chapter 7</span></a>.</p>
 </div>
 </div>
 <div class="section" id="comments">

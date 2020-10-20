@@ -150,9 +150,9 @@ you have understood the chapter as a whole. However, there is more to learning
 new concepts than just the vocabulary, so don’t be tempted to skip reading the
 chapter and just jumping to the glossary!</p>
 <p>The chapters broadly alternate between introducing new programming concepts,
-such as <a class="reference internal" href="2_objects.html#objects"><span class="std std-ref">Objects and abstraction</span></a>, <span class="xref std std-ref">abstract data types</span>, or <a class="reference internal" href="6_inheritance.html#inheritance"><span class="std std-ref">Inheritance and composition</span></a>, and
-covering various aspects of the craft of programming, such as <span class="xref std std-ref">style</span>,
-<a class="reference internal" href="7_debugging.html#debugging"><span class="std std-ref">Debugging and testing</span></a>. In this way the course combines specific programming knowledge
+such as <a class="reference internal" href="2_objects.html#objects"><span class="std std-ref">objects</span></a>, <a class="reference internal" href="4_abstract_data_types.html#abstract-data-types"><span class="std std-ref">abstract data types</span></a>, or <a class="reference internal" href="6_inheritance.html#inheritance"><span class="std std-ref">inheritance</span></a>, and
+covering various aspects of the craft of programming, such as <a class="reference internal" href="6_inheritance.html#inheritance"><span class="std std-ref">style</span></a> and
+<a class="reference internal" href="7_debugging.html#debugging"><span class="std std-ref">debugging</span></a>. In this way the course combines specific programming knowledge
 with more general coding skills.</p>
 </div>
 <div class="section" id="the-videos">
@@ -180,15 +180,14 @@ well you are doing on them is an indication of your progress on the module.</p>
 writing code. The core of each week’s activities is therefore to put the new
 concepts and programming structures you’ve learned into practice. The
 programming exercises are given at the end of each chapter, just before the
-glossary. Each time there will be a skeleton code available from GitHub
-Classroom (we’ll introduce that in <code class="xref std std-numref docutils literal notranslate"><span class="pre">github_classroom</span></code>) which provides
-the starting point. Sometimes you might be asked to complete a piece of code
-while on other occasions you’ll need to write a whole Python module from
-scratch. Each set of exercises will come with a matching set of tests. These are
-small programs which check whether your code produces the correct responses to a
-range of inputs. Tests like this provide immediate feedback and enable you to
-know how you are doing without having to wait for code to be submitted and
-marked.</p>
+glossary. Each time there will be a skeleton code available from
+<a class="reference external" href="https://imperial-fons-computing.github.io/git.html#github-classroom-exercise" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">GitHub Classroom</span></a> which provides the starting
+point. Sometimes you might be asked to complete a piece of code while on other
+occasions you’ll need to write a whole Python module from scratch. Each set of
+exercises will come with a matching set of tests. These are small programs which
+check whether your code produces the correct responses to a range of inputs.
+Tests like this provide immediate feedback and enable you to know how you are
+doing without having to wait for code to be submitted and marked.</p>
 </div>
 <div class="section" id="getting-help">
 <h3><span class="section-number">1.1.5. </span>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h3>
@@ -221,81 +220,15 @@ install those right now. The core tools you will need are:</p>
 the instructions in this course will assume that this is what you are using.</p></li>
 </ol>
 </div></blockquote>
-<div class="section" id="windows">
-<h3><span class="section-number">1.2.1. </span>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
-<p>If you already have Python (3.6 or later) installed, for example because you
-have installed Anaconda then this is likely to be fine. Otherwise, Python for
-Windows can be obtained from the <a class="reference external" href="https://www.python.org/downloads/">official Python website</a>. Simply click on the download button and
-follow the instructions.</p>
-<p>Git for Windows can be downloaded from the <a class="reference external" href="https://git-scm.com/download/win">official Git website</a>.</p>
-<p>Visual Studio Code can be downloaded from <a class="reference external" href="https://code.visualstudio.com">Microsoft</a>.</p>
-</div>
-<div class="section" id="macos">
-<h3><span class="section-number">1.2.2. </span>MacOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h3>
-<p>MacOS comes with Python3, but unfortunately it’s a broken version. Usually the
-best option is to install the package manager <a class="reference external" href="https://brew.sh">Homebrew</a> and
-use that to install Python (and Git). In order to do this, you’ll need to open a
-terminal. This is a program which comes with MacOS and enables you to run other
-programs by typing text commands. Press ⌘ + <code class="xref py py-obj docutils literal notranslate"><span class="pre">space</span></code> to open Spotlight Search,
-and type <code class="xref py py-obj docutils literal notranslate"><span class="pre">terminal</span></code> followed by return. Now copy the following line and paste it
-into the terminal:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;</span>
-</pre></div>
-</div>
-<p>and press the return key (⏎). Enter your Mac user password when asked and
-Homebrew will install. Next install Python 3 and git by typing the following in
-the terminal window:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">brew install python git</span>
-</pre></div>
-</div>
-<p>Once again, you finish by pressing the return key (⏎).</p>
-<p>To install Visual Studio Code, follow the instructions on the <a class="reference external" href="https://code.visualstudio.com/docs/setup/mac">Microsoft website</a>.</p>
-</div>
-<div class="section" id="linux">
-<h3><span class="section-number">1.2.3. </span>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
-<p>If you are running a fairly recent version of Linux then you almost certainly
-have a suitable Python installed already, and may also have git installed. Open
-a terminal (the way you do this depends a little on distribution, but if you’re
-a Linux user we’ll assume you know how to do this). At the terminal prompt run
-this command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python --version</span>
-</pre></div>
-</div>
-<p>so long as it shows at least version 3.6 you should be fine. If an earlier
-version is shown then you’ll need to either update your distribution, or search
-online for how to install a more recent Python. The method will vary from
-distribution to distribution so we can’t provide a general solution.</p>
-<p>Next, type the following command in the terminal:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git --version</span>
-</pre></div>
-</div>
-<p>So long as this actually returns a version number everything is probably fine
-(we don’t need a particularly new git). If you get an error that git is not
-found then you’ll need to install it using the package manager for your
-distribution. For example, if you are running Ubuntu or another Debian-based
-distribution, the command would be:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt-get install git</span>
-</pre></div>
-</div>
-<p>while on RedHat-distributions such as Fedora or CentOS, the command would be:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo dnf install git-all</span>
-</pre></div>
-</div>
-<p>On other distributions the command will be different. The simplest option is to
-search online for how to install git on your distribution.</p>
-<p>In order to install Visual Studio code you simply follow the instructions on the
-<a class="reference external" href="https://code.visualstudio.com/download">Microsoft website</a>.</p>
-</div>
-</div>
-<div class="section" id="working-with-revision-control">
-<h2><span class="section-number">1.3. </span>Working with revision control<a class="headerlink" href="#working-with-revision-control" title="Permalink to this headline">¶</a></h2>
-<p>In this section we’ll introduce the revision control system Git to the extent to
-which we’ll need it in this module, and show how to use it in conjunction with
-Visual Studio Code. This is not a comprehensive Git introduction, and readers
-are invited to take a little more time to undertake the excellent <a class="reference external" href="https://swcarpentry.github.io/git-novice/">Git tutorial</a> tutorial from <a class="reference external" href="https://software-carpentry.org">Software Carpentry</a>.</p>
-<div class="section" id="what-is-revision-control-and-why-should-you-care">
-<h3><span class="section-number">1.3.1. </span>What is revision control, and why should you care?<a class="headerlink" href="#what-is-revision-control-and-why-should-you-care" title="Permalink to this headline">¶</a></h3>
-<p>The best way to understand</p>
+<p>The Faculty of Natural Sciences at Imperial has centralised instructions for
+installing all of these tools, and we’ll follow those.</p>
+<div class="section" id="python">
+<h3><span class="section-number">1.2.1. </span>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<p>Follow the <a class="reference external" href="https://docs.python.org/3/library/python.html#python" title="(in Python v3.9)"><span class="xref std std-ref">FoNS Python instructions</span></a>. We will exclusively
+use <a class="reference external" href="https://imperial-fons-computing.github.io/python.html#python-virtual-environments" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">virtual environments</span></a> so for Mac and Linux users, it doesn’t matter at
+all whether you use Python from Anaconda or from another source. Mac users
+should note, though that the built-in Python will not do, so you should use
+either Homebrew or Anaconda.</p>
 </div>
 </div>
 </div>

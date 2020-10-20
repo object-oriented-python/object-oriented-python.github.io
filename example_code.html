@@ -62,6 +62,99 @@ implementation of Euclid’s algorithm.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-example_code.groups">
+<span id="example-code-groups-module"></span><h2>example_code.groups module<a class="headerlink" href="#module-example_code.groups" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="example_code.groups.CyclicGroup">
+<em class="property">class </em><code class="sig-prename descclassname">example_code.groups.</code><code class="sig-name descname">CyclicGroup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups.html#CyclicGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups.CyclicGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.groups.Group</span></code></a></p>
+<p>A cyclic group represented by integer addition modulo n.</p>
+<p>Args:
+n: The primary group parameter, such as order or degree. The
+precise meaning of n changes from subclass to subclass.</p>
+<dl class="py attribute">
+<dt id="example_code.groups.CyclicGroup.notation">
+<code class="sig-name descname">notation</code><em class="property"> = 'C'</em><a class="headerlink" href="#example_code.groups.CyclicGroup.notation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="example_code.groups.CyclicGroup.operation">
+<code class="sig-name descname">operation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups.html#CyclicGroup.operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups.CyclicGroup.operation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="example_code.groups.Element">
+<em class="property">class </em><code class="sig-prename descclassname">example_code.groups.</code><code class="sig-name descname">Element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">group</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups.html#Element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups.Element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="example_code.groups.GeneralLinearGroup">
+<em class="property">class </em><code class="sig-prename descclassname">example_code.groups.</code><code class="sig-name descname">GeneralLinearGroup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups.html#GeneralLinearGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups.GeneralLinearGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.groups.Group</span></code></a></p>
+<p>The general linear group represented by n x n matrices.</p>
+<p>Args:
+n: The primary group parameter, such as order or degree. The
+precise meaning of n changes from subclass to subclass.</p>
+<dl class="py attribute">
+<dt id="example_code.groups.GeneralLinearGroup.notation">
+<code class="sig-name descname">notation</code><em class="property"> = 'G'</em><a class="headerlink" href="#example_code.groups.GeneralLinearGroup.notation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="example_code.groups.GeneralLinearGroup.operation">
+<code class="sig-name descname">operation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups.html#GeneralLinearGroup.operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups.GeneralLinearGroup.operation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="example_code.groups.Group">
+<em class="property">class </em><code class="sig-prename descclassname">example_code.groups.</code><code class="sig-name descname">Group</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups.html#Group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups.Group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A base class containing methods common to many groups.</p>
+<p>Each subclass represents a family of parametrised groups.</p>
+<p>Args:
+n: The primary group parameter, such as order or degree. The
+precise meaning of n changes from subclass to subclass.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-example_code.groups_basic">
+<span id="example-code-groups-basic-module"></span><h2>example_code.groups_basic module<a class="headerlink" href="#module-example_code.groups_basic" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="example_code.groups_basic.CyclicGroup">
+<em class="property">class </em><code class="sig-prename descclassname">example_code.groups_basic.</code><code class="sig-name descname">CyclicGroup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">order</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups_basic.html#CyclicGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups_basic.CyclicGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A cyclic group represented by integer addition modulo group order.</p>
+<dl class="py method">
+<dt id="example_code.groups_basic.CyclicGroup.operation">
+<code class="sig-name descname">operation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups_basic.html#CyclicGroup.operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups_basic.CyclicGroup.operation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="example_code.groups_basic.Element">
+<em class="property">class </em><code class="sig-prename descclassname">example_code.groups_basic.</code><code class="sig-name descname">Element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">group</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups_basic.html#Element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups_basic.Element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="example_code.groups_basic.GeneralLinearGroup">
+<em class="property">class </em><code class="sig-prename descclassname">example_code.groups_basic.</code><code class="sig-name descname">GeneralLinearGroup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">degree</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups_basic.html#GeneralLinearGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups_basic.GeneralLinearGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The general linear group represented by degree x degree matrices.</p>
+<dl class="py method">
+<dt id="example_code.groups_basic.GeneralLinearGroup.operation">
+<code class="sig-name descname">operation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups_basic.html#GeneralLinearGroup.operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups_basic.GeneralLinearGroup.operation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-example_code.hello">
 <span id="example-code-hello-module"></span><h2>example_code.hello module<a class="headerlink" href="#module-example_code.hello" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -70,7 +163,7 @@ implementation of Euclid’s algorithm.</p>
 <dl class="py class">
 <dt id="example_code.linked_list.Link">
 <em class="property">class </em><code class="sig-prename descclassname">example_code.linked_list.</code><code class="sig-name descname">Link</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">next</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/linked_list.html#Link"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.linked_list.Link" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py method">
 <dt id="example_code.linked_list.Link.insert">
 <code class="sig-name descname">insert</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">link</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/linked_list.html#Link.insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.linked_list.Link.insert" title="Permalink to this definition">¶</a></dt>
@@ -82,7 +175,7 @@ implementation of Euclid’s algorithm.</p>
 <dl class="py class">
 <dt id="example_code.linked_list.LinkIterator">
 <em class="property">class </em><code class="sig-prename descclassname">example_code.linked_list.</code><code class="sig-name descname">LinkIterator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">link</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/linked_list.html#LinkIterator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.linked_list.LinkIterator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 </div>
@@ -91,7 +184,7 @@ implementation of Euclid’s algorithm.</p>
 <dl class="py class">
 <dt id="example_code.polynomial.Polynomial">
 <em class="property">class </em><code class="sig-prename descclassname">example_code.polynomial.</code><code class="sig-name descname">Polynomial</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coefs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/polynomial.html#Polynomial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.polynomial.Polynomial" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py method">
 <dt id="example_code.polynomial.Polynomial.degree">
 <code class="sig-name descname">degree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/polynomial.html#Polynomial.degree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.polynomial.Polynomial.degree" title="Permalink to this definition">¶</a></dt>

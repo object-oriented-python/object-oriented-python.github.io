@@ -622,7 +622,7 @@ properties that an object may have are disregarded.</p>
 <dt id="term-attribute">attribute</dt><dd><p>A value encapsulated in another object, such as a
 <a class="reference internal" href="#term-class"><span class="xref std std-term">class</span></a>. Attributes are accessed using dot syntax, so if
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">b</span></code> is an attribute of <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> then its value is accessed using the
-syntax <code class="xref py py-obj docutils literal notranslate"><span class="pre">a.b</span></code>.</p>
+syntax <code class="xref py py-obj docutils literal notranslate"><span class="pre">a.b</span></code>. <a class="reference internal" href="#term-method"><span class="xref std std-term">Methods</span></a> are a special case of attributes.</p>
 </dd>
 <dt id="term-class">class</dt><dt id="term-type">type</dt><dd><p>An abstraction defined by a set of possible values, and a set
 of operators valid for objects of that type. <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.9)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">Class</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> are essentially synonymous, though
@@ -633,8 +633,14 @@ is passed the new object as its first argument (<code class="xref py py-obj docu
 responsible for setting up the object. The constructor modifies
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code> in place: constructors never return a value.</p>
 </dd>
+<dt id="term-data-attribute">data attribute</dt><dd><p>An <a class="reference internal" href="#term-attribute"><span class="xref std std-term">attribute</span></a> which is not a <a class="reference internal" href="#term-method"><span class="xref std std-term">method</span></a>. As the name
+suggests, these are used to store data in an object.</p>
+</dd>
 <dt id="term-encapsulation">encapsulation</dt><dd><p>The bundling up of attributes and methods into an object which
 can be dealt with as a single unit.</p>
+</dd>
+<dt id="term-infix-operator">infix operator</dt><dd><p>A mathematical operator whose symbol is written between its arguments.
+Examples include addition, subtraction, division and multiplication.</p>
 </dd>
 <dt id="term-instance">instance</dt><dd><p>An object of a particular class. <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> is an instance of
 <code class="xref py py-class docutils literal notranslate"><span class="pre">MyClass</span></code> means that <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> has class <code class="xref py py-obj docutils literal notranslate"><span class="pre">MyClass</span></code>. We will
