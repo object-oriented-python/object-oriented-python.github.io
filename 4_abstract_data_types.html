@@ -513,7 +513,7 @@ is an <span class="math notranslate nohighlight">\(O(n)\)</span> operation. Howe
 only occurs when the list has to be extended. How often is that?
 Suppose the list has just been reallocated (at a cost of
 <span class="math notranslate nohighlight">\(O(n)\)</span>). The new memory allocation is <span class="math notranslate nohighlight">\(kn\)</span> large, but we’ve
-aready used <span class="math notranslate nohighlight">\(n\)</span> locations so we get <span class="math notranslate nohighlight">\((k-1)n\)</span> more cheap
+already used <span class="math notranslate nohighlight">\(n\)</span> locations so we get <span class="math notranslate nohighlight">\((k-1)n\)</span> more cheap
 <span class="math notranslate nohighlight">\(O(1)\)</span> append operations before we have to reallocate
 again. <span class="math notranslate nohighlight">\((k-1)n = O(n)\)</span> so this means that adding <span class="math notranslate nohighlight">\(O(n)\)</span>
 items to the list costs:</p>
