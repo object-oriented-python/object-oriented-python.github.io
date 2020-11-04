@@ -155,26 +155,124 @@ White space within lines
    before a closing bracket. This is because the role of brackets is
    to group their contents, so it's confusing to visually separate the
    bracket from the contents.
+
+    .. container:: badcode
+
+        .. code-block:: python3
+
+            ( 1, 2) # Space after opening bracket.
+            (1, 2 ) # Space after closing bracket.
+
+    .. container:: goodcode
+
+        .. code-block:: python3
+        
+            (1, 2) # No space between brackets and contents.
+
 2. Similarly, don't put a space between the function name and the
    opening round bracket of a function call, or between a variable
    name and the opening square bracket of an index. In each of these
    cases, the opening bracket belongs to the object, so it's confusing
    to insert space between the object name and the bracket.
+
+    .. container:: badcode
+
+        .. code-block:: python3
+
+            my_function (1) # Space between function name and bracket.
+            x [0] # Space between variable name and index square bracket.
+
+    .. container:: goodcode
+
+        .. code-block:: python3
+
+            my_function(1)
+            x[0]
+ 
 3. Put a space after a comma but not before it, exactly like you would
    in writing prose. Following the convention that everyone is used to
    from writing aids understanding. Where a trailing comma comes right
    before a closing bracket, then don't put a space. The rule that
    there are no spaces before a closing bracket is more important.
-4. Put exactly one space on each side of an assignment (`=`) and an
-   augmented assignment (`+=`, `-=`, etc.). In an assignment
+
+     .. container:: badcode
+
+        .. code-block:: python3
+
+            (1,2,3) # Spaces missing after commas.
+            (1 ,2 ,3) # Spurious spaces before commas.
+            (1, ) # Space before closing bracket.
+
+     .. container:: goodcode
+
+        .. code-block:: python3
+
+            (1, 2, 3) # Spaces after commas.
+            (1,) # No space before closing bracket.
+
+4. Put exactly one space on each side of an :ref:`assignment <assignment>` (`=`) and an
+   :ref:`augmented assignment <augassign>` (`+=`, `-=`, etc.). In an assignment
    statement, the most important distinction is between the left and
    right hand sides of the assignment, so adding space here aids the
    reader.
-5. Put exactly one space before and after the lowest priority
+
+    .. container:: badcode
+
+        .. code-block:: python3
+
+            x=1 # Missing spaces around equals sign.
+            x+=1 # Missing spaces around augmented addition operator.
+
+            frog = 2
+            cat  = 3 # Additional space before equals sign.
+
+    .. container:: goodcode
+
+        .. code-block:: python3
+
+            x = 1
+            x += 1
+
+            frog = 2
+            cat = 3
+
+5. Do not put a space either before or after the equals sign of a :ref:`keyword
+   argument <tut-keywordargs>`. In this case, grouping the parameter name and
+   the argument is more important. Also creates a visual distinction between
+   assignment statements and keyword arguments.
+
+    .. container:: badcode
+
+        .. code-block:: python3
+
+            myfunction(arg1 = val1, arg2 = val2) # Spaces around equals signs.
+
+    .. container:: goodcode
+
+        .. code-block:: python3
+
+            myfunction(arg1=val1, arg2=val2)
+
+
+6. Put exactly one space before and after the lowest priority
    mathematical operators in an expression. This has the effect of
    visually separating the terms of an expression, as we
    conventionally do in mathematics.
-6. **Never, ever** have blank spaces at the end of a line, even a blank
+
+    .. container:: badcode
+
+        .. code-block:: python3
+
+            y = 3*x**2+4*x+5 # No spaces around +
+
+    .. container:: goodcode
+
+        .. code-block:: python3
+
+            y = 3*x**2 + 4*x + 5
+
+
+7. **Never, ever** have blank spaces at the end of a line, even a blank
    line. These tend to get changed by editors, which results in lots
    of spurious differences between otherwise identical code. This can
    make the difference between two commits of a file very hard to read
@@ -201,12 +299,30 @@ Line breaks
    of the previous line. (If you look closely, this is also the rule
    that most publishers of maths books use).
 
+    .. container:: badcode
+
+        .. code-block:: python3
+
+            my_function(first_term + # Trailing + operator.
+                        second_term +
+                        third_term)
+
+    .. container:: goodcode
+
+        .. code-block:: python3
+
+            my_function(first_term
+                        + second_term # Leading + operator
+                        + third_term)
+
 Indentation
 ...........
 
-1. Indentation is *always* by four spaces per indentation level. If
-   your text editor is not set to create 4 spaces per indentation
-   level, Google how to change it!
+1. Indentation is *always* by four spaces per indentation level. Usually
+   Python-aware text editors are good at enforcing this, and this is basically
+   true of Visual Studio Code. If you're using a text editor which doesn't
+   indent by four spaces (especially if it uses :kbd:`tab` characters for indentation)
+   then Google how to change it to four spaces!
 2. When indenting continuation lines inside brackets, there are two
    options, usually depending on how many characters are already on
    the line before the opening bracket:
@@ -216,12 +332,30 @@ Indentation
       the opening bracket, so that the first items on each line start
       exactly under each other. The closing bracket comes on the same
       line as the final item.
+
+    .. container:: goodcode
+
+        .. code-block:: python3
+
+            capitals = {"France": "Paris",
+                        "China": "Beijing", # First character one place right of {
+                        "Australia": "Canberra"} # } at the end of the line.
+
    b. With the opening bracket as the last item on the first
       line. Subsequent lines are indented more than the first line but
       the same as each other. The closing bracket comes on a new line,
       and is either indented to the same level as the first line, or
       to the subsequent lines (but be consistent in nearby code about
       which).
+
+    .. container:: goodcode
+
+        .. code-block:: python3
+
+            capitals = { # First line ends with {
+                "Central African Republic": "Bangui", # Next line indented.
+                "Trinidad and Tobago": "Port of Spain", # Indented to match.
+                } # Indented to match.
 
 
 Names
@@ -246,13 +380,33 @@ advanced cases that we are unlikely to encounter in the short term,
 but the most important rules are short and clear:
 
 class names
-  Class names use the CapWords convention: each word in a name is
-  capitalised and words are concatenated, without underscores between.
+    Class names use the CapWords convention: each word in a name is
+    capitalised and words are concatenated, without underscores between.
+
+    .. container:: badcode
+
+        .. code-block:: python3
+
+            my_class # No capitals, underscore between words.
+            myClass # Missing leading capital.
+            My_Class # Underscore between words.
+
+    .. container:: goodcode
+
+        .. code-block:: python3
+
+            MyClass
 
 exception names
-  Exceptions are classes, so the rules for class names apply with the
-  addition that exceptions that designate errors should end in
-  `Error`.
+    Exceptions are classes, so the rules for class names apply with the
+    addition that exceptions that designate errors should end in
+    `Error`.
+
+    .. container:: goodcode
+
+        .. code-block:: python3
+
+            PolynomialDivisionError # For example to indicate indivisibility.
 
 function, variable, and module names
   Almost all names other than classes are usually written in all
@@ -321,8 +475,8 @@ representing an angle. Capital Greek letters are sometimes represented
 by capitalising the first letter of the Roman word, but take care to
 avoid situations where this might be confused for a class name.
 
-Parsimony and modularity
-------------------------
+Parsimony
+---------
 
 Good programming style is primarily about making programmes easy to
 understand. One of the key limitations of understanding is the sheer
@@ -604,11 +758,71 @@ have to concern themselves with how it is implemented. They should,
 therefore, not need to read the code in order to understand how to use
 it. 
 
+The :term:`Python interpreter` has special support for docstrings. When a user
+calls :func:`help` on an :term:`object` (including a function or :term:`method`)
+then any docstring on that object is used as the body of the resulting help
+message. Docstrings are also understood by the Python documentation generation
+system, `Sphinx <https://www.sphinx-doc.org/en/master/>`__. This enables
+documentation webpages to be automatically generated from Python code. The
+Python documentation in this course is generated by this system. For example,
+recall that we met the function :func:`~fibonacci.fibonacci.fib`, which
+calculates Fibonacci numbers, in :numref:`modules`. We can ask
+:func:`~fibonacci.fibonacci.fib` for its documentation:
+
+.. code-block:: ipython3
+
+    In [1]: import fibonacci
+    In [2]: help(fibonacci.fib)
+
+The following is displayed:
+
+    Help on function fib in module fibonacci.fibonacci:
+
+    fib(n)
+        Return the n-th Fibonacci number.
+
+There is also a specific IPython help extension, which also works in Jupyter
+notebooks (because they are related projects). Appending a question mark
+:kbd:`?` to an object name prints a slightly different version of the help information:
+
+.. code-block:: ipython3
+
+    In [3]: fibonacci.fib?
+    Signature: fibonacci.fib(n)
+    Docstring: Return the n-th Fibonacci number.
+    File:      ~/docs/principles_of_programming/object-oriented-programming/fibonacci/fibonacci.py
+    Type:      function
+
+Finally, the same information is used in the :func:`web documentation
+<fibonacci.fibonacci.fib>`. Notice that the :term:`function signature` is not a
+part of the docstring. Python is capable of extracting the signature of the
+function and adding it into the documentation without the programmer having to
+manually add it to the docstring.
+
+Where to use docstrings
+.......................
+
+Every public module, class, function, and method should have a docstring.
+"Public" in this context means any code which is intended to be accessed from
+outside the module in which it is defined.
+
+Docstring conventions
+.....................
+
+
+
+
+
 Glossary
 --------
 
  .. glossary::
     :sorted:
+
+    function signature
+        The signature of a function is the name of the function and the
+        arguments that it takes. The function signature is the basic information
+        needed in order to know how to call that function.
 
     modularity
        The design principle that programs should be broken into small,

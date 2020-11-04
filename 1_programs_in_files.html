@@ -109,21 +109,41 @@ with Git.</p>
 <p class="admonition-title">Note</p>
 <p>Fill in more details once it becomes apparent which editors we’ll be using.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Text files</p>
+<p>You are doubtless familiar with the concept of a file stored in a folder on
+your computer. You will also be aware that there are many different types of
+file, more or less related to the type of data they contain and the programs
+which created them. Files fall into two important categories, binary files
+and text files. A binary file is a stream of data whose contents make
+sense under the rules of the application which created it, but not
+otherwise. Word documents, PDFs, and JPEGs are examples of binary files.
+Plain text files are files which, as the name suggests, consist of a string
+of characters. Anyone looking at the content of a text file can
+understand it, so long as they understand the human or computer language in
+which it is written. LaTeX source files and Python scripts are examples of
+text files. This matters when you come to edit these files. Text files are
+edited using a text editor, or an IDE. Usually you can use whichever text
+editor you like, though some will have better support for writing some
+computer languages than others. Importantly, you can’t edit text files in a
+program such as Microsoft Word and expect to end up with something usable.</p>
+</div>
 <div class="section" id="a-first-python-script">
 <h3><span class="section-number">2.2.1. </span>A first Python script<a class="headerlink" href="#a-first-python-script" title="Permalink to this headline">¶</a></h3>
 <p>Tradition dictates that the first stand-alone program one writes in
 any language simply prints out the string <code class="xref py py-obj docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World</span></code>. Using a text
-editor, we create a file which we’ll call <code class="xref py py-obj docutils literal notranslate"><span class="pre">hello.py</span></code> containing just
+editor, we create a file which we’ll call <code class="file docutils literal notranslate"><span class="pre">hello.py</span></code> containing just
 the following line of Python code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">py</span></code> file extension is not strictly required for Python scripts,
+<p>The <code class="file docutils literal notranslate"><span class="pre">.py</span></code> file extension is not strictly required for Python scripts,
 but it can be useful as it will cause most text editors to recognise
-the file as a Python file. Having remembered to save <code class="xref py py-obj docutils literal notranslate"><span class="pre">hello.py</span></code> to
+the file as a Python file. Having remembered to save <code class="file docutils literal notranslate"><span class="pre">hello.py</span></code> to
 disk from the text editor, we can now run the program. Open a
 terminal, and change to the folder (directory) where you saved
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">hello.py</span></code>. For example, if <code class="xref py py-obj docutils literal notranslate"><span class="pre">hello.py</span></code> is in the directory <code class="xref py py-obj docutils literal notranslate"><span class="pre">src</span></code> in
+<code class="file docutils literal notranslate"><span class="pre">hello.py</span></code>. For example, if <code class="file docutils literal notranslate"><span class="pre">hello.py</span></code> is in the directory <code class="file docutils literal notranslate"><span class="pre">src</span></code> in
 your home directory, then you would type the following:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> src
 <span class="gp">$</span> python3 hello.py
@@ -135,13 +155,13 @@ of the command prompt might also be different depending on which
 terminal program you are using on which operating system, but we are
 only concerned with the commands to the right of the prompt. The first
 of these, <code class="xref py py-obj docutils literal notranslate"><span class="pre">cd</span></code> (<em>change directory</em>) switches the current folder to
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">src</span></code>. The second command actually runs the Python interpreter on
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">hello.py</span></code>. Depending on what is installed on your computer, it might
+<code class="file docutils literal notranslate"><span class="pre">src</span></code>. The second command actually runs the Python interpreter on
+<code class="file docutils literal notranslate"><span class="pre">hello.py</span></code>. Depending on what is installed on your computer, it might
 also be possible to leave off the <code class="xref py py-obj docutils literal notranslate"><span class="pre">3</span></code> at the end of <code class="xref py py-obj docutils literal notranslate"><span class="pre">python3</span></code>, however
 on some systems the plain <code class="xref py py-obj docutils literal notranslate"><span class="pre">python</span></code> command is still linked to the old
 version 2 of Python, so it’s better to be explicit and type
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">python3</span></code>. When we press the <code class="xref py py-obj docutils literal notranslate"><span class="pre">enter</span></code> key after the last line above,
-our tiny Python script <code class="xref py py-obj docutils literal notranslate"><span class="pre">hello.py</span></code> runs and the following is displayed:</p>
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">python3</span></code>. When we press the <kbd class="kbd docutils literal notranslate">enter</kbd> key after the last line above,
+our tiny Python script <code class="file docutils literal notranslate"><span class="pre">hello.py</span></code> runs and the following is displayed:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Hello World</span>
 </pre></div>
 </div>
@@ -190,14 +210,14 @@ shortly.</p>
 <div class="section" id="modules">
 <span id="id1"></span><h2><span class="section-number">2.3. </span>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
 <p>A module is, like a script, a plain text file containing Python
-code. Modules must have names ending in <code class="xref py py-obj docutils literal notranslate"><span class="pre">py</span></code>. So far, that’s
+code. Modules must have names ending in <code class="file docutils literal notranslate"><span class="pre">.py</span></code>. So far, that’s
 identical to a script. Indeed, it’s sometimes possible (though not
 always advisable) to use the same file as both a script and a
 module. The difference between a script and a module lies in how it is
 used. A script is run, which means that a new Python interpreter
 starts, executes the commands in the script, and then
 exits. Conversely, a module is imported into a running Python
-session. For example, suppose we create a file <code class="xref py py-obj docutils literal notranslate"><span class="pre">fibonacci.py</span></code>
+session. For example, suppose we create a file <code class="file docutils literal notranslate"><span class="pre">fibonacci.py</span></code>
 containing the following simple function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Return the n-th Fibonacci number.&quot;&quot;&quot;</span>
@@ -210,14 +230,14 @@ containing the following simple function:</p>
 </pre></div>
 </div>
 <p>If I now run IPython in the folder containing my new file
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">fibonacci.py</span></code> then I will be able to import the <a class="reference internal" href="fibonacci.html#module-fibonacci" title="fibonacci"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fibonacci</span></code></a>
+<code class="file docutils literal notranslate"><span class="pre">fibonacci.py</span></code> then I will be able to import the <a class="reference internal" href="fibonacci.html#module-fibonacci" title="fibonacci"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fibonacci</span></code></a>
 module, and use the function <code class="xref py py-func docutils literal notranslate"><span class="pre">fib()</span></code>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">fibonacci</span>
 <span class="gp">In [2]: </span><span class="n">fibonacci</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="gh">Out[2]: </span><span class="go">2</span>
 </pre></div>
 </div>
-<p>Notice that we do not include the <code class="xref py py-obj docutils literal notranslate"><span class="pre">py</span></code> suffix when we import a
+<p>Notice that we do not include the <code class="file docutils literal notranslate"><span class="pre">.py</span></code> suffix when we import a
 module. Importing a module provides access to whatever it
 contains. This is a key tool in building up algorithms out of
 components: we import the components we need at each stage of our
@@ -353,14 +373,14 @@ descending line connects the folder name to the files and folders it
 contains. Let’s walk through these files and folders to understand how
 they make up the Python package.</p>
 <dl>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">my_git_repo</span></code></dt><dd><p>This is not really a part of the package at all, but the
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">my_package</span></code> folder needs to be in some folder, and this is a
+<dt><code class="file docutils literal notranslate"><span class="pre">my_git_repo</span></code></dt><dd><p>This is not really a part of the package at all, but the
+<code class="file docutils literal notranslate"><span class="pre">my_package</span></code> folder needs to be in some folder, and this is a
 reminder that all your work should be in a revision control system
-such as <a class="reference external" href="https://git-scm.org">git</a>. It would be usual for
+such as <a class="reference external" href="https://imperial-fons-computing.github.io/git.html#git" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">git</span></a>. It would be usual for
 package folders to be contained immediately in the top level of
 the repository, in the manner shown here.</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">my_package</span></code></dt><dd><p>This is the actual package. The name of this folder sets the
+<dt><code class="file docutils literal notranslate"><span class="pre">my_package</span></code></dt><dd><p>This is the actual package. The name of this folder sets the
 package name, so if you really made a package folder with this
 name, then you would type:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">my_package</span>
@@ -368,21 +388,21 @@ name, then you would type:</p>
 </div>
 <p>to access the package.</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__.py</span></code></dt><dd><p>Every package must contain a file with <em>exactly</em> this name. This is
-how Python recognises that a folder is a package. <code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__.py</span></code>
+<dt><code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code></dt><dd><p>Every package must contain a file with <em>exactly</em> this name. This is
+how Python recognises that a folder is a package. <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code>
 can be an empty file, or it can contain code to populate the top
 level <a class="reference internal" href="#term-namespace"><span class="xref std std-term">namespace</span></a> of the package. See <a class="reference internal" href="#importing-packages"><span class="std std-numref">Section 2.4.1</span></a> below.</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">module_1.py</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">module_2.py</span></code></dt><dd><p>These are just Python <a class="reference internal" href="#term-module"><span class="xref std std-term">modules</span></a>. If the user imports
+<dt><code class="file docutils literal notranslate"><span class="pre">module_1.py</span></code>, <code class="file docutils literal notranslate"><span class="pre">module_2.py</span></code></dt><dd><p>These are just Python <a class="reference internal" href="#term-module"><span class="xref std std-term">modules</span></a>. If the user imports
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">my_package</span></code> using the line above then these modules will appear
 as <code class="xref py py-obj docutils literal notranslate"><span class="pre">my_package.module_1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">my_package.module_2</span></code> respectively.</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">subpackage</span></code></dt><dd><p>Packages can contain packages. A subpackage is just a folder
-containing a file <code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__.py</span></code>. It can also contain modules and
+<dt><code class="file docutils literal notranslate"><span class="pre">subpackage</span></code></dt><dd><p>Packages can contain packages. A subpackage is just a folder
+containing a file <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code>. It can also contain modules and
 further subpackages.</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup.py</span></code></dt><dd><p>This file is outside the package directory and is not
-actually a part of the package. The role of <code class="xref py py-obj docutils literal notranslate"><span class="pre">setup.py</span></code> will be
+<dt><code class="file docutils literal notranslate"><span class="pre">setup.py</span></code></dt><dd><p>This file is outside the package directory and is not
+actually a part of the package. The role of <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> will be
 covered in <a class="reference internal" href="#installable-packages"><span class="std std-numref">Section 2.4.2</span></a>.</p>
 </dd>
 </dl>
@@ -401,13 +421,13 @@ keyword still apply, so:</p>
 </div>
 <p>would import the name <code class="xref py py-obj docutils literal notranslate"><span class="pre">module_3</span></code> straight into the current local
 namespace.</p>
-<p>The file <code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__.py</span></code> is itself a module and will be imported when
-the package is imported. However, names defined in <code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__.py</span></code> will
+<p>The file <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> is itself a module and will be imported when
+the package is imported. However, names defined in <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> will
 appear directly in the namespace of the package. This is usually used
 to extract names from submodules that are supposed to be directly
 accessed by users of the package.</p>
 <p>For example, suppose that <code class="xref py py-obj docutils literal notranslate"><span class="pre">module_1</span></code> contains a function
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">my_func</span></code>. Then the top level <code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__.py</span></code> in <code class="xref py py-obj docutils literal notranslate"><span class="pre">my_package</span></code> might contain
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">my_func</span></code>. Then the top level <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> in <code class="xref py py-obj docutils literal notranslate"><span class="pre">my_package</span></code> might contain
 the line:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.module_1</span> <span class="kn">import</span> <span class="n">my_func</span>
 </pre></div>
@@ -421,7 +441,7 @@ providing users with direct access to the most important or most
 frequently used features.</p>
 <p>The eagle-eyed reader will have noticed the extra . in front of
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">module_1</span></code>. This marks this import as a <em>relative import</em>. In other
-words, in looking for <code class="xref py py-obj docutils literal notranslate"><span class="pre">module_1.py</span></code>, Python should look for files in
+words, in looking for <code class="file docutils literal notranslate"><span class="pre">module_1.py</span></code>, Python should look for files in
 the same folder as the module where the import statement occurs,
 instead of looking for an external package called <code class="xref py py-obj docutils literal notranslate"><span class="pre">module_1</span></code>. We could
 have equivalently written:</p>
@@ -437,11 +457,11 @@ reader that the import is from the current package.</p>
 to know that the package being imported exists, and where to find it. This is
 achieved by <em>installing</em> the package. In order to make a package installable, we
 need to provide Python with a bit more information about it. This
-information is contained in a Python module which must be called <code class="xref py py-obj docutils literal notranslate"><span class="pre">setup.py</span></code>.
+information is contained in a Python script which must be called <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>.
 This file isn’t part of the package and does not go in the package folder.
 Instead, it should be placed in the top-level folder of your git repository, so
 that the Python package installer will be able to find it.</p>
-<p>At the very least, <code class="xref py py-obj docutils literal notranslate"><span class="pre">setup.py</span></code> should contain the following:</p>
+<p>At the very least, <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> should contain the following:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_packages</span>
 <span class="n">setup</span><span class="p">(</span>
     <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my_package&quot;</span><span class="p">,</span>
@@ -457,94 +477,26 @@ function records metadata such as the installation name to be given to
 your whole set of packages, and the version. It also needs to know
 about all of the packages in the current repository, but this can be
 automated with the <code class="xref py py-func docutils literal notranslate"><span class="pre">find_packages()</span></code> function, which
-will return a list of folders containing <code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__.py</span></code>.</p>
-<p>This very simple <code class="xref py py-obj docutils literal notranslate"><span class="pre">setup.py</span></code> will suffice for packages that you only
+will return a list of folders containing a file named <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code>.</p>
+<p>This very simple <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> will suffice for packages that you only
 intend to use yourself. Should you wish to publish packages for use by
 other people, then you’ll need to add some more information to the
 file. The canonical guide to this is the <a class="reference external" href="https://packaging.python.org/tutorials/packaging-projects/">Python packaging user guide</a>.</p>
 </div>
 </div>
-<div class="section" id="python-venvs">
-<h2><span class="section-number">2.5. </span>Python venvs<a class="headerlink" href="#python-venvs" title="Permalink to this headline">¶</a></h2>
-<p>Before we move on to actually installing packages, we need to give a
-little thought to where the packages are to be installed. We could
-simply install packages into the Python installation on our
-computer. This can be a reasonable approach if all you want to do is
-run code from the default versions of public packages. However, it has
-a number of limitations. Basically, a Python installation is a single
-<a class="reference internal" href="#term-namespace"><span class="xref std std-term">namespace</span></a> for packages, so if two different projects you are
-working on need two different versions of the same package, you’re out
-of luck. Similarly, if you are working on changes to a package, you
-probably don’t want your half-finished experimental work to be the
-package that your other projects use.</p>
-<p>Python virtual environments, or venvs, are separate namespaces within
-a Python installation. They have their own Python command and
-collection of packages. Effectively they behave like their own
-separate Python installation, except that most of the core Python
-files are shared, so a venv takes rather little additional space.</p>
-<div class="section" id="creating-a-venv">
-<h3><span class="section-number">2.5.1. </span>Creating a venv<a class="headerlink" href="#creating-a-venv" title="Permalink to this headline">¶</a></h3>
-<p>The most straightforward way to create a venv is on the terminal
-command line, not from within Python itself. This is accomplished
-using Python’s <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package. For example, to create a venv
-called <code class="xref py py-obj docutils literal notranslate"><span class="pre">my_venv</span></code>, you would type:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python3 -m venv my_venv
-</pre></div>
-</div>
-<p>Don’t forget that the <code class="xref py py-obj docutils literal notranslate"><span class="pre">$</span></code> stands for the command prompt: you don’t
-type it. This command will create the folder <code class="xref py py-obj docutils literal notranslate"><span class="pre">my_venv</span></code> and various
-subfolders containing things like the Python program itself and space
-for any packages which you install in the venv. If there was already a
-file or folder called <code class="xref py py-obj docutils literal notranslate"><span class="pre">my_venv</span></code> in the current folder then you’ll get
-an error, so make sure you choose a new name.</p>
-<p>A venv doesn’t usually contain any particularly valuable data, so you
-should regard them as essentially disposable. In particular, if
-something goes wrong when creating a venv, just delete it and start
-again. In the bash or zsh shells you would type:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> rm -rf my_venv
-</pre></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span></code> will delete its argument and all its subdirectories
-without further prompts or warnings. There is no undo operation.
-Be very careful about what you delete.</p>
-</div>
-</div>
-<div class="section" id="using-a-venv">
-<h3><span class="section-number">2.5.2. </span>Using a venv<a class="headerlink" href="#using-a-venv" title="Permalink to this headline">¶</a></h3>
-<p>If you run Python from the terminal, then the simplest way to use the
-venv is to source its activate script. If using bash or zsh on Mac or
-Linux you would type:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">source</span> my_venv/bin/activate
-</pre></div>
-</div>
-<p>while using bash on Windows you would type:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">source</span> my_venv/Scripts/activate
-</pre></div>
-</div>
-<p>Obviously, you would use the folder name of your venv instead of
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">my_venv</span></code>. In either case, your command prompt will change to indicate
-that you are now using the venv. It might look something like:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(my_venv)</span> <span class="gp">$</span>
-</pre></div>
-</div>
-<p>Any subsequent invocations of Python commands such as <code class="xref py py-obj docutils literal notranslate"><span class="pre">python3</span></code> will
-now use the version from the venv, with access to whatever packages
-you have installed in that venv. If you are using a terminal shell
-other than bash or zsh, then see the <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package documentation
-for the correct activation command.</p>
+<div class="section" id="setting-up-a-python-environment-for-this-course">
+<h2><span class="section-number">2.5. </span>Setting up a Python environment for this course<a class="headerlink" href="#setting-up-a-python-environment-for-this-course" title="Permalink to this headline">¶</a></h2>
+<p>During this course, we’re going to create, edit, and install a whole bunch of
+Python packages. In order to have a predictable programming environment in which
+the experiments we’re doing don’t interfere with anything outside the course for
+which we might be using Python, and conversely to ensure that nothing we’ve
+installed elsewhere interferes with how we’re doing the course, we’ll do
+everything in a Python <a class="reference internal" href="#term-virtual-environment"><span class="xref std std-term">virtual environment</span></a>, or <a class="reference internal" href="#term-venv"><span class="xref std std-term">venv</span></a>. You should read up on Python
+virtual environments on the <a class="reference external" href="https://imperial-fons-computing.github.io/python.html#python-virtual-environments" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">Faculty of Natural Sciences Python installation
+page</span></a>.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>Venv activation is just for one terminal session. You need to
-activate the venv every time you open a new terminal.  If you find
-that Python can’t find your packages or tests, then the first thing
-to check is whether you remembered to activate the venv.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Put something in here about how to use venvs from whichever IDE we’re using.</p>
-</div>
+<p>Don’t forget that you need to activate the venv in every new <a class="reference external" href="https://imperial-fons-computing.github.io/terminal.html#terminal" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">terminal</span></a> session.</p>
 </div>
 </div>
 <div class="section" id="installing-python-packages">
@@ -590,7 +542,7 @@ you would type:</p>
 </pre></div>
 </div>
 <p>replacing <code class="xref py py-obj docutils literal notranslate"><span class="pre">folder</span></code> with the name of the top-level folder of your
-repository: the folder containing <code class="xref py py-obj docutils literal notranslate"><span class="pre">setup.py</span></code>. The option flag <code class="xref py py-obj docutils literal notranslate"><span class="pre">-e</span></code>
+repository: the folder containing <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>. The option flag <code class="xref py py-obj docutils literal notranslate"><span class="pre">-e</span></code>
 tells pip to install the package in ‘editable’ mode. This means that
 instead of copying the package files to your venv’s Python packages
 directory, symbolic links will be created. This means that any changes
@@ -620,7 +572,7 @@ right from the start, we need to test the code we write, so we will cover
 the practical details of including tests in your code here.</p>
 <p>There are a number of Python packages which support code testing. The
 concepts are largely similar so rather than get bogged down in the
-details of multiple frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v0.1.dev285+ge8504e0)"><span class="xref std std-doc">pytest</span></a>, which is one of the most widely used.</p>
+details of multiple frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v0.1.dev354+ga95da7a)"><span class="xref std std-doc">pytest</span></a>, which is one of the most widely used.</p>
 <div class="section" id="pytest-tests">
 <h3><span class="section-number">2.7.1. </span>Pytest tests<a class="headerlink" href="#pytest-tests" title="Permalink to this headline">¶</a></h3>
 <p>A Pytest test is simply a function whose name starts with <code class="xref py py-obj docutils literal notranslate"><span class="pre">test_</span></code>. In
@@ -678,7 +630,7 @@ are usually gathered in a separate tests directory. For example:</p>
 <span class="go">rootdir: /Users/dham/docs/object-oriented-programming, inifile: setup.cfg</span>
 <span class="go">collected 1 item</span>
 
-<span class="go">tests/test_fibonacci.py .                                          [100%]</span>
+<span class="go"> .                                          [100%]</span>
 
 <span class="go">=========================== 1 passed in 0.01s ============================</span>
 </pre></div>
@@ -714,9 +666,66 @@ instead see something like:</p>
 that the test failed, and we see some output detailing what went
 wrong. We will learn how to interpret this output in <a class="reference internal" href="7_debugging.html#debugging"><span class="std std-numref">Section 8</span></a>.</p>
 </div>
+<div class="section" id="additional-useful-pytest-tricks">
+<h3><span class="section-number">2.7.3. </span>Additional useful pytest tricks<a class="headerlink" href="#additional-useful-pytest-tricks" title="Permalink to this headline">¶</a></h3>
+<p>It can be useful to run a specific test file, which is achieved simply by naming
+that file as the argument to py.test. For example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> py.test tests/test_fibonacci.py
+</pre></div>
+</div>
+<p>It is even possible to select an individual test to run, using a double colon
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">::</span></code> followed by the test name:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> py.test tests/test_fibonacci.py::test_fibonacci_values
+</pre></div>
+</div>
+<p>Often if one test fails then the same problem in your code will cause a whole
+series of tests to fail, resulting in a very long list of error messages which
+is hard to read. A useful tool in this circumstance is the <code class="xref py py-obj docutils literal notranslate"><span class="pre">-x</span></code> option, which
+tells pytest to stop after the first test fail. For example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> py.test -x <span class="nb">test</span>
+</pre></div>
+</div>
+<p>The tests are usually arranged in increasing order of sophistication, so the
+earlier tests are likely to catch the most basic errors in your code. For this
+reason, it is usually the best policy to try to fix the first error first, and
+only move onto the next problem when the previous test passes.</p>
+</div>
+</div>
+<div class="section" id="writing-code-to-a-specified-interface">
+<h2><span class="section-number">2.8. </span>Writing code to a specified interface<a class="headerlink" href="#writing-code-to-a-specified-interface" title="Permalink to this headline">¶</a></h2>
+<p>Creating more capable programmes depends completely on being able to interface
+different pieces of code. You will write code which calls code written by other
+people, and others will call code written by you. This can only work if the
+caller and the callee agree exactly on the interface: what are the names of the
+<a class="reference internal" href="#term-package"><span class="xref std std-term">packages</span></a>, <a class="reference internal" href="#term-module"><span class="xref std std-term">modules</span></a> and functions being
+called. How many arguments do they take? What are the names of the
+<span class="xref std std-term">keyword parameters</span>? Computer languages are notoriously pedantic about such
+things: they have no capability to simply read through small differences as a
+human would. You have doubtless already encountered the frustrating situation of
+spending extended periods repeatedly getting errors until you realised that
+something has to be spelt slightly differently, or that you used a capital
+letter where you should have used a lower case one.</p>
+<p>What changes as you move on to write code which will be called by other code is
+that this need for precision and pedantry now flows in both directions. Not only
+do you need to call other code using precisely the correct interface, you also
+need to provide precisely the correct interface to the code that will call you.
+This will be the case all the way through this course as the tests for each
+exercise will call your code. The exercises will specify what the correct
+interface is, either in the exercise question itself, or through the skeleton
+code which is provided.</p>
+<p>Your code needs to follow exactly the specification in the exercise: all the
+right names, accepting arguments of the correct type and so on. If it does not,
+then the tests will simply fail. Changing the tests to suit your preferred
+interface is not an acceptable answer, your code needs to comply with the
+interface specified in the tests <a class="footnote-reference brackets" href="#interface-errors" id="id4">2</a>.</p>
+<p>This requirement to code to a published specification is not an artifact of the
+testing framework: it is often the case that code written in a research or
+business setting needs to conform with a standard or other published interface
+exactly to create the sort of interoperability we’ve been discussing. Learning
+to code to specification is therefore an important programming skill.</p>
 </div>
 <div class="section" id="glossary">
-<h2><span class="section-number">2.8. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.9. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><dl class="glossary simple">
 <dt id="term-module">module</dt><dd><p>A text file containing Python code which is accessed using the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.9)"><span class="xref std std-ref">import statement</span></a>.</p>
@@ -741,10 +750,87 @@ Python packages installed.</p>
 </dd>
 </dl>
 </div></blockquote>
-<p class="rubric">Footnotes</p>
+</div>
+<div class="section" id="exercises">
+<h2><span class="section-number">2.10. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Put a link to the first week quiz here.</p>
+</div>
+<div class="proof proof-type-exercise" id="id5">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 2.1</span>
+        
+    </div><div class="proof-content">
+<p>Follow the <a class="reference external" href="https://imperial-fons-computing.github.io/python.html#python-folders" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">instructions on the Faculty of Natural Sciences Python
+installation page</span></a> to create the folder structure
+you will use for this course on your computer. Start with an overall folder
+for the module, and create a virtual environment in that module.</p>
+</div></div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The first GitHub classroom assignment for this module will be released at
+the start of term.</p>
+</div>
+<div class="proof proof-type-exercise" id="id6">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 2.2</span>
+        
+    </div><div class="proof-content">
+<p>Accept the <a class="reference internal" href="not_released.html"><span class="doc">first Github Classroom assignment for this module</span></a> and clone it into your course folder. The assignment
+repository just contains a <code class="file docutils literal notranslate"><span class="pre">README</span></code> and some tests. Your job in the
+following exercises will be to populate it with the remaining content.</p>
+</div></div><div class="proof proof-type-exercise" id="id7">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 2.3</span>
+        
+    </div><div class="proof-content">
+<p>Create a new Python <a class="reference internal" href="#term-package"><span class="xref std std-term">package</span></a> named <code class="xref py py-mod docutils literal notranslate"><span class="pre">math_utils</span></code> containing a
+<a class="reference internal" href="#term-module"><span class="xref std std-term">module</span></a> called <code class="xref py py-mod docutils literal notranslate"><span class="pre">primes</span></code>. In the <code class="xref py py-mod docutils literal notranslate"><span class="pre">primes</span></code> module define a
+function <code class="xref py py-func docutils literal notranslate"><span class="pre">isprime()</span></code> which takes in a single integer argument and
+returns <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> depending on whether or not the argument is prime.
+There is no need to be sophisticated in the algorithm used to check for
+primeness, simply checking whether the number is zero modulo any of the
+integers less than its square root will be fine.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The Python modulo operator is <code class="xref py py-obj docutils literal notranslate"><span class="pre">%</span></code>. For example:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="mi">4</span> <span class="o">%</span> <span class="mi">3</span>
+<span class="gh">Out[1]: </span><span class="go">1</span>
+</pre></div>
+</div>
+</div>
+</div></div><div class="proof proof-type-exercise" id="id8">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 2.4</span>
+        
+    </div><div class="proof-content">
+<p>Following <a class="reference internal" href="#installable-packages"><span class="std std-numref">Section 2.4.2</span></a>, create a <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> file in
+your exercise repository, so that the <code class="xref py py-mod docutils literal notranslate"><span class="pre">math_utils</span></code> <a class="reference internal" href="#term-package"><span class="xref std std-term">package</span></a> is
+installable.</p>
+</div></div><div class="proof proof-type-exercise" id="id9">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 2.5</span>
+        
+    </div><div class="proof-content">
+<p>Add an <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.9)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> to <code class="file docutils literal notranslate"><span class="pre">math_utils.__init__.py</span></code> so that the following
+code will work:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math_utils</span> <span class="kn">import</span> <span class="n">isprime</span>
+</pre></div>
+</div>
+</div></div><p class="rubric">Footnotes</p>
 <dl class="footnote brackets">
 <dt class="label" id="peters"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
 <dd><p>Tim Peters, <a class="reference external" href="https://www.python.org/dev/peps/pep-0020/">“PEP 20 – The Zen Of Python” (2004)</a></p>
+</dd>
+<dt class="label" id="interface-errors"><span class="brackets"><a class="fn-backref" href="#id4">2</a></span></dt>
+<dd><p>Of course if you find a case where it appears that the
+tests don’t honour the interface published in the exercise, you should raise
+an issue reporting this.</p>
 </dd>
 </dl>
 </div>

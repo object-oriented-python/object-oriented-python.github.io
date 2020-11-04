@@ -188,30 +188,126 @@ the screen is limited, your readers will not thank you.</p>
 </div>
 <div class="section" id="white-space-within-lines">
 <h3><span class="section-number">4.3.2. </span>White space within lines<a class="headerlink" href="#white-space-within-lines" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>Don’t put a space after an opening bracket (of any shape), or
 before a closing bracket. This is because the role of brackets is
 to group their contents, so it’s confusing to visually separate the
-bracket from the contents.</p></li>
+bracket from the contents.</p>
+<blockquote>
+<div><div class="badcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># Space after opening bracket.</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span> <span class="c1"># Space after closing bracket.</span>
+</pre></div>
+</div>
+</div>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># No space between brackets and contents.</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</li>
 <li><p>Similarly, don’t put a space between the function name and the
 opening round bracket of a function call, or between a variable
 name and the opening square bracket of an index. In each of these
 cases, the opening bracket belongs to the object, so it’s confusing
-to insert space between the object name and the bracket.</p></li>
+to insert space between the object name and the bracket.</p>
+<blockquote>
+<div><div class="badcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_function</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Space between function name and bracket.</span>
+<span class="n">x</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Space between variable name and index square bracket.</span>
+</pre></div>
+</div>
+</div>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_function</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</li>
 <li><p>Put a space after a comma but not before it, exactly like you would
 in writing prose. Following the convention that everyone is used to
 from writing aids understanding. Where a trailing comma comes right
 before a closing bracket, then don’t put a space. The rule that
-there are no spaces before a closing bracket is more important.</p></li>
-<li><p>Put exactly one space on each side of an assignment (<code class="xref py py-obj docutils literal notranslate"><span class="pre">=</span></code>) and an
-augmented assignment (<code class="xref py py-obj docutils literal notranslate"><span class="pre">+=</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">-=</span></code>, etc.). In an assignment
+there are no spaces before a closing bracket is more important.</p>
+<blockquote>
+<div><div class="badcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># Spaces missing after commas.</span>
+<span class="p">(</span><span class="mi">1</span> <span class="p">,</span><span class="mi">2</span> <span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># Spurious spaces before commas.</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">)</span> <span class="c1"># Space before closing bracket.</span>
+</pre></div>
+</div>
+</div>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># Spaces after commas.</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,)</span> <span class="c1"># No space before closing bracket.</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Put exactly one space on each side of an <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#assignment" title="(in Python v3.9)"><span class="xref std std-ref">assignment</span></a> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">=</span></code>) and an
+<a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#augassign" title="(in Python v3.9)"><span class="xref std std-ref">augmented assignment</span></a> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">+=</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">-=</span></code>, etc.). In an assignment
 statement, the most important distinction is between the left and
 right hand sides of the assignment, so adding space here aids the
-reader.</p></li>
+reader.</p>
+<blockquote>
+<div><div class="badcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># Missing spaces around equals sign.</span>
+<span class="n">x</span><span class="o">+=</span><span class="mi">1</span> <span class="c1"># Missing spaces around augmented addition operator.</span>
+
+<span class="n">frog</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">cat</span>  <span class="o">=</span> <span class="mi">3</span> <span class="c1"># Additional space before equals sign.</span>
+</pre></div>
+</div>
+</div>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">frog</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">cat</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Do not put a space either before or after the equals sign of a <a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#tut-keywordargs" title="(in Python v3.9)"><span class="xref std std-ref">keyword
+argument</span></a>. In this case, grouping the parameter name and
+the argument is more important. Also creates a visual distinction between
+assignment statements and keyword arguments.</p>
+<blockquote>
+<div><div class="badcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">myfunction</span><span class="p">(</span><span class="n">arg1</span> <span class="o">=</span> <span class="n">val1</span><span class="p">,</span> <span class="n">arg2</span> <span class="o">=</span> <span class="n">val2</span><span class="p">)</span> <span class="c1"># Spaces around equals signs.</span>
+</pre></div>
+</div>
+</div>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">myfunction</span><span class="p">(</span><span class="n">arg1</span><span class="o">=</span><span class="n">val1</span><span class="p">,</span> <span class="n">arg2</span><span class="o">=</span><span class="n">val2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</li>
 <li><p>Put exactly one space before and after the lowest priority
 mathematical operators in an expression. This has the effect of
 visually separating the terms of an expression, as we
-conventionally do in mathematics.</p></li>
+conventionally do in mathematics.</p>
+<blockquote>
+<div><div class="badcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">5</span> <span class="c1"># No spaces around +</span>
+</pre></div>
+</div>
+</div>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</li>
 <li><p><strong>Never, ever</strong> have blank spaces at the end of a line, even a blank
 line. These tend to get changed by editors, which results in lots
 of spurious differences between otherwise identical code. This can
@@ -221,7 +317,7 @@ indeed.</p></li>
 </div>
 <div class="section" id="line-breaks">
 <h3><span class="section-number">4.3.3. </span>Line breaks<a class="headerlink" href="#line-breaks" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>Have no lines longer than 79 characters. Limiting the line length
 makes lines easier to read, and prevents the editor from
 automatically wrapping the line in harder to read ways. Shorter
@@ -238,15 +334,34 @@ operator first on the next line, and not last on the first
 line. Having the second line start with a mathematical operator
 provides a solid visual clue that the next line is a continuation
 of the previous line. (If you look closely, this is also the rule
-that most publishers of maths books use).</p></li>
+that most publishers of maths books use).</p>
+<blockquote>
+<div><div class="badcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_function</span><span class="p">(</span><span class="n">first_term</span> <span class="o">+</span> <span class="c1"># Trailing + operator.</span>
+            <span class="n">second_term</span> <span class="o">+</span>
+            <span class="n">third_term</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_function</span><span class="p">(</span><span class="n">first_term</span>
+            <span class="o">+</span> <span class="n">second_term</span> <span class="c1"># Leading + operator</span>
+            <span class="o">+</span> <span class="n">third_term</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</li>
 </ol>
 </div>
 <div class="section" id="indentation">
 <h3><span class="section-number">4.3.4. </span>Indentation<a class="headerlink" href="#indentation" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li><p>Indentation is <em>always</em> by four spaces per indentation level. If
-your text editor is not set to create 4 spaces per indentation
-level, Google how to change it!</p></li>
+<ol class="arabic">
+<li><p>Indentation is <em>always</em> by four spaces per indentation level. Usually
+Python-aware text editors are good at enforcing this, and this is basically
+true of Visual Studio Code. If you’re using a text editor which doesn’t
+indent by four spaces (especially if it uses <kbd class="kbd docutils literal notranslate">tab</kbd> characters for indentation)
+then Google how to change it to four spaces!</p></li>
 <li><p>When indenting continuation lines inside brackets, there are two
 options, usually depending on how many characters are already on
 the line before the opening bracket:</p>
@@ -256,6 +371,17 @@ bracket.  Subsequent lines are indented to one space more than
 the opening bracket, so that the first items on each line start
 exactly under each other. The closing bracket comes on the same
 line as the final item.</p></li>
+</ol>
+<blockquote>
+<div><div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">capitals</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;France&quot;</span><span class="p">:</span> <span class="s2">&quot;Paris&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;China&quot;</span><span class="p">:</span> <span class="s2">&quot;Beijing&quot;</span><span class="p">,</span> <span class="c1"># First character one place right of {</span>
+            <span class="s2">&quot;Australia&quot;</span><span class="p">:</span> <span class="s2">&quot;Canberra&quot;</span><span class="p">}</span> <span class="c1"># } at the end of the line.</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
 <li><p>With the opening bracket as the last item on the first
 line. Subsequent lines are indented more than the first line but
 the same as each other. The closing bracket comes on a new line,
@@ -263,6 +389,16 @@ and is either indented to the same level as the first line, or
 to the subsequent lines (but be consistent in nearby code about
 which).</p></li>
 </ol>
+<blockquote>
+<div><div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">capitals</span> <span class="o">=</span> <span class="p">{</span> <span class="c1"># First line ends with {</span>
+    <span class="s2">&quot;Central African Republic&quot;</span><span class="p">:</span> <span class="s2">&quot;Bangui&quot;</span><span class="p">,</span> <span class="c1"># Next line indented.</span>
+    <span class="s2">&quot;Trinidad and Tobago&quot;</span><span class="p">:</span> <span class="s2">&quot;Port of Spain&quot;</span><span class="p">,</span> <span class="c1"># Indented to match.</span>
+    <span class="p">}</span> <span class="c1"># Indented to match.</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
 </li>
 </ol>
 </div>
@@ -284,13 +420,30 @@ that greatly help with clarity.</p>
 <p>PEP 8 has some rather detailed rules for naming, including for
 advanced cases that we are unlikely to encounter in the short term,
 but the most important rules are short and clear:</p>
-<dl class="simple">
+<dl>
 <dt>class names</dt><dd><p>Class names use the CapWords convention: each word in a name is
 capitalised and words are concatenated, without underscores between.</p>
+<div class="badcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_class</span> <span class="c1"># No capitals, underscore between words.</span>
+<span class="n">myClass</span> <span class="c1"># Missing leading capital.</span>
+<span class="n">My_Class</span> <span class="c1"># Underscore between words.</span>
+</pre></div>
+</div>
+</div>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">MyClass</span>
+</pre></div>
+</div>
+</div>
 </dd>
 <dt>exception names</dt><dd><p>Exceptions are classes, so the rules for class names apply with the
 addition that exceptions that designate errors should end in
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">Error</span></code>.</p>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">PolynomialDivisionError</span> <span class="c1"># For example to indicate indivisibility.</span>
+</pre></div>
+</div>
+</div>
 </dd>
 <dt>function, variable, and module names</dt><dd><p>Almost all names other than classes are usually written in all
 lower case, with underscores separating words. Even proper nouns are
@@ -354,8 +507,8 @@ by capitalising the first letter of the Roman word, but take care to
 avoid situations where this might be confused for a class name.</p>
 </div>
 </div>
-<div class="section" id="parsimony-and-modularity">
-<h2><span class="section-number">4.5. </span>Parsimony and modularity<a class="headerlink" href="#parsimony-and-modularity" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="parsimony">
+<h2><span class="section-number">4.5. </span>Parsimony<a class="headerlink" href="#parsimony" title="Permalink to this headline">¶</a></h2>
 <p>Good programming style is primarily about making programmes easy to
 understand. One of the key limitations of understanding is the sheer
 number of objects that the reader can keep in their short term memory
@@ -602,11 +755,60 @@ point of a public interface is that the programmer using it should not
 have to concern themselves with how it is implemented. They should,
 therefore, not need to read the code in order to understand how to use
 it.</p>
+<p>The <a class="reference internal" href="1_programs_in_files.html#term-Python-interpreter"><span class="xref std std-term">Python interpreter</span></a> has special support for docstrings. When a user
+calls <a class="reference external" href="https://docs.python.org/3/library/functions.html#help" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">help()</span></code></a> on an <a class="reference external" href="https://docs.python.org/3/glossary.html#term-object" title="(in Python v3.9)"><span class="xref std std-term">object</span></a> (including a function or <a class="reference internal" href="2_objects.html#term-method"><span class="xref std std-term">method</span></a>)
+then any docstring on that object is used as the body of the resulting help
+message. Docstrings are also understood by the Python documentation generation
+system, <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>. This enables
+documentation webpages to be automatically generated from Python code. The
+Python documentation in this course is generated by this system. For example,
+recall that we met the function <a class="reference internal" href="fibonacci.html#fibonacci.fibonacci.fib" title="fibonacci.fibonacci.fib"><code class="xref py py-func docutils literal notranslate"><span class="pre">fib()</span></code></a>, which
+calculates Fibonacci numbers, in <a class="reference internal" href="1_programs_in_files.html#modules"><span class="std std-numref">Section 2.3</span></a>. We can ask
+<a class="reference internal" href="fibonacci.html#fibonacci.fibonacci.fib" title="fibonacci.fibonacci.fib"><code class="xref py py-func docutils literal notranslate"><span class="pre">fib()</span></code></a> for its documentation:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">fibonacci</span>
+<span class="gp">In [2]: </span><span class="n">help</span><span class="p">(</span><span class="n">fibonacci</span><span class="o">.</span><span class="n">fib</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The following is displayed:</p>
+<blockquote>
+<div><p>Help on function fib in module fibonacci.fibonacci:</p>
+<dl class="simple">
+<dt>fib(n)</dt><dd><p>Return the n-th Fibonacci number.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>There is also a specific IPython help extension, which also works in Jupyter
+notebooks (because they are related projects). Appending a question mark
+<kbd class="kbd docutils literal notranslate">?</kbd> to an object name prints a slightly different version of the help information:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span>fibonacci.fib<span class="o">?</span>
+<span class="go">Signature: fibonacci.fib(n)</span>
+<span class="go">Docstring: Return the n-th Fibonacci number.</span>
+<span class="go">File:      ~/docs/principles_of_programming/object-oriented-programming/fibonacci/fibonacci.py</span>
+<span class="go">Type:      function</span>
+</pre></div>
+</div>
+<p>Finally, the same information is used in the <a class="reference internal" href="fibonacci.html#fibonacci.fibonacci.fib" title="fibonacci.fibonacci.fib"><code class="xref py py-func docutils literal notranslate"><span class="pre">web</span> <span class="pre">documentation</span></code></a>. Notice that the <a class="reference internal" href="#term-function-signature"><span class="xref std std-term">function signature</span></a> is not a
+part of the docstring. Python is capable of extracting the signature of the
+function and adding it into the documentation without the programmer having to
+manually add it to the docstring.</p>
+<div class="section" id="where-to-use-docstrings">
+<h3><span class="section-number">4.7.1. </span>Where to use docstrings<a class="headerlink" href="#where-to-use-docstrings" title="Permalink to this headline">¶</a></h3>
+<p>Every public module, class, function, and method should have a docstring.
+“Public” in this context means any code which is intended to be accessed from
+outside the module in which it is defined.</p>
+</div>
+<div class="section" id="docstring-conventions">
+<h3><span class="section-number">4.7.2. </span>Docstring conventions<a class="headerlink" href="#docstring-conventions" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 <div class="section" id="glossary">
 <h2><span class="section-number">4.8. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><dl class="glossary simple">
+<dt id="term-function-signature">function signature</dt><dd><p>The signature of a function is the name of the function and the
+arguments that it takes. The function signature is the basic information
+needed in order to know how to call that function.</p>
+</dd>
 <dt id="term-modularity">modularity</dt><dd><p>The design principle that programs should be broken into small,
 easily understandable units, which communicate with each other
 through clearly specified interfaces.</p>
