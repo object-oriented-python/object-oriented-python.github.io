@@ -19,8 +19,8 @@
     <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3. Objects and abstraction" href="2_objects.html" />
-    <link rel="prev" title="1. Introduction: abstraction in mathematics and programming" href="0_introduction.html" />
+    <link rel="next" title="3. Objects and abstraction" href="3_objects.html" />
+    <link rel="prev" title="1. Introduction: abstraction in mathematics and programming" href="1_introduction.html" />
 <!--[if lte IE 6]>
 <link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
 <![endif]-->
@@ -37,7 +37,7 @@
   <div id="access">
     <div class="menu">
       <ul>
-          <li class="page_item"><a href="https://github.com/finite-element/finite-element-course" title="GitHub">GitHub</a></li>
+          <li class="page_item"><a href="https://github.com/object-oriented-python/object-oriented-programming" title="GitHub">GitHub</a></li>
       </ul>
     </div><!-- .menu -->
   </div><!-- #access -->
@@ -51,7 +51,7 @@
             
   <div class="section" id="programs-in-files">
 <h1><span class="section-number">2. </span>Programs in files<a class="headerlink" href="#programs-in-files" title="Permalink to this headline">¶</a></h1>
-<p>This chapter is about how to combine pieces of code into larger units,
+<p>This week we will start to learn how to combine pieces of code into larger units,
 and how to package up your code so that you or others can do the same.
 You will previously have written Python code in Jupyter notebooks, and
 possibly used an interactive Python environment such as
@@ -86,7 +86,7 @@ conveying the output back to the user. This means that the same Python
 code works in essentially the same way no matter how you use
 Python. The Python interpreter also sits between the Python code and
 the operating system, so for most purposes, it also doesn’t matter
-whether your Python program is running on Windows, Mac, Linux, or
+whether your Python program is running on Windows, macOS, Linux, or
 maybe something more exotic. Usually, when we refer to Python doing
 something or responding to code in a particular way, what we mean is
 that this is what the interpreter does in those circumstances.</p>
@@ -105,10 +105,12 @@ your code. A more fully-featured option is an Integrated Development
 Environment (IDE). IDEs combine an editor with a Python interpreter to
 run your code, a debugger and often other features such as integration
 with Git.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Fill in more details once it becomes apparent which editors we’ll be using.</p>
-</div>
+<p>During this course, it will be assumed that you’re using the IDE Microsoft
+Visual Studio Code. You don’t have to do so, and if you have a strong preference
+for another text editor or IDE then you are welcome to use it. That said, if
+your text editor does not have a collaborative editing facility equivalent to
+Visual Studo Code’s Live Share, then you are likely to need to use Visual Studio
+Code when you ask for help so that the helper can share your editor session.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Text files</p>
@@ -189,7 +191,7 @@ longer does. If you took the next logical step and committed your
 scripts to a git repository, making a new commit every time you edit
 it, you would also be able to go back and find the point at which the
 script stopped working. We will return to this debugging technique in
-<a class="reference internal" href="7_debugging.html#bisection-debugging"><span class="std std-numref">Section 8.2.1</span></a>.</p>
+<a class="reference internal" href="9_debugging.html#bisection-debugging"><span class="std std-numref">Section 9.2.2</span></a>.</p>
 </div>
 <div class="section" id="when-not-to-use-scripts">
 <h3><span class="section-number">2.2.3. </span>When not to use scripts<a class="headerlink" href="#when-not-to-use-scripts" title="Permalink to this headline">¶</a></h3>
@@ -294,7 +296,7 @@ quite long and cumbersome, which is particularly inconvenient if names
 are to be used frequently or in the middle of formulae: you probably
 don’t really want to write <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> in every trig formula you
 ever write. One alternative is to rename the module on import. This is
-achieved using the keyword <code class="xref py py-obj docutils literal notranslate"><span class="pre">as</span></code> in an import statement. For example,
+achieved using the keyword <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.9)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">as</span></code></a> in an import statement. For example,
 it is usual to import the numerical Python module <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.19)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> in the
 following way:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -567,12 +569,12 @@ guaranteed to be up to date.</p>
 <p>Attempting to establish whether a program correctly implements the
 intended algorithm is core to effective programming, and programmers
 often spend more time correcting bugs than writing new code. We will
-turn to the question of how to debug in <a class="reference internal" href="7_debugging.html#debugging"><span class="std std-numref">Section 8</span></a>. However,
+turn to the question of how to debug in <a class="reference internal" href="9_debugging.html#debugging"><span class="std std-numref">Section 9</span></a>. However,
 right from the start, we need to test the code we write, so we will cover
 the practical details of including tests in your code here.</p>
 <p>There are a number of Python packages which support code testing. The
 concepts are largely similar so rather than get bogged down in the
-details of multiple frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v0.1.dev354+ga95da7a)"><span class="xref std std-doc">pytest</span></a>, which is one of the most widely used.</p>
+details of multiple frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v6.2.0.dev230+g775ba63c6)"><span class="xref std std-doc">pytest</span></a>, which is one of the most widely used.</p>
 <div class="section" id="pytest-tests">
 <h3><span class="section-number">2.7.1. </span>Pytest tests<a class="headerlink" href="#pytest-tests" title="Permalink to this headline">¶</a></h3>
 <p>A Pytest test is simply a function whose name starts with <code class="xref py py-obj docutils literal notranslate"><span class="pre">test_</span></code>. In
@@ -664,7 +666,7 @@ instead see something like:</p>
 </div>
 <p>Here we can see an <code class="xref py py-obj docutils literal notranslate"><span class="pre">F</span></code> after <code class="xref py py-obj docutils literal notranslate"><span class="pre">tests/test_fibonacci.py</span></code> indicating
 that the test failed, and we see some output detailing what went
-wrong. We will learn how to interpret this output in <a class="reference internal" href="7_debugging.html#debugging"><span class="std std-numref">Section 8</span></a>.</p>
+wrong. We will learn how to interpret this output in <a class="reference internal" href="9_debugging.html#debugging"><span class="std std-numref">Section 9</span></a>.</p>
 </div>
 <div class="section" id="additional-useful-pytest-tricks">
 <h3><span class="section-number">2.7.3. </span>Additional useful pytest tricks<a class="headerlink" href="#additional-useful-pytest-tricks" title="Permalink to this headline">¶</a></h3>
@@ -682,13 +684,22 @@ that file as the argument to py.test. For example:</p>
 series of tests to fail, resulting in a very long list of error messages which
 is hard to read. A useful tool in this circumstance is the <code class="xref py py-obj docutils literal notranslate"><span class="pre">-x</span></code> option, which
 tells pytest to stop after the first test fail. For example:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> py.test -x <span class="nb">test</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> py.test -x tests
 </pre></div>
 </div>
 <p>The tests are usually arranged in increasing order of sophistication, so the
 earlier tests are likely to catch the most basic errors in your code. For this
 reason, it is usually the best policy to try to fix the first error first, and
 only move onto the next problem when the previous test passes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The exercise repositories in this course will usually contain a
+<code class="file docutils literal notranslate"><span class="pre">tests</span></code> directory full of tests that check that you have correctly
+implemented the week’s exercises. You should get in the habit of running the
+tests as you work through the exercises, as they are designed not just to
+pass if your code is correct, but to provide feedback as to what might be
+going wrong if your code contains errors.</p>
+</div>
 </div>
 </div>
 <div class="section" id="writing-code-to-a-specified-interface">
@@ -767,24 +778,35 @@ Python packages installed.</p>
 installation page</span></a> to create the folder structure
 you will use for this course on your computer. Start with an overall folder
 for the module, and create a virtual environment in that module.</p>
-</div></div><div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The first GitHub classroom assignment for this module will be released at
-the start of term.</p>
-</div>
-<div class="proof proof-type-exercise" id="id6">
+</div></div><div class="proof proof-type-exercise" id="id6">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 2.2</span>
         
     </div><div class="proof-content">
-<p>Accept the <a class="reference internal" href="not_released.html"><span class="doc">first Github Classroom assignment for this module</span></a> and clone it into your course folder. The assignment
-repository just contains a <code class="file docutils literal notranslate"><span class="pre">README</span></code> and some tests. Your job in the
-following exercises will be to populate it with the remaining content.</p>
-</div></div><div class="proof proof-type-exercise" id="id7">
+<p>Visit the <a class="reference external" href="https://github.com/object-oriented-python/object-oriented-programming">GitHub repository for these notes</a>.
+Clone that git repository into your course folder, and install the Python
+package it contains into your virtual environment. Check that it has
+installed correctly by running IPython, importing <a class="reference internal" href="fibonacci.html#module-fibonacci" title="fibonacci"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fibonacci</span></code></a> and
+trying out <a class="reference internal" href="fibonacci.html#fibonacci.fibonacci.fib" title="fibonacci.fibonacci.fib"><code class="xref py py-func docutils literal notranslate"><span class="pre">fibonacci.fib</span></code></a>.</p>
+</div></div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The first GitHub classroom assignment for this module will be released at
+the start of term.</p>
+</div>
+<div class="proof proof-type-exercise" id="id7">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 2.3</span>
+        
+    </div><div class="proof-content">
+<p>Accept the <a class="reference internal" href="not_released.html"><span class="doc">first Github Classroom assignment for this module</span></a> and clone it into your course folder. The assignment
+repository just contains a <code class="file docutils literal notranslate"><span class="pre">README</span></code> and some tests. Your job in the
+following exercises will be to populate it with the remaining content.</p>
+</div></div><div class="proof proof-type-exercise" id="id8">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 2.4</span>
         
     </div><div class="proof-content">
 <p>Create a new Python <a class="reference internal" href="#term-package"><span class="xref std std-term">package</span></a> named <code class="xref py py-mod docutils literal notranslate"><span class="pre">math_utils</span></code> containing a
@@ -802,19 +824,27 @@ integers less than its square root will be fine.</p>
 </pre></div>
 </div>
 </div>
-</div></div><div class="proof proof-type-exercise" id="id8">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After this and every exercise in which you write code, ensure that you
+add any new files to git, commit all of your changes, and push to
+GitHub. Then ensure that the tests pass on GitHub. For more information
+about how to do any of these, refer back the <a class="reference external" href="https://imperial-fons-computing.github.io/git.html#github-classroom-exercise" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">Faculty of Natural Sciences
+Git instructions</span></a>.</p>
+</div>
+</div></div><div class="proof proof-type-exercise" id="id9">
 
     <div class="proof-title">
-        <span class="proof-type">Exercise 2.4</span>
+        <span class="proof-type">Exercise 2.5</span>
         
     </div><div class="proof-content">
 <p>Following <a class="reference internal" href="#installable-packages"><span class="std std-numref">Section 2.4.2</span></a>, create a <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> file in
 your exercise repository, so that the <code class="xref py py-mod docutils literal notranslate"><span class="pre">math_utils</span></code> <a class="reference internal" href="#term-package"><span class="xref std std-term">package</span></a> is
 installable.</p>
-</div></div><div class="proof proof-type-exercise" id="id9">
+</div></div><div class="proof proof-type-exercise" id="id10">
 
     <div class="proof-title">
-        <span class="proof-type">Exercise 2.5</span>
+        <span class="proof-type">Exercise 2.6</span>
         
     </div><div class="proof-content">
 <p>Add an <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.9)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> to <code class="file docutils literal notranslate"><span class="pre">math_utils.__init__.py</span></code> so that the following

@@ -17,8 +17,17 @@ concrete realisations of a mathematical idea.
    An *abstract data type* is a purely mathematical :term:`type`,
    defined independently of its concrete realisation as code.
 
-That said, it will frequently be helpful in understanding abstract
-data types to refer to the ways in which they might be implemented.
+Abstract data types enable the programmer to reason about algorithms and their
+cost separately from the task of implementing them. In contrast, we can also
+define the concrete realisation of a data type:
+
+.. proof:definition:: Data structure
+
+    A *data structure* describes the concrete implementation of a data type:
+    which data is stored, in what order, and how it is interpreted.
+
+In understanding abstract data types, it is often useful to think about the data
+structures which could be used to implement them.
 
 .. _stacks:
 
@@ -37,18 +46,24 @@ a :term:`LIFO (last in, first out)`, because the last object added to
 the stack is the first object retrieved (contrast :term:`FIFO <FIFO (first in, first out)>`).
 
 Recall that a :term:`type` is defined by a set of possible values and
-a set of operations. A stack is an ordered sequence of objects (of any
-type) with the operations `push` to add a new object to the sequence,
+a set of operations. The value of stack is an ordered sequence of objects of any
+type. The operations are `push` to add a new object to the sequence,
 and `pop` to return the most recently added object, and remove it from
-the sequence. It is also common to add an additional operation of
+the sequence. :numref:`stackdiag` shows these operations. It is also common to add an additional operation of
 `peek`, which returns the most recently added object without removing
 it from the stack.
 
 .. note::
 
-   Put a diagram illustrating stack operations here.
+   The stack operations in the diagram are wrong. The stack is back to front and
+   the wrong value is popped.
+
+.. _stackdiag:
 
 .. blockdiag::
+    :caption: Cartoon of a sequence of stack operations. First 24, 12, 57 are
+        pushed, then 57 is popped.
+
 
       blockdiag stack{
       // setup info
@@ -128,6 +143,7 @@ calculator.
 .. code-block:: python3
    :caption: Pseudocode for a reverse Polish calculator implemented
              using a :term:`stack`
+   :linenos:
 
    for item in inputs:
        if item is number:
@@ -261,9 +277,9 @@ Algorithmic complexity
 The second reason that understanding abstract data types is important
 is that a good implementation of a well designed abstract data type
 will have well-defined performance characteristics. In particular, the
-optimal algorithmic complexity, expressed in big 'O' notation, of
+optimal algorithmic complexity, expressed in big :math:`O` notation, of
 operations on abstract data types will be known. Recall the definition
-of big 'O':
+of big :math:`O`:
 
 .. _bigO:
 
@@ -311,6 +327,7 @@ data structure.
        :caption: A poorly designed stack implementation in which push and pop cost
                  :math:`O(n)` operations, where :math:`n` is the current
                  number of objects on the stack.
+       :linenos:
 
        class BadStack:
            def __init__(self):
@@ -327,15 +344,18 @@ data structure.
            def peek(self):
                return self.data[-1]
 
-:numref:`bigO` is a particular case of the big `O` notation, which you
-may already have seen in numerical analysis. However, there the limit
-is taken as the independent variable approaches 0. This difference of
-context between computer science and numerical analysis is sometimes
-confusing, particularly since both disciplines conventionally leave
-out the limit. It's worth keeping in mind that the difference, because
-a numerical algorithm with :math:`O(h^4)` error is really rather good
-since `h` is small, but an algorithm with :math:`O(n^4)` cost is very
-expensive indeed!
+
+.. note::
+
+    :numref:`Definition %s <bigO>` is a particular case of the big `O` notation, which you may
+    already have seen in numerical analysis. The distinction is that in
+    analysing algorithmic complexity, the limit is taken as :math:`n` approaches
+    infinity, while in numerical analysis the independent variable approaches 0.
+    This difference between two closely related fields is often confusing,
+    particularly since both disciplines conventionally leave out the limit. It's
+    worth keeping in mind that the difference, because a numerical algorithm
+    with :math:`O(h^4)` error is really rather good since `h` is small, but an
+    algorithm with :math:`O(n^4)` cost is very expensive indeed!
 
 Amortised complexity and worst case complexity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -359,14 +379,18 @@ full does a further append operation cause Python to allocate more
 memory. The amount of memory allocated is approximately proportional
 to the current length of the list. That is, if the current list length
 is :math:`n` then the new memory allocation will be of size
-approximately :math:`kn` for some :math:`k>1`.
-
-.. note::
-
-   Need diagrams of how a dynamic array works here.
+approximately :math:`kn` for some :math:`k>1`. This concrete data structure is
+called a :term:`dynamic array`. :numref:`dynamicarray` illustrates its operation.
    
+.. _dynamicarray:
+
 .. graphviz::
-   :align: center
+    :caption: A dynamic array implementation of a :class:`list`. The existing
+        memory buffer is full, so when 11 is appended to the list, a larger
+        buffer is created and the whole list is copied into it. When 13 is
+        subsequently appended to the list, there is still space in the buffer so
+        it is not necessary to copy the whole list.
+    :align: center
 
     digraph dl {
     	bgcolor="#ffffff00" # RGBA (with alpha)
@@ -384,7 +408,7 @@ approximately :math:`kn` for some :math:`k>1`.
 	    		style="ellipse, dashed";
 	    		bgcolor="#CD5C5C";
 	    "node0" [
-	    label = "<f0> 2 | 3| 5| 7 |e<f1>"
+	    label = "<f0> 2 | 3| 5| 7 |e <f1>"
 	    shape = "record"
 	    ];
 	    }
@@ -394,27 +418,27 @@ approximately :math:`kn` for some :math:`k>1`.
 	    		bgcolor="#2E8B57";
 	    		
 	    "node1" [
-	    label = "<f0> 2 | 3| 5| 7 | <f1>| | | <f2>"
+	    label = "<f0> 2 | 3| 5| 7 | <f1> 11| | | <f2>"
 	    shape = "record"
 
 	    ];
+        }
+	    subgraph cluster_4 {
+	    		style="ellipse, dashed";
+	    		bgcolor="#2E8B57";
 	    
 	    "node3" [
 	    label = "<f0> 2 | 3| 5| 7| <f1> 11| <f2> 13| | <f3>"
 	    shape = "record"
 	    ];
 	    }
-		    
-	    "node0":f0 -> "node1":f0 [
-	    id = 0
-	    ];
 
-	    "node1":f0 -> "node3":f1 [
+	    "node0":f0 -> "node1":f0 [
 	    id = 2
 		label = "append 11"
 	    ];
 
-		"node1":f0 -> "node3":f2 [
+		"node1":f0 -> "node3":f0 [
 	    id = 2
 		label = "append 13"
 	    ];
@@ -451,43 +475,65 @@ contrast, the occasional list append operation is an example of the
 list has an amortised time complexity of :math:`O(1)` but a worst-case
 time complexity of :math:`O(n)`.
 
-.. note::
+We can use Python's :term:`introspection` capabilities to illustrate how the
+dynamic allocation of space for a list works as the list is appended. The
+:func:`sys.getsizeof` function returns the amount of computer memory that an
+object consumes. The function in :numref:`byte_size` uses this to diagnose the memory
+consumption of progressively longer lists, and :numref:`byte_size` demonstrates
+this.
 
-   Not sure if you want this? Shows the byte usage of the array. If so, 
-   I will update the IPython call numbers. 
-   
-.. code-block:: python
+.. _byte_size:
 
-	import sys
+.. code-block:: python3
+    :caption: Code to progressively lengthen a :class:`list` and observe the
+        impact on its memory consumption. This function is available as
+        :func:`example_code.linked_list.byte_size`.
+    :linenos:
 
-	def byteSize(n):
-		data = []
-		for i in range(n):
-		a = len(data)
-		b = sys.getsizeof(data)
-		print(f"Length:{a}; Size of bytes:{b}")
-		data.append(i)
-		
+    import sys
+
+    def byte_size(n):
+        """Print the size in bytes of lists up to length n."""
+        data = []
+        for i in range(n):
+            a = len(data)
+            b = sys.getsizeof(data)
+            print(f"Length:{a}; Size in bytes:{b}")
+            data.append(i)
+	
+.. _byte_size_demo:
+
 .. code-block:: ipython3
+    :caption: The memory consumption of lists of length 0 to 19. We can infer
+        that the list is reallocated at lengths 1, 5, 9, and 17.
 
-    In [1]: n = 10
-    In [2]: byteSize(n)
-   	Length:0; Size of bytes:72
-	Length:1; Size of bytes:104
-	Length:2; Size of bytes:104
-	Length:3; Size of bytes:104
-	Length:4; Size of bytes:104
-	Length:5; Size of bytes:136
-	Length:6; Size of bytes:136
-	Length:7; Size of bytes:136
-	Length:8; Size of bytes:136
-	Length:9; Size of bytes:200
-      
-Some more abstract data types
------------------------------
+    In [1]: from example_code.linked_list import byte_size
 
-Queue and deque
-~~~~~~~~~~~~~~~
+    In [2]: byte_size(20)
+    Length:0; Size in bytes:56
+    Length:1; Size in bytes:88
+    Length:2; Size in bytes:88
+    Length:3; Size in bytes:88
+    Length:4; Size in bytes:88
+    Length:5; Size in bytes:120
+    Length:6; Size in bytes:120
+    Length:7; Size in bytes:120
+    Length:8; Size in bytes:120
+    Length:9; Size in bytes:184
+    Length:10; Size in bytes:184
+    Length:11; Size in bytes:184
+    Length:12; Size in bytes:184
+    Length:13; Size in bytes:184
+    Length:14; Size in bytes:184
+    Length:15; Size in bytes:184
+    Length:16; Size in bytes:184
+    Length:17; Size in bytes:256
+    Length:18; Size in bytes:256
+    Length:19; Size in bytes:256
+
+
+Queues and deques
+-----------------
 
 A :term:`queue` is, like a :term:`stack`, an ordered sequence of
 objects. The difference is that the only accessible item in the
@@ -502,24 +548,61 @@ deque. Python's standard library contains the
 :class:`collections.deque` class, providing a simple and efficient
 implementation of a deque.
 
-
-Linked lists
+Ring buffers
 ~~~~~~~~~~~~
 
-One disadvantage of a deque (and hence of a stack or queue) is that
-inserting an object into the middle of the sequence is often an
-:math:`O(n)` operation, because on average half of the items in the
-sequence need to be shuffled to make space. A linked list provides a
-mechanism for avoiding this. A singly linked list is a collection of
-links. Each link contains a reference to a data item and a reference
-to the next link. Starting from the first link in a list, it is
-possible to move along the list by following the references to
-successive further links. A new item can be inserted at the current
-point in the list by creating a new link, pointing the link reference
-of the new link to the next link, and pointing the link reference of
-the current link to the new link.
+How might one go about implementing a deque? A dynamic array allows values to be
+appended with :math:`O(1)` complexity, but doesn't offer an efficient mechanism
+for prepending values. One might think that the natural solution for this would
+be to create a double-ended dynamic array: a buffer with spare space at each
+end. Unfortunately this is not optimally efficient in the case where the deque
+is used to implement a queue of approximately constant length. In that case,
+values are consistently added at one end of the data structure and removed from
+the other. Even in the case of a double-ended dynamic array, the buffer space at
+the append end of the queue will constantly run out, necessitating an expensive
+copy operation. The solution is to use a dynamic array, but to logically join up
+its ends, so that the first position in the buffer follows on from the last.
+Only in the case where all positions in the buffer are full will the buffer be
+reallocated. This data structure is called a ring buffer. 
+
+.. _ring_buffer:
+
+.. figure:: images/ring_buffer.*
+    
+    An implementation of a ring buffer, with queue
+    operations illustrating its operation. 
+
+:numref:`ring_buffer` shows a ring buffer being used as a queue. At each step,
+an object is appended to the end of the queue, or removed from its start. At
+step 7, the contents of the buffer wrap around: the queue at this stage contains
+`D, E, F`. At step 9 there is insufficient space in the buffer to append `G`, so
+new space is allocated and the buffer's contents copied to the start of the new
+buffer. 
+
+Linked lists
+------------
+
+One disadvantage of a deque (and hence of a stack or queue) is that inserting an
+object into the middle of the sequence is often an :math:`O(n)` operation,
+because on average half of the items in the sequence need to be shuffled to make
+space. A linked list provides a mechanism for avoiding this. A singly linked
+list is a collection of links. Each link contains a reference to a data item and
+a reference to the next link. Starting from the first link in a list, it is
+possible to move along the list by following the references to successive
+further links. A new item can be inserted at the current point in the list by
+creating a new link, pointing the link reference of the new link to the next
+link, and pointing the link reference of the current link to the new link.
+:numref:`linked_list_dia` shows this process, while :numref:`linked_list` shows
+a minimal implementation of a linked list in Python. Notice that there is no
+object for the list itself: a linked list is simply a linked set of links. Some
+linked list implementations do store an object for the list itself, in order to
+record convenient information such as the list length, but it's not strictly necessary.
+
+.. _linked_list_dia:
 
 .. graphviz::
+   :caption: Diagram of a linked list. A new link containing the value `F` is
+        being inserted between the link with value `C` and that with value `D`.
    :align: center
 
     digraph ll {
@@ -614,13 +697,10 @@ the current link to the new link.
 	   }
    }
 	
-.. note::
-
-   diagram of linked list insertion here.
-   
 .. code-block:: python3
    :caption: A simple singly linked list implementation.
    :name: linked_list
+   :linenos:
 
    class Link:
        def __init__(self, value, next=None):
@@ -634,7 +714,7 @@ the current link to the new link.
           self.next = link
 
 Linked lists tend to have advantages where data is sparse. For
-example, our implementation of a :class:`Polynomial` in
+example, our implementation of a :class:`~example_code.polynomial.Polynomial` in
 :numref:`objects` would represent :math:`x^{100} + 1` very
 inefficiently, with 98 zeroes. Squaring this polynomial would cause
 tens of thousands of operations, almost all of them on
@@ -651,12 +731,6 @@ A :term:`deque`, and therefore a :term:`stack` or a :term:`queue` can
 be implemented using a linked list, however the constant creation of
 new link objects is typically less efficient than implementations
 based on ring buffers.
-
-Sets
-~~~~
-
-Dictionaries
-~~~~~~~~~~~~
 
 .. _iterator_protocol:
 
@@ -687,13 +761,12 @@ example of abstraction in action: the user doesn't need to know or
 care how a particular container is implemented and therefore how to
 find all of its contents.
 
-There are two :term:`special methods <special method>` required for
-iteration. Neither take any arguments. The first, :meth:`~container.__iter__`,
-needs to be implemented by the container type. Its role is to return
-an object which implements iteration. This could be the container
-itself, or it could be a special iteration object (for example because
-it is necessary to store a number recording where the iteration is up
-to).
+There are two :term:`special methods <special method>` required for iteration.
+Neither take any arguments beyond the object itself. The first,
+:meth:`~container.__iter__`, needs to be implemented by the container type. Its
+role is to return an object which implements iteration. This could be the
+container itself, or it could be a special iteration object (for example because
+it is necessary to store a number recording where the iteration is up to).
 
 The object returned by :meth:`~container.__iter__` needs to itself implement
 :meth:`~iterator.__iter__` (for example it could simply `return self`). In
@@ -726,7 +799,9 @@ to keep track of the iteration.
 .. _iterating_linked_list:
 
 .. code-block:: python3
-    :caption: A simple linked list implementation that supports the iterator protocol.
+    :caption: A simple linked list implementation that supports the iterator
+        protocol.
+    :linenos:
 
     class Link:
         def __init__(self, value, next=None):
@@ -747,10 +822,10 @@ to keep track of the iteration.
         def __init__(self, link):
             self.here = link
 
-        def __iter__():
+        def __iter__(self):
             return self
 
-    def __next__(self):
+        def __next__(self):
             if self.here:
                 next = self.here
                 self.here = self.here.next
@@ -780,21 +855,36 @@ automatically:
    In [5]: tuple(linked_list)
    Out[5]: (1, 2, 3)
 
-.. note::
+Other abstract data types
+-------------------------
 
-   A simple iterator exercise would be to make an iterator which
-   returns the Fibonacci numbers. Obviously this iterator never
-   terminates!
- 
-.. note::
+Here we have introduced in some detail a few relatively simple abstract data
+types that illustrate the distinction between the mathematical properties of a
+type and the concrete details of its implementation. There are many other
+abstract data types, some of which you will have already met, and we will
+encouter a few more in this course. For context, here are a few other examples.
 
-   As a stack exercise, have the students implement a reverse Polish calculator.
+set
+    A set is an unordered collection of objects with the property that objects
+    that compare equal can only occur once in the set. Inserting or accessing a
+    set member is an :math:`O(1)` operation. Python provides the
+    :class:`set` built in class as an implementation.
 
-.. note::
+dictionary or map
+    A generalised function in which unique (up to equality) keys are mapped to
+    arbitrary values. Again, insertion and deletion cost :math:`O(1)`
+    operations. The Python :class:`dict` type is an implementation.
 
-   An exercise here should be to implement a deque using a ring
-   buffer, reallocating exponentially as it grows and shrinks, and
-   make it iterable.
+graph
+    A general relation between a set and itself defined by a set of values and a
+    set of edges, where each edge connects exactly two vertices. Graphs can be
+    used to describe very general relationships among data.
+
+tree
+    A particular sort of graph in which edges have a direction (a from and a to
+    node), and each node is the origin of at most one edge. Trees can be used to
+    describe many types of structured relationship. We will show how trees and
+    related structures can be used in symbolic maths in :numref:`trees`.
 
 Glossary
 --------
@@ -803,50 +893,182 @@ Glossary
     :sorted:
 
     abstract data type
-       A mathematical :term:`type`, defined independently of any
-       concrete implementation in code.
+        A mathematical :term:`type`, defined independently of any
+        concrete implementation in code. Contrast :term:`data structure`
 
     algorithmic complexity
-       A measure of the number of operations (time complexity) or
-       amount of storage (space complexity) required by an algorithm
-       or data structure. Algorithmic complexity is usually stated in
-       terms of a bound given in big 'O' notation.
+        A measure of the number of operations (time complexity) or
+        amount of storage (space complexity) required by an algorithm
+        or data structure. Algorithmic complexity is usually stated in
+        terms of a bound given in big 'O' notation.
 
     amortised complexity
-       The average complexity of an algorithm considered over a suitably
-       large number of invocations of that algorithm. Amortised
-       complexity takes into account circumstances where the worst case
-       complexity of an algorithm is known to occur only rarely.
+        The average complexity of an algorithm considered over a suitably
+        large number of invocations of that algorithm. Amortised
+        complexity takes into account circumstances where the worst case
+        complexity of an algorithm is known to occur only rarely.
+
+    data structure
+        The concrete implementation of a data type in code. The data structure
+        is the organisation of the actual information in the computer's memory
+        or on disk. Contrast :term:`abstract data type`.
 
     deque
-       A double ended queue. An :term:`abstract data type`
-       representing an ordered sequence in which objects can be added
-       or removed at either end. A deque is a generalisation of both a
-       :term:`stack` and a :term:`queue`.
+        A double ended queue. An :term:`abstract data type`
+        representing an ordered sequence in which objects can be added
+        or removed at either end. A deque is a generalisation of both a
+        :term:`stack` and a :term:`queue`.
+
+    dynamic array
+        A :term:`data structure` for efficiently storing a variable length
+        sequence of values. A fixed length piece of memory, called a buffer, is reserved for the
+        sequence. If the number of items exceeds the size of the buffer then a
+        larger buffer is reserved, the contents of the sequence are copied over,
+        and the original buffer is returned to the system.
 
     queue
     FIFO (first in, first out)
-       An :term:`abstract data type` representing an ordered sequence
-       of objects in which objects are accessed in the order in which
-       they were added.
+        An :term:`abstract data type` representing an ordered sequence
+        of objects in which objects are accessed in the order in which
+        they were added.
+
+    ring buffer
+        A generalisation of a :term:`dynamic array` in which two ends of the
+        memory buffer are considered connected in order to enable the sequence
+        to be efficiently lengthened or shortened at either end.
 
     separation of concerns
-       A design principle under which individual components each
-       address a specific well defined need and communicate through
-       well defined interfaces with other components. Separation of
-       concerns enables reasoning about one part of a problem
-       independently of other parts.
+        A design principle under which individual components each
+        address a specific well defined need and communicate through
+        well defined interfaces with other components. Separation of
+        concerns enables reasoning about one part of a problem
+        independently of other parts.
 
     stack
     LIFO (last in, first out)
-       An :term:`abstract data type` representing an ordered sequence
-       of objects, in which only the most recently added object can be
-       directly accessed.
+        An :term:`abstract data type` representing an ordered sequence
+        of objects, in which only the most recently added object can be
+        directly accessed.
 
     worst case complexity
-       An upper bound on the :term:`algorithmic complexity` of an
-       algorithm. Many algorithms have a relatively low algorithmic
-       complexity most of the times they are run, but for some inputs
-       are much more complex. :term:`amortised complexity` is a
-       mechanism for taking into account the frequency at which the
-       worst case complexity can be expected to occur.
+        An upper bound on the :term:`algorithmic complexity` of an
+        algorithm. Many algorithms have a relatively low algorithmic
+        complexity most of the times they are run, but for some inputs
+        are much more complex. :term:`amortised complexity` is a
+        mechanism for taking into account the frequency at which the
+        worst case complexity can be expected to occur.
+
+Exercises
+---------
+
+Obtain the :doc:`skeleton code for these exercises from GitHub classroom <not_released>`. 
+
+.. proof:exercise::
+
+    In this week's skeleton repository, create a :term:`package` called
+    :mod:`adt_examples` with a :term:`module` called
+    :mod:`adt_examples.fibonacci`. Create a class :class:`Fib` implementing the
+    iterator protocol which returns the Fibonacci numbers. In other words, the
+    following code should print the `Fibonacci` numbers under 100:
+
+    .. code-block:: python3
+
+        from adt_examples.fibonacci import Fib
+
+        for n in Fib():
+            print(n)
+            if n >= 100:
+                break
+
+    Obviously the Fibonacci sequence is infinite, so your iterator will never
+    raise :class:`StopIteration`.
+
+.. proof:exercise::
+
+    In this week's skeleton repository, create a :term:`module`
+    :mod:`adt_examples.rpcalc` containing a class :class:`RPCalc` implementing a
+    reverse Polish calculator. The calculator should have the following methods:
+
+    :obj:`push(n)`
+        This takes a single argument. If it is a number then it should be
+        pushed onto the calculator's internal stack. If it is a string for a
+        recognised operator, then the appropriate number of operands should be
+        popped from the internal stack, the result pushed back on the stack.
+        Your calculator should support the following operators: `"+"`, `"-"`,
+        `"*"`, `"/"`, `"sin"`, `"cos"`. The method should not return anything.
+
+    :meth:`pop`
+        This method, which takes no arguments, should pop the top item on the
+        internal stack and return it. 
+
+    :meth:`peek`
+        This method, which takes no arguments, should return the top item on the
+        internal stack without popping it.
+
+    :meth:`__len__`
+        This is the :meth:`~object.__len__` :term:`special method`, which takes no
+        arguments but returns the length of the object. In this case, the length
+        of the calculator is defined to be the number of items on its internal stack.
+
+.. proof:exercise::
+
+    In this week's skeleton repository, create a :term:`module`
+    :mod:`adt_examples.deque` containing a class :class:`Deque` implementing a
+    :term:`deque`. Your implementation should use a ring buffer implemented
+    as a Python list. When the :class:`Deque` is instantiated, the ring buffer
+    should have space for a few items. When it runs out of space it should
+    double in size. It should also halve in size when it drops to only about 40%
+    full. 
+
+    Implement the following methods:
+
+    :obj:`append(x)`
+        Append `x` to the end of the :class:`Deque`
+
+    :obj:`appendleft(x)`
+        Append `x` to the start of the :class:`Deque`
+    
+    :meth:`pop`
+        Remove the last item in the :class:`Deque` and return it. 
+
+    :meth:`popleft`
+        Remove the first item in the :class:`Deque` and return it.
+
+    :meth:`peek`
+        Return the last item in the :class:`Deque` without removing it.
+
+    :meth:`peekleft`
+        Return the first item in the :class:`Deque` without removing it.
+
+    :meth:`__len__`
+        The :meth:`~object.__len__` :term:`special method`. This should return
+        the number of items currently in the :class:`Deque`.
+
+    :meth:`_size`
+        This should return the current length of the ring buffer, including both
+        occupied and empty spaces.
+
+    In addition to the above methods, you should ensure that :class:`Deque`
+    implements the iterator protocol. This should return the items in the queue,
+    starting from the end, and working backwards. Iterating over the
+    :class:`Deque` should not modify the :class:`Deque`.
+
+    .. hint::
+
+        You can create a list of length 10 (for example) containing only
+        :data:`None` using the following syntax:
+
+        .. code-block:: python3
+
+            l = [None] * 10
+
+    .. hint::
+
+        When removing an item from the :class:`Deque`, it is important to
+        actually overwrite the place in the ring buffer occupied by that item,
+        perhaps with `None`. Failing to do so can cause a program to "leak"
+        memory (i.e. fail to free memory that is no longer needed).
+
+    .. note::
+
+        You may not use :class:`collections.deque` to implement this exercise.

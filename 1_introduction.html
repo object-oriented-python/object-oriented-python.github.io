@@ -19,7 +19,7 @@
     <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2. Programs in files" href="1_programs_in_files.html" />
+    <link rel="next" title="2. Programs in files" href="2_programs_in_files.html" />
     <link rel="prev" title="Object oriented programming in Python for mathematicians" href="index.html" />
 <!--[if lte IE 6]>
 <link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
@@ -37,7 +37,7 @@
   <div id="access">
     <div class="menu">
       <ul>
-          <li class="page_item"><a href="https://github.com/finite-element/finite-element-course" title="GitHub">GitHub</a></li>
+          <li class="page_item"><a href="https://github.com/object-oriented-python/object-oriented-programming" title="GitHub">GitHub</a></li>
       </ul>
     </div><!-- .menu -->
   </div><!-- #access -->
@@ -99,7 +99,7 @@ understand, easier to debug and easier to extend. Indeed, as with
 abstraction in mathematics, abstraction in coding is a form of
 constructive laziness: it simultaneously allows the mathematician to
 achieve more and do less work.</p>
-<p>This course is a second course in programming, building a previously
+<p>This is a second course in programming, building a previously
 acquired basic understanding of programming in Python. In covering
 more advanced programming, we will pay particular attention to objects
 and abstraction as they occur in Python. Furthermore, we will do so
@@ -122,15 +122,16 @@ we run through the same cycle:</p>
 </ol>
 <div class="section" id="the-notes">
 <h3><span class="section-number">1.1.1. </span>The notes<a class="headerlink" href="#the-notes" title="Permalink to this headline">¶</a></h3>
-<p>All of the new material we cover in this course is presented in the notes. They
-always the starting point for your work. Each chapter will introduce new
-concepts in programming, often tied back to related mathematical concepts, and
-always illustrated by practical code examples. Python has excellent <a class="reference external" href="https://docs.python.org/3/">official
-online documentation</a>, and we link to that
-throughout the text. External links show up in orange while <a class="reference internal" href="#introduction"><span class="std std-ref">internal links
-to other parts of the notes</span></a> are red. Sometimes we introduce
-counterexamples: illustrations of code errors or bad implementation ideas. These
-will be flagged with a big red cross:</p>
+<p>All of the new material we cover in this course is presented in these notes.
+Each chapter contains the material for one week of term, so in week <span class="math notranslate nohighlight">\(n\)</span>,
+you work through chapter <span class="math notranslate nohighlight">\(n\)</span>. The notes always the starting point for your work.
+Each chapter will introduce new concepts in programming, often tied back to
+related mathematical concepts, and always illustrated by practical code
+examples. Python has excellent <a class="reference external" href="https://docs.python.org/3/">official online documentation</a>, and we link to that throughout the text.
+External links show up in orange while <a class="reference internal" href="#introduction"><span class="std std-ref">internal links to other parts of
+the notes</span></a> are red. Sometimes we introduce counterexamples:
+illustrations of code errors or bad implementation ideas. These will be flagged
+with a big red cross:</p>
 <div class="badcode docutils container">
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s2">&quot;Hello World&quot;</span>
 </pre></div>
@@ -150,9 +151,8 @@ you have understood the chapter as a whole. However, there is more to learning
 new concepts than just the vocabulary, so don’t be tempted to skip reading the
 chapter and just jump to the glossary!</p>
 <p>The chapters broadly alternate between introducing new programming concepts,
-such as <a class="reference internal" href="2_objects.html#objects"><span class="std std-ref">objects</span></a>, <a class="reference internal" href="4_abstract_data_types.html#abstract-data-types"><span class="std std-ref">abstract data types</span></a>, or <a class="reference internal" href="6_inheritance.html#inheritance"><span class="std std-ref">inheritance</span></a>, and
-covering various aspects of the craft of programming, such as <a class="reference internal" href="6_inheritance.html#inheritance"><span class="std std-ref">style</span></a> and
-<a class="reference internal" href="7_debugging.html#debugging"><span class="std std-ref">debugging</span></a>. In this way the course combines specific programming knowledge
+such as <a class="reference internal" href="3_objects.html#objects"><span class="std std-ref">objects</span></a>, <a class="reference internal" href="5_abstract_data_types.html#abstract-data-types"><span class="std std-ref">abstract data types</span></a>, or <a class="reference internal" href="8_inheritance.html#inheritance"><span class="std std-ref">inheritance</span></a>, and
+covering various aspects of the craft of programming, such as <a class="reference internal" href="8_inheritance.html#inheritance"><span class="std std-ref">style</span></a> and <a class="reference internal" href="9_debugging.html#debugging"><span class="std std-ref">debugging</span></a>. In this way the course combines specific programming knowledge
 with more general coding skills.</p>
 </div>
 <div class="section" id="the-videos">
@@ -181,23 +181,39 @@ writing code. The core of each week’s activities is therefore to put the new
 concepts and programming structures you’ve learned into practice. The
 programming exercises are given at the end of each chapter, just before the
 glossary. Each time there will be a skeleton code available from
-ref:<code class="xref py py-obj docutils literal notranslate"><span class="pre">GitHub</span> <span class="pre">Classroom</span></code> which provides the starting
+<a class="reference external" href="https://imperial-fons-computing.github.io/git.html#github-classroom-exercise" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">GitHub Classroom</span></a> which provides the starting
 point. Sometimes you might be asked to complete a piece of code while on other
 occasions you’ll need to write a whole Python module from scratch. Each set of
 exercises will come with a matching set of tests. These are small programs which
 check whether your code produces the correct responses to a range of inputs.
 Tests like this provide immediate feedback and enable you to know how you are
 doing without having to wait for code to be submitted and marked.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Solutions to exercises will not be issued. The notes and accompanying
+example code contain examples of the same programming constructs that the
+exercises require you to implement, and the tests provide a mechanism to
+know when you have a correct answer. There are also help mechanisms via the
+course forum and the lab sessions. Issuing solutions to problems would
+simply encourage students to study the solutions rather than write code, and
+the only way to learn to program is to write code.</p>
+</div>
 </div>
 <div class="section" id="assessment">
 <h3><span class="section-number">1.1.5. </span>Assessment<a class="headerlink" href="#assessment" title="Permalink to this headline">¶</a></h3>
 <p>The weekly quiz and exercises are not assessable: they are formative activities
 designed to help you learn the module. Instead, the module will be assessed by
-two controlled programming assessments, effectively programming exams. The
-instructions and skeleton code for these will be released at a fixed time on
-GitHub Classroom, and the code which you have committed to GitHub by the end of
-the allotted time will be marked.</p>
-<p>The programming exercises will be similar to the weekly exercises in the course,
+two controlled programming assessments, effectively programming exams. The first
+programming assessment will be held in week 7 and will be worth 20% of the
+marks for the course. This provides an opportunity to receive feedback in the
+middle of the term, and is a practice for the main exam. The <a class="reference internal" href="7_midterm.html#midterm"><span class="std std-ref">course contents for
+week 7</span></a> will comprise practice programming exercises for this midterm test.
+The second programming assessment will be held in the main May exam period and
+will count for the other 80% of the course.</p>
+<p>The instructions and skeleton code for the programming exercises will be
+released at a fixed time on GitHub Classroom, and the code which you have
+committed to GitHub by the end of the allotted time will be marked.</p>
+<p>The exam questions will be similar to the weekly exercises in the course,
 and may include new programmes to write from specification, modifications or
 extensions to be made to code which is provided, and debugging exercises in
 which defective code is provided which you need to correct. Marks will be
@@ -254,7 +270,7 @@ receive marks for test answers that are not committed and pushed.</p>
 <h3><span class="section-number">1.2.3. </span>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permalink to this headline">¶</a></h3>
 <p>Visual Studio Code is a Python-aware Integrated Development Environment (IDE).
 This means that it incorporates editing files with other programming features
-such as <a class="reference internal" href="7_debugging.html#debugging"><span class="std std-ref">Debugging and testing</span></a>, Git support, and built-in <a class="reference external" href="https://imperial-fons-computing.github.io/terminal.html#terminal-vscode" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">terminal</span></a>. Visual Studio Code also provides an incredibly useful remote
+such as <a class="reference internal" href="9_debugging.html#debugging"><span class="std std-ref">Debugging and testing</span></a>, Git support, and built-in <a class="reference external" href="https://imperial-fons-computing.github.io/terminal.html#terminal-vscode" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">terminal</span></a>. Visual Studio Code also provides an incredibly useful remote
 collaborative coding feature called Live Share. This will be very useful for
 getting remote help from an instructor.</p>
 </div>
@@ -308,7 +324,7 @@ divided into categories:</p>
 <dt>relevant system information</dt><dd><p>The key word here is <em>relevant</em>. For example if you’re having trouble running
 Python itself, then which Python you installed on which operating system is
 very relevant. On the other hand if Python is running just fine but you’re
-hitting an <a class="reference internal" href="5_exceptions.html#term-exception"><span class="xref std std-term">exception</span></a> that you don’t understand, then it probably
+hitting an <a class="reference internal" href="6_exceptions.html#term-exception"><span class="xref std std-term">exception</span></a> that you don’t understand, then it probably
 doesn’t matter which operating system you are running.</p>
 </dd>
 <dt>which code failed</dt><dd><p>Were you working on a particular exercise, which one? How would the helper
@@ -318,7 +334,7 @@ to the code you actually ran, so they will be flying blind. Avoid attaching
 large amounts of code to issues, it’s difficult for helpers to work with, or
 even to run in exactly the same way you did. It’s much better to be able to
 point to a complete repository. Of course an even better approach is to construct a
-<span class="xref std std-ref">minimal failing example</span>.</p>
+<a class="reference internal" href="9_debugging.html#debugging-mfe"><span class="std std-ref">minimal failing example</span></a>.</p>
 </dd>
 <dt>what did you actually do?</dt><dd><p>This is one point where running code from the terminal is a major advantage,
 because you can simply copy and paste everything you typed into the issue.
@@ -332,6 +348,15 @@ on!</p>
 <p>It’s important that the description of what you did is strictly a factual
 historical record. This is not the time to speculate about what you think is
 going wrong, we’ll get to that bit. Here you’re strictly repeating what you did.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please avoid posting substantially complete solutions to programming
+exercises into the course forum. Instead, ensure that you have <a class="reference external" href="https://imperial-fons-computing.github.io/git.html#commit-push" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">pushed
+your work to Github</span></a>, and then post the <a class="reference external" href="https://imperial-fons-computing.github.io/git.html#git-hash" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">git commit
+hash</span></a>. This will enable the lecturer or TA to find your
+code. It is still important to include all of the other components of the
+issue report.</p>
+</div>
 </div>
 <div class="section" id="observed-result">
 <h3><span class="section-number">1.3.4. </span>Observed result<a class="headerlink" href="#observed-result" title="Permalink to this headline">¶</a></h3>
@@ -509,30 +534,30 @@ there are many resources about Markdown available online. <a class="reference ex
 information, might be written in Markdown as follows. The title, which we omit
 from the Markdown because it would be typed in a separate box on Piazza, might
 be something like “Python square function returns wrong answer.”</p>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>I wrote a function to square its input. I expected to see the
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>I wrote a function to square its input. I expected to see the
 square of the input but I see the wrong answer.
 
-The following code is in the file `square.py`:
+The following code is in the file <span class="sb">`square.py`</span>:
 
-```python3
-def square(x):
-    return x^2
-```
+<span class="s">```python3</span>
+<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span>
+<span class="s">```</span>
 
 I try out this function in iPython and observe the wrong answers:
 
-```ipython3
-In [1]: from square import square
+<span class="s">```ipython3</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">square</span> <span class="kn">import</span> <span class="n">square</span>
 
-In [2]: square(2)
-Out[2]: 0
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="mi">0</span>
 
-In [3]: square(3)
-Out[3]: 1
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">square</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="mi">1</span>
 
-In [4]: square(4)
-Out[4]: 6
-```
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">square</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="mi">6</span>
+<span class="s">```</span>
 
 I would expect to see 4, 9, 16 respectively. I do not understand what is
 going wrong.
@@ -551,6 +576,11 @@ problem is?</p>
 </div>
 <div class="section" id="exercises">
 <h2><span class="section-number">1.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p>This week’s exercises are designed to ensure that you are set up with the core
+tools that you will need for the rest of the module. Exceptionally, there is no
+quiz this week as we haven’t yet started with the substantive contents of the
+module. Nonetheless, this week’s exercises are an important baseline. Skipping
+them is likely to result in you having to play catchup in the coming weeks.</p>
 <div class="proof proof-type-exercise" id="id1">
 
     <div class="proof-title">

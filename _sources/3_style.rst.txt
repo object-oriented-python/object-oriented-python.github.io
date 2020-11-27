@@ -631,24 +631,24 @@ Use the fact that every object is True or False
 Every Python object is logically either :data:`True` or :data:`False` according to the
 following rules:
 
-1. None is False.
+1. :data:`None` is :data:`False`.
 
-2. Zero is False, all other numerical values are True.
+2. Zero is :data:`False`, all other numerical values are :data:`True`.
 
-3. An empty collection is False, any other container is true. For
-   example, an empty list is False, but the list `[0, 0]` is True.
+3. An empty collection is :data:`False`, any other container is :data:`True`. For
+   example, an empty list is :data:`False`, but the list `[0, 0]` is :data:`True`.
 
-4. The null string `""` is False, a string containing any characters is True.
+4. The null string `""` is :data:`False`, a string containing any characters is :data:`True`.
 
-5. A user-defined class is True unless:
+5. A user-defined class is :data:`True` unless:
 
    a. It defines the :meth:`~object.__bool__` :term:`special
       method`. In this case the truth value is whatever this method
       returns.
 
    b. It doesn't define :meth:`~object.__bool__` but does define
-      :meth:`~object.__len__`. In this case the object is False if the
-      length is zero, and True otherwise.
+      :meth:`~object.__len__`. In this case the object is :data:`False` if the
+      length is zero, and :data:`True` otherwise.
 
 These rules are laid out formally in :ref:`the Python documentation
 <truth>`. One way that they can be used to write simpler, clearer code
@@ -745,6 +745,39 @@ justifiable to include a comment about *why* a particular approach is
 taken. For example, it might be worth commenting why an apparently
 simpler alternative strategy is actually invalid.
 
+PEP8 rules for comments
+.......................
+
+Comments start with a single :file:`#` followed by a single space. 
+:term:`Inline comments` are separated from the code by at least two spaces.
+
+.. container:: badcode
+
+    .. code-block:: python3
+
+        self.count += 1# No space between code and comment.
+
+        self.count += 1  #No space between # and comment text.
+
+.. container:: goodcode
+
+    .. code-block:: python3
+
+        self.count += 1  # Two spaces before #, one after.
+
+Each line of a block comment starts with a single :file:`#` indented to the same level as a
+normal line of code. The :file:`#` is followed by a single space, unless a
+particular piece of comment should be indented with respect to the paragraph it
+is in, in which case additional spaces are allowed.
+
+.. container:: goodcode
+
+    .. code-block:: python3
+
+        if somecondition(data):
+            # Comment indented to the same level as the contents of the if
+            # block.
+
 
 Docstrings
 ----------
@@ -804,13 +837,57 @@ Where to use docstrings
 
 Every public module, class, function, and method should have a docstring.
 "Public" in this context means any code which is intended to be accessed from
-outside the module in which it is defined.
+outside the :ref:`module <modules>` in which it is defined.
 
 Docstring conventions
 .....................
 
+Python itself doesn't know anything about docstring contents, it will simply
+display the docstring when you ask for help. However, other tools such as those
+that generate websites from documentation depend on you following the
+conventions.
 
+By convention, docstrings are delimited by three double quote characters. 
 
+Short docstrings
+................
+
+Simple functions which take one or two arguments can be documented with a single
+line docstring which simply says what the function does. The Fibonacci example above
+is a typical case. The single line should be an imperative sentence and end with
+a full stop.
+
+.. container:: badcode
+
+    .. code-block:: python3
+
+        def fib(n):
+            "Return the n-th Fibonacci number" # Single quotes, missing full stop.
+
+        def fib(n):
+            """Returns the n-th Fibonacci number.""" # Sentence not imperative.
+
+        def fib(n):
+            """fib(n)
+            Return the n-th Fibonacci number.""" # Don't include the function signature.
+
+Long docstrings
+...............
+
+Conversely, a more complex object will require much more information in its
+docstring. Consider :func:`numpy.array` (click on the link for the documentation). The web documentation,
+also generated from the docstring, needs to cover 5 parameters, and detail the
+return type. It also contains several examples, references to other functions,
+and an explanatory note. This is an example of very good documentation.
+
+There is no official standard for the layout of a long docstring, but there are
+two project or institution-based conventions that are recognised by the web
+documentation system. One from `Google
+<https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings>`__
+and the other from the `Numpy
+<https://numpydoc.readthedocs.io/en/latest/format.html>`__ project. You should
+consistently use one of these styles across a whole project. Clearly if you are
+contributing code to an existing project then you should follow their style.
 
 
 Glossary
@@ -819,10 +896,22 @@ Glossary
  .. glossary::
     :sorted:
 
+    block comment
+        A comment which is the only text on one or more lines of code. Block
+        comments are typically used to describe the code that follows them.
+
+    docstring
+        A literal :class:`string <str>` included at the start of a module, class or
+        function which documents that code object.
+
     function signature
         The signature of a function is the name of the function and the
         arguments that it takes. The function signature is the basic information
         needed in order to know how to call that function.
+
+    inline comment
+        A comment which follows active code on a line. Inline comments are used
+        to make a very brief clarification of the code on that line.
 
     modularity
        The design principle that programs should be broken into small,
@@ -832,6 +921,15 @@ Glossary
     parsimony
        The design principle that unnecessary code, names, and objects
        should be avoided.
+
+Exercises
+---------
+
+.. note::
+
+    TBC. We don't actually want a whole week of exercises on style. We want to do
+    more creation of classes and objects, but somehow requiring nontrivial
+    compliance with style rules.
 
 .. rubric:: Footnotes
 

@@ -35,7 +35,7 @@
   <div id="access">
     <div class="menu">
       <ul>
-          <li class="page_item"><a href="https://github.com/finite-element/finite-element-course" title="GitHub">GitHub</a></li>
+          <li class="page_item"><a href="https://github.com/object-oriented-python/object-oriented-programming" title="GitHub">GitHub</a></li>
       </ul>
     </div><!-- .menu -->
   </div><!-- #access -->
@@ -66,24 +66,22 @@
         <span class="n">coefs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span>
         <span class="n">terms</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="c1"># It is conventional to omit factors of 1.</span>
-        <span class="n">str1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-
-        <span class="c1"># Process the higher degree terms in reverse order.</span>
-        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">(),</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">coefs</span><span class="p">[</span><span class="n">d</span><span class="p">]:</span>
-                <span class="n">terms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">str1</span><span class="p">(</span><span class="n">coefs</span><span class="p">[</span><span class="n">d</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;x^&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
-        <span class="c1"># Degree 1 and 0 terms conventionally have different representation.</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">coefs</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
-            <span class="n">terms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">str1</span><span class="p">(</span><span class="n">coefs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>
+        <span class="c1"># Degree 0 and 1 terms conventionally have different representation.</span>
         <span class="k">if</span> <span class="n">coefs</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
             <span class="n">terms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">coefs</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">coefs</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">terms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">coefs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">x&quot;</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="s2">&quot; + &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">terms</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">&quot;0&quot;</span>
+        <span class="c1"># Remaining terms look like cx^d, though factors of 1 are dropped.</span>
+        <span class="n">terms</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">c</span><span class="si">}</span><span class="s2">x^</span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">&quot;</span>
+                  <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">coefs</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">start</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">c</span><span class="p">]</span>
+
+        <span class="c1"># Sum polynomial terms from high to low exponent.</span>
+        <span class="k">return</span> <span class="s2">&quot; + &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">terms</span><span class="p">))</span> <span class="ow">or</span> <span class="s2">&quot;0&quot;</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-        <span class="k">return</span> <span class="s2">&quot;Polynomial(&quot;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
 
     <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 

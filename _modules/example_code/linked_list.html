@@ -35,7 +35,7 @@
   <div id="access">
     <div class="menu">
       <ul>
-          <li class="page_item"><a href="https://github.com/finite-element/finite-element-course" title="GitHub">GitHub</a></li>
+          <li class="page_item"><a href="https://github.com/object-oriented-python/object-oriented-programming" title="GitHub">GitHub</a></li>
       </ul>
     </div><!-- .menu -->
   </div><!-- #access -->
@@ -48,7 +48,10 @@
           <div class="body" role="main">
             
   <h1>Source code for example_code.linked_list</h1><div class="highlight"><pre>
-<div class="viewcode-block" id="Link"><a class="viewcode-back" href="../../example_code.html#example_code.linked_list.Link">[docs]</a><span></span><span class="k">class</span> <span class="nc">Link</span><span class="p">:</span>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+
+<div class="viewcode-block" id="Link"><a class="viewcode-back" href="../../example_code.html#example_code.linked_list.Link">[docs]</a><span class="k">class</span> <span class="nc">Link</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">next</span>
@@ -67,7 +70,7 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">here</span> <span class="o">=</span> <span class="n">link</span>
 
-    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span>
 
     <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -77,6 +80,16 @@
             <span class="k">return</span> <span class="nb">next</span><span class="o">.</span><span class="n">value</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">StopIteration</span></div>
+
+
+<div class="viewcode-block" id="byte_size"><a class="viewcode-back" href="../../example_code.html#example_code.linked_list.byte_size">[docs]</a><span class="k">def</span> <span class="nf">byte_size</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print the size in bytes of lists up to length n.&quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Length:</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">; Size in bytes:</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span></div>
 </pre></div>
 
             <div class="clearer"></div>

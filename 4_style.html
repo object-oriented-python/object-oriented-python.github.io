@@ -19,8 +19,8 @@
     <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. Abstract data types" href="4_abstract_data_types.html" />
-    <link rel="prev" title="3. Objects and abstraction" href="2_objects.html" />
+    <link rel="next" title="5. Abstract data types" href="5_abstract_data_types.html" />
+    <link rel="prev" title="3. Objects and abstraction" href="3_objects.html" />
 <!--[if lte IE 6]>
 <link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
 <![endif]-->
@@ -37,7 +37,7 @@
   <div id="access">
     <div class="menu">
       <ul>
-          <li class="page_item"><a href="https://github.com/finite-element/finite-element-course" title="GitHub">GitHub</a></li>
+          <li class="page_item"><a href="https://github.com/object-oriented-python/object-oriented-programming" title="GitHub">GitHub</a></li>
       </ul>
     </div><!-- .menu -->
   </div><!-- #access -->
@@ -449,14 +449,50 @@ addition that exceptions that designate errors should end in
 lower case, with underscores separating words. Even proper nouns are
 usually spelt with lower case letters to avoid being confused with
 class names.</p>
+<div class="badcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Euler</span>  <span class="c1"># Don&#39;t capitalise function names.</span>
+<span class="n">MaxRadius</span> <span class="o">=</span> <span class="mf">10.</span>  <span class="c1"># No CamelCase.</span>
+</pre></div>
+</div>
+</div>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">euler</span>  <span class="c1"># Lower case, even for names.</span>
+<span class="n">max_radius</span> <span class="o">=</span> <span class="mf">10.</span>  <span class="c1"># Separate words with _.</span>
+</pre></div>
+</div>
+</div>
 </dd>
-<dt>method parameters</dt><dd><p>The first parameter to an instance method is the class
+<dt>method parameters</dt><dd><p>The first parameter to an <a class="reference internal" href="3_objects.html#term-instance-method"><span class="xref std std-term">instance method</span></a> is the class
 itself. <em>Always and without exception</em> name this parameter <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>.</p>
+<div class="badcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
 </dd>
 <dt>non-public methods and attributes</dt><dd><p>If a method or attribute is not intended to be directly accessed
 from outside the class, it should have a name starting with an
 underscore. This provides a clear distinction between the public
 interface of a class and its internal implementation.</p>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">_internal_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg1</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
 </dd>
 </dl>
 </div>
@@ -534,7 +570,7 @@ to seven. You could write this in 5 difficult to understand lines:</p>
 </pre></div>
 </div>
 </div>
-<p>Much better would be to write a single more abstract but simpler line:</p>
+<p>It would be much better to write a single more abstract but simpler line:</p>
 <div class="goodcode docutils container">
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9999</span><span class="p">)</span> <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">num</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">))]</span>
 </pre></div>
@@ -645,19 +681,19 @@ understanding.</p>
 <p>Every Python object is logically either <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">True</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">False</span></code></a> according to the
 following rules:</p>
 <ol class="arabic simple">
-<li><p>None is False.</p></li>
-<li><p>Zero is False, all other numerical values are True.</p></li>
-<li><p>An empty collection is False, any other container is true. For
-example, an empty list is False, but the list <code class="xref py py-obj docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0]</span></code> is True.</p></li>
-<li><p>The null string <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> is False, a string containing any characters is True.</p></li>
-<li><p>A user-defined class is True unless:</p>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">None</span></code></a> is <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">False</span></code></a>.</p></li>
+<li><p>Zero is <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">False</span></code></a>, all other numerical values are <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">True</span></code></a>.</p></li>
+<li><p>An empty collection is <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">False</span></code></a>, any other container is <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">True</span></code></a>. For
+example, an empty list is <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">False</span></code></a>, but the list <code class="xref py py-obj docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0]</span></code> is <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">True</span></code></a>.</p></li>
+<li><p>The null string <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> is <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">False</span></code></a>, a string containing any characters is <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">True</span></code></a>.</p></li>
+<li><p>A user-defined class is <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">True</span></code></a> unless:</p>
 <ol class="loweralpha simple">
-<li><p>It defines the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__bool__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__bool__()</span></code></a> <a class="reference internal" href="2_objects.html#term-special-method"><span class="xref std std-term">special
+<li><p>It defines the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__bool__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__bool__()</span></code></a> <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special
 method</span></a>. In this case the truth value is whatever this method
 returns.</p></li>
 <li><p>It doesn’t define <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__bool__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__bool__()</span></code></a> but does define
-<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__len__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></a>. In this case the object is False if the
-length is zero, and True otherwise.</p></li>
+<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__len__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></a>. In this case the object is <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">False</span></code></a> if the
+length is zero, and <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">True</span></code></a> otherwise.</p></li>
 </ol>
 </li>
 </ol>
@@ -701,8 +737,8 @@ it may be possible to bundle up the repeated code in a function or class, and to
 encode the differences between versions in the <a class="reference external" href="https://docs.python.org/3/glossary.html#term-parameter" title="(in Python v3.9)"><span class="xref std std-term">parameters</span></a> to
 the function or class constructor. If the differences between the versions of
 the code require different code, as opposed to different values of some
-quantities, then it may be possible to use <a class="reference internal" href="6_inheritance.html#term-inheritance"><span class="xref std std-term">inheritance</span></a> to avoid
-repetition. We will return to this in <a class="reference internal" href="6_inheritance.html#inheritance"><span class="std std-numref">Chapter 7</span></a>.</p>
+quantities, then it may be possible to use <a class="reference internal" href="8_inheritance.html#term-inheritance"><span class="xref std std-term">inheritance</span></a> to avoid
+repetition. We will return to this in <a class="reference internal" href="8_inheritance.html#inheritance"><span class="std std-numref">week 8</span></a>.</p>
 </div>
 </div>
 <div class="section" id="comments">
@@ -744,6 +780,34 @@ justifiable to include a comment about <em>why</em> a particular approach is
 taken. For example, it might be worth commenting why an apparently
 simpler alternative strategy is actually invalid.</p>
 </div>
+<div class="section" id="pep8-rules-for-comments">
+<h3><span class="section-number">4.6.3. </span>PEP8 rules for comments<a class="headerlink" href="#pep8-rules-for-comments" title="Permalink to this headline">¶</a></h3>
+<p>Comments start with a single <code class="file docutils literal notranslate"><span class="pre">#</span></code> followed by a single space.
+<span class="xref std std-term">Inline comments</span> are separated from the code by at least two spaces.</p>
+<div class="badcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="c1"># No space between code and comment.</span>
+
+<span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1">#No space between # and comment text.</span>
+</pre></div>
+</div>
+</div>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># Two spaces before #, one after.</span>
+</pre></div>
+</div>
+</div>
+<p>Each line of a block comment starts with a single <code class="file docutils literal notranslate"><span class="pre">#</span></code> indented to the same level as a
+normal line of code. The <code class="file docutils literal notranslate"><span class="pre">#</span></code> is followed by a single space, unless a
+particular piece of comment should be indented with respect to the paragraph it
+is in, in which case additional spaces are allowed.</p>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">somecondition</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="c1"># Comment indented to the same level as the contents of the if</span>
+    <span class="c1"># block.</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="docstrings">
 <h2><span class="section-number">4.7. </span>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">¶</a></h2>
@@ -755,15 +819,15 @@ point of a public interface is that the programmer using it should not
 have to concern themselves with how it is implemented. They should,
 therefore, not need to read the code in order to understand how to use
 it.</p>
-<p>The <a class="reference internal" href="1_programs_in_files.html#term-Python-interpreter"><span class="xref std std-term">Python interpreter</span></a> has special support for docstrings. When a user
-calls <a class="reference external" href="https://docs.python.org/3/library/functions.html#help" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">help()</span></code></a> on an <a class="reference external" href="https://docs.python.org/3/glossary.html#term-object" title="(in Python v3.9)"><span class="xref std std-term">object</span></a> (including a function or <a class="reference internal" href="2_objects.html#term-method"><span class="xref std std-term">method</span></a>)
+<p>The <a class="reference internal" href="2_programs_in_files.html#term-Python-interpreter"><span class="xref std std-term">Python interpreter</span></a> has special support for docstrings. When a user
+calls <a class="reference external" href="https://docs.python.org/3/library/functions.html#help" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">help()</span></code></a> on an <a class="reference external" href="https://docs.python.org/3/glossary.html#term-object" title="(in Python v3.9)"><span class="xref std std-term">object</span></a> (including a function or <a class="reference internal" href="3_objects.html#term-method"><span class="xref std std-term">method</span></a>)
 then any docstring on that object is used as the body of the resulting help
 message. Docstrings are also understood by the Python documentation generation
 system, <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>. This enables
 documentation webpages to be automatically generated from Python code. The
 Python documentation in this course is generated by this system. For example,
 recall that we met the function <a class="reference internal" href="fibonacci.html#fibonacci.fibonacci.fib" title="fibonacci.fibonacci.fib"><code class="xref py py-func docutils literal notranslate"><span class="pre">fib()</span></code></a>, which
-calculates Fibonacci numbers, in <a class="reference internal" href="1_programs_in_files.html#modules"><span class="std std-numref">Section 2.3</span></a>. We can ask
+calculates Fibonacci numbers, in <a class="reference internal" href="2_programs_in_files.html#modules"><span class="std std-numref">Section 2.3</span></a>. We can ask
 <a class="reference internal" href="fibonacci.html#fibonacci.fibonacci.fib" title="fibonacci.fibonacci.fib"><code class="xref py py-func docutils literal notranslate"><span class="pre">fib()</span></code></a> for its documentation:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">fibonacci</span>
 <span class="gp">In [2]: </span><span class="n">help</span><span class="p">(</span><span class="n">fibonacci</span><span class="o">.</span><span class="n">fib</span><span class="p">)</span>
@@ -778,7 +842,7 @@ calculates Fibonacci numbers, in <a class="reference internal" href="1_programs_
 </dl>
 </div></blockquote>
 <p>There is also a specific IPython help extension, which also works in Jupyter
-notebooks (because they are related projects). Appending a question mark
+notebooks (IPython and Jupyter are related projects). Appending a question mark
 <kbd class="kbd docutils literal notranslate">?</kbd> to an object name prints a slightly different version of the help information:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span>fibonacci.fib<span class="o">?</span>
 <span class="go">Signature: fibonacci.fib(n)</span>
@@ -795,19 +859,67 @@ manually add it to the docstring.</p>
 <h3><span class="section-number">4.7.1. </span>Where to use docstrings<a class="headerlink" href="#where-to-use-docstrings" title="Permalink to this headline">¶</a></h3>
 <p>Every public module, class, function, and method should have a docstring.
 “Public” in this context means any code which is intended to be accessed from
-outside the module in which it is defined.</p>
+outside the <a class="reference internal" href="2_programs_in_files.html#modules"><span class="std std-ref">module</span></a> in which it is defined.</p>
 </div>
 <div class="section" id="docstring-conventions">
 <h3><span class="section-number">4.7.2. </span>Docstring conventions<a class="headerlink" href="#docstring-conventions" title="Permalink to this headline">¶</a></h3>
+<p>Python itself doesn’t know anything about docstring contents, it will simply
+display the docstring when you ask for help. However, other tools such as those
+that generate websites from documentation depend on you following the
+conventions.</p>
+<p>By convention, docstrings are delimited by three double quote characters.</p>
+</div>
+<div class="section" id="short-docstrings">
+<h3><span class="section-number">4.7.3. </span>Short docstrings<a class="headerlink" href="#short-docstrings" title="Permalink to this headline">¶</a></h3>
+<p>Simple functions which take one or two arguments can be documented with a single
+line docstring which simply says what the function does. The Fibonacci example above
+is a typical case. The single line should be an imperative sentence and end with
+a full stop.</p>
+<div class="badcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="s2">&quot;Return the n-th Fibonacci number&quot;</span> <span class="c1"># Single quotes, missing full stop.</span>
+
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns the n-th Fibonacci number.&quot;&quot;&quot;</span> <span class="c1"># Sentence not imperative.</span>
+
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;fib(n)</span>
+<span class="sd">    Return the n-th Fibonacci number.&quot;&quot;&quot;</span> <span class="c1"># Don&#39;t include the function signature.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="long-docstrings">
+<h3><span class="section-number">4.7.4. </span>Long docstrings<a class="headerlink" href="#long-docstrings" title="Permalink to this headline">¶</a></h3>
+<p>Conversely, a more complex object will require much more information in its
+docstring. Consider <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.19)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.array()</span></code></a> (click on the link for the documentation). The web documentation,
+also generated from the docstring, needs to cover 5 parameters, and detail the
+return type. It also contains several examples, references to other functions,
+and an explanatory note. This is an example of very good documentation.</p>
+<p>There is no official standard for the layout of a long docstring, but there are
+two project or institution-based conventions that are recognised by the web
+documentation system. One from <a class="reference external" href="https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings">Google</a>
+and the other from the <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">Numpy</a> project. You should
+consistently use one of these styles across a whole project. Clearly if you are
+contributing code to an existing project then you should follow their style.</p>
 </div>
 </div>
 <div class="section" id="glossary">
 <h2><span class="section-number">4.8. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><dl class="glossary simple">
+<dt id="term-block-comment">block comment</dt><dd><p>A comment which is the only text on one or more lines of code. Block
+comments are typically used to describe the code that follows them.</p>
+</dd>
+<dt id="term-docstring">docstring</dt><dd><p>A literal <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">string</span></code></a> included at the start of a module, class or
+function which documents that code object.</p>
+</dd>
 <dt id="term-function-signature">function signature</dt><dd><p>The signature of a function is the name of the function and the
 arguments that it takes. The function signature is the basic information
 needed in order to know how to call that function.</p>
+</dd>
+<dt id="term-inline-comment">inline comment</dt><dd><p>A comment which follows active code on a line. Inline comments are used
+to make a very brief clarification of the code on that line.</p>
 </dd>
 <dt id="term-modularity">modularity</dt><dd><p>The design principle that programs should be broken into small,
 easily understandable units, which communicate with each other
@@ -818,6 +930,20 @@ should be avoided.</p>
 </dd>
 </dl>
 </div></blockquote>
+</div>
+<div class="section" id="exercises">
+<h2><span class="section-number">4.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use this example in the exercises or quiz:</p>
+<p>False if src_petsc4py_exists and args.honour_petsc_dir else True</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TBC. We don’t actually want a whole week of exercises on style. We want to do
+more creation of classes and objects, but somehow requiring nontrivial
+compliance with style rules.</p>
+</div>
 <p class="rubric">Footnotes</p>
 <dl class="footnote brackets">
 <dt class="label" id="pep"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
