@@ -6,10 +6,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2. Programs in files &#8212; Object oriented programming in Python for mathematicians 2020.0 documentation</title>
-    <link rel="stylesheet" href="_static/fenics.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/fenics.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -64,9 +67,84 @@ storing code: one which is accessible in more automated ways than
 typing in a web browser. As an introduction to writing code in files,
 we will first consider Python scripts. We’ll then move on to making
 code really reusable by creating Python modules and packages.</p>
+<div class="section" id="setting-up-a-python-environment-for-this-course">
+<h2><span class="section-number">2.1. </span>Setting up a Python environment for this course<a class="headerlink" href="#setting-up-a-python-environment-for-this-course" title="Permalink to this headline">¶</a></h2>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Video: setting up your virtual environment.<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/486546635"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+<p class="card-text">Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=011d73de-d93c-4dc8-8996-ac8501521b33">watch this video on Panopto</a></p>
+</div>
+</details><p>During this course, we’re going to create, edit, and install a whole bunch of
+Python packages. In order to have a predictable programming environment in which
+the experiments we’re doing don’t interfere with anything outside the course for
+which we might be using Python, and conversely to ensure that nothing we’ve
+installed elsewhere interferes with how we’re doing the course, we’ll do
+everything in a Python <a class="reference internal" href="#term-virtual-environment"><span class="xref std std-term">virtual environment</span></a>, or <a class="reference internal" href="#term-venv"><span class="xref std std-term">venv</span></a>. You should read up on Python
+virtual environments on the <a class="reference external" href="https://imperial-fons-computing.github.io/python.html#python-virtual-environments" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">Faculty of Natural Sciences Python installation
+page</span></a>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Don’t forget that you need to activate the venv in every new <a class="reference external" href="https://imperial-fons-computing.github.io/terminal.html#terminal" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">terminal</span></a> session.</p>
+</div>
+</div>
+<div class="section" id="installing-python-packages">
+<h2><span class="section-number">2.2. </span>Installing Python packages<a class="headerlink" href="#installing-python-packages" title="Permalink to this headline">¶</a></h2>
+<p>Suppose we’ve created and activated a venv, and now there’s a Python
+package we’d like to have access to. Installation of Python packages
+is handled by <a class="reference external" href="https://pip.pypa.io/en/stable/" title="(in pip v20.3)"><span>pip - The Python Package Installer</span></a>. Pip has many usage options, which
+enable a large number of different installation
+configurations. However, for most users most of the time, a few simple
+pip commands suffice. As with <a class="reference internal" href="#term-venv"><span class="xref std std-term">venv</span></a> creation, package
+installation is best accomplished from the terminal and not from
+within Python itself. Don’t forget to activate the venv!</p>
+<div class="section" id="installing-packages-from-pypi">
+<h3><span class="section-number">2.2.1. </span>Installing packages from PyPI<a class="headerlink" href="#installing-packages-from-pypi" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://pypi.org">PyPI</a> is the Python Package Index. It is the
+official download location for publicly released Python packages which
+aren’t themselves a part of the built-in <a class="reference external" href="https://docs.python.org/3/library/index.html" title="(in Python v3.9)"><span class="xref std std-doc">Python Standard Library</span></a>. Many important mathematical packages
+including <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.19)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://www.sympy.org">sympy</a> are
+distributed from PyPI. Suppose your venv doesn’t have <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.19)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>
+installed and you need it. You would install it with the following
+terminal command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(my_venv)</span> <span class="gp">$</span> python3 -m pip install numpy
+</pre></div>
+</div>
+<p>It is also possible to invoke pip directly using the command <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip3</span></code>,
+but there are some circumstances where that might result in pip using
+the wrong Python installation. The approach used here is safer.</p>
+<p>Python packages may depend on other Python packages, so it’s quite
+likely that pip will install more packages than those you directly
+asked for. This is necessary if those packages are to actually work.</p>
+<p>Pip can also be used to upgrade a package to the latest version:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(my_venv)</span> <span class="gp">$</span> python3 -m pip install --upgrade numpy
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="the-python-interpreter">
-<h2><span class="section-number">2.1. </span>The Python interpreter<a class="headerlink" href="#the-python-interpreter" title="Permalink to this headline">¶</a></h2>
-<p>Before we dive into the various different ways that Python code can be
+<h2><span class="section-number">2.3. </span>The Python interpreter<a class="headerlink" href="#the-python-interpreter" title="Permalink to this headline">¶</a></h2>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Video: a first Python script.<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/486557682"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+<p class="card-text">Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=0f9a50a0-59b4-4bdf-ab90-ac850154fafb">watch this video on Panopto</a></p>
+</div>
+</details><p>Before we dive into the various different ways that Python code can be
 organised and run, it’s helpful to have a mental model of what it
 actually means for Python code to execute. Python is an interpreted
 language. This means that the program that runs is not made up of the
@@ -92,7 +170,7 @@ something or responding to code in a particular way, what we mean is
 that this is what the interpreter does in those circumstances.</p>
 </div>
 <div class="section" id="python-scripts-and-text-editors">
-<h2><span class="section-number">2.2. </span>Python scripts and text editors<a class="headerlink" href="#python-scripts-and-text-editors" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.4. </span>Python scripts and text editors<a class="headerlink" href="#python-scripts-and-text-editors" title="Permalink to this headline">¶</a></h2>
 <p>A Python script is simply a plain text file containing Python code. If
 we pass the file to the Python interpreter, then all the code in the
 file will be executed, it’s that simple. So, we need a way to create
@@ -132,7 +210,7 @@ computer languages than others. Importantly, you can’t edit text files in a
 program such as Microsoft Word and expect to end up with something usable.</p>
 </div>
 <div class="section" id="a-first-python-script">
-<h3><span class="section-number">2.2.1. </span>A first Python script<a class="headerlink" href="#a-first-python-script" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.4.1. </span>A first Python script<a class="headerlink" href="#a-first-python-script" title="Permalink to this headline">¶</a></h3>
 <p>Tradition dictates that the first stand-alone program one writes in
 any language simply prints out the string <code class="xref py py-obj docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World</span></code>. Using a text
 editor, we create a file which we’ll call <code class="file docutils literal notranslate"><span class="pre">hello.py</span></code> containing just
@@ -169,7 +247,7 @@ our tiny Python script <code class="file docutils literal notranslate"><span cla
 </div>
 </div>
 <div class="section" id="when-to-use-scripts">
-<h3><span class="section-number">2.2.2. </span>When to use scripts<a class="headerlink" href="#when-to-use-scripts" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.4.2. </span>When to use scripts<a class="headerlink" href="#when-to-use-scripts" title="Permalink to this headline">¶</a></h3>
 <p>The key advantage of a script is that it is repeatable: it can be
 executed again, and exactly the same commands will execute. Writing
 scripts is an absolutely essential programming discipline in any
@@ -194,7 +272,7 @@ script stopped working. We will return to this debugging technique in
 <a class="reference internal" href="9_debugging.html#bisection-debugging"><span class="std std-numref">Section 9.2.2</span></a>.</p>
 </div>
 <div class="section" id="when-not-to-use-scripts">
-<h3><span class="section-number">2.2.3. </span>When not to use scripts<a class="headerlink" href="#when-not-to-use-scripts" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.4.3. </span>When not to use scripts<a class="headerlink" href="#when-not-to-use-scripts" title="Permalink to this headline">¶</a></h3>
 <p>The one thing that scripts can do is run. This makes them an
 exceptional tool for reproducing calculations. However, as
 mathematicians and programmers, we are also interested in building
@@ -210,7 +288,7 @@ shortly.</p>
 </div>
 </div>
 <div class="section" id="modules">
-<span id="id1"></span><h2><span class="section-number">2.3. </span>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2><span class="section-number">2.5. </span>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
 <p>A module is, like a script, a plain text file containing Python
 code. Modules must have names ending in <code class="file docutils literal notranslate"><span class="pre">.py</span></code>. So far, that’s
 identical to a script. Indeed, it’s sometimes possible (though not
@@ -245,7 +323,7 @@ contains. This is a key tool in building up algorithms out of
 components: we import the components we need at each stage of our
 programs.</p>
 <div class="section" id="importing-and-namespaces">
-<h3><span class="section-number">2.3.1. </span>Importing and namespaces<a class="headerlink" href="#importing-and-namespaces" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.5.1. </span>Importing and namespaces<a class="headerlink" href="#importing-and-namespaces" title="Permalink to this headline">¶</a></h3>
 <p>When we imported the module <a class="reference internal" href="fibonacci.html#module-fibonacci" title="fibonacci"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fibonacci</span></code></a>, this created the name
 <a class="reference internal" href="fibonacci.html#module-fibonacci" title="fibonacci"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fibonacci</span></code></a> in the current environment. The code in <code class="xref py py-obj docutils literal notranslate"><span class="pre">fibonacci.py</span></code> is
 then run, and any names defined in that code (such as the function
@@ -270,7 +348,7 @@ namespace for some operations that are built into Python numbers. The
 <p>Namespaces are a simple but fundamental concept in programming. To
 quote one of the key developers of the Python language:</p>
 <blockquote>
-<div><p>Namespaces are one honking great idea – let’s do more of those! <a class="footnote-reference brackets" href="#peters" id="id2">1</a></p>
+<div><p>Namespaces are one honking great idea – let’s do more of those! <a class="footnote-reference brackets" href="#peters" id="id3">1</a></p>
 </div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -287,7 +365,7 @@ numbers.</p>
 </div>
 </div>
 <div class="section" id="other-forms-of-import">
-<h3><span class="section-number">2.3.2. </span>Other forms of import<a class="headerlink" href="#other-forms-of-import" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.5.2. </span>Other forms of import<a class="headerlink" href="#other-forms-of-import" title="Permalink to this headline">¶</a></h3>
 <p>Importing modules into their own namespaces is frequently what we
 want: it clearly separates the names in the module from the names we
 have defined ourselves, and makes it very obvious to a reader where
@@ -347,7 +425,7 @@ is in <a class="reference external" href="https://docs.python.org/3/reference/si
 </div>
 </div>
 <div class="section" id="packages">
-<h2><span class="section-number">2.4. </span>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.6. </span>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h2>
 <p>Modules are the principal mechanism for storing code which is intended
 to be used by other code. However, putting all of the code for a
 complex area of mathematics in a single huge Python file is not a
@@ -393,7 +471,7 @@ name, then you would type:</p>
 <dt><code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code></dt><dd><p>Every package must contain a file with <em>exactly</em> this name. This is
 how Python recognises that a folder is a package. <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code>
 can be an empty file, or it can contain code to populate the top
-level <a class="reference internal" href="#term-namespace"><span class="xref std std-term">namespace</span></a> of the package. See <a class="reference internal" href="#importing-packages"><span class="std std-numref">Section 2.4.1</span></a> below.</p>
+level <a class="reference internal" href="#term-namespace"><span class="xref std std-term">namespace</span></a> of the package. See <a class="reference internal" href="#importing-packages"><span class="std std-numref">Section 2.6.1</span></a> below.</p>
 </dd>
 <dt><code class="file docutils literal notranslate"><span class="pre">module_1.py</span></code>, <code class="file docutils literal notranslate"><span class="pre">module_2.py</span></code></dt><dd><p>These are just Python <a class="reference internal" href="#term-module"><span class="xref std std-term">modules</span></a>. If the user imports
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">my_package</span></code> using the line above then these modules will appear
@@ -405,13 +483,13 @@ further subpackages.</p>
 </dd>
 <dt><code class="file docutils literal notranslate"><span class="pre">setup.py</span></code></dt><dd><p>This file is outside the package directory and is not
 actually a part of the package. The role of <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> will be
-covered in <a class="reference internal" href="#installable-packages"><span class="std std-numref">Section 2.4.2</span></a>.</p>
+covered in <a class="reference internal" href="#installable-packages"><span class="std std-numref">Section 2.6.2</span></a>.</p>
 </dd>
 </dl>
 <div class="section" id="importing-packages">
-<span id="id3"></span><h3><span class="section-number">2.4.1. </span>Importing packages<a class="headerlink" href="#importing-packages" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3><span class="section-number">2.6.1. </span>Importing packages<a class="headerlink" href="#importing-packages" title="Permalink to this headline">¶</a></h3>
 <p>The system for importing packages is the same as that described in
-<a class="reference internal" href="#modules"><span class="std std-numref">Section 2.3</span></a>, though the nested nature of packages makes the
+<a class="reference internal" href="#modules"><span class="std std-numref">Section 2.5</span></a>, though the nested nature of packages makes the
 process somewhat more involved. Importing a package also imports all
 the modules it contains, including those in subpackages. This will
 establish a set of nested namespaces. In the example above, after
@@ -454,7 +532,7 @@ have equivalently written:</p>
 reader that the import is from the current package.</p>
 </div>
 <div class="section" id="making-packages-installable">
-<span id="installable-packages"></span><h3><span class="section-number">2.4.2. </span>Making packages installable<a class="headerlink" href="#making-packages-installable" title="Permalink to this headline">¶</a></h3>
+<span id="installable-packages"></span><h3><span class="section-number">2.6.2. </span>Making packages installable<a class="headerlink" href="#making-packages-installable" title="Permalink to this headline">¶</a></h3>
 <p>In order for the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.9)"><span class="xref std std-ref">import statement</span></a> to work, Python needs
 to know that the package being imported exists, and where to find it. This is
 achieved by <em>installing</em> the package. In order to make a package installable, we
@@ -485,57 +563,8 @@ intend to use yourself. Should you wish to publish packages for use by
 other people, then you’ll need to add some more information to the
 file. The canonical guide to this is the <a class="reference external" href="https://packaging.python.org/tutorials/packaging-projects/">Python packaging user guide</a>.</p>
 </div>
-</div>
-<div class="section" id="setting-up-a-python-environment-for-this-course">
-<h2><span class="section-number">2.5. </span>Setting up a Python environment for this course<a class="headerlink" href="#setting-up-a-python-environment-for-this-course" title="Permalink to this headline">¶</a></h2>
-<p>During this course, we’re going to create, edit, and install a whole bunch of
-Python packages. In order to have a predictable programming environment in which
-the experiments we’re doing don’t interfere with anything outside the course for
-which we might be using Python, and conversely to ensure that nothing we’ve
-installed elsewhere interferes with how we’re doing the course, we’ll do
-everything in a Python <a class="reference internal" href="#term-virtual-environment"><span class="xref std std-term">virtual environment</span></a>, or <a class="reference internal" href="#term-venv"><span class="xref std std-term">venv</span></a>. You should read up on Python
-virtual environments on the <a class="reference external" href="https://imperial-fons-computing.github.io/python.html#python-virtual-environments" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">Faculty of Natural Sciences Python installation
-page</span></a>.</p>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Don’t forget that you need to activate the venv in every new <a class="reference external" href="https://imperial-fons-computing.github.io/terminal.html#terminal" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">terminal</span></a> session.</p>
-</div>
-</div>
-<div class="section" id="installing-python-packages">
-<h2><span class="section-number">2.6. </span>Installing Python packages<a class="headerlink" href="#installing-python-packages" title="Permalink to this headline">¶</a></h2>
-<p>Suppose we’ve created and activated a venv, and now there’s a Python
-package we’d like to have access to. Installation of Python packages
-is handled by <a class="reference external" href="https://pip.pypa.io/en/stable/" title="(in pip v20.2)"><span>pip - The Python Package Installer</span></a>. Pip has many usage options, which
-enable a large number of different installation
-configurations. However, for most users most of the time, a few simple
-pip commands suffice. As with <a class="reference internal" href="#term-venv"><span class="xref std std-term">venv</span></a> creation, package
-installation is best accomplished from the terminal and not from
-within Python itself. Don’t forget to activate the venv!</p>
-<div class="section" id="installing-packages-from-pypi">
-<h3><span class="section-number">2.6.1. </span>Installing packages from PyPI<a class="headerlink" href="#installing-packages-from-pypi" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://pypi.org">PyPI</a> is the Python Package Index. It is the
-official download location for publicly released Python packages which
-aren’t themselves a part of the built-in <a class="reference external" href="https://docs.python.org/3/library/index.html" title="(in Python v3.9)"><span class="xref std std-doc">Python Standard Library</span></a>. Many important mathematical packages
-including <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.19)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://www.sympy.org">sympy</a> are
-distributed from PyPI. Suppose your venv doesn’t have <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.19)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>
-installed and you need it. You would install it with the following
-terminal command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(my_venv)</span> <span class="gp">$</span> python3 -m pip install numpy
-</pre></div>
-</div>
-<p>It is also possible to invoke pip directly using the command <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip3</span></code>,
-but there are some circumstances where that might result in pip using
-the wrong Python installation. The approach used here is safer.</p>
-<p>Python packages may depend on other Python packages, so it’s quite
-likely that pip will install more packages than those you directly
-asked for. This is necessary if those packages are to actually work.</p>
-<p>Pip can also be used to upgrade a package to the latest version:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(my_venv)</span> <span class="gp">$</span> python3 -m pip install --upgrade numpy
-</pre></div>
-</div>
-</div>
 <div class="section" id="installing-a-package-from-local-code">
-<h3><span class="section-number">2.6.2. </span>Installing a package from local code<a class="headerlink" href="#installing-a-package-from-local-code" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.6.3. </span>Installing a package from local code<a class="headerlink" href="#installing-a-package-from-local-code" title="Permalink to this headline">¶</a></h3>
 <p>Another important case is where the Python package exists in files
 (hopefully a git repository!) on your local computer. This is usually
 the case where you are developing the package yourself. In this case,
@@ -574,7 +603,7 @@ right from the start, we need to test the code we write, so we will cover
 the practical details of including tests in your code here.</p>
 <p>There are a number of Python packages which support code testing. The
 concepts are largely similar so rather than get bogged down in the
-details of multiple frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v6.2.0.dev230+g775ba63c6)"><span class="xref std std-doc">pytest</span></a>, which is one of the most widely used.</p>
+details of multiple frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v0.1.dev212+g64bb5f2)"><span class="xref std std-doc">pytest</span></a>, which is one of the most widely used.</p>
 <div class="section" id="pytest-tests">
 <h3><span class="section-number">2.7.1. </span>Pytest tests<a class="headerlink" href="#pytest-tests" title="Permalink to this headline">¶</a></h3>
 <p>A Pytest test is simply a function whose name starts with <code class="xref py py-obj docutils literal notranslate"><span class="pre">test_</span></code>. In
@@ -728,7 +757,7 @@ code which is provided.</p>
 right names, accepting arguments of the correct type and so on. If it does not,
 then the tests will simply fail. Changing the tests to suit your preferred
 interface is not an acceptable answer, your code needs to comply with the
-interface specified in the tests <a class="footnote-reference brackets" href="#interface-errors" id="id4">2</a>.</p>
+interface specified in the tests <a class="footnote-reference brackets" href="#interface-errors" id="id5">2</a>.</p>
 <p>This requirement to code to a published specification is not an artifact of the
 testing framework: it is often the case that code written in a research or
 business setting needs to conform with a standard or other published interface
@@ -768,7 +797,7 @@ Python packages installed.</p>
 <p class="admonition-title">Note</p>
 <p>Put a link to the first week quiz here.</p>
 </div>
-<div class="proof proof-type-exercise" id="id5">
+<div class="proof proof-type-exercise" id="id6">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 2.1</span>
@@ -778,7 +807,7 @@ Python packages installed.</p>
 installation page</span></a> to create the folder structure
 you will use for this course on your computer. Start with an overall folder
 for the module, and create a virtual environment in that module.</p>
-</div></div><div class="proof proof-type-exercise" id="id6">
+</div></div><div class="proof proof-type-exercise" id="id7">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 2.2</span>
@@ -794,7 +823,7 @@ trying out <a class="reference internal" href="fibonacci.html#fibonacci.fibonacc
 <p>The first GitHub classroom assignment for this module will be released at
 the start of term.</p>
 </div>
-<div class="proof proof-type-exercise" id="id7">
+<div class="proof proof-type-exercise" id="id8">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 2.3</span>
@@ -803,7 +832,7 @@ the start of term.</p>
 <p>Accept the <a class="reference internal" href="not_released.html"><span class="doc">first Github Classroom assignment for this module</span></a> and clone it into your course folder. The assignment
 repository just contains a <code class="file docutils literal notranslate"><span class="pre">README</span></code> and some tests. Your job in the
 following exercises will be to populate it with the remaining content.</p>
-</div></div><div class="proof proof-type-exercise" id="id8">
+</div></div><div class="proof proof-type-exercise" id="id9">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 2.4</span>
@@ -832,16 +861,16 @@ GitHub. Then ensure that the tests pass on GitHub. For more information
 about how to do any of these, refer back the <a class="reference external" href="https://imperial-fons-computing.github.io/git.html#github-classroom-exercise" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">Faculty of Natural Sciences
 Git instructions</span></a>.</p>
 </div>
-</div></div><div class="proof proof-type-exercise" id="id9">
+</div></div><div class="proof proof-type-exercise" id="id10">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 2.5</span>
         
     </div><div class="proof-content">
-<p>Following <a class="reference internal" href="#installable-packages"><span class="std std-numref">Section 2.4.2</span></a>, create a <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> file in
+<p>Following <a class="reference internal" href="#installable-packages"><span class="std std-numref">Section 2.6.2</span></a>, create a <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> file in
 your exercise repository, so that the <code class="xref py py-mod docutils literal notranslate"><span class="pre">math_utils</span></code> <a class="reference internal" href="#term-package"><span class="xref std std-term">package</span></a> is
 installable.</p>
-</div></div><div class="proof proof-type-exercise" id="id10">
+</div></div><div class="proof proof-type-exercise" id="id11">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 2.6</span>
@@ -854,10 +883,10 @@ code will work:</p>
 </div>
 </div></div><p class="rubric">Footnotes</p>
 <dl class="footnote brackets">
-<dt class="label" id="peters"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dt class="label" id="peters"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
 <dd><p>Tim Peters, <a class="reference external" href="https://www.python.org/dev/peps/pep-0020/">“PEP 20 – The Zen Of Python” (2004)</a></p>
 </dd>
-<dt class="label" id="interface-errors"><span class="brackets"><a class="fn-backref" href="#id4">2</a></span></dt>
+<dt class="label" id="interface-errors"><span class="brackets"><a class="fn-backref" href="#id5">2</a></span></dt>
 <dd><p>Of course if you find a case where it appears that the
 tests don’t honour the interface published in the exercise, you should raise
 an issue reporting this.</p>
@@ -875,7 +904,7 @@ an issue reporting this.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019-2020, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
     </div>
   </body>
 </html>

@@ -129,7 +129,7 @@ operation. Group theorists often use a dot, but we need to choose one of the
 infix operators that Python supports. We'll chose `*`, which is possibly the
 closest match among Python's operators. One could easily envisage a more
 complete implementation of a group, with support for group properties such as
-generators and element features such as inverses. But our objective here is to
+generators and element features such as inverses. Our objective here is to
 develop an understanding of class relations, rather than of algebra, so this
 minimal characterisation of a group will suffice. 
 
@@ -148,7 +148,7 @@ minimal characterisation of a group will suffice.
         def __mul__(self, other):
             '''Use * to represent the group operation.'''
             return Element(self.group,
-                        self.group.operation(self.value,
+                           self.group.operation(self.value,
                                                 other.value))
 
         def __str__(self):
@@ -168,7 +168,7 @@ minimal characterisation of a group will suffice.
             '''Ensure that value is a legitimate element value in this group.'''
             if not (isinstance(value, Integral) and 0 <= value < self.size):
                 raise ValueError("Element value must be an integer"
-                                f" in the range [0, {self.size})")
+                                 f" in the range [0, {self.size})")
 
         def operation(self, a, b):
             return (a + b) % self.order
@@ -203,6 +203,7 @@ then able to create elements of the group by calling the group object. The group
 operation then has the expected effect:
 
 .. math::
+    :label:
 
     3_{C_5} \cdot 4_{C_5} &\equiv (3 + 4) \operatorname{mod} 5\\
     &= 2\\ 
@@ -333,9 +334,12 @@ does.
 
         Each subclass represents a family of parametrised groups.'''
         def __init__(self, n):
-            '''Args:
-                n: The primary group parameter, such as order or degree. The
-                precise meaning of n changes from subclass to subclass.
+            '''
+            Parameters
+            ----------
+                n: int
+                    The primary group parameter, such as order or degree. The
+                    precise meaning of n changes from subclass to subclass.
             '''
             self.n = n
 
@@ -361,6 +365,7 @@ does.
                                 f" in the range [0, {self.n})")
 
         def operation(self, a, b):
+            '''The group operation is addition modulo n.'''
             return (a + b) % self.n
 
 
@@ -373,9 +378,11 @@ does.
             value = np.asarray(value)
             if not (value.shape == (self.n, self.n)):
                 raise ValueError("Element value must be a "
-                                f"{self.n} x {self.n} square array.")
+                                f"{self.n} x {self.n}"
+                                "square array.")
 
         def operation(self, a, b):
+            '''The group operation is matrix multiplication.'''
             return a @ b
 
 :numref:`groups_inheritance` shows a new implementation of
@@ -391,10 +398,10 @@ Inheritance syntax
 ~~~~~~~~~~~~~~~~~~
 
 Look again at the definition of :class:`~example_code.groups.CyclicGroup` on
-line 23:
+line 26:
 
 .. code-block:: python3
-    :lineno-start: 23
+    :lineno-start: 26
 
     class CyclicGroup(Group):    
 
@@ -418,11 +425,11 @@ groups.
 Class attributes
 ~~~~~~~~~~~~~~~~
 
-At line 25 of :numref:`groups_inheritance`, the name `notation` is
+At line 28 of :numref:`groups_inheritance`, the name `notation` is
 assigned to:
 
 .. code-block:: python3
-    :lineno-start: 25
+    :lineno-start: 28
 
     notation = "C"
 
@@ -483,10 +490,10 @@ were to instantiate :class:`Group` itself:
     AttributeError: 'Group' object has no attribute 'notation'
 
 In fact, :class:`Group` is never supposed to be instantiated, it plays the role
-of an :term:`abstract base class`. In other words, it's role is to provide
+of an :term:`abstract class`. In other words, it's role is to provide
 functionality to classes that inherit from it, rather than to be the type of
 objects itself. We will return to this in more detail in
-:numref:`abstract_base_classes`.
+:numref:`abstract_classes`.
 
 However, if we instead instantiate :class:`~example_code.groups.CyclicGroup`
 then everything works:
@@ -507,14 +514,88 @@ the attributes that are defined for it. In this case, even though
 :class:`CyclicGroup`, and therefore `self.notation` is well-defined and has the
 value `"C"`. 
 
-.. note::
+Calling parent class methods
+----------------------------
 
-    need a good example for overriding methods and calling the superclass
-    method.
-    
-.. note::
+.. _rectangle_class:
 
-    Cover defining new types of exception here.
+.. code-block:: python3
+    :caption: The elementary rectangle class from :mod:`example_code.shapes`.
+    :linenos:
+
+    class Rectangle:
+
+        def __init__(self, length, width):
+            self.length = length
+            self.width = width
+
+        def area(self):
+            return self.length * self.width
+
+        def __repr__(self):
+            return f"{self.__class__.__name__}{self.length, self.width!r}"
+
+:numref:`rectangle_class` shows a basic implementation of a class describing a
+rectangle. We might also want a class defining a square. Rather than redefining
+everything from scratch, we might choose to :term:`inherit <inheritance>` from
+:class:`~example_code.shapes.Rectangle` by defining a square as a rectangle
+whose length and width are equal. The :term:`constructor` for our new class
+will, naturally, just take a single `length` parameter. However the
+:meth:`~example_code.shapes.Rectangle.area` method that we will inherit expects
+both `self.length` and `self.width` to be defined. We could simply define both
+length and width in :meth:`Square.__init__`, but this is exactly the sort of
+copy and paste code that inheritance is supposed to avoid. If the parameters to
+:meth:`Rectangle.__init__` were to be changed at some future point, then having
+`self.length` and `self.width` defined in two separate places is likely to lead
+to very confusing bugs. 
+
+Instead, we would like to have :meth:`Square.__init__` call
+:meth:`Rectangle.__init__` and pass the same value for both length and width. It
+is perfectly possible to directly call :meth:`Rectangle.__init__`, but this
+breaks the style rule that we should not repeat ourselves: if :class:`Square`
+already inherits from :class:`~example_code.shapes.Rectangle` then it should not
+be necessary to restate that inheritance by explicitly naming the :term:`parent
+class`. Fortunately, python provides the functionality we need in the form of
+the :func:`super` function. :numref:`square_class` demonstrates its application.
+
+.. _square_class:
+
+.. code-block:: python3
+    :caption: :class:`example_code.shapes.Square` inherits from
+        :class:`~example_code.shapes.Rectangle` and calls the latter's
+        :term:`constructor` using :func:`super`.
+    :linenos:
+
+    class Square(Rectangle):
+
+        def __init__(self, length):
+            super().__init__(length, length)
+
+        def __repr__(self):
+            return f"{self.__class__.__name__}({self.length!r})"
+
+The :func:`super` function returns a version of the current object in which none
+of the :term:`methods <method>` have been overridden by the current
+:term:`class`. This has the effect that the :term:`superclasses <superclass>` of
+the current class are searched in increasing inheritance order until a matching
+method name is found, and this method is then called. This provides a safe
+mechanism for calling parent class methods in a way that responds appropriately
+if someone later comes back and rewrites the inheritance relationships of the
+classes involved.
+
+Creating new exception classes
+------------------------------
+
+Python provides a wide range of :term:`exceptions <exception>`, and usually the
+right thing to do when writing code that might need to raise an exception is to
+peruse the :ref:`list of built-in exceptions <builtin-exceptions>` and choose
+the one which best matches the circumstances. However, sometimes there is no
+good match, or it might be that the programmer wants user code to be able to
+catch exactly this exception without the risk that some other operation will
+raise the same exception and be caught by mistake. In this case, it is necessary
+to create a new type of exception. A new exception will be an object which
+behaves in most respects like other exceptions, except that it's a new
+:term:`class` and may behave differently in particular circumstances. 
 
 .. 
     .. _abstract_base_classes:
@@ -583,7 +664,13 @@ Glossary
     subclass
         A class `A` is a subclass of the class `B` if `A` inherits from `B` either
         directly or indirectly. That is, if `B` is a :term:`parent <parent class>`, 
-        grandparent, great grandparent or further ancestor of `A`.
+        grandparent, great grandparent or further ancestor of `A`. Contrast
+        :term:`superclass`.
+
+    superclass
+        A class `A` is a superclass of the class `B` if `B` inherits from `A` either
+        directly or indirectly. That is, if `B` is a :term:`subclass` of `A`.
+        
 
 Exercises
 ---------
@@ -592,7 +679,7 @@ Obtain the :doc:`skeleton code for these exercises from GitHub classroom <not_re
 
 .. proof:exercise::
 
-    The symmetric group of order `n` is the group whose members are all the
+    The symmetric group over `n` symbols is the group whose members are all the
     permutations of `n` symbols and whose group operation is the composition of
     those permutations: :math:`a \cdot b = a(b)`.
 

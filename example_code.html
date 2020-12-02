@@ -6,10 +6,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>example_code package &#8212; Object oriented programming in Python for mathematicians 2020.0 documentation</title>
-    <link rel="stylesheet" href="_static/fenics.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/fenics.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -175,9 +178,12 @@ its parent as the second.</p></li>
 <em class="property">class </em><code class="sig-prename descclassname">example_code.groups.</code><code class="sig-name descname">CyclicGroup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups.html#CyclicGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups.CyclicGroup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.groups.Group</span></code></a></p>
 <p>A cyclic group represented by integer addition modulo n.</p>
-<p>Args:
-n: The primary group parameter, such as order or degree. The
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The primary group parameter, such as order or degree. The
 precise meaning of n changes from subclass to subclass.</p>
+</dd>
+</dl>
 <dl class="py attribute">
 <dt id="example_code.groups.CyclicGroup.notation">
 <code class="sig-name descname">notation</code><em class="property"> = 'C'</em><a class="headerlink" href="#example_code.groups.CyclicGroup.notation" title="Permalink to this definition">¶</a></dt>
@@ -186,7 +192,8 @@ precise meaning of n changes from subclass to subclass.</p>
 <dl class="py method">
 <dt id="example_code.groups.CyclicGroup.operation">
 <code class="sig-name descname">operation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups.html#CyclicGroup.operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups.CyclicGroup.operation" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The group operation is addition modulo n.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -194,6 +201,15 @@ precise meaning of n changes from subclass to subclass.</p>
 <dt id="example_code.groups.Element">
 <em class="property">class </em><code class="sig-prename descclassname">example_code.groups.</code><code class="sig-name descname">Element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">group</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups.html#Element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups.Element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>An element of the specified group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> (<a class="reference internal" href="#example_code.groups.Group" title="example_code.groups.Group"><em>Group</em></a>) – The group of which this is an element.</p></li>
+<li><p><strong>value</strong> – The value of this entity. Valid values depend on the group.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
@@ -201,9 +217,12 @@ precise meaning of n changes from subclass to subclass.</p>
 <em class="property">class </em><code class="sig-prename descclassname">example_code.groups.</code><code class="sig-name descname">GeneralLinearGroup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups.html#GeneralLinearGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups.GeneralLinearGroup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.groups.Group</span></code></a></p>
 <p>The general linear group represented by n x n matrices.</p>
-<p>Args:
-n: The primary group parameter, such as order or degree. The
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The primary group parameter, such as order or degree. The
 precise meaning of n changes from subclass to subclass.</p>
+</dd>
+</dl>
 <dl class="py attribute">
 <dt id="example_code.groups.GeneralLinearGroup.notation">
 <code class="sig-name descname">notation</code><em class="property"> = 'G'</em><a class="headerlink" href="#example_code.groups.GeneralLinearGroup.notation" title="Permalink to this definition">¶</a></dt>
@@ -212,7 +231,8 @@ precise meaning of n changes from subclass to subclass.</p>
 <dl class="py method">
 <dt id="example_code.groups.GeneralLinearGroup.operation">
 <code class="sig-name descname">operation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups.html#GeneralLinearGroup.operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups.GeneralLinearGroup.operation" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The group operation is matrix multiplication.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -222,9 +242,12 @@ precise meaning of n changes from subclass to subclass.</p>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A base class containing methods common to many groups.</p>
 <p>Each subclass represents a family of parametrised groups.</p>
-<p>Args:
-n: The primary group parameter, such as order or degree. The
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The primary group parameter, such as order or degree. The
 precise meaning of n changes from subclass to subclass.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -238,7 +261,8 @@ precise meaning of n changes from subclass to subclass.</p>
 <dl class="py method">
 <dt id="example_code.groups_basic.CyclicGroup.operation">
 <code class="sig-name descname">operation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups_basic.html#CyclicGroup.operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups_basic.CyclicGroup.operation" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The group operation is addition modulo n.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -256,7 +280,8 @@ precise meaning of n changes from subclass to subclass.</p>
 <dl class="py method">
 <dt id="example_code.groups_basic.GeneralLinearGroup.operation">
 <code class="sig-name descname">operation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups_basic.html#GeneralLinearGroup.operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups_basic.GeneralLinearGroup.operation" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The group operation is matrix multiplication.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -305,6 +330,28 @@ precise meaning of n changes from subclass to subclass.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-example_code.shapes">
+<span id="example-code-shapes-module"></span><h2>example_code.shapes module<a class="headerlink" href="#module-example_code.shapes" title="Permalink to this headline">¶</a></h2>
+<p>A module containing some very simple shape classes to illustrate the use of
+<a class="reference external" href="https://docs.python.org/3/library/functions.html#super" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code></a>.</p>
+<dl class="py class">
+<dt id="example_code.shapes.Rectangle">
+<em class="property">class </em><code class="sig-prename descclassname">example_code.shapes.</code><code class="sig-name descname">Rectangle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">length</span></em>, <em class="sig-param"><span class="n">width</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/shapes.html#Rectangle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.shapes.Rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt id="example_code.shapes.Rectangle.area">
+<code class="sig-name descname">area</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/shapes.html#Rectangle.area"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.shapes.Rectangle.area" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="example_code.shapes.Square">
+<em class="property">class </em><code class="sig-prename descclassname">example_code.shapes.</code><code class="sig-name descname">Square</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">length</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/shapes.html#Square"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.shapes.Square" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#example_code.shapes.Rectangle" title="example_code.shapes.Rectangle"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.shapes.Rectangle</span></code></a></p>
+</dd></dl>
+
+</div>
 <div class="section" id="module-example_code.square">
 <span id="example-code-square-module"></span><h2>example_code.square module<a class="headerlink" href="#module-example_code.square" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
@@ -336,7 +383,7 @@ precise meaning of n changes from subclass to subclass.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019-2020, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
     </div>
   </body>
 </html>

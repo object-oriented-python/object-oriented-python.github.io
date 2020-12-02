@@ -6,10 +6,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>5. Abstract data types &#8212; Object oriented programming in Python for mathematicians 2020.0 documentation</title>
-    <link rel="stylesheet" href="_static/fenics.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/fenics.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -455,15 +458,15 @@ number of objects on the stack.</span><a class="headerlink" href="#id10" title="
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><a class="reference internal" href="#bigo"><span class="std std-numref">Definition 5.3</span></a> is a particular case of the big <code class="xref py py-obj docutils literal notranslate"><span class="pre">O</span></code> notation, which you may
-already have seen in numerical analysis. The distinction is that in
-analysing algorithmic complexity, the limit is taken as <span class="math notranslate nohighlight">\(n\)</span> approaches
-infinity, while in numerical analysis the independent variable approaches 0.
-This difference between two closely related fields is often confusing,
-particularly since both disciplines conventionally leave out the limit. It’s
-worth keeping in mind that the difference, because a numerical algorithm
-with <span class="math notranslate nohighlight">\(O(h^4)\)</span> error is really rather good since <code class="xref py py-obj docutils literal notranslate"><span class="pre">h</span></code> is small, but an
-algorithm with <span class="math notranslate nohighlight">\(O(n^4)\)</span> cost is very expensive indeed!</p>
+<p>You may already have seen big O notation in numerical analysis. The
+distinction is that in analysing algorithmic complexity, the limit is taken
+as <span class="math notranslate nohighlight">\(n\)</span> approaches infinity, while in numerical analysis the
+independent variable approaches 0. This difference between two closely
+related fields is often confusing, particularly since both disciplines
+conventionally leave out the limit. It’s worth keeping in mind that the
+difference, because a numerical algorithm with <span class="math notranslate nohighlight">\(O(h^4)\)</span> error is
+really rather good since <code class="xref py py-obj docutils literal notranslate"><span class="pre">h</span></code> is small, but an algorithm with <span class="math notranslate nohighlight">\(O(n^4)\)</span>
+cost is very expensive indeed!</p>
 </div>
 <div class="section" id="amortised-complexity-and-worst-case-complexity">
 <h3><span class="section-number">5.3.1. </span>Amortised complexity and worst case complexity<a class="headerlink" href="#amortised-complexity-and-worst-case-complexity" title="Permalink to this headline">¶</a></h3>
@@ -485,7 +488,7 @@ full does a further append operation cause Python to allocate more
 memory. The amount of memory allocated is approximately proportional
 to the current length of the list. That is, if the current list length
 is <span class="math notranslate nohighlight">\(n\)</span> then the new memory allocation will be of size
-approximately <span class="math notranslate nohighlight">\(kn\)</span> for some <span class="math notranslate nohighlight">\(k&gt;1\)</span>. This concrete data structure is
+approximately <span class="math notranslate nohighlight">\(kn\)</span> for some <span class="math notranslate nohighlight">\(k&gt;1\)</span>. This <a class="reference internal" href="#term-data-structure"><span class="xref std std-term">data structure</span></a> is
 called a <a class="reference internal" href="#term-dynamic-array"><span class="xref std std-term">dynamic array</span></a>. <a class="reference internal" href="#dynamicarray"><span class="std std-numref">Fig. 5.2</span></a> illustrates its operation.</p>
 <div class="figure align-center" id="id11">
 <span id="dynamicarray"></span><div class="graphviz"><object data="_images/graphviz-1031807c2d8ac550ebcd831770dd06c4981d7d70.svg" type="image/svg+xml" class="graphviz">
@@ -569,7 +572,7 @@ list, averaged over a suitably large number of operations, is
 <span class="math notranslate nohighlight">\(O(1)\)</span>. This measure of complexity, in which the cost of
 occasional expensive operations is considered averaged over a large
 number of operations, is called <a class="reference internal" href="#term-amortised-complexity"><span class="xref std std-term">amortised complexity</span></a>. In
-contrast, the occasional list append operation is an example of the
+contrast, the occasional reallocate and copy operation is an example of the
 <a class="reference internal" href="#term-worst-case-complexity"><span class="xref std std-term">worst case complexity</span></a> of the algorithm. Appending an item to a
 list has an amortised time complexity of <span class="math notranslate nohighlight">\(O(1)\)</span> but a worst-case
 time complexity of <span class="math notranslate nohighlight">\(O(n)\)</span>.</p>
@@ -657,7 +660,7 @@ for prepending values. One might think that the natural solution for this would
 be to create a double-ended dynamic array: a buffer with spare space at each
 end. Unfortunately this is not optimally efficient in the case where the deque
 is used to implement a queue of approximately constant length. In that case,
-values are consistently added at one end of the data structure and removed from
+values are consistently added at one end of the <a class="reference internal" href="#term-data-structure"><span class="xref std std-term">data structure</span></a> and removed from
 the other. Even in the case of a double-ended dynamic array, the buffer space at
 the append end of the queue will constantly run out, necessitating an expensive
 copy operation. The solution is to use a dynamic array, but to logically join up
@@ -976,12 +979,12 @@ encouter a few more in this course. For context, here are a few other examples.<
 <dl class="simple">
 <dt>set</dt><dd><p>A set is an unordered collection of objects with the property that objects
 that compare equal can only occur once in the set. Inserting or accessing a
-set member is an <span class="math notranslate nohighlight">\(O(1)\)</span> operation. Python provides the
+set member has <span class="math notranslate nohighlight">\(O(1)\)</span> <a class="reference internal" href="#term-amortised-complexity"><span class="xref std std-term">amortised complexity</span></a>. Python provides the
 <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> built in class as an implementation.</p>
 </dd>
 <dt>dictionary or map</dt><dd><p>A generalised function in which unique (up to equality) keys are mapped to
 arbitrary values. Again, insertion and deletion cost <span class="math notranslate nohighlight">\(O(1)\)</span>
-operations. The Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> type is an implementation.</p>
+operations on average. The Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> type is an implementation.</p>
 </dd>
 <dt>graph</dt><dd><p>A general relation between a set and itself defined by a set of values and a
 set of edges, where each edge connects exactly two vertices. Graphs can be
@@ -1077,7 +1080,8 @@ following code should print the <code class="xref py py-obj docutils literal not
 </pre></div>
 </div>
 <p>Obviously the Fibonacci sequence is infinite, so your iterator will never
-raise <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopIteration" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopIteration</span></code></a>.</p>
+raise <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopIteration" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopIteration</span></code></a>. Make sure that calculating the next number is
+always a <span class="math notranslate nohighlight">\(O(1)\)</span> operation: don’t recalculate from 1 each time.</p>
 </div></div><div class="proof proof-type-exercise" id="id18">
 
     <div class="proof-title">
@@ -1089,7 +1093,7 @@ raise <a class="reference external" href="https://docs.python.org/3/library/exce
 reverse Polish calculator. The calculator should have the following methods:</p>
 <dl class="simple">
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">push(n)</span></code></dt><dd><p>This takes a single argument. If it is a number then it should be
-pushed onto the calculator’s internal stack. If it is a string for a
+pushed onto the calculator’s internal stack. If it is the string for a
 recognised operator, then the appropriate number of operands should be
 popped from the internal stack, the result pushed back on the stack.
 Your calculator should support the following operators: <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;+&quot;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;-&quot;</span></code>,
@@ -1175,7 +1179,7 @@ memory (i.e. fail to free memory that is no longer needed).</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019-2020, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
     </div>
   </body>
 </html>
