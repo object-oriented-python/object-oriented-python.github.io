@@ -131,7 +131,7 @@ the mechanism by which the addition is calculated and the value of the
 result. This enables a programmer to think about the relatively simple
 mathematical operation of addition, rather than the potentially
 complex or messy way it might be implemented for particular data.</p>
-<div class="proof proof-type-definition" id="id1">
+<div class="proof proof-type-definition" id="id6">
 
     <div class="proof-title">
         <span class="proof-type">Definition 3.1</span>
@@ -154,7 +154,7 @@ now.</p>
 defined, depending on what the types of its operands are. In doing so,
 we skirted the question of what it means for an object to have
 type.</p>
-<div class="proof proof-type-definition" id="id2">
+<div class="proof proof-type-definition" id="id7">
 
     <div class="proof-title">
         <span class="proof-type">Definition 3.2</span>
@@ -208,7 +208,20 @@ used to define new types.</p>
 </div>
 <div class="section" id="defining-new-types">
 <h2><span class="section-number">3.3. </span>Defining new types<a class="headerlink" href="#defining-new-types" title="Permalink to this headline">¶</a></h2>
-<p>Python has a rich set of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html" title="(in Python v3.9)"><span class="xref std std-doc">built-in types</span></a>. These form powerful building blocks for the
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Video: a first class<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/488143930"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+<p class="card-text">Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=f8b07554-16ea-47b8-bf19-ac8a010af0f6">watch this video on Panopto</a></p>
+</div>
+</details><p>Python has a rich set of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html" title="(in Python v3.9)"><span class="xref std std-doc">built-in types</span></a>. These form powerful building blocks for the
 language, but one very soon finds mathematical abstractions which do
 not have implementations among the built-in types of the Python
 interpreter. For example, the built-in types do not include a matrix
@@ -327,7 +340,20 @@ create a private attribute.</p>
 </div>
 <div class="section" id="methods">
 <h3><span class="section-number">3.3.3. </span>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
-<p>We have already met the <a class="reference internal" href="#term-special-method"><span class="xref std std-term">special method</span></a> <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>,
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Video: defining methods<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/488273256"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+<p class="card-text">Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=613249ca-71b8-4f3b-8db9-ac8a0166aa42">watch this video on Panopto</a></p>
+</div>
+</details><p>We have already met the <a class="reference internal" href="#term-special-method"><span class="xref std std-term">special method</span></a> <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>,
 which defines the class constructor. A much more typical case is an
 ordinary method, without a special underscore name. For example,
 suppose we wish to be able to access the degree of a polynomial, then
@@ -373,7 +399,20 @@ programmer who reads your code!</p>
 </div>
 <div class="section" id="string-representations-of-objects">
 <h3><span class="section-number">3.3.4. </span>String representations of objects<a class="headerlink" href="#string-representations-of-objects" title="Permalink to this headline">¶</a></h3>
-<p>Remember that a key reason for defining new classes is to enable users
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Video: printing classes<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/488275072"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+<p class="card-text">Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b30db20c-1224-41b7-a5f2-ac8a01680608">watch this video on Panopto</a></p>
+</div>
+</details><p>Remember that a key reason for defining new classes is to enable users
 to reason about the resulting objects at a higher mathematical level. An
 important aid to the user in doing this is to be able to look at the
 object. What happens if we print a <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code>?</p>
@@ -471,9 +510,111 @@ in the <a class="reference external" href="https://docs.python.org/3/reference/d
 </pre></div>
 </div>
 </div>
+<div class="section" id="object-equality">
+<span id="id3"></span><h3><span class="section-number">3.3.5. </span>Object equality<a class="headerlink" href="#object-equality" title="Permalink to this headline">¶</a></h3>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Video: object equality and test driven development<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/488981397"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+<p class="card-text">Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=821e53ec-d2c8-43a6-bb16-ac8c01045f31">watch this video on Panopto</a></p>
+</div>
+</details><p>When are two objects equal? For built-in types Python has equality rules which
+broadly match the mathematical identities that you might expect. For example,
+two numbers of different types are equal if their numerical value is equal:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="mi">2</span> <span class="o">==</span> <span class="mf">2.0</span>
+<span class="gh">Out[1]: </span><span class="go">True</span>
+
+<span class="gp">In [2]: </span><span class="mf">2.0</span> <span class="o">==</span> <span class="mi">2</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span>
+<span class="gh">Out[2]: </span><span class="go">True</span>
+</pre></div>
+</div>
+<p>Similarly, intrinsic sequence types are equal when their contents are equal:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="gh">Out[3]: </span><span class="go">True</span>
+
+<span class="gp">In [4]: </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="gh">Out[4]: </span><span class="go">False</span>
+
+<span class="gp">In [5]: </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">)</span>
+<span class="gh">Out[5]: </span><span class="go">False</span>
+</pre></div>
+</div>
+<p>This mathematically pleasing state of affairs doesn’t, however, automatically
+carry over to new classes. We might expect that two identically defined
+polynomials might compare equal:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="kn">from</span> <span class="nn">example_code.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span>
+
+<span class="gp">In [7]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="gp">In [8]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="gp">In [9]: </span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+<span class="gh">Out[9]: </span><span class="go">False</span>
+</pre></div>
+</div>
+<p>The reason for this is obvious when one thinks about it: Python has no way to
+know when two instances of a new class should be considered equal. Instead, it
+falls back to comparing the unique identity of every object. This is accessible
+using the built-in function <a class="reference external" href="https://docs.python.org/3/library/functions.html#id" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">id()</span></code></a>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gh">Out[10]: </span><span class="go">4487083344</span>
+
+<span class="gp">In [11]: </span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="gh">Out[11]: </span><span class="go">4488256096</span>
+</pre></div>
+</div>
+<p>This is a perfectly well-defined equality operator, but not a very
+mathematically useful one. Fortunately, Python allows us to define a more useful
+equality operator using the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__eq__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__()</span></code></a> <a class="reference internal" href="#term-special-method"><span class="xref std std-term">special method</span></a>. This
+takes the current object and the object it is being compared to, and returns
+<a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">True</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">False</span></code></a> depending on whether the objects should be
+considered equal. When we write <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code> in Python, what actually happens is
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">a.__eq__(b)</span></code>.</p>
+<p>A basic implementation of <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__eq__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__()</span></code></a> that checks that the other
+object is a <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> with the same
+coefficients is:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Polynomial</span><span class="p">)</span> <span class="ow">and</span> \
+        <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">coefficients</span>
+</pre></div>
+</div>
+<p>Equipped with this method, <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code>
+equality now behaves as we might expect.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span>
+
+<span class="gp">In [2]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="gp">In [3]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="gp">In [4]: </span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+<span class="gh">Out[4]: </span><span class="go">True</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="defining-arithmetic-options-on-objects">
-<span id="object-arithmetic"></span><h3><span class="section-number">3.3.5. </span>Defining arithmetic options on objects<a class="headerlink" href="#defining-arithmetic-options-on-objects" title="Permalink to this headline">¶</a></h3>
-<p>It’s all very well to be able to print out our polynomial objects, but
+<span id="object-arithmetic"></span><h3><span class="section-number">3.3.6. </span>Defining arithmetic options on objects<a class="headerlink" href="#defining-arithmetic-options-on-objects" title="Permalink to this headline">¶</a></h3>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Video: object equality and test driven development<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/489009900"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+<p class="card-text">Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=727c5b9a-bf61-480e-912e-ac8c01045f09">watch this video on Panopto</a></p>
+</div>
+</details><p>It’s all very well to be able to compare our polynomial objects, but
 we won’t really have captured the mathematical abstraction involved
 unless we have at least some mathematical operations. We have already
 observed that objects of some classes can be added. Is this true for
@@ -629,7 +770,7 @@ implementation of multiplication, exponentiation, and subtraction for
 the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class is left as an exercise.</p>
 </div>
 <div class="section" id="creating-objects-that-act-like-functions">
-<h3><span class="section-number">3.3.6. </span>Creating objects that act like functions<a class="headerlink" href="#creating-objects-that-act-like-functions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.7. </span>Creating objects that act like functions<a class="headerlink" href="#creating-objects-that-act-like-functions" title="Permalink to this headline">¶</a></h3>
 <p>From a mathematical perspective, a real polynomial is a function. That is
 to say, if:</p>
 <div class="math notranslate nohighlight">
@@ -729,7 +870,7 @@ are sometimes informally called “magic methods”.</p>
 <p>Obtain the <a class="reference internal" href="not_released.html"><span class="doc">skeleton code for these exercises from GitHub classroom</span></a>.
 The skeleton code contains a <code class="xref py py-mod docutils literal notranslate"><span class="pre">polynomial</span></code> package with a version of
 the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class.</p>
-<div class="proof proof-type-exercise" id="id3">
+<div class="proof proof-type-exercise" id="id8">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 3.3</span>
@@ -737,8 +878,6 @@ the <code class="xref py py-class docutils literal notranslate"><span class="pre
     </div><div class="proof-content">
 <p>Implement the following operations on the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class.</p>
 <ol class="arabic simple">
-<li><p>Equality (<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__eq__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__()</span></code></a>). Two polynomials compare equal if their
-coefficients are equal.</p></li>
 <li><p>Subtraction (<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__sub__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__sub__()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__rsub__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rsub__()</span></code></a>).</p></li>
 <li><p>Multiplication by another polynomial, and by a scalar
 (<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__mul__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mul__()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__rmul__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rmul__()</span></code></a>).</p></li>
@@ -752,7 +891,7 @@ may be useful to know that all integers are instances of
 <p>Don’t forget to commit and push your changes, and make sure that the
 tests pass on GitHub!</p>
 </div>
-</div></div><div class="proof proof-type-exercise" id="id4">
+</div></div><div class="proof proof-type-exercise" id="id9">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 3.4</span>
@@ -763,7 +902,7 @@ tests pass on GitHub!</p>
 derivative. Also define a <code class="xref py py-meth docutils literal notranslate"><span class="pre">dx()</span></code> method on the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class
 which returns the derivative of that <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code>. Rather than
 duplicating code, you should implement the function by calling the method.</p>
-</div></div><div class="proof proof-type-exercise" id="id5">
+</div></div><div class="proof proof-type-exercise" id="id10">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 3.5</span>
