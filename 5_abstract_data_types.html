@@ -576,7 +576,7 @@ contrast, the occasional reallocate and copy operation is an example of the
 <a class="reference internal" href="#term-worst-case-complexity"><span class="xref std std-term">worst case complexity</span></a> of the algorithm. Appending an item to a
 list has an amortised time complexity of <span class="math notranslate nohighlight">\(O(1)\)</span> but a worst-case
 time complexity of <span class="math notranslate nohighlight">\(O(n)\)</span>.</p>
-<p>We can use Python’s <span class="xref std std-term">introspection</span> capabilities to illustrate how the
+<p>We can use Python’s <a class="reference internal" href="#term-introspection"><span class="xref std std-term">introspection</span></a> capabilities to illustrate how the
 dynamic allocation of space for a list works as the list is appended. The
 <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.getsizeof" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.getsizeof()</span></code></a> function returns the amount of computer memory that an
 object consumes. The function in <a class="reference internal" href="#byte-size"><span class="std std-numref">Listing 5.4</span></a> uses this to diagnose the memory
@@ -1028,6 +1028,9 @@ sequence of values. A fixed length piece of memory, called a buffer, is reserved
 sequence. If the number of items exceeds the size of the buffer then a
 larger buffer is reserved, the contents of the sequence are copied over,
 and the original buffer is returned to the system.</p>
+</dd>
+<dt id="term-introspection">introspection</dt><dd><p>The ability to inspect the implementation of a program from inside that
+program while it is running.</p>
 </dd>
 <dt id="term-queue">queue</dt><dt id="term-FIFO-first-in-first-out">FIFO (first in, first out)</dt><dd><p>An <a class="reference internal" href="#term-abstract-data-type"><span class="xref std std-term">abstract data type</span></a> representing an ordered sequence
 of objects in which objects are accessed in the order in which

@@ -608,10 +608,10 @@ were to instantiate <code class="xref py py-class docutils literal notranslate">
 </pre></div>
 </div>
 <p>In fact, <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> is never supposed to be instantiated, it plays the role
-of an <span class="xref std std-term">abstract class</span>. In other words, it’s role is to provide
+of an <a class="reference internal" href="11_further_object-oriented_features.html#term-abstract-class"><span class="xref std std-term">abstract class</span></a>. In other words, it’s role is to provide
 functionality to classes that inherit from it, rather than to be the type of
 objects itself. We will return to this in more detail in
-<code class="xref std std-numref docutils literal notranslate"><span class="pre">abstract_classes</span></code>.</p>
+<a class="reference internal" href="11_further_object-oriented_features.html#abstract-classes"><span class="std std-numref">Section 11.2</span></a>.</p>
 <p>However, if we instead instantiate <a class="reference internal" href="example_code.html#example_code.groups.CyclicGroup" title="example_code.groups.CyclicGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code></a>
 then everything works:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.groups</span> <span class="kn">import</span> <span class="n">CyclicGroup</span>
@@ -712,7 +712,7 @@ classes involved.</p>
 <h2><span class="section-number">8.4. </span>Creating new exception classes<a class="headerlink" href="#creating-new-exception-classes" title="Permalink to this headline">¶</a></h2>
 <p>Python provides a wide range of <a class="reference internal" href="6_exceptions.html#term-exception"><span class="xref std std-term">exceptions</span></a>, and usually the
 right thing to do when writing code that might need to raise an exception is to
-peruse the <span class="xref std std-ref">list of built-in exceptions</span> and choose
+peruse the <a class="reference external" href="https://docs.python.org/3/library/exceptions.html" title="(in Python v3.9)"><span class="xref std std-doc">list of built-in exceptions</span></a> and choose
 the one which best matches the circumstances. However, sometimes there is no
 good match, or it might be that the programmer wants user code to be able to
 catch exactly this exception without the risk that some other operation will
@@ -776,15 +776,15 @@ containing a module called <code class="xref py py-mod docutils literal notransl
 order <code class="xref py py-obj docutils literal notranslate"><span class="pre">n</span></code>. You will need to implement the group operation and the validation
 of group element values. Group elements can be represented by sequences
 containing permutations of the integers from 0 to <code class="xref py py-obj docutils literal notranslate"><span class="pre">n-1</span></code>. You will find it
-advantageous to <span class="xref std std-term">cast</span> these permutations to <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.19)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.array()</span></code></a>
-because the indexing rules for that type mean that the group operation can
-simply be implemented by indexing the first permutation with the second:
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">a[b]</span></code>.</p>
+advantageous to convert these permutations to <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.19)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.array()</span></code></a> using
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.asarray.html#numpy.asarray" title="(in NumPy v1.19)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.asarray()</span></code></a> because the indexing rules for that type mean that the
+group operation can simply be implemented by indexing the first permutation
+with the second: <code class="xref py py-obj docutils literal notranslate"><span class="pre">a[b]</span></code>.</p>
 <p>You will also need to set the <a class="reference internal" href="#term-class-attribute"><span class="xref std std-term">class attribute</span></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">notation</span></code>. For this
 group, this should take the value <code class="xref py py-obj docutils literal notranslate"><span class="pre">S</span></code>.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>You will need to <span class="xref std std-term">import</span> <a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.groups.Group</span></code></a>.</p>
+<p>You will need to <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.9)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> <a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.groups.Group</span></code></a>.</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
