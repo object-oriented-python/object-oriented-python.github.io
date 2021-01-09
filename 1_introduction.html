@@ -17,7 +17,6 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/proof.js"></script>
     <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -534,9 +533,11 @@ as <span class="math notranslate nohighlight">\(x^2\)</span>.</p>
 <h4><span class="section-number">1.3.8.4. </span>Including links<a class="headerlink" href="#including-links" title="Permalink to this headline">¶</a></h4>
 <p>Just dumping URLs into the text often results in hard to read code. Instead,
 Markdown enables you to write the link text in square brackets followed by the
-URL in round brackets. So <code class="xref py py-obj docutils literal notranslate"><span class="pre">[the</span> <span class="pre">Markdown</span> <span class="pre">Cheat</span>
-<span class="pre">Sheet](https://www.markdownguide.org/cheat-sheet/)</span></code> becomes <a class="reference external" href="https://www.markdownguide.org/cheat-sheet/">the Markdown Cheat
-Sheet</a>.</p>
+URL in round brackets. So:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">the</span> <span class="n">Markdown</span> <span class="n">Cheat</span> <span class="n">Sheet</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">markdownguide</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">cheat</span><span class="o">-</span><span class="n">sheet</span><span class="o">/</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>becomes <a class="reference external" href="https://www.markdownguide.org/cheat-sheet/">the Markdown Cheat Sheet</a>.</p>
 </div>
 <div class="section" id="more-advanced-markdown">
 <h4><span class="section-number">1.3.8.5. </span>More advanced Markdown<a class="headerlink" href="#more-advanced-markdown" title="Permalink to this headline">¶</a></h4>
@@ -555,14 +556,14 @@ square of the input but I see the wrong answer.
 
 The following code is in the file <span class="sb">`square.py`</span>:
 
-<span class="s">```python3</span>
+<span class="sb">```python3</span>
 <span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span>
-<span class="s">```</span>
+<span class="sb">```</span>
 
 I try out this function in iPython and observe the wrong answers:
 
-<span class="s">```ipython3</span>
+<span class="sb">```ipython3</span>
 <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">square</span> <span class="kn">import</span> <span class="n">square</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -573,7 +574,7 @@ I try out this function in iPython and observe the wrong answers:
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">square</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="mi">6</span>
-<span class="s">```</span>
+<span class="sb">```</span>
 
 I would expect to see 4, 9, 16 respectively. I do not understand what is
 going wrong.
@@ -642,7 +643,7 @@ successfully join, and that all of you can edit files.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019-2020, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

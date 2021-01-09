@@ -17,7 +17,6 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/proof.js"></script>
     <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -370,11 +369,7 @@ actually, they are such a natural concept that you have been working
 with them for as long as you have used a computer, without even
 thinking about it. This is because folders are simply namespaces
 for files. Each filename can exist only once in each folder, and
-you can nest folders inside folders. Indeed, “directory” is an
-older synonym for “folder” and makes the link to namespaces much
-clearer: a folder or directory is just a list of named files in the
-same way that a telephone directory is a list of named phone
-numbers.</p>
+you can nest folders inside folders.</p>
 </div>
 </div>
 <div class="section" id="other-forms-of-import">
@@ -507,7 +502,7 @@ as <code class="xref py py-obj docutils literal notranslate"><span class="pre">m
 containing a file <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code>. It can also contain modules and
 further subpackages.</p>
 </dd>
-<dt><code class="file docutils literal notranslate"><span class="pre">setup.py</span></code></dt><dd><p>This file is outside the package directory and is not
+<dt><code class="file docutils literal notranslate"><span class="pre">setup.py</span></code></dt><dd><p>This file is outside the package folder and is not
 actually a part of the package. The role of <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> will be
 covered in <a class="reference internal" href="#installable-packages"><span class="std std-numref">Section 2.6.2</span></a>.</p>
 </dd>
@@ -602,7 +597,7 @@ you would type:</p>
 repository: the folder containing <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>. The option flag <code class="xref py py-obj docutils literal notranslate"><span class="pre">-e</span></code>
 tells pip to install the package in ‘editable’ mode. This means that
 instead of copying the package files to your venv’s Python packages
-directory, symbolic links will be created. This means that any changes
+folder, symbolic links will be created. This means that any changes
 that you make to your package will show up the next time the package
 is imported in a new Python process, avoiding the need to reinstall
 the package every time you change it.</p>
@@ -642,7 +637,7 @@ right from the start, we need to test the code we write, so we will cover
 the practical details of including tests in your code here.</p>
 <p>There are a number of Python packages which support code testing. The
 concepts are largely similar so rather than get bogged down in the
-details of multiple frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v6.3.0.dev67+g7585221d5)"><span class="xref std std-doc">pytest</span></a>, which is one of the most widely used.</p>
+details of multiple frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v6.3.0.dev88+gf6529fd3a)"><span class="xref std std-doc">pytest</span></a>, which is one of the most widely used.</p>
 <div class="section" id="pytest-tests">
 <h3><span class="section-number">2.7.1. </span>Pytest tests<a class="headerlink" href="#pytest-tests" title="Permalink to this headline">¶</a></h3>
 <p>A Pytest test is simply a function whose name starts with <code class="xref py py-obj docutils literal notranslate"><span class="pre">test_</span></code>. In
@@ -682,7 +677,7 @@ create a file called <code class="file docutils literal notranslate"><span class
 </pre></div>
 </div>
 <p>These files don’t themselves form part of the package, instead they
-are usually gathered in a separate tests directory. For example:</p>
+are usually gathered in a separate tests folder. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>fibonacci
 ├── fibonacci
 │   ├── __init__.py
@@ -762,7 +757,7 @@ only move onto the next problem when the previous test passes.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The exercise repositories in this course will usually contain a
-<code class="file docutils literal notranslate"><span class="pre">tests</span></code> directory full of tests that check that you have correctly
+<code class="file docutils literal notranslate"><span class="pre">tests</span></code> folder full of tests that check that you have correctly
 implemented the week’s exercises. You should get in the habit of running the
 tests as you work through the exercises, as they are designed not just to
 pass if your code is correct, but to provide feedback as to what might be
@@ -832,9 +827,16 @@ Python packages installed.</p>
 </div>
 <div class="section" id="exercises">
 <h2><span class="section-number">2.10. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Put a link to the first week quiz here.</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 quiz shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><a class="sphinx-bs btn text-wrap stretched-link reference external" href="https://bb.imperial.ac.uk/webapps/assessment/take/launchAssessment.jsp?course_id=_25965_1&amp;content_id=_2054443_1&amp;mode=cpview"><span>This week’s quiz</span></a></p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="proof proof-type-exercise" id="id5">
 
@@ -947,7 +949,7 @@ an issue reporting this.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019-2020, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>example_code.try_except &#8212; Object oriented programming in Python for mathematicians 2020.0 documentation</title>
+    <title>example_code.simple_classes &#8212; Object oriented programming in Python for mathematicians 2020.0 documentation</title>
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/fenics.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
@@ -49,23 +49,23 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <h1>Source code for example_code.try_except</h1><div class="highlight"><pre>
-<span></span>
+  <h1>Source code for example_code.simple_classes</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;A very elementary set of classes and objects for one of the week 3 quiz</span>
+<span class="sd">    questions.&#39;&#39;&#39;</span>
 
-<div class="viewcode-block" id="except_demo"><a class="viewcode-back" href="../../example_code.html#example_code.try_except.except_demo">[docs]</a><span class="k">def</span> <span class="nf">except_demo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;A simple demonstration of all the clauses of a :keyword:`try` block.&quot;&quot;&quot;</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempting division by </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="mf">0.</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zero division&quot;</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Can&#39;t divide by a </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Division successful.&quot;</span><span class="p">)</span>
-    <span class="k">finally</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finishing up.&quot;</span><span class="p">)</span></div>
+<div class="viewcode-block" id="a"><a class="viewcode-back" href="../../example_code.html#example_code.simple_classes.a">[docs]</a><span class="k">class</span> <span class="nc">a</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
+
+<div class="viewcode-block" id="a.c"><a class="viewcode-back" href="../../example_code.html#example_code.simple_classes.a.c">[docs]</a>    <span class="k">def</span> <span class="nf">c</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span></div></div>
+
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">c</span><span class="p">()</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">c</span>
 </pre></div>
 
             <div class="clearer"></div>

@@ -17,7 +17,6 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/proof.js"></script>
     <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -65,60 +64,8 @@ implementation of Euclid’s algorithm.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-example_code.expression_tools">
-<span id="example-code-expression-tools-module"></span><h2>example_code.expression_tools module<a class="headerlink" href="#module-example_code.expression_tools" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="example_code.expression_tools.evaluate">
-<code class="sig-prename descclassname">example_code.expression_tools.</code><code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expr</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">o</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/expression_tools.html#evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.expression_tools.evaluate" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="sig-prename descclassname">example_code.expression_tools.</code><code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expr</span><span class="p">:</span> <span class="n">expressions.nodes.Number</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">o</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span></dt>
-<dt>
-<code class="sig-prename descclassname">example_code.expression_tools.</code><code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expr</span><span class="p">:</span> <span class="n">expressions.nodes.Symbol</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">o</span></em>, <em class="sig-param"><span class="n">symbol_map</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span></dt>
-<dt>
-<code class="sig-prename descclassname">example_code.expression_tools.</code><code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expr</span><span class="p">:</span> <span class="n">expressions.nodes.Add</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">o</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span></dt>
-<dt>
-<code class="sig-prename descclassname">example_code.expression_tools.</code><code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expr</span><span class="p">:</span> <span class="n">expressions.nodes.Sub</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">o</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span></dt>
-<dt>
-<code class="sig-prename descclassname">example_code.expression_tools.</code><code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expr</span><span class="p">:</span> <span class="n">expressions.nodes.Mul</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">o</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span></dt>
-<dt>
-<code class="sig-prename descclassname">example_code.expression_tools.</code><code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expr</span><span class="p">:</span> <span class="n">expressions.nodes.Div</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">o</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span></dt>
-<dt>
-<code class="sig-prename descclassname">example_code.expression_tools.</code><code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expr</span><span class="p">:</span> <span class="n">expressions.nodes.Pow</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">o</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Evaluate an expression node.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>expr</strong> (<em>Expression</em>) – The expression node to be evaluated.</p></li>
-<li><p><strong>*o</strong> (<a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.9)"><em>numbers.Number</em></a>) – The results of evaluating the operands of expr.</p></li>
-<li><p><strong>**kwargs</strong> – Any keyword arguments required to evaluate specific types of
-expression.</p></li>
-<li><p><strong>symbol_map</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>A dictionary mapping Symbol names to numerical values, for example:</p>
-<p>{‘x’: 1}</p>
-</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="example_code.expression_tools.postvisitor">
-<code class="sig-prename descclassname">example_code.expression_tools.</code><code class="sig-name descname">postvisitor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expr</span></em>, <em class="sig-param"><span class="n">fn</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/expression_tools.html#postvisitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.expression_tools.postvisitor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Traverse an Expression in postorder applying a function to every node.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>expr</strong> (<em>Expression</em>) – The expression to be visited.</p></li>
-<li><p><strong>fn</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">function(node,</span> <span class="pre">*o,</span> <span class="pre">**kwargs)</span></code>) – A function to be applied at each node. The function should take the
-node to be visited as its first argument, and the results of visiting
-its operands as any further positional arguments. Any additional
-information that the visitor requires can be passed in as keyword
-arguments.</p></li>
-<li><p><strong>**kwargs</strong> – Any additional keyword arguments to be passed to fn.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
+<div class="section" id="example-code-expression-tools-module">
+<h2>example_code.expression_tools module<a class="headerlink" href="#example-code-expression-tools-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-example_code.graphs">
 <span id="example-code-graphs-module"></span><h2>example_code.graphs module<a class="headerlink" href="#module-example_code.graphs" title="Permalink to this headline">¶</a></h2>
@@ -352,6 +299,33 @@ precise meaning of n changes from subclass to subclass.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-example_code.simple_classes">
+<span id="example-code-simple-classes-module"></span><h2>example_code.simple_classes module<a class="headerlink" href="#module-example_code.simple_classes" title="Permalink to this headline">¶</a></h2>
+<p>A very elementary set of classes and objects for one of the week 3 quiz
+questions.</p>
+<dl class="py class">
+<dt id="example_code.simple_classes.a">
+<em class="property">class </em><code class="sig-prename descclassname">example_code.simple_classes.</code><code class="sig-name descname">a</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/simple_classes.html#a"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.simple_classes.a" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt id="example_code.simple_classes.a.c">
+<code class="sig-name descname">c</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/simple_classes.html#a.c"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.simple_classes.a.c" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="example_code.simple_classes.d">
+<code class="sig-prename descclassname">example_code.simple_classes.</code><code class="sig-name descname">d</code><a class="headerlink" href="#example_code.simple_classes.d" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#example_code.simple_classes.a" title="example_code.simple_classes.a"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.simple_classes.a</span></code></a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="example_code.simple_classes.g">
+<code class="sig-prename descclassname">example_code.simple_classes.</code><code class="sig-name descname">g</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#example_code.simple_classes.g" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="module-example_code.square">
 <span id="example-code-square-module"></span><h2>example_code.square module<a class="headerlink" href="#module-example_code.square" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
@@ -383,7 +357,7 @@ precise meaning of n changes from subclass to subclass.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019-2020, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

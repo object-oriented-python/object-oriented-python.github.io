@@ -17,7 +17,6 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/proof.js"></script>
     <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -811,10 +810,10 @@ exercise</span></a>.</span><a class="headerlink" href="#id20" title="Permalink t
 </div>
 <p><a class="reference internal" href="#tree-evaluate"><span class="std std-numref">Listing 10.6</span></a> shows a single dispatch function for a visitor function
 which evaluates a <code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code>. Start with lines 6-19. These define a
-function <a class="reference internal" href="example_code.html#example_code.expression_tools.evaluate" title="example_code.expression_tools.evaluate"><code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code></a> which will be used in
+function <code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code> which will be used in
 the default case, that is, in the case where the <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> of the first
 argument doesn’t match any of the other implementations of
-<a class="reference internal" href="example_code.html#example_code.expression_tools.evaluate" title="example_code.expression_tools.evaluate"><code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code></a>. In this case, the first
+<code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code>. In this case, the first
 argument is the expression that we’re evaluating, so if the type doesn’t match
 then this means that we don’t know how to evaluate this object, and the only
 course of action available is to throw an <a class="reference internal" href="6_exceptions.html#term-exception"><span class="xref std std-term">exception</span></a>.</p>
@@ -832,13 +831,13 @@ expression types. Look first at lines 26-28, which provide the evaluation of
 Notice that the function name is given as <code class="xref py py-obj docutils literal notranslate"><span class="pre">_</span></code>. This is the Python convention for
 a name which will never be used. This function will never be called by its
 declared name. Instead, look at the decorator on line 26. The single dispatch
-function <a class="reference internal" href="example_code.html#example_code.expression_tools.evaluate" title="example_code.expression_tools.evaluate"><code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code></a> has a <a class="reference internal" href="3_objects.html#term-method"><span class="xref std std-term">method</span></a>
+function <code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code> has a <a class="reference internal" href="3_objects.html#term-method"><span class="xref std std-term">method</span></a>
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">register()</span></code>. When used as a decorator, the <code class="xref py py-meth docutils literal notranslate"><span class="pre">register()</span></code> method of a
 single dispatch function registers the function that follows as implementation
 for the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.9)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">class</span></code></a> given as an argument to <code class="xref py py-meth docutils literal notranslate"><span class="pre">register()</span></code>. On this
 occasion, this is <code class="xref py py-class docutils literal notranslate"><span class="pre">expressions.Number</span></code>.</p>
 <p>Now look at lines 31-33. These contain the implementation of
-<a class="reference internal" href="example_code.html#example_code.expression_tools.evaluate" title="example_code.expression_tools.evaluate"><code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code></a> for <code class="xref py py-class docutils literal notranslate"><span class="pre">expressions.Symbol</span></code>.
+<code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code> for <code class="xref py py-class docutils literal notranslate"><span class="pre">expressions.Symbol</span></code>.
 In order to evaluate a symbol, we depend on the mapping from symbol names to
 numerical values that has been passed in.</p>
 <p>Finally, look at lines 36-38. These define the evaluation visitor for addition.
@@ -1244,7 +1243,7 @@ also possible, and is a key feature of <a class="reference external" href="https
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019-2020, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>
