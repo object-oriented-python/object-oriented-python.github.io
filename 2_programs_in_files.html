@@ -121,7 +121,7 @@ including <a class="reference external" href="https://numpy.org/doc/stable/refer
 distributed from PyPI. Suppose your venv doesn’t have <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.19)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>
 installed and you need it. You would install it with the following
 terminal command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(my_venv)</span> <span class="gp">$</span> python3 -m pip install numpy
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(my_venv)</span> <span class="gp">$</span> python -m pip install numpy
 </pre></div>
 </div>
 <p>It is also possible to invoke pip directly using the command <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip3</span></code>,
@@ -131,7 +131,7 @@ the wrong Python installation. The approach used here is safer.</p>
 likely that pip will install more packages than those you directly
 asked for. This is necessary if those packages are to actually work.</p>
 <p>Pip can also be used to upgrade a package to the latest version:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(my_venv)</span> <span class="gp">$</span> python3 -m pip install --upgrade numpy
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(my_venv)</span> <span class="gp">$</span> python -m pip install --upgrade numpy
 </pre></div>
 </div>
 </div>
@@ -231,24 +231,29 @@ the file as a Python file. Having remembered to save <code class="file docutils 
 disk from the text editor, we can now run the program. Open a
 terminal, and change to the folder (directory) where you saved
 <code class="file docutils literal notranslate"><span class="pre">hello.py</span></code>. For example, if <code class="file docutils literal notranslate"><span class="pre">hello.py</span></code> is in the directory <code class="file docutils literal notranslate"><span class="pre">src</span></code> in
-your home directory, then you would type the following:</p>
+your home directory, then on most operating systems, you would type the following:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> src
 <span class="gp">$</span> python3 hello.py
 </pre></div>
 </div>
-<p>The dollar sign is the command prompt. Its different on some systems,
-for example, it’s often a greater than sign (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&gt;</span></code>). The text to the left
-of the command prompt might also be different depending on which
-terminal program you are using on which operating system, but we are
-only concerned with the commands to the right of the prompt. The first
-of these, <code class="xref py py-obj docutils literal notranslate"><span class="pre">cd</span></code> (<em>change directory</em>) switches the current folder to
-<code class="file docutils literal notranslate"><span class="pre">src</span></code>. The second command actually runs the Python interpreter on
-<code class="file docutils literal notranslate"><span class="pre">hello.py</span></code>. Depending on what is installed on your computer, it might
-also be possible to leave off the <code class="xref py py-obj docutils literal notranslate"><span class="pre">3</span></code> at the end of <code class="xref py py-obj docutils literal notranslate"><span class="pre">python3</span></code>, however
-on some systems the plain <code class="xref py py-obj docutils literal notranslate"><span class="pre">python</span></code> command is still linked to the old
-version 2 of Python, so it’s better to be explicit and type
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">python3</span></code>. When we press the <kbd class="kbd docutils literal notranslate">enter</kbd> key after the last line above,
-our tiny Python script <code class="file docutils literal notranslate"><span class="pre">hello.py</span></code> runs and the following is displayed:</p>
+<p>on Windows you might instead need to type:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span> <span class="nb">cd</span> src
+<span class="gp">&gt;</span> py hello.py
+</pre></div>
+</div>
+<p>The dollar sign is the command prompt. Its different on some systems, for
+example, it’s often a greater than sign (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&gt;</span></code>). The text to the left of the
+command prompt might also be different depending on which terminal program you
+are using on which operating system, but we are only concerned with the commands
+to the right of the prompt. The first of these, <code class="xref py py-obj docutils literal notranslate"><span class="pre">cd</span></code> (<em>change directory</em>)
+switches the current folder to <code class="file docutils literal notranslate"><span class="pre">src</span></code>. The second command actually runs the
+Python interpreter on <code class="file docutils literal notranslate"><span class="pre">hello.py</span></code>. Depending on what is installed on your
+computer, it might also be possible to leave off the <code class="xref py py-obj docutils literal notranslate"><span class="pre">3</span></code> at the end of
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">python3</span></code>, however on some systems the plain <code class="xref py py-obj docutils literal notranslate"><span class="pre">python</span></code> command is still linked to
+the old version 2 of Python, so it’s better to be explicit and type <code class="xref py py-obj docutils literal notranslate"><span class="pre">python3</span></code>.
+Once we start working with Python <a class="reference internal" href="#term-virtual-environment"><span class="xref std std-term">virtual environments</span></a>, it will always be safe to use <code class="xref py py-obj docutils literal notranslate"><span class="pre">python</span></code> without the 3. When we
+press the <kbd class="kbd docutils literal notranslate">enter</kbd> key after the last line above, our tiny Python script
+<code class="file docutils literal notranslate"><span class="pre">hello.py</span></code> runs and the following is displayed:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Hello World</span>
 </pre></div>
 </div>
@@ -598,7 +603,7 @@ file. The canonical guide to this is the <a class="reference external" href="htt
 (hopefully a git repository!) on your local computer. This is usually
 the case where you are developing the package yourself. In this case,
 you would type:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(my_venv)</span> <span class="gp">$</span> python3 -m pip install -e folder/
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(my_venv)</span> <span class="gp">$</span> python -m pip install -e folder/
 </pre></div>
 </div>
 <p>replacing <code class="xref py py-obj docutils literal notranslate"><span class="pre">folder</span></code> with the name of the top-level folder of your
@@ -647,7 +652,7 @@ the practical details of including tests in your code here.</p>
 concepts are largely similar so rather than get bogged down in the
 details of multiple frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v6.3.0.dev93+g42d5545f4)"><span class="xref std std-doc">pytest</span></a>, which is one of the most widely used. Pytest is simply a Python
 package, so you can install it into your current environment using:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python3 -m pip install pytest
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m pip install pytest
 </pre></div>
 </div>
 <div class="section" id="pytest-tests">
