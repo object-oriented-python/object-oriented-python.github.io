@@ -1129,10 +1129,10 @@ of the calculator is defined to be the number of items on its internal stack.</p
 <p>In this week’s skeleton repository, create a <a class="reference internal" href="2_programs_in_files.html#term-module"><span class="xref std std-term">module</span></a>
 <code class="xref py py-mod docutils literal notranslate"><span class="pre">adt_examples.deque</span></code> containing a class <code class="xref py py-class docutils literal notranslate"><span class="pre">Deque</span></code> implementing a
 <a class="reference internal" href="#term-deque"><span class="xref std std-term">deque</span></a>. Your implementation should use a ring buffer implemented
-as a Python list. When the <code class="xref py py-class docutils literal notranslate"><span class="pre">Deque</span></code> is instantiated, the ring buffer
-should have space for a few items. When it runs out of space it should
-double in size. It should also halve in size when it drops to only about 40%
-full.</p>
+as a Python list. In order to make things somewhat simpler, we will use a
+fixed size ring buffer, which doesn’t grow and shrink with the queue. The
+<a class="reference internal" href="3_objects.html#term-constructor"><span class="xref std std-term">constructor</span></a> of your <code class="xref py py-class docutils literal notranslate"><span class="pre">Deque</span></code> should take a single integer
+argument which is the size of the list you will use as your ring buffer.</p>
 <p>Implement the following methods:</p>
 <dl class="simple">
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">append(x)</span></code></dt><dd><p>Append <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> to the end of the <code class="xref py py-class docutils literal notranslate"><span class="pre">Deque</span></code></p>
@@ -1150,21 +1150,20 @@ full.</p>
 <dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></dt><dd><p>The <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__len__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></a> <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special method</span></a>. This should return
 the number of items currently in the <code class="xref py py-class docutils literal notranslate"><span class="pre">Deque</span></code>.</p>
 </dd>
-<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">_size()</span></code></dt><dd><p>This should return the current length of the ring buffer, including both
-occupied and empty spaces.</p>
-</dd>
 </dl>
 <p>In addition to the above methods, you should ensure that <code class="xref py py-class docutils literal notranslate"><span class="pre">Deque</span></code>
 implements the iterator protocol. This should return the items in the queue,
-starting from the end, and working backwards. Iterating over the
+starting from the first to the last. Iterating over the
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Deque</span></code> should not modify the <code class="xref py py-class docutils literal notranslate"><span class="pre">Deque</span></code>.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>You can create a list of length 10 (for example) containing only
+<p>You can create a list of length <code class="xref py py-obj docutils literal notranslate"><span class="pre">n</span></code> containing only
 <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">None</span></code></a> using the following syntax:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
 </pre></div>
 </div>
+<p>The modulo operator, <code class="xref py py-obj docutils literal notranslate"><span class="pre">%</span></code> and integer division operator <code class="xref py py-obj docutils literal notranslate"><span class="pre">//</span></code> are also likely
+to be very useful.</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
