@@ -82,17 +82,17 @@ it from the stack.
       }
 
       group second{
-      "24 "; 12;
+      12; "24 ";
       color =  orange
       }
 
       group third{
-      "24  "; "12 "; 57;
+      57 ;"12 "; "24  ";
       color =  orange
       }
 
       group fourth{
-      "24   "; "12  ";
+      "12  "; "24   ";
       color =  orange
       }
 
@@ -135,7 +135,7 @@ and a stack. Each number encountered in the expression is pushed onto
 the stack, while each operator pops the right number of arguments off
 the stack and pushes the result onto the stack. At the end of the
 calculation, the result of the calculation is on the top of the stack.
-:numref:`rpcalc` shows :term:`pseudocode`, for a reverse Polish
+:numref:`rpcalc` shows :term:`pseudocode` for a reverse Polish
 calculator.
 
 .. _rpcalc:
