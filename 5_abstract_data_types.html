@@ -96,7 +96,20 @@ which data is stored, in what order, and how it is interpreted.</p>
 structures which could be used to implement them.</p>
 <div class="section" id="stacks">
 <span id="id2"></span><h2><span class="section-number">5.1. </span>Stacks<a class="headerlink" href="#stacks" title="Permalink to this headline">¶</a></h2>
-<p>Possibly the simplest abstract data type which is not synonymous with
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Video: stacks as an abstract data type.<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/506479213"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+<p class="card-text">Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b014e13a-82ca-4a57-ac7f-acc000e64349">watch this video on Panopto</a>.</p>
+</div>
+</details><p>Possibly the simplest abstract data type which is not synonymous with
 a Python type is the <a class="reference internal" href="#term-stack"><span class="xref std std-term">stack</span></a>. A stack is a sequence of objects
 in which only the most recently added object is accessible. The image
 to have in mind is a stack of plates on a spring-loaded holder of the
@@ -113,11 +126,6 @@ and <code class="xref py py-obj docutils literal notranslate"><span class="pre">
 the sequence. <a class="reference internal" href="#stackdiag"><span class="std std-numref">Fig. 5.1</span></a> shows these operations. It is also common to add an additional operation of
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">peek</span></code>, which returns the most recently added object without removing
 it from the stack.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The stack operations in the diagram are wrong. The stack is back to front and
-the wrong value is popped.</p>
-</div>
 <div class="figure align-default" id="id5">
 <span id="stackdiag"></span><div><svg height="740" viewBox="0 0 832 740" width="832" xmlns="http://www.w3.org/2000/svg" xmlns:inkspace="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs id="defs_block">
@@ -387,7 +395,20 @@ tasks.</p>
 </div>
 <div class="section" id="algorithmic-complexity">
 <h2><span class="section-number">5.3. </span>Algorithmic complexity<a class="headerlink" href="#algorithmic-complexity" title="Permalink to this headline">¶</a></h2>
-<p>The second reason that understanding abstract data types is important
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Video: dynamic arrays and algorithmic complexity.<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/506479208"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+<p class="card-text">Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=516115a0-b13d-4693-951b-acc000e642ff">watch this video on Panopto</a>.</p>
+</div>
+</details><p>The second reason that understanding abstract data types is important
 is that a good implementation of a well-designed abstract data type
 will have well-defined performance characteristics. In particular, the
 optimal algorithmic complexity, expressed in big <span class="math notranslate nohighlight">\(O\)</span> notation, of
@@ -648,7 +669,20 @@ that the list is reallocated at lengths 1, 5, 9, and 17.</span><a class="headerl
 </div>
 <div class="section" id="queues-and-deques">
 <h2><span class="section-number">5.4. </span>Queues and deques<a class="headerlink" href="#queues-and-deques" title="Permalink to this headline">¶</a></h2>
-<p>A <a class="reference internal" href="#term-queue"><span class="xref std std-term">queue</span></a> is, like a <a class="reference internal" href="#term-stack"><span class="xref std std-term">stack</span></a>, an ordered sequence of
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Video: deques and ring buffers.<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/506710190"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+<p class="card-text">Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5ba7fde3-8ca9-48e2-b66b-acc100bd1953">watch this video on Panopto</a>.</p>
+</div>
+</details><p>A <a class="reference internal" href="#term-queue"><span class="xref std std-term">queue</span></a> is, like a <a class="reference internal" href="#term-stack"><span class="xref std std-term">stack</span></a>, an ordered sequence of
 objects. The difference is that the only accessible item in the
 sequence is the <em>earliest</em> added. Items can be added to the back of
 the queue and taken from the front. As with a stack, the optimal
@@ -688,7 +722,20 @@ buffer.</p>
 </div>
 <div class="section" id="linked-lists">
 <h2><span class="section-number">5.5. </span>Linked lists<a class="headerlink" href="#linked-lists" title="Permalink to this headline">¶</a></h2>
-<p>One disadvantage of a deque (and hence of a stack or queue) is that inserting an
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Video: linked lists.<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/506743244"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+<p class="card-text">Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=f37ae26c-a39a-4757-bc0d-acc100eec588">watch this video on Panopto</a>.</p>
+</div>
+</details><p>One disadvantage of a deque (and hence of a stack or queue) is that inserting an
 object into the middle of the sequence is often an <span class="math notranslate nohighlight">\(O(n)\)</span> operation,
 because on average half of the items in the sequence need to be shuffled to make
 space. A linked list provides a mechanism for avoiding this. A singly linked
@@ -842,7 +889,20 @@ based on ring buffers.</p>
 </div>
 <div class="section" id="the-iterator-protocol">
 <span id="iterator-protocol"></span><h2><span class="section-number">5.6. </span>The iterator protocol<a class="headerlink" href="#the-iterator-protocol" title="Permalink to this headline">¶</a></h2>
-<p>The abstract data types we have considered here are collections of
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Video: the iterator protocol.<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/506743250"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+<p class="card-text">Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d1b2b176-066a-4d68-aa01-acc100eec5c6">watch this video on Panopto</a>.</p>
+</div>
+</details><p>The abstract data types we have considered here are collections of
 objects, and one common abstract operation which is applicable to
 collections is to iterate over them. That is to say, to loop over the
 objects in the collection and perform some action for each one. This
