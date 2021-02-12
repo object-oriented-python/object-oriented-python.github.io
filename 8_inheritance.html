@@ -783,8 +783,8 @@ containing a module called <code class="xref py py-mod docutils literal notransl
 order <code class="xref py py-obj docutils literal notranslate"><span class="pre">n</span></code>. You will need to implement the group operation and the validation
 of group element values. Group elements can be represented by sequences
 containing permutations of the integers from 0 to <code class="xref py py-obj docutils literal notranslate"><span class="pre">n-1</span></code>. You will find it
-advantageous to convert these permutations to <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.19)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.array()</span></code></a> using
-<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.asarray.html#numpy.asarray" title="(in NumPy v1.19)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.asarray()</span></code></a> because the indexing rules for that type mean that the
+advantageous to convert these permutations to <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.array()</span></code></a> using
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.asarray.html#numpy.asarray" title="(in NumPy v1.20)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.asarray()</span></code></a> because the indexing rules for that type mean that the
 group operation can simply be implemented by indexing the first permutation
 with the second: <code class="xref py py-obj docutils literal notranslate"><span class="pre">a[b]</span></code>.</p>
 <p>You will also need to set the <a class="reference internal" href="#term-class-attribute"><span class="xref std std-term">class attribute</span></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">notation</span></code>. For this

@@ -117,8 +117,8 @@ within Python itself. Don’t forget to activate the venv!</p>
 <p><a class="reference external" href="https://pypi.org">PyPI</a> is the Python Package Index. It is the
 official download location for publicly released Python packages which
 aren’t themselves a part of the built-in <a class="reference external" href="https://docs.python.org/3/library/index.html" title="(in Python v3.9)"><span class="xref std std-doc">Python Standard Library</span></a>. Many important mathematical packages
-including <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.19)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://www.sympy.org">sympy</a> are
-distributed from PyPI. Suppose your venv doesn’t have <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.19)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>
+including <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.20)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://www.sympy.org">sympy</a> are
+distributed from PyPI. Suppose your venv doesn’t have <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.20)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>
 installed and you need it. You would install it with the following
 terminal command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(my_venv)</span> <span class="gp">$</span> python -m pip install numpy
@@ -396,14 +396,14 @@ are to be used frequently or in the middle of formulae: you probably
 don’t really want to write <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> in every trig formula you
 ever write. One alternative is to rename the module on import. This is
 achieved using the keyword <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.9)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">as</span></code></a> in an import statement. For example,
-it is usual to import the numerical Python module <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.19)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> in the
+it is usual to import the numerical Python module <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.20)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> in the
 following way:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
-<p>This creates the local name <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.19)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">np</span></code></a> instead of <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.19)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>,
+<p>This creates the local name <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.20)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">np</span></code></a> instead of <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.20)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>,
 so that the function for creating an evenly spaced sequence of values
-between to end points is now accessible as <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="(in NumPy v1.19)"><code class="xref py py-func docutils literal notranslate"><span class="pre">np.linspace</span></code></a>.</p>
+between to end points is now accessible as <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="(in NumPy v1.20)"><code class="xref py py-func docutils literal notranslate"><span class="pre">np.linspace</span></code></a>.</p>
 <p>A second option is to import particular names from a module directly
 into the current namespace. For example, if we planned to use the
 functions <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/math.html#math.cos" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.cos()</span></code></a> a lot in our script, we
@@ -650,7 +650,7 @@ right from the start, we need to test the code we write, so we will cover
 the practical details of including tests in your code here.</p>
 <p>There are a number of Python packages which support code testing. The
 concepts are largely similar so rather than get bogged down in the
-details of multiple frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v6.3.0.dev104+gd4f8e4b40)"><span class="xref std std-doc">pytest</span></a>, which is one of the most widely used. Pytest is simply a Python
+details of multiple frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v6.3.0.dev194+g16e21c22a)"><span class="xref std std-doc">pytest</span></a>, which is one of the most widely used. Pytest is simply a Python
 package, so you can install it into your current environment using:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m pip install pytest
 </pre></div>
