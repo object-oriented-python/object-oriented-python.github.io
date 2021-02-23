@@ -65,7 +65,7 @@
 complex object or operation out of several components. We can compose
 objects by simply making one object a <a class="reference internal" href="3_objects.html#term-attribute"><span class="xref std std-term">attribute</span></a> of another
 object. This combines objects in a <em>has a</em> relationship. For example
-the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class introduced in <a class="reference internal" href="3_objects.html#objects"><span class="std std-numref">chapter 3</span></a> <em>has a</em> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of coefficients. Object composition of
+the <a class="reference internal" href="example_code.html#example_code.polynomial.Polynomial" title="example_code.polynomial.Polynomial"><code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code></a> class introduced in <a class="reference internal" href="3_objects.html#objects"><span class="std std-numref">chapter 3</span></a> <em>has a</em> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of coefficients. Object composition of
 this sort is a core part of <a class="reference internal" href="3_objects.html#term-encapsulation"><span class="xref std std-term">encapsulation</span></a>.</p>
 <p>Another way of composing abstractions is to make a new <a class="reference internal" href="3_objects.html#term-class"><span class="xref std std-term">class</span></a>
 by modifying another class. Typically this is employed to make a more
@@ -124,7 +124,7 @@ numeric types in <a class="reference external" href="https://docs.python.org/3/l
 <p>This means that, in a manner analogous to subset inclusion, the
 <a class="reference internal" href="#term-subclass"><span class="xref std std-term">subclass</span></a> relationship forms a partial order on the set of all
 classes. This relationship defines another core mechanism for creating a new
-class from existing classes, <a class="reference internal" href="#term-inheritance"><span class="xref std std-term">inheritance</span></a>. If one class is a subclass of
+class from existing classes: <a class="reference internal" href="#term-inheritance"><span class="xref std std-term">inheritance</span></a>. If one class is a subclass of
 another then we say that it inherits from that class. Where composition defines
 a <em>has a</em> relationship, inheritance defines an <em>is a</em> relationship.</p>
 <div class="section" id="an-example-from-group-theory">
@@ -152,10 +152,10 @@ cyclic group element type which can take the relevant values and which
 implements the group operation. This would be unfortunate for at least two
 reasons:</p>
 <ol class="arabic simple">
-<li><p>Because each group needs several elements, need a different element <em>type</em>
+<li><p>Because each group needs several elements, we would need a different element <em>type</em>
 for each <em>instance</em> of a cyclic group. The number of classes needed would grow very fast!</p></li>
-<li><p>Adding a new family of groups would require adding both a group class and a
-set of element classes. On grounds of simplicity and robustness, always key considerations,
+<li><p>Adding a new family of groups would require us to add both a group class and a
+set of element classes. On the basis of <a class="reference internal" href="4_style.html#term-parsimony"><span class="xref std std-term">parsimony</span></a>,
 we would much prefer to only add one class in order to add a new family of
 groups.</p></li>
 </ol>
@@ -233,7 +233,7 @@ group element.</span><a class="headerlink" href="#cyclic-group" title="Permalink
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="si">}</span><span class="s2">&quot;</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span> \
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span> \
             <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="p">),</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
 
 
@@ -259,7 +259,7 @@ group element.</span><a class="headerlink" href="#cyclic-group" title="Permalink
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="si">}</span><span class="s2">&quot;</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -275,7 +275,7 @@ the concrete effects of the classes:</p>
 </pre></div>
 </div>
 <p>We observe that we are able to create the cyclic group of order 5. Due to the
-definition of the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__()</span></code> <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special method</span></a> at line 35, we are
+definition of the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__call__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__()</span></code></a> <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special method</span></a> at line 35, we are
 then able to create elements of the group by calling the group object. The group
 operation then has the expected effect:</p>
 <div class="math notranslate nohighlight" id="equation-8-inheritance-0">
@@ -389,7 +389,7 @@ degree.</span><a class="headerlink" href="#general-linear-group" title="Permalin
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;G</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="si">}</span><span class="s2">&quot;</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -478,9 +478,9 @@ for the cyclic groups and general linear groups.</span><a class="headerlink" hre
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">            n: int</span>
-<span class="sd">                The primary group parameter, such as order or degree. The</span>
-<span class="sd">                precise meaning of n changes from subclass to subclass.</span>
+<span class="sd">        n: int</span>
+<span class="sd">            The primary group parameter, such as order or degree. The</span>
+<span class="sd">            precise meaning of n changes from subclass to subclass.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
 
@@ -492,7 +492,7 @@ for the cyclic groups and general linear groups.</span><a class="headerlink" hre
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notation</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
 
 
 <span class="k">class</span> <span class="nc">CyclicGroup</span><span class="p">(</span><span class="n">Group</span><span class="p">):</span>
@@ -577,10 +577,6 @@ a <a class="reference internal" href="3_objects.html#term-data-attribute"><span 
 specific to each object of the class. Our new version of the code instead sets a
 single attribute that is common to all objects of this class. This is called a
 <a class="reference internal" href="#term-class-attribute"><span class="xref std std-term">class attribute</span></a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Come back and explain class attributes in more detail.</p>
-</div>
 </div>
 <div class="section" id="attributes-resolve-at-runtime">
 <span id="runtime-attributes"></span><h3><span class="section-number">8.2.3. </span>Attributes resolve at runtime<a class="headerlink" href="#attributes-resolve-at-runtime" title="Permalink to this headline">¶</a></h3>
@@ -636,6 +632,27 @@ the attributes that are defined for it. In this case, even though
 <code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code>, and therefore <code class="xref py py-obj docutils literal notranslate"><span class="pre">self.notation</span></code> is well-defined and has the
 value <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;C&quot;</span></code>.</p>
 </div>
+<div class="section" id="parametrising-over-class">
+<h3><span class="section-number">8.2.4. </span>Parametrising over class<a class="headerlink" href="#parametrising-over-class" title="Permalink to this headline">¶</a></h3>
+<p>When we create a class, there is always the possibility that someone will come
+along later and create a subclass of it. It is therefore an important design
+principle to avoid doing anything which might cause a problem in a subclass.
+One important example of this is anywhere where it is assumed that the class of
+<code class="xref py py-data docutils literal notranslate"><span class="pre">self</span></code> is in fact the current class and not some subclass of it. For this
+reason, it is almost always a bad idea to explicitly use the name of the
+current class inside its definition. Instead, we should use the fact that
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">type(self)</span></code> returns the type (i.e. class) of the current object. It is for
+this reason that we typically use the formula <code class="xref py py-obj docutils literal notranslate"><span class="pre">type(self).__name__</span></code> in the
+<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> method of an object. A similar procedure applies if we
+need to create another object of the same class as the current object. For
+example, one might create the next larger <a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a>
+than the current one with:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Observe that since <code class="xref py py-obj docutils literal notranslate"><span class="pre">type(self)</span></code> is a <a class="reference internal" href="3_objects.html#term-class"><span class="xref std std-term">class</span></a>, we can <a class="reference internal" href="3_objects.html#term-instantiate"><span class="xref std std-term">instantiate</span></a>
+it by calling it.</p>
+</div>
 </div>
 <div class="section" id="calling-parent-class-methods">
 <h2><span class="section-number">8.3. </span>Calling parent class methods<a class="headerlink" href="#calling-parent-class-methods" title="Permalink to this headline">¶</a></h2>
@@ -661,7 +678,7 @@ value <code class="xref py py-obj docutils literal notranslate"><span class="pre
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="si">!r}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="si">!r}</span><span class="s2">&quot;</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -702,7 +719,7 @@ the <a class="reference external" href="https://docs.python.org/3/library/functi
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="si">!r}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="si">!r}</span><span class="s2">)&quot;</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -724,9 +741,24 @@ the one which best matches the circumstances. However, sometimes there is no
 good match, or it might be that the programmer wants user code to be able to
 catch exactly this exception without the risk that some other operation will
 raise the same exception and be caught by mistake. In this case, it is necessary
-to create a new type of exception. A new exception will be an object which
-behaves in most respects like other exceptions, except that it’s a new
-<a class="reference internal" href="3_objects.html#term-class"><span class="xref std std-term">class</span></a> and may behave differently in particular circumstances.</p>
+to create a new type of exception.</p>
+<p>A new exception will be a new <a class="reference internal" href="3_objects.html#term-class"><span class="xref std std-term">class</span></a> which inherits from another
+exception class. In most cases, the only argument that the exception
+<a class="reference internal" href="3_objects.html#term-constructor"><span class="xref std std-term">constructor</span></a> takes is an error message, and the base <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a>
+class already takes this. This means that the subclass definition may only need
+to define the new class. Now, a class definition is a Python block and, as a
+matter of <a class="reference internal" href="6_exceptions.html#term-syntax"><span class="xref std std-term">syntax</span></a>, a block cannot be empty. Fortunately, the Python
+language caters for this situation with the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#pass" title="(in Python v3.9)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">pass</span></code></a> statement, which
+simply does nothing. For example, suppose we need to be able to distinguish the
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a> which occurs in entity validation from other occurrences of
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a>. For example it might be advantageous to enable a user to
+catch exactly these errors. In this case, we’re still talking about some form
+of value error, so we’ll want our new error class to inherit from
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a>. We could achieve this as follows:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GroupValidationError</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="glossary">
 <h2><span class="section-number">8.5. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
