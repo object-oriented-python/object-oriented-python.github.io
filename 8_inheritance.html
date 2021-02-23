@@ -798,15 +798,52 @@ group, this should take the value <code class="xref py py-obj docutils literal n
 <p>In implementing element validation, the builtin function <a class="reference external" href="https://docs.python.org/3/library/functions.html#sorted" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sorted()</span></code></a>
 is likely to be useful.</p>
 </div>
+</div></div><div class="proof proof-type-exercise" id="id5">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 8.2</span>
+        
+    </div><div class="proof-content">
+<p>The objective of this exercise is to create subclasses of the built-in
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> class which are only valid for values which pass a certain
+test. For example, one might have a set which can only contain integers.</p>
+<ol class="arabic simple">
+<li><p>In this week’s repository, create a package called <code class="xref py py-mod docutils literal notranslate"><span class="pre">sets</span></code> containing a
+module <code class="xref py py-obj docutils literal notranslate"><span class="pre">verified_sets</span></code>. Create a subclass of the inbuilt <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a>,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sets.verified_sets.VerifiedSet</span></code>. <code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> will itself
+be the parent of other classes which have particular verification rules.</p></li>
+<li><p>Give <code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> a method <code class="xref py py-meth docutils literal notranslate"><span class="pre">_verify()</span></code> which takes a single
+value. In the case of <code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">_verify()</span></code> should
+unconditionally raise <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NotImplementedError" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a>. Subclasses of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> will override this method to do something more useful.</p></li>
+<li><p>For each <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> method which adds items to the set,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> will need to have its own version which calls
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">_verify()</span></code> on each item, before calling the appropriate superclass
+method in order to actually insert the value(s). The methods which add
+items to a set are <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.add" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.update" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">update()</span></code></a>, and
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.symmetric_difference_update" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">symmetric_difference_update()</span></code></a>.</p></li>
+<li><p>For those methods which create a new set, <code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> will also
+need to <a class="reference internal" href="3_objects.html#term-instantiate"><span class="xref std std-term">instantiate</span></a> a new object, so that the method returns a subclass of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> instead of a plain <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a>.  The methods to which
+this applies are <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.union" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">union()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.intersection" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">intersection()</span></code></a>,
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.difference" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">difference()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.symmetric_difference" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">symmetric_difference()</span></code></a>, and
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.copy" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">copy()</span></code></a>.</p></li>
+<li><p>Create a subclass of <code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> called <code class="xref py py-class docutils literal notranslate"><span class="pre">IntSet</span></code> in which
+only integers (i.e. instances of <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Integral" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Integral</span></code></a>) are allowed.
+On encountering a non-integer <code class="xref py py-meth docutils literal notranslate"><span class="pre">IntSet._verify()</span></code> should raise
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeError</span></code></a> with an error message of the following form. For example
+if an attempt were made to add a string to the set, the message would be
+“IntSet expected an integer, got a str.”.</p></li>
+<li><p>Create a subclass of <code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> called <code class="xref py py-class docutils literal notranslate"><span class="pre">UniqueSet</span></code> into
+which values can only be added if they are not already in the set. You
+should create a new exception <code class="xref py py-class docutils literal notranslate"><span class="pre">UniquenessError</span></code>, a subclass of
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">KeyError</span></code></a>. <code class="xref py py-class docutils literal notranslate"><span class="pre">UniqueSet._verify</span></code> should raise this if an
+operation would add a duplicate value to the <code class="xref py py-class docutils literal notranslate"><span class="pre">UniqueSet</span></code>.</p></li>
+</ol>
 </div></div><div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Quiz exercise giving a bunch complicated inheritance pattern and asking what
 various things print.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>One exercise will be to implement another family of groups by importing and
-inheriting from <a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a>.</p>
 </div>
 </div>
 </div>
