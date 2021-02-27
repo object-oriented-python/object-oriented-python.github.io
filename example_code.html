@@ -128,27 +128,24 @@ its parent as the second.</p></li>
 </div>
 <div class="section" id="module-example_code.groups">
 <span id="example-code-groups-module"></span><h2>example_code.groups module<a class="headerlink" href="#module-example_code.groups" title="Permalink to this headline">¶</a></h2>
+<p>A module implementing the basic functionality of mathematical groups.</p>
+<p>This version of the module uses inheritance.</p>
 <dl class="py class">
 <dt id="example_code.groups.CyclicGroup">
 <em class="property">class </em><code class="sig-prename descclassname">example_code.groups.</code><code class="sig-name descname">CyclicGroup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups.html#CyclicGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups.CyclicGroup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.groups.Group</span></code></a></p>
 <p>A cyclic group represented by integer addition modulo n.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The primary group parameter, such as order or degree. The
-precise meaning of n changes from subclass to subclass.</p>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt id="example_code.groups.CyclicGroup.notation">
-<code class="sig-name descname">notation</code><em class="property"> = 'C'</em><a class="headerlink" href="#example_code.groups.CyclicGroup.notation" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt id="example_code.groups.CyclicGroup.operation">
 <code class="sig-name descname">operation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups.html#CyclicGroup.operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups.CyclicGroup.operation" title="Permalink to this definition">¶</a></dt>
-<dd><p>The group operation is addition modulo n.</p>
+<dd><p>Perform the group operation on two values.</p>
+<p>The group operation is addition modulo n.</p>
 </dd></dl>
+
+<dl class="py attribute">
+<dt id="example_code.groups.CyclicGroup.symbol">
+<code class="sig-name descname">symbol</code><em class="property"> = 'C'</em><a class="headerlink" href="#example_code.groups.CyclicGroup.symbol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -172,22 +169,17 @@ precise meaning of n changes from subclass to subclass.</p>
 <em class="property">class </em><code class="sig-prename descclassname">example_code.groups.</code><code class="sig-name descname">GeneralLinearGroup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups.html#GeneralLinearGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups.GeneralLinearGroup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.groups.Group</span></code></a></p>
 <p>The general linear group represented by n x n matrices.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The primary group parameter, such as order or degree. The
-precise meaning of n changes from subclass to subclass.</p>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt id="example_code.groups.GeneralLinearGroup.notation">
-<code class="sig-name descname">notation</code><em class="property"> = 'G'</em><a class="headerlink" href="#example_code.groups.GeneralLinearGroup.notation" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt id="example_code.groups.GeneralLinearGroup.operation">
 <code class="sig-name descname">operation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups.html#GeneralLinearGroup.operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups.GeneralLinearGroup.operation" title="Permalink to this definition">¶</a></dt>
-<dd><p>The group operation is matrix multiplication.</p>
+<dd><p>Perform the group operation on two values.</p>
+<p>The group operation is matrix multiplication.</p>
 </dd></dl>
+
+<dl class="py attribute">
+<dt id="example_code.groups.GeneralLinearGroup.symbol">
+<code class="sig-name descname">symbol</code><em class="property"> = 'G'</em><a class="headerlink" href="#example_code.groups.GeneralLinearGroup.symbol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -208,6 +200,7 @@ precise meaning of n changes from subclass to subclass.</p>
 </div>
 <div class="section" id="module-example_code.groups_basic">
 <span id="example-code-groups-basic-module"></span><h2>example_code.groups_basic module<a class="headerlink" href="#module-example_code.groups_basic" title="Permalink to this headline">¶</a></h2>
+<p>A module implementing the basic functionality of mathematical groups.</p>
 <dl class="py class">
 <dt id="example_code.groups_basic.CyclicGroup">
 <em class="property">class </em><code class="sig-prename descclassname">example_code.groups_basic.</code><code class="sig-name descname">CyclicGroup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">order</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups_basic.html#CyclicGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups_basic.CyclicGroup" title="Permalink to this definition">¶</a></dt>
@@ -216,7 +209,8 @@ precise meaning of n changes from subclass to subclass.</p>
 <dl class="py method">
 <dt id="example_code.groups_basic.CyclicGroup.operation">
 <code class="sig-name descname">operation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups_basic.html#CyclicGroup.operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups_basic.CyclicGroup.operation" title="Permalink to this definition">¶</a></dt>
-<dd><p>The group operation is addition modulo n.</p>
+<dd><p>Perform the group operation on two values.</p>
+<p>The group operation is addition modulo n.</p>
 </dd></dl>
 
 </dd></dl>
@@ -225,6 +219,15 @@ precise meaning of n changes from subclass to subclass.</p>
 <dt id="example_code.groups_basic.Element">
 <em class="property">class </em><code class="sig-prename descclassname">example_code.groups_basic.</code><code class="sig-name descname">Element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">group</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups_basic.html#Element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups_basic.Element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>An element of the specified group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> – The group of which this is an element.</p></li>
+<li><p><strong>value</strong> – The individual element value.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
@@ -235,7 +238,8 @@ precise meaning of n changes from subclass to subclass.</p>
 <dl class="py method">
 <dt id="example_code.groups_basic.GeneralLinearGroup.operation">
 <code class="sig-name descname">operation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/groups_basic.html#GeneralLinearGroup.operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#example_code.groups_basic.GeneralLinearGroup.operation" title="Permalink to this definition">¶</a></dt>
-<dd><p>The group operation is matrix multiplication.</p>
+<dd><p>Perform the group operation on two values.</p>
+<p>The group operation is matrix multiplication.</p>
 </dd></dl>
 
 </dd></dl>
