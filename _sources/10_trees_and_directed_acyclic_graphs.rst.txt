@@ -22,202 +22,34 @@ a lot of code, and instead focus on the mathematical structure of the objects in
 question. When we come to the exercises, you will then take a little more
 responsibility for translating the maths into code.
 
-Some definitions
-----------------
-
-Trees and DAGs are examples of graphs, a type of mathematical object that you
-may have met in previous courses:
-
-.. proof:definition:: Graph
-
-    A *graph* :math:`(V, E)` is a set :math:`V` known as the vertices or nodes,
-    and a set of pairs of vertices, :math:`E`, known as the edges. 
-
-A graph describes connections between its vertices, and can be used to model a
-huge range of interconnected networks. :numref:`graph` illustrates a simple example.
-
-.. _graph:
-
-.. graphviz::
-    :caption: A graphical representation of the graph :math:`(\{a, b, c, d, e,
-        f\}, \{(a, b), (a, d), (a, f), (b, c), (b, d), (b, f), (c, e), (c, f), (d, e) \})`
-    :align: center
-
-    strict graph{
-        a -- b
-        b -- c
-        b -- d
-        c -- f
-        f -- b
-        d -- a
-        f -- a
-        e -- c
-        e -- d    
-    }
-
-.. proof:definition:: Directed graph
-
-    A *directed graph* is a graph in which the edges have a direction associated
-    with them. In other words each edge point *from* one node (the *source*)
-    and *to* another (the *target*).
-
-:numref:`digraph` shows a directed graph with similar topology to the previous example.
-
-.. _digraph:
-
-.. graphviz::
-    :caption: A directed graph. The edges in red depict a cycle.
-    :align: center
-
-    strict digraph{
-        a -> b [color=red]
-        b -> c
-        b -> d [color=red]
-        c -> f
-        f -> b
-        d -> a [color=red]
-        f -> a
-        e -> c
-        e -> d    
-    }
-
-.. proof:definition:: Cycle
-
-    A *cycle* in a graph is a sequence of edges such that the target of each
-    edge is the source of the next, and the target of the last edge is the
-    source of the first.
-
-.. proof:definition:: Directed acyclic graph.
-
-    A directed acyclic graph (DAG) is a directed graph in which there are no cycles.
-
-:numref:`dag` shows a directed acyclic graph, or DAG. The cyclic nature of the
-graph imposes a certain form of hierarchy. For example the graph formed by the
-:term:`inheritance` relationship of classes is a DAG. The hierarchy implied by a
-DAG also lends itself to similar nomenclature to that which we use for class
-hierarchies: the source node of an edge is also referred to as the *parent node*
-and the target nodes of the edges emerging from a node are referred to as its
-*child nodes* or *children*.
-
-.. _dag:
-
-.. graphviz::
-    :caption: A directed acyclic graph, formed by reversing edges in
-        :numref:`digraph` so that no cycles remain.
-    :align: center
-
-    strict digraph{
-        a -> b 
-        b -> c
-        b -> d 
-        c -> f
-        b -> f
-        a -> f 
-        e -> c
-        e -> d    
-    }
-
-.. proof:definition:: Tree
-
-    A *tree* is a directed acyclic graph in which each node is the target of
-    exactly one edge, except for one node (the *root node*) which is not the
-    target of any edges [#tree_def]_.
-
-.. _tree_image:
-
-.. graphviz::
-    :caption: A tree.
-    :align: center
-
-    strict digraph{
-        a -> b 
-        b -> d
-        b -> e 
-        b -> f
-        a -> c
-        c -> g 
-    }
-
-Tree nodes with no children are called *leaf nodes*.
-
-Tree traversal
---------------
-
-Unlike the sequence types we have previously met, trees are not linear objects.
-If we wish to iterate through every node in the tree then we have a choices to
-make about the order in which we do so. In particular, there are two obvious
-classes of traversal order:
-
-preorder traversal
-    A traversal in which each node is always visited *before* its children. 
-
-postorder traversal
-    A traversal order in which each node is always visited *after* its children.
-
-Note that neither order is unique: a node can have any number of children and
-the definitions are silent on the order in which these are visited. There is
-furthermore no guarantee that the children of a node will be visited immediately
-before or after their parent, and once we look at visitors for DAGs it will
-become apparent that it is not always possible to do so.
-
-.. _treenode:
-
-.. code-block:: python3
-    :caption: A basic tree implementation. This code is available as the
-        :class:`example_code.graphs.TreeNode` class.
-    :linenos:
-
-    class TreeNode:
-        '''A basic tree implementation.
-
-        Observe that a tree is simply a collection of connected TreeNodes.'''
-        def __init__(self, value, *children):
-            '''
-            Parameters
-            ----------
-            value:
-                An arbitrary value associated with this node.
-            children:
-                The TreeNodes which are the children of this node.
-            '''
-            self.value = value
-            self.children = tuple(children)
-
-        def __repr__(self):
-            return f"{self.__class__.__name__}{(self.value,) + self.children}"
-
-        def __str__(self):
-            childstring = ", ".join(map(str, self.children))
-            return f"{self.value!s} -> ({childstring})"
-
-:numref:`treenode` shows a very simple class which implements a tree. For
-example, we can represent the tree in :numref:`tree_image` using:
-
-.. code-block:: ipython3
-
-    In [1]: from example_code.graphs import TreeNode
-
-    In [2]: tree = TreeNode("a", TreeNode("b", TreeNode("d"), TreeNode("e"), TreeNode("f")),
-       ...:                      TreeNode("c", TreeNode("g")))
-
-    In [3]: print(tree)
-    a -> (b -> (d -> (), e -> (), f -> ()), c -> (g -> ()))
-
-The reader might immediately observe that serialised trees can be a little hard
-to read! This is the reason that trees are often represented by diagrams.
-
 The splat and double splat operators
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
-Before we go on to traverse the tree we have created, we need to digress ever so
-slightly in order to explain a new piece of syntax. At line 5 of
-:numref:`treenode`, the second parameter to
-:meth:`~example_code.graphs.TreeNode.__init__` is given as `*children`. The
-character `*` in this case is the argument packing operator, also known as the
-*splat* operator [#splat]_. When used in the parameter list of a function, splat takes all
-of the remaining :term:`positional arguments <argument>` provided by
-the caller and packs them up in a tuple. In this case, this enables any number
-of child nodes to be specified for each node. 
+.. dropdown:: Video: splat and double splat.
+
+    .. container:: vimeo
+
+        .. raw:: html
+
+            <iframe src="https://player.vimeo.com/video/523477744"
+            frameborder="0" allow="autoplay; fullscreen"
+            allowfullscreen></iframe>
+
+    Imperial students can also `watch this video on Panopto
+    <https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2cb93382-321b-4af6-8d5e-aceb0123103d>`__.
+
+
+Before we go on to write code for trees and their traversal,  we need to
+digress ever so slightly in order to explain a new piece of syntax. We're going
+to want to write  functions that can take a variable number of arguments. For
+example, we're going to want the :term:`constructor` of a tree node object to
+be able to take a variable number of children. We can do this by writing the
+relevant parameter as `*children`. The character `*` in this case is the
+argument packing operator, also known as the *splat* operator [#splat]_. When
+used in the parameter list of a function, splat takes all of the remaining
+:term:`positional arguments <argument>` provided by the caller and packs them
+up in a tuple. In this case, this enables any number of child nodes to be
+specified for each node. 
 
 The splat operator can also be used when calling a function. In that case it
 acts as a sequence unpacking operator, turning a sequence into separate
@@ -300,10 +132,223 @@ example:
 
 The names `*args` and `**kwargs` are the conventional names in
 cases where nothing more specific is known about the parameters in question.
-    
+
+
+Some definitions
+----------------
+
+Trees and DAGs are examples of graphs, a type of mathematical object that you
+may have met in previous courses:
+
+.. proof:definition:: Graph
+
+    A *graph* :math:`(V, E)` is a set :math:`V` known as the vertices or nodes,
+    and a set of pairs of vertices, :math:`E`, known as the edges. 
+
+A graph describes connections between its vertices, and can be used to model a
+huge range of interconnected networks. :numref:`graph` illustrates a simple example.
+
+.. _graph:
+
+.. graphviz::
+    :caption: A graphical representation of the graph :math:`(\{a, b, c, d, e,
+        f\}, \{(a, b), (a, d), (a, f), (b, c), (b, d), (b, f), (c, e), (c, f), (d, e) \})`
+    :align: center
+
+    strict graph{
+        a -- b
+        b -- c
+        b -- d
+        c -- f
+        f -- b
+        d -- a
+        f -- a
+        e -- c
+        e -- d    
+    }
+
+.. proof:definition:: Directed graph
+
+    A *directed graph* is a graph in which the pair of nodes forming each edge
+    is ordered. In other words each edge points *from* one node (the *source*)
+    and *to* another (the *target*).
+
+:numref:`digraph` shows a directed graph with similar topology to the previous example.
+
+.. _digraph:
+
+.. graphviz::
+    :caption: A directed graph. The edges in red depict a cycle.
+    :align: center
+
+    strict digraph{
+        a -> b [color=red]
+        b -> c
+        b -> d [color=red]
+        c -> f
+        f -> b
+        d -> a [color=red]
+        f -> a
+        e -> c
+        e -> d    
+    }
+
+.. proof:definition:: Cycle
+
+    A *cycle* in a graph is a sequence of edges such that the target of each
+    edge is the source of the next, and the target of the last edge is the
+    source of the first.
+
+.. proof:definition:: Directed acyclic graph.
+
+    A directed acyclic graph (DAG) is a directed graph in which there are no cycles.
+
+:numref:`dag` shows a directed acyclic graph, or DAG. The cyclic nature of the
+graph imposes a certain form of hierarchy. For example the graph formed by the
+:term:`inheritance` relationship of classes is a DAG. The hierarchy implied by a
+DAG also lends itself to similar nomenclature to that which we use for class
+hierarchies: the source node of an edge is also referred to as the *parent node*
+and the target nodes of the edges emerging from a node are referred to as its
+*child nodes* or *children*.
+
+.. _dag:
+
+.. graphviz::
+    :caption: A directed acyclic graph, formed by reversing edges in
+        :numref:`digraph` so that no cycles remain.
+    :align: center
+
+    strict digraph{
+        a -> b 
+        b -> c
+        b -> d 
+        c -> f
+        b -> f
+        a -> f 
+        e -> c
+        e -> d    
+    }
+
+.. proof:definition:: Tree
+
+    A *tree* is a directed acyclic graph in which each node is the target of
+    exactly one edge, except for one node (the *root node*) which is not the
+    target of any edges [#tree_def]_.
+
+.. _tree_image:
+
+.. graphviz::
+    :caption: A tree.
+    :align: center
+
+    strict digraph{
+        a -> b 
+        b -> d
+        b -> e 
+        b -> f
+        a -> c
+        c -> g 
+    }
+
+Tree nodes with no children are called *leaf nodes*.
+
+Data structures for trees
+-------------------------
+
+.. dropdown:: Tree data structures.
+
+    .. container:: vimeo
+
+        .. raw:: html
+
+            <iframe src="https://player.vimeo.com/video/523477713"
+            frameborder="0" allow="autoplay; fullscreen"
+            allowfullscreen></iframe>
+
+    Imperial students can also `watch this video on Panopto
+    <https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5477e1b1-1040-4a07-97a5-aceb01230fc6>`__.
+
+Unlike the sequence types we have previously met, trees are not linear objects.
+If we wish to iterate through every node in the tree then we have a choices to
+make about the order in which we do so. In particular, there are two obvious
+classes of traversal order:
+
+preorder traversal
+    A traversal in which each node is always visited *before* its children. 
+
+postorder traversal
+    A traversal order in which each node is always visited *after* its children.
+
+Note that neither order is unique: a node can have any number of children and
+the definitions are silent on the order in which these are visited. There is
+furthermore no guarantee that the children of a node will be visited immediately
+before or after their parent, and once we look at visitors for DAGs it will
+become apparent that it is not always possible to do so.
+
+.. _treenode:
+
+.. code-block:: python3
+    :caption: A basic tree implementation. This code is available as the
+        :class:`example_code.graphs.TreeNode` class.
+    :linenos:
+
+    class TreeNode:
+        """A basic tree implementation.
+
+        Observe that a tree is simply a collection of connected TreeNodes.
+
+        Parameters
+        ----------
+        value:
+            An arbitrary value associated with this node.
+        children:
+            The TreeNodes which are the children of this node.
+        """
+
+        def __init__(self, value, *children):
+            self.value = value
+            self.children = tuple(children)
+
+        def __repr__(self):
+            """Return the canonical string representation."""
+            return f"{type(self).__name__}{(self.value,) + self.children}"
+
+        def __str__(self):
+            """Serialise the tree recursively as parent -> (children)."""
+            childstring = ", ".join(map(str, self.children))
+            return f"{self.value!s} -> ({childstring})"
+
+:numref:`treenode` shows a very simple class which implements a tree. For
+example, we can represent the tree in :numref:`tree_image` using:
+
+.. code-block:: ipython3
+
+    In [1]: from example_code.graphs import TreeNode
+
+    In [2]: tree = TreeNode("a", TreeNode("b", TreeNode("d"), TreeNode("e"), TreeNode("f")),
+       ...:                      TreeNode("c", TreeNode("g")))
+
+    In [3]: print(tree)
+    a -> (b -> (d -> (), e -> (), f -> ()), c -> (g -> ()))
+
+The reader might immediately observe that serialised trees can be a little hard
+to read! This is the reason that trees are often represented by diagrams.
 
 Traversing :class:`~example_code.graphs.TreeNode`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. dropdown:: Video: tree traversal.
+
+    .. container:: vimeo
+
+        .. raw:: html
+
+            <iframe src="https://player.vimeo.com/video/523477719"
+            frameborder="0" allow="autoplay; fullscreen"
+            allowfullscreen></iframe>
+
+    Imperial students can also `watch this video on Panopto
+    <https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=69b00d45-077d-46ff-933c-aceb01231001>`__.
 
 A function which traverses a tree is often called a tree visitor, because it
 visits every node in the tree. What does it do when it visits? Well it could do
@@ -326,7 +371,7 @@ We'll consider postorder traversal first, as it's the easier to implement.
     :linenos:
 
     def postvisitor(tree, fn):
-        '''Traverse tree in postorder applying a function to every node.
+        """Traverse tree in postorder applying a function to every node.
 
         Parameters
         ----------
@@ -336,8 +381,7 @@ We'll consider postorder traversal first, as it's the easier to implement.
             A function to be applied at each node. The function should take the
             node to be visited as its first argument, and the results of visiting
             its children as any further arguments.
-        '''
-
+        """
         return fn(tree, *(postvisitor(c, fn) for c in tree.children))
 
 :numref:`postorder_recursive` implements this visitor. Notice that there is only
@@ -393,7 +437,7 @@ as :numref:`preorder_recursive` shows.
     :linenos:
 
     def previsitor(tree, fn, fn_parent=None):
-        '''Traverse tree in preorder applying a function to every node.
+        """Traverse tree in preorder applying a function to every node.
 
         Parameters
         ----------
@@ -403,8 +447,7 @@ as :numref:`preorder_recursive` shows.
             A function to be applied at each node. The function should take the
             node to be visited as its first argument, and the result of visiting
             its parent as the second.
-        '''
-
+        """
         fn_out = fn(tree, fn_parent)
 
         for child in tree.children:
@@ -499,7 +542,7 @@ children of a node.
     :caption: Inheritance diagram for a very basic symbolic language. Each box
         represents a class, with the arrows showing inheritance relationships. Note that
         the edges in such diagrams conventionally point from the child class to the
-        parent class, because its the child class that refers to the parent. The
+        parent class, because it's the child class that refers to the parent. The
         parent does not refer to the child.
 
     strict digraph{
@@ -564,7 +607,7 @@ operators but different for terminals.
     .. code-block:: python3
     
         def __repr__(self):
-            return self.__class__.__name__ + repr(self.operands)
+            return type(self).__name__ + repr(self.operands)
 
     This approch is valid because the string representation of a :class:`tuple`
     is a pair of round brackets containing the string representation of each
@@ -616,6 +659,19 @@ in the case of :class:`Number` and a :class:`str` in the case of :class:`Symbol`
 
 Operations on expression trees
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. dropdown:: Video: evaluating expressions.
+
+    .. container:: vimeo
+
+        .. raw:: html
+
+            <iframe src="https://player.vimeo.com/video/523478799"
+            frameborder="0" allow="autoplay; fullscreen"
+            allowfullscreen></iframe>
+
+    Imperial students can also `watch this video on Panopto
+    <https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=88f9564a-73c9-4760-8f48-aceb01230f9b>`__.
 
 Many operations on expression trees can be implemented using tree visitors, most
 frequently by visiting the tree in postorder. An example is
@@ -763,8 +819,10 @@ keyword arguments through to the visitor function.
 
 .. code-block:: python3
     :caption: A recursive tree visitor that passes any keyword arguments
-        through to the visitor function. We also account for the name changes
-        between :class:`~example_code.graphs.TreeNode` and :class:`Expression`.
+        through to the visitor function. This is available as 
+        :func:`example_code.expression_tools.post_visitor`. We also account 
+        for the name changes between :class:`~example_code.graphs.TreeNode` 
+        and :class:`Expression`.
     :linenos:
 
     def postvisitor(expr, fn, **kwargs):
@@ -783,7 +841,6 @@ keyword arguments through to the visitor function.
         **kwargs:
             Any additional keyword arguments to be passed to fn.
         '''
-
         return fn(expr,
                   *(postvisitor(c, fn, **kwargs) for c in expr.operands),
                   **kwargs)
@@ -942,7 +999,7 @@ algorithm.
 .. _nonrecursive_postvisit:
 
 .. code-block:: python3
-    :caption: Pythonic pseudocode for a non-recursive postorder :term:`DAG` visitor.
+    :caption: Pythonic :term:`pseudocode` for a non-recursive postorder :term:`DAG` visitor.
     :linenos:
 
     def visit(expr, visitor):
@@ -1000,7 +1057,7 @@ with a keyword argument in a manner analogous to `tree_map` in
 :numref:`tree_evaluate`.
 
 The differentiation of operators is achieved by an applying the chain rule. For
-an binary operator :math:`\odot`, with operands :math:`o_0` and :math:`o_1`, the
+a binary operator :math:`\odot`, with operands :math:`o_0` and :math:`o_1`, the
 chain rule is given by:
 
 .. math::
@@ -1083,9 +1140,12 @@ Glossary
         single dispatch functions.
 
 Exercises
----------
+--------
 
-Obtain the :doc:`skeleton code for these exercises from GitHub classroom <not_released>`. 
+Obtain the `skeleton code for these exercises from GitHub classroom
+<https://classroom.github.com/a/DVDJ8r1y>`__. You should also update your clone
+of the course repository to ensure you have the latest version of the
+:mod:`example_code` package.
 
 .. _ex_expr:
 
@@ -1101,7 +1161,7 @@ Obtain the :doc:`skeleton code for these exercises from GitHub classroom <not_re
 .. proof:exercise::
 
     Write a function importable as :func:`expressions.postvisitor` with the same
-    interface as :numref:`postorder_recursive`. Your implementation, however,
+    interface as :numref:`postorder_recursive_kwargs`. Your implementation, however,
     should not be recursive, and should only visit repeated subexpressions once,
     no matter how many times they occur in the expression.
 
@@ -1110,9 +1170,14 @@ Obtain the :doc:`skeleton code for these exercises from GitHub classroom <not_re
     Write a :term:`single dispatch function` importable as
     :func:`expressions.differentiate` which has the correct interface to be
     passed to :func:`expressions.postvisitor` or
-    :func:`example.code.graphs.postvisitor` and which differentiates the
+    :func:`example_code.expression_tools.postvisitor` and which differentiates the
     expression provided with respect to a symbol whose name is passed as the
     string :term:`keyword argument <argument>` `var`.
+
+    As a simplification, the tests will assume that `var` does not appear in an
+    exponent. As an extension, you could consider that case too, but you'd
+    probably need to extend your symbolic language to include the natural
+    logarithm as a symbolic function.
 
 .. rubric:: Footnotes
 

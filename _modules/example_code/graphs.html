@@ -58,32 +58,37 @@
           <div class="body" role="main">
             
   <h1>Source code for example_code.graphs</h1><div class="highlight"><pre>
-<div class="viewcode-block" id="TreeNode"><a class="viewcode-back" href="../../example_code.html#example_code.graphs.TreeNode">[docs]</a><span></span><span class="k">class</span> <span class="nc">TreeNode</span><span class="p">:</span>
-    <span class="sd">&#39;&#39;&#39;A basic tree implementation.</span>
+<span></span><span class="sd">&quot;&quot;&quot;A simple tree implementation with basic pre- and post-visitors.&quot;&quot;&quot;</span>
 
-<span class="sd">    Observe that a tree is simply a collection of connected TreeNodes.&#39;&#39;&#39;</span>
+
+<div class="viewcode-block" id="TreeNode"><a class="viewcode-back" href="../../example_code.html#example_code.graphs.TreeNode">[docs]</a><span class="k">class</span> <span class="nc">TreeNode</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A basic tree implementation.</span>
+
+<span class="sd">    Observe that a tree is simply a collection of connected TreeNodes.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    value:</span>
+<span class="sd">        An arbitrary value associated with this node.</span>
+<span class="sd">    children:</span>
+<span class="sd">        The TreeNodes which are the children of this node.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">*</span><span class="n">children</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        value:</span>
-<span class="sd">            An arbitrary value associated with this node.</span>
-<span class="sd">        children:</span>
-<span class="sd">            The TreeNodes which are the children of this node.</span>
-<span class="sd">        &#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">children</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}{</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Return the canonical string representation.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}{</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="si">}</span><span class="s2">&quot;</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Serialise the tree recursively as parent -&gt; (children).&quot;&quot;&quot;</span>
         <span class="n">childstring</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">))</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">!s}</span><span class="s2"> -&gt; (</span><span class="si">{</span><span class="n">childstring</span><span class="si">}</span><span class="s2">)&quot;</span></div>
 
 
 <div class="viewcode-block" id="previsitor"><a class="viewcode-back" href="../../example_code.html#example_code.graphs.previsitor">[docs]</a><span class="k">def</span> <span class="nf">previsitor</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">fn_parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Traverse tree in preorder applying a function to every node.</span>
+    <span class="sd">&quot;&quot;&quot;Traverse tree in preorder applying a function to every node.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -93,8 +98,7 @@
 <span class="sd">        A function to be applied at each node. The function should take the</span>
 <span class="sd">        node to be visited as its first argument, and the result of visiting</span>
 <span class="sd">        its parent as the second.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">fn_out</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">fn_parent</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
@@ -102,18 +106,17 @@
 
 
 <div class="viewcode-block" id="postvisitor"><a class="viewcode-back" href="../../example_code.html#example_code.graphs.postvisitor">[docs]</a><span class="k">def</span> <span class="nf">postvisitor</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">fn</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Traverse tree in postorder applying a function to every node.</span>
+    <span class="sd">&quot;&quot;&quot;Traverse tree in postorder applying a function to every node.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    tree: TreeNode</span>
 <span class="sd">        The tree to be visited.</span>
-<span class="sd">    fn: `function(node, *fn_children)`</span>
+<span class="sd">    fn: function(node, *fn_children)</span>
 <span class="sd">        A function to be applied at each node. The function should take the</span>
 <span class="sd">        node to be visited as its first argument, and the results of visiting</span>
 <span class="sd">        its children as any further arguments.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">fn</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">postvisitor</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">children</span><span class="p">))</span></div>
 </pre></div>
 

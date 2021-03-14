@@ -77,222 +77,32 @@ to the latter parts of the course, we’ll also step back a little from laying o
 a lot of code, and instead focus on the mathematical structure of the objects in
 question. When we come to the exercises, you will then take a little more
 responsibility for translating the maths into code.</p>
-<div class="section" id="some-definitions">
-<h2><span class="section-number">10.1. </span>Some definitions<a class="headerlink" href="#some-definitions" title="Permalink to this headline">¶</a></h2>
-<p>Trees and DAGs are examples of graphs, a type of mathematical object that you
-may have met in previous courses:</p>
-<div class="proof proof-type-definition" id="id4">
-
-    <div class="proof-title">
-        <span class="proof-type">Definition 10.1</span>
-        
-            <span class="proof-title-name">(Graph)</span>
-        
-    </div><div class="proof-content">
-<p>A <em>graph</em> <span class="math notranslate nohighlight">\((V, E)\)</span> is a set <span class="math notranslate nohighlight">\(V\)</span> known as the vertices or nodes,
-and a set of pairs of vertices, <span class="math notranslate nohighlight">\(E\)</span>, known as the edges.</p>
-</div></div><p>A graph describes connections between its vertices, and can be used to model a
-huge range of interconnected networks. <a class="reference internal" href="#graph"><span class="std std-numref">Fig. 10.1</span></a> illustrates a simple example.</p>
-<div class="figure align-center" id="id5">
-<span id="graph"></span><div class="graphviz"><object data="_images/graphviz-6b78642109c5b2fb5b298391cf1f651e396c0f4b.svg" type="image/svg+xml" class="graphviz">
-<p class="warning">strict graph{
-    a -- b
-    b -- c
-    b -- d
-    c -- f
-    f -- b
-    d -- a
-    f -- a
-    e -- c
-    e -- d
-}</p></object></div>
-<p class="caption"><span class="caption-number">Fig. 10.1 </span><span class="caption-text">A graphical representation of the graph <span class="math notranslate nohighlight">\((\{a, b, c, d, e,
-f\}, \{(a, b), (a, d), (a, f), (b, c), (b, d), (b, f), (c, e), (c, f), (d, e) \})\)</span></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
-<div class="proof proof-type-definition" id="id6">
-
-    <div class="proof-title">
-        <span class="proof-type">Definition 10.2</span>
-        
-            <span class="proof-title-name">(Directed graph)</span>
-        
-    </div><div class="proof-content">
-<p>A <em>directed graph</em> is a graph in which the edges have a direction associated
-with them. In other words each edge point <em>from</em> one node (the <em>source</em>)
-and <em>to</em> another (the <em>target</em>).</p>
-</div></div><p><a class="reference internal" href="#digraph"><span class="std std-numref">Fig. 10.2</span></a> shows a directed graph with similar topology to the previous example.</p>
-<div class="figure align-center" id="id7">
-<span id="digraph"></span><div class="graphviz"><object data="_images/graphviz-707ee9737830d0789d1828d8465ddd8e6b37fd36.svg" type="image/svg+xml" class="graphviz">
-<p class="warning">strict digraph{
-    a -&gt; b [color=red]
-    b -&gt; c
-    b -&gt; d [color=red]
-    c -&gt; f
-    f -&gt; b
-    d -&gt; a [color=red]
-    f -&gt; a
-    e -&gt; c
-    e -&gt; d
-}</p></object></div>
-<p class="caption"><span class="caption-number">Fig. 10.2 </span><span class="caption-text">A directed graph. The edges in red depict a cycle.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
-</div>
-<div class="proof proof-type-definition" id="id8">
-
-    <div class="proof-title">
-        <span class="proof-type">Definition 10.3</span>
-        
-            <span class="proof-title-name">(Cycle)</span>
-        
-    </div><div class="proof-content">
-<p>A <em>cycle</em> in a graph is a sequence of edges such that the target of each
-edge is the source of the next, and the target of the last edge is the
-source of the first.</p>
-</div></div><div class="proof proof-type-definition" id="id9">
-
-    <div class="proof-title">
-        <span class="proof-type">Definition 10.4</span>
-        
-            <span class="proof-title-name">(Directed acyclic graph.)</span>
-        
-    </div><div class="proof-content">
-<p>A directed acyclic graph (DAG) is a directed graph in which there are no cycles.</p>
-</div></div><p><a class="reference internal" href="#dag"><span class="std std-numref">Fig. 10.3</span></a> shows a directed acyclic graph, or DAG. The cyclic nature of the
-graph imposes a certain form of hierarchy. For example the graph formed by the
-<a class="reference internal" href="8_inheritance.html#term-inheritance"><span class="xref std std-term">inheritance</span></a> relationship of classes is a DAG. The hierarchy implied by a
-DAG also lends itself to similar nomenclature to that which we use for class
-hierarchies: the source node of an edge is also referred to as the <em>parent node</em>
-and the target nodes of the edges emerging from a node are referred to as its
-<em>child nodes</em> or <em>children</em>.</p>
-<div class="figure align-center" id="id10">
-<span id="dag"></span><div class="graphviz"><object data="_images/graphviz-8dc47f9701ffada1396d9c18501e2a406d3c71c7.svg" type="image/svg+xml" class="graphviz">
-<p class="warning">strict digraph{
-    a -&gt; b
-    b -&gt; c
-    b -&gt; d
-    c -&gt; f
-    b -&gt; f
-    a -&gt; f
-    e -&gt; c
-    e -&gt; d
-}</p></object></div>
-<p class="caption"><span class="caption-number">Fig. 10.3 </span><span class="caption-text">A directed acyclic graph, formed by reversing edges in
-<a class="reference internal" href="#digraph"><span class="std std-numref">Fig. 10.2</span></a> so that no cycles remain.</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
-</div>
-<div class="proof proof-type-definition" id="id11">
-
-    <div class="proof-title">
-        <span class="proof-type">Definition 10.5</span>
-        
-            <span class="proof-title-name">(Tree)</span>
-        
-    </div><div class="proof-content">
-<p>A <em>tree</em> is a directed acyclic graph in which each node is the target of
-exactly one edge, except for one node (the <em>root node</em>) which is not the
-target of any edges <a class="footnote-reference brackets" href="#tree-def" id="id1">1</a>.</p>
-</div></div><div class="figure align-center" id="id12">
-<span id="tree-image"></span><div class="graphviz"><object data="_images/graphviz-7d68f8bae8445d49243aa04c9d8c0b636d1a2872.svg" type="image/svg+xml" class="graphviz">
-<p class="warning">strict digraph{
-    a -&gt; b
-    b -&gt; d
-    b -&gt; e
-    b -&gt; f
-    a -&gt; c
-    c -&gt; g
-}</p></object></div>
-<p class="caption"><span class="caption-number">Fig. 10.4 </span><span class="caption-text">A tree.</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
-</div>
-<p>Tree nodes with no children are called <em>leaf nodes</em>.</p>
-</div>
-<div class="section" id="tree-traversal">
-<h2><span class="section-number">10.2. </span>Tree traversal<a class="headerlink" href="#tree-traversal" title="Permalink to this headline">¶</a></h2>
-<p>Unlike the sequence types we have previously met, trees are not linear objects.
-If we wish to iterate through every node in the tree then we have a choices to
-make about the order in which we do so. In particular, there are two obvious
-classes of traversal order:</p>
-<dl class="simple">
-<dt>preorder traversal</dt><dd><p>A traversal in which each node is always visited <em>before</em> its children.</p>
-</dd>
-<dt>postorder traversal</dt><dd><p>A traversal order in which each node is always visited <em>after</em> its children.</p>
-</dd>
-</dl>
-<p>Note that neither order is unique: a node can have any number of children and
-the definitions are silent on the order in which these are visited. There is
-furthermore no guarantee that the children of a node will be visited immediately
-before or after their parent, and once we look at visitors for DAGs it will
-become apparent that it is not always possible to do so.</p>
-<div class="literal-block-wrapper docutils container" id="id13">
-<span id="treenode"></span><div class="code-block-caption"><span class="caption-number">Listing 10.1 </span><span class="caption-text">A basic tree implementation. This code is available as the
-<a class="reference internal" href="example_code.html#example_code.graphs.TreeNode" title="example_code.graphs.TreeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.graphs.TreeNode</span></code></a> class.</span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TreeNode</span><span class="p">:</span>
-    <span class="sd">&#39;&#39;&#39;A basic tree implementation.</span>
-
-<span class="sd">    Observe that a tree is simply a collection of connected TreeNodes.&#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">*</span><span class="n">children</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        value:</span>
-<span class="sd">            An arbitrary value associated with this node.</span>
-<span class="sd">        children:</span>
-<span class="sd">            The TreeNodes which are the children of this node.</span>
-<span class="sd">        &#39;&#39;&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">children</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}{</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="si">}</span><span class="s2">&quot;</span>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">childstring</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">))</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">!s}</span><span class="s2"> -&gt; (</span><span class="si">{</span><span class="n">childstring</span><span class="si">}</span><span class="s2">)&quot;</span>
-</pre></div>
-</td></tr></table></div>
-</div>
-<p><a class="reference internal" href="#treenode"><span class="std std-numref">Listing 10.1</span></a> shows a very simple class which implements a tree. For
-example, we can represent the tree in <a class="reference internal" href="#tree-image"><span class="std std-numref">Fig. 10.4</span></a> using:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.graphs</span> <span class="kn">import</span> <span class="n">TreeNode</span>
-
-<span class="gp">In [2]: </span><span class="n">tree</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">),</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;e&quot;</span><span class="p">),</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">)),</span>
-<span class="gp">   ...: </span>                     <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)))</span>
-
-<span class="gp">In [3]: </span><span class="nb">print</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
-<span class="go">a -&gt; (b -&gt; (d -&gt; (), e -&gt; (), f -&gt; ()), c -&gt; (g -&gt; ()))</span>
-</pre></div>
-</div>
-<p>The reader might immediately observe that serialised trees can be a little hard
-to read! This is the reason that trees are often represented by diagrams.</p>
 <div class="section" id="the-splat-and-double-splat-operators">
-<h3><span class="section-number">10.2.1. </span>The splat and double splat operators<a class="headerlink" href="#the-splat-and-double-splat-operators" title="Permalink to this headline">¶</a></h3>
-<p>Before we go on to traverse the tree we have created, we need to digress ever so
-slightly in order to explain a new piece of syntax. At line 5 of
-<a class="reference internal" href="#treenode"><span class="std std-numref">Listing 10.1</span></a>, the second parameter to
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code> is given as <code class="xref py py-obj docutils literal notranslate"><span class="pre">*children</span></code>. The
-character <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code> in this case is the argument packing operator, also known as the
-<em>splat</em> operator <a class="footnote-reference brackets" href="#splat" id="id2">2</a>. When used in the parameter list of a function, splat takes all
-of the remaining <a class="reference external" href="https://docs.python.org/3/glossary.html#term-argument" title="(in Python v3.9)"><span class="xref std std-term">positional arguments</span></a> provided by
-the caller and packs them up in a tuple. In this case, this enables any number
-of child nodes to be specified for each node.</p>
+<h2><span class="section-number">10.1. </span>The splat and double splat operators<a class="headerlink" href="#the-splat-and-double-splat-operators" title="Permalink to this headline">¶</a></h2>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Video: splat and double splat.<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/523477744"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+<p class="card-text">Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2cb93382-321b-4af6-8d5e-aceb0123103d">watch this video on Panopto</a>.</p>
+</div>
+</details><p>Before we go on to write code for trees and their traversal,  we need to
+digress ever so slightly in order to explain a new piece of syntax. We’re going
+to want to write  functions that can take a variable number of arguments. For
+example, we’re going to want the <a class="reference internal" href="3_objects.html#term-constructor"><span class="xref std std-term">constructor</span></a> of a tree node object to
+be able to take a variable number of children. We can do this by writing the
+relevant parameter as <code class="xref py py-obj docutils literal notranslate"><span class="pre">*children</span></code>. The character <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code> in this case is the
+argument packing operator, also known as the <em>splat</em> operator <a class="footnote-reference brackets" href="#splat" id="id1">2</a>. When
+used in the parameter list of a function, splat takes all of the remaining
+<a class="reference external" href="https://docs.python.org/3/glossary.html#term-argument" title="(in Python v3.9)"><span class="xref std std-term">positional arguments</span></a> provided by the caller and packs them
+up in a tuple. In this case, this enables any number of child nodes to be
+specified for each node.</p>
 <p>The splat operator can also be used when calling a function. In that case it
 acts as a sequence unpacking operator, turning a sequence into separate
 arguments. For example:</p>
@@ -318,12 +128,12 @@ positional arguments. When used in the <a class="reference external" href="https
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">**</span></code> gathers all of the keyword arguments that the caller passes, other than any
 which are explicitly named in the interface. The result is a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> whose
 keys are the argument names, and whose values are the arguments.
-<a class="reference internal" href="#kwarg-packing"><span class="std std-numref">Listing 10.2</span></a> demonstrates the argument packing function of <code class="xref py py-obj docutils literal notranslate"><span class="pre">**</span></code>,
-while <a class="reference internal" href="#kwarg-unpacking"><span class="std std-numref">Listing 10.3</span></a> shows the unpacking function.</p>
-<div class="literal-block-wrapper docutils container" id="id14">
-<span id="kwarg-packing"></span><div class="code-block-caption"><span class="caption-number">Listing 10.2 </span><span class="caption-text">An illustration of keyword argument packing. All of the keyword
+<a class="reference internal" href="#kwarg-packing"><span class="std std-numref">Listing 10.1</span></a> demonstrates the argument packing function of <code class="xref py py-obj docutils literal notranslate"><span class="pre">**</span></code>,
+while <a class="reference internal" href="#kwarg-unpacking"><span class="std std-numref">Listing 10.2</span></a> shows the unpacking function.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<span id="kwarg-packing"></span><div class="code-block-caption"><span class="caption-number">Listing 10.1 </span><span class="caption-text">An illustration of keyword argument packing. All of the keyword
 arguments are packed into the dictionary <code class="xref py py-data docutils literal notranslate"><span class="pre">kwargs</span></code>, except for <code class="xref py py-obj docutils literal notranslate"><span class="pre">b</span></code>,
-because that explicitly appears in the parameter list of <code class="xref py py-func docutils literal notranslate"><span class="pre">fn()</span></code>.</span><a class="headerlink" href="#id14" title="Permalink to this code">¶</a></div>
+because that explicitly appears in the parameter list of <code class="xref py py-func docutils literal notranslate"><span class="pre">fn()</span></code>.</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="gp">   ...: </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 <span class="gp">   ...: </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b:&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
@@ -337,10 +147,10 @@ because that explicitly appears in the parameter list of <code class="xref py py
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id15">
-<span id="kwarg-unpacking"></span><div class="code-block-caption"><span class="caption-number">Listing 10.3 </span><span class="caption-text">Keyword argument unpacking. Notice that the arguments matching the
+<div class="literal-block-wrapper docutils container" id="id5">
+<span id="kwarg-unpacking"></span><div class="code-block-caption"><span class="caption-number">Listing 10.2 </span><span class="caption-text">Keyword argument unpacking. Notice that the arguments matching the
 explicitly named keywords are unpacked, while the remainder are repacked
-into the <code class="xref py py-obj docutils literal notranslate"><span class="pre">**kwargs</span></code> parameter.</span><a class="headerlink" href="#id15" title="Permalink to this code">¶</a></div>
+into the <code class="xref py py-obj docutils literal notranslate"><span class="pre">**kwargs</span></code> parameter.</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">kw</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;mary&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="s2">&quot;had&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="s2">&quot;little&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">:</span> <span class="s2">&quot;lamb&quot;</span><span class="p">}</span>
 
 <span class="gp">In [4]: </span><span class="n">fn</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span>
@@ -364,9 +174,246 @@ example:</p>
 <p>The names <code class="xref py py-obj docutils literal notranslate"><span class="pre">*args</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">**kwargs</span></code> are the conventional names in
 cases where nothing more specific is known about the parameters in question.</p>
 </div>
+<div class="section" id="some-definitions">
+<h2><span class="section-number">10.2. </span>Some definitions<a class="headerlink" href="#some-definitions" title="Permalink to this headline">¶</a></h2>
+<p>Trees and DAGs are examples of graphs, a type of mathematical object that you
+may have met in previous courses:</p>
+<div class="proof proof-type-definition" id="id6">
+
+    <div class="proof-title">
+        <span class="proof-type">Definition 10.1</span>
+        
+            <span class="proof-title-name">(Graph)</span>
+        
+    </div><div class="proof-content">
+<p>A <em>graph</em> <span class="math notranslate nohighlight">\((V, E)\)</span> is a set <span class="math notranslate nohighlight">\(V\)</span> known as the vertices or nodes,
+and a set of pairs of vertices, <span class="math notranslate nohighlight">\(E\)</span>, known as the edges.</p>
+</div></div><p>A graph describes connections between its vertices, and can be used to model a
+huge range of interconnected networks. <a class="reference internal" href="#graph"><span class="std std-numref">Fig. 10.1</span></a> illustrates a simple example.</p>
+<div class="figure align-center" id="id7">
+<span id="graph"></span><div class="graphviz"><object data="_images/graphviz-6b78642109c5b2fb5b298391cf1f651e396c0f4b.svg" type="image/svg+xml" class="graphviz">
+<p class="warning">strict graph{
+    a -- b
+    b -- c
+    b -- d
+    c -- f
+    f -- b
+    d -- a
+    f -- a
+    e -- c
+    e -- d
+}</p></object></div>
+<p class="caption"><span class="caption-number">Fig. 10.1 </span><span class="caption-text">A graphical representation of the graph <span class="math notranslate nohighlight">\((\{a, b, c, d, e,
+f\}, \{(a, b), (a, d), (a, f), (b, c), (b, d), (b, f), (c, e), (c, f), (d, e) \})\)</span></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<div class="proof proof-type-definition" id="id8">
+
+    <div class="proof-title">
+        <span class="proof-type">Definition 10.2</span>
+        
+            <span class="proof-title-name">(Directed graph)</span>
+        
+    </div><div class="proof-content">
+<p>A <em>directed graph</em> is a graph in which the pair of nodes forming each edge
+is ordered. In other words each edge points <em>from</em> one node (the <em>source</em>)
+and <em>to</em> another (the <em>target</em>).</p>
+</div></div><p><a class="reference internal" href="#digraph"><span class="std std-numref">Fig. 10.2</span></a> shows a directed graph with similar topology to the previous example.</p>
+<div class="figure align-center" id="id9">
+<span id="digraph"></span><div class="graphviz"><object data="_images/graphviz-707ee9737830d0789d1828d8465ddd8e6b37fd36.svg" type="image/svg+xml" class="graphviz">
+<p class="warning">strict digraph{
+    a -&gt; b [color=red]
+    b -&gt; c
+    b -&gt; d [color=red]
+    c -&gt; f
+    f -&gt; b
+    d -&gt; a [color=red]
+    f -&gt; a
+    e -&gt; c
+    e -&gt; d
+}</p></object></div>
+<p class="caption"><span class="caption-number">Fig. 10.2 </span><span class="caption-text">A directed graph. The edges in red depict a cycle.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+<div class="proof proof-type-definition" id="id10">
+
+    <div class="proof-title">
+        <span class="proof-type">Definition 10.3</span>
+        
+            <span class="proof-title-name">(Cycle)</span>
+        
+    </div><div class="proof-content">
+<p>A <em>cycle</em> in a graph is a sequence of edges such that the target of each
+edge is the source of the next, and the target of the last edge is the
+source of the first.</p>
+</div></div><div class="proof proof-type-definition" id="id11">
+
+    <div class="proof-title">
+        <span class="proof-type">Definition 10.4</span>
+        
+            <span class="proof-title-name">(Directed acyclic graph.)</span>
+        
+    </div><div class="proof-content">
+<p>A directed acyclic graph (DAG) is a directed graph in which there are no cycles.</p>
+</div></div><p><a class="reference internal" href="#dag"><span class="std std-numref">Fig. 10.3</span></a> shows a directed acyclic graph, or DAG. The cyclic nature of the
+graph imposes a certain form of hierarchy. For example the graph formed by the
+<a class="reference internal" href="8_inheritance.html#term-inheritance"><span class="xref std std-term">inheritance</span></a> relationship of classes is a DAG. The hierarchy implied by a
+DAG also lends itself to similar nomenclature to that which we use for class
+hierarchies: the source node of an edge is also referred to as the <em>parent node</em>
+and the target nodes of the edges emerging from a node are referred to as its
+<em>child nodes</em> or <em>children</em>.</p>
+<div class="figure align-center" id="id12">
+<span id="dag"></span><div class="graphviz"><object data="_images/graphviz-8dc47f9701ffada1396d9c18501e2a406d3c71c7.svg" type="image/svg+xml" class="graphviz">
+<p class="warning">strict digraph{
+    a -&gt; b
+    b -&gt; c
+    b -&gt; d
+    c -&gt; f
+    b -&gt; f
+    a -&gt; f
+    e -&gt; c
+    e -&gt; d
+}</p></object></div>
+<p class="caption"><span class="caption-number">Fig. 10.3 </span><span class="caption-text">A directed acyclic graph, formed by reversing edges in
+<a class="reference internal" href="#digraph"><span class="std std-numref">Fig. 10.2</span></a> so that no cycles remain.</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+<div class="proof proof-type-definition" id="id13">
+
+    <div class="proof-title">
+        <span class="proof-type">Definition 10.5</span>
+        
+            <span class="proof-title-name">(Tree)</span>
+        
+    </div><div class="proof-content">
+<p>A <em>tree</em> is a directed acyclic graph in which each node is the target of
+exactly one edge, except for one node (the <em>root node</em>) which is not the
+target of any edges <a class="footnote-reference brackets" href="#tree-def" id="id2">1</a>.</p>
+</div></div><div class="figure align-center" id="id14">
+<span id="tree-image"></span><div class="graphviz"><object data="_images/graphviz-7d68f8bae8445d49243aa04c9d8c0b636d1a2872.svg" type="image/svg+xml" class="graphviz">
+<p class="warning">strict digraph{
+    a -&gt; b
+    b -&gt; d
+    b -&gt; e
+    b -&gt; f
+    a -&gt; c
+    c -&gt; g
+}</p></object></div>
+<p class="caption"><span class="caption-number">Fig. 10.4 </span><span class="caption-text">A tree.</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+</div>
+<p>Tree nodes with no children are called <em>leaf nodes</em>.</p>
+</div>
+<div class="section" id="data-structures-for-trees">
+<h2><span class="section-number">10.3. </span>Data structures for trees<a class="headerlink" href="#data-structures-for-trees" title="Permalink to this headline">¶</a></h2>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Tree data structures.<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/523477713"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+<p class="card-text">Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5477e1b1-1040-4a07-97a5-aceb01230fc6">watch this video on Panopto</a>.</p>
+</div>
+</details><p>Unlike the sequence types we have previously met, trees are not linear objects.
+If we wish to iterate through every node in the tree then we have a choices to
+make about the order in which we do so. In particular, there are two obvious
+classes of traversal order:</p>
+<dl class="simple">
+<dt>preorder traversal</dt><dd><p>A traversal in which each node is always visited <em>before</em> its children.</p>
+</dd>
+<dt>postorder traversal</dt><dd><p>A traversal order in which each node is always visited <em>after</em> its children.</p>
+</dd>
+</dl>
+<p>Note that neither order is unique: a node can have any number of children and
+the definitions are silent on the order in which these are visited. There is
+furthermore no guarantee that the children of a node will be visited immediately
+before or after their parent, and once we look at visitors for DAGs it will
+become apparent that it is not always possible to do so.</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<span id="treenode"></span><div class="code-block-caption"><span class="caption-number">Listing 10.3 </span><span class="caption-text">A basic tree implementation. This code is available as the
+<a class="reference internal" href="example_code.html#example_code.graphs.TreeNode" title="example_code.graphs.TreeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.graphs.TreeNode</span></code></a> class.</span><a class="headerlink" href="#id15" title="Permalink to this code">¶</a></div>
+<div class="highlight-python3 notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TreeNode</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A basic tree implementation.</span>
+
+<span class="sd">    Observe that a tree is simply a collection of connected TreeNodes.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    value:</span>
+<span class="sd">        An arbitrary value associated with this node.</span>
+<span class="sd">    children:</span>
+<span class="sd">        The TreeNodes which are the children of this node.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">*</span><span class="n">children</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">children</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the canonical string representation.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}{</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Serialise the tree recursively as parent -&gt; (children).&quot;&quot;&quot;</span>
+        <span class="n">childstring</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">))</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">!s}</span><span class="s2"> -&gt; (</span><span class="si">{</span><span class="n">childstring</span><span class="si">}</span><span class="s2">)&quot;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p><a class="reference internal" href="#treenode"><span class="std std-numref">Listing 10.3</span></a> shows a very simple class which implements a tree. For
+example, we can represent the tree in <a class="reference internal" href="#tree-image"><span class="std std-numref">Fig. 10.4</span></a> using:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.graphs</span> <span class="kn">import</span> <span class="n">TreeNode</span>
+
+<span class="gp">In [2]: </span><span class="n">tree</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">),</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;e&quot;</span><span class="p">),</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">)),</span>
+<span class="gp">   ...: </span>                     <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)))</span>
+
+<span class="gp">In [3]: </span><span class="nb">print</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+<span class="go">a -&gt; (b -&gt; (d -&gt; (), e -&gt; (), f -&gt; ()), c -&gt; (g -&gt; ()))</span>
+</pre></div>
+</div>
+<p>The reader might immediately observe that serialised trees can be a little hard
+to read! This is the reason that trees are often represented by diagrams.</p>
 <div class="section" id="traversing-treenode">
-<h3><span class="section-number">10.2.2. </span>Traversing <a class="reference internal" href="example_code.html#example_code.graphs.TreeNode" title="example_code.graphs.TreeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeNode</span></code></a><a class="headerlink" href="#traversing-treenode" title="Permalink to this headline">¶</a></h3>
-<p>A function which traverses a tree is often called a tree visitor, because it
+<h3><span class="section-number">10.3.1. </span>Traversing <a class="reference internal" href="example_code.html#example_code.graphs.TreeNode" title="example_code.graphs.TreeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeNode</span></code></a><a class="headerlink" href="#traversing-treenode" title="Permalink to this headline">¶</a></h3>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Video: tree traversal.<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/523477719"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+<p class="card-text">Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=69b00d45-077d-46ff-933c-aceb01231001">watch this video on Panopto</a>.</p>
+</div>
+</details><p>A function which traverses a tree is often called a tree visitor, because it
 visits every node in the tree. What does it do when it visits? Well it could do
 just about anything that one can do on the basis of the data available at that
 node, and the results of visiting whichever nodes have already been visited. The
@@ -392,9 +439,8 @@ do when we get there.</p>
 10
 11
 12
-13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">postvisitor</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">fn</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Traverse tree in postorder applying a function to every node.</span>
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">postvisitor</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">fn</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Traverse tree in postorder applying a function to every node.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -404,8 +450,7 @@ do when we get there.</p>
 <span class="sd">        A function to be applied at each node. The function should take the</span>
 <span class="sd">        node to be visited as its first argument, and the results of visiting</span>
 <span class="sd">        its children as any further arguments.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">fn</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">postvisitor</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">children</span><span class="p">))</span>
 </pre></div>
 </td></tr></table></div>
@@ -466,9 +511,8 @@ as <a class="reference internal" href="#preorder-recursive"><span class="std std
 13
 14
 15
-16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">previsitor</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">fn_parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Traverse tree in preorder applying a function to every node.</span>
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">previsitor</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">fn_parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Traverse tree in preorder applying a function to every node.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -478,8 +522,7 @@ as <a class="reference internal" href="#preorder-recursive"><span class="std std
 <span class="sd">        A function to be applied at each node. The function should take the</span>
 <span class="sd">        node to be visited as its first argument, and the result of visiting</span>
 <span class="sd">        its parent as the second.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">fn_out</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">fn_parent</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
@@ -512,7 +555,7 @@ that we successfully diagnosed the depth of each node.</p>
 </div>
 </div>
 <div class="section" id="expression-trees">
-<span id="expr-trees"></span><h2><span class="section-number">10.3. </span>Expression trees<a class="headerlink" href="#expression-trees" title="Permalink to this headline">¶</a></h2>
+<span id="expr-trees"></span><h2><span class="section-number">10.4. </span>Expression trees<a class="headerlink" href="#expression-trees" title="Permalink to this headline">¶</a></h2>
 <p>One important application of trees is in representing arithmetic expressions.
 Consider the expression <span class="math notranslate nohighlight">\(2y + 4^{(5 + x)}\)</span>. Suppose, further, that
 we want to represent this on a computer in such a way that we can perform
@@ -546,7 +589,7 @@ so on up until finally the addition at the root node is evaluated.</p>
 <p>We will first consider how to construct trees like this, then consider the
 question of the operations we could implement on them.</p>
 <div class="section" id="an-expression-tree-class-hierarchy">
-<span id="expr-hierarchy"></span><h3><span class="section-number">10.3.1. </span>An expression tree class hierarchy<a class="headerlink" href="#an-expression-tree-class-hierarchy" title="Permalink to this headline">¶</a></h3>
+<span id="expr-hierarchy"></span><h3><span class="section-number">10.4.1. </span>An expression tree class hierarchy<a class="headerlink" href="#an-expression-tree-class-hierarchy" title="Permalink to this headline">¶</a></h3>
 <p>The nodes of an expression tree don’t just have different values, they have
 different <a class="reference internal" href="3_objects.html#term-type"><span class="xref std std-term">type</span></a>. That is to say, the meaning of operations changes
 between, say <span class="math notranslate nohighlight">\(+\)</span> and <span class="math notranslate nohighlight">\(2\)</span>. For example the evaluation rule for these
@@ -586,7 +629,7 @@ children of a node.</p>
 <p class="caption"><span class="caption-number">Fig. 10.6 </span><span class="caption-text">Inheritance diagram for a very basic symbolic language. Each box
 represents a class, with the arrows showing inheritance relationships. Note that
 the edges in such diagrams conventionally point from the child class to the
-parent class, because its the child class that refers to the parent. The
+parent class, because it’s the child class that refers to the parent. The
 parent does not refer to the child.</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
 </div>
 <p>Let’s consider what would be needed at each layer of the hierarchy.
@@ -623,7 +666,7 @@ operators but different for terminals.</p>
 the code that could be passed to the <a class="reference internal" href="2_programs_in_files.html#term-Python-interpreter"><span class="xref std std-term">Python interpreter</span></a> to construct
 the object. Something like the following would work:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">operands</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">operands</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This approch is valid because the string representation of a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>
@@ -671,8 +714,21 @@ themselves. The only functionality they might provide would be to override
 in the case of <code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code> and a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> in the case of <code class="xref py py-class docutils literal notranslate"><span class="pre">Symbol</span></code>.</p>
 </div>
 <div class="section" id="operations-on-expression-trees">
-<h3><span class="section-number">10.3.2. </span>Operations on expression trees<a class="headerlink" href="#operations-on-expression-trees" title="Permalink to this headline">¶</a></h3>
-<p>Many operations on expression trees can be implemented using tree visitors, most
+<h3><span class="section-number">10.4.2. </span>Operations on expression trees<a class="headerlink" href="#operations-on-expression-trees" title="Permalink to this headline">¶</a></h3>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Video: evaluating expressions.<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/523478799"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+<p class="card-text">Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=88f9564a-73c9-4760-8f48-aceb01230f9b">watch this video on Panopto</a>.</p>
+</div>
+</details><p>Many operations on expression trees can be implemented using tree visitors, most
 frequently by visiting the tree in postorder. An example is
 expression evaluation. The user provides a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> mapping symbol names to
 numerical values, and we proceed from leaf nodes upwards. Every <code class="xref py py-class docutils literal notranslate"><span class="pre">Symbol</span></code>
@@ -686,7 +742,7 @@ what is required, and Python provides this functionality in the form of the
 single dispatch function.</p>
 </div>
 <div class="section" id="single-dispatch-functions">
-<h3><span class="section-number">10.3.3. </span>Single dispatch functions<a class="headerlink" href="#single-dispatch-functions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.4.3. </span>Single dispatch functions<a class="headerlink" href="#single-dispatch-functions" title="Permalink to this headline">¶</a></h3>
 <p>In all of the cases we have encountered so far, there is a unique mapping from
 the name of a function to the code implementing that function. That is, no
 matter what arguments are passed to a function, the same code will execute (so
@@ -818,10 +874,10 @@ exercise</span></a>.</span><a class="headerlink" href="#id20" title="Permalink t
 </div>
 <p><a class="reference internal" href="#tree-evaluate"><span class="std std-numref">Listing 10.6</span></a> shows a single dispatch function for a visitor function
 which evaluates a <code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code>. Start with lines 6-19. These define a
-function <code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code> which will be used in
+function <a class="reference internal" href="example_code.html#example_code.expression_tools.evaluate" title="example_code.expression_tools.evaluate"><code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code></a> which will be used in
 the default case, that is, in the case where the <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> of the first
 argument doesn’t match any of the other implementations of
-<code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code>. In this case, the first
+<a class="reference internal" href="example_code.html#example_code.expression_tools.evaluate" title="example_code.expression_tools.evaluate"><code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code></a>. In this case, the first
 argument is the expression that we’re evaluating, so if the type doesn’t match
 then this means that we don’t know how to evaluate this object, and the only
 course of action available is to throw an <a class="reference internal" href="6_exceptions.html#term-exception"><span class="xref std std-term">exception</span></a>.</p>
@@ -839,13 +895,13 @@ expression types. Look first at lines 26-28, which provide the evaluation of
 Notice that the function name is given as <code class="xref py py-obj docutils literal notranslate"><span class="pre">_</span></code>. This is the Python convention for
 a name which will never be used. This function will never be called by its
 declared name. Instead, look at the decorator on line 26. The single dispatch
-function <code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code> has a <a class="reference internal" href="3_objects.html#term-method"><span class="xref std std-term">method</span></a>
+function <a class="reference internal" href="example_code.html#example_code.expression_tools.evaluate" title="example_code.expression_tools.evaluate"><code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code></a> has a <a class="reference internal" href="3_objects.html#term-method"><span class="xref std std-term">method</span></a>
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">register()</span></code>. When used as a decorator, the <code class="xref py py-meth docutils literal notranslate"><span class="pre">register()</span></code> method of a
 single dispatch function registers the function that follows as implementation
 for the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.9)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">class</span></code></a> given as an argument to <code class="xref py py-meth docutils literal notranslate"><span class="pre">register()</span></code>. On this
 occasion, this is <code class="xref py py-class docutils literal notranslate"><span class="pre">expressions.Number</span></code>.</p>
 <p>Now look at lines 31-33. These contain the implementation of
-<code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code> for <code class="xref py py-class docutils literal notranslate"><span class="pre">expressions.Symbol</span></code>.
+<a class="reference internal" href="example_code.html#example_code.expression_tools.evaluate" title="example_code.expression_tools.evaluate"><code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code></a> for <code class="xref py py-class docutils literal notranslate"><span class="pre">expressions.Symbol</span></code>.
 In order to evaluate a symbol, we depend on the mapping from symbol names to
 numerical values that has been passed in.</p>
 <p>Finally, look at lines 36-38. These define the evaluation visitor for addition.
@@ -854,7 +910,7 @@ This works simply by adding the results of evaluating the two operands of
 <em>mutatis mutandis</em>.</p>
 </div>
 <div class="section" id="an-expanded-tree-visitor">
-<h3><span class="section-number">10.3.4. </span>An expanded tree visitor<a class="headerlink" href="#an-expanded-tree-visitor" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.4.4. </span>An expanded tree visitor<a class="headerlink" href="#an-expanded-tree-visitor" title="Permalink to this headline">¶</a></h3>
 <p>The need to provide the <code class="xref py py-obj docutils literal notranslate"><span class="pre">symbol_map</span></code> parameter to the
 <code class="xref py py-class docutils literal notranslate"><span class="pre">expressions.Symbol</span></code> evaluation visitor means that the postorder visitor
 in <a class="reference internal" href="#postorder-recursive"><span class="std std-numref">Listing 10.4</span></a> is not quite up to the task.
@@ -862,8 +918,10 @@ in <a class="reference internal" href="#postorder-recursive"><span class="std st
 keyword arguments through to the visitor function.</p>
 <div class="literal-block-wrapper docutils container" id="id21">
 <span id="postorder-recursive-kwargs"></span><div class="code-block-caption"><span class="caption-number">Listing 10.7 </span><span class="caption-text">A recursive tree visitor that passes any keyword arguments
-through to the visitor function. We also account for the name changes
-between <a class="reference internal" href="example_code.html#example_code.graphs.TreeNode" title="example_code.graphs.TreeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeNode</span></code></a> and <code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code>.</span><a class="headerlink" href="#id21" title="Permalink to this code">¶</a></div>
+through to the visitor function. This is available as
+<code class="xref py py-func docutils literal notranslate"><span class="pre">example_code.expression_tools.post_visitor()</span></code>. We also account
+for the name changes between <a class="reference internal" href="example_code.html#example_code.graphs.TreeNode" title="example_code.graphs.TreeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeNode</span></code></a>
+and <code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code>.</span><a class="headerlink" href="#id21" title="Permalink to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -882,8 +940,7 @@ between <a class="reference internal" href="example_code.html#example_code.graph
 16
 17
 18
-19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">postvisitor</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">postvisitor</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Traverse an Expression in postorder applying a function to every node.</span>
 
 <span class="sd">    Parameters</span>
@@ -899,7 +956,6 @@ between <a class="reference internal" href="example_code.html#example_code.graph
 <span class="sd">    **kwargs:</span>
 <span class="sd">        Any additional keyword arguments to be passed to fn.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-
     <span class="k">return</span> <span class="n">fn</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span>
               <span class="o">*</span><span class="p">(</span><span class="n">postvisitor</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">expr</span><span class="o">.</span><span class="n">operands</span><span class="p">),</span>
               <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -928,7 +984,7 @@ in a position to try out our expression evaluator:</p>
 </div>
 </div>
 <div class="section" id="avoiding-recursion">
-<h2><span class="section-number">10.4. </span>Avoiding recursion<a class="headerlink" href="#avoiding-recursion" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.5. </span>Avoiding recursion<a class="headerlink" href="#avoiding-recursion" title="Permalink to this headline">¶</a></h2>
 <p>The recursive tree visitors we have written require very few lines of code, and
 very succinctly express the algorithm they represent. However, in most
 programming languages (including Python), recursion is a relatively inefficient
@@ -945,7 +1001,7 @@ we wish to be able to represent expressions not only as trees but as more
 general <a class="reference internal" href="#term-DAG"><span class="xref std std-term">directed acyclic graphs</span></a>.</p>
 </div>
 <div class="section" id="representing-expressions-as-dags">
-<h2><span class="section-number">10.5. </span>Representing expressions as <a class="reference internal" href="#term-DAG"><span class="xref std std-term">DAGs</span></a><a class="headerlink" href="#representing-expressions-as-dags" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.6. </span>Representing expressions as <a class="reference internal" href="#term-DAG"><span class="xref std std-term">DAGs</span></a><a class="headerlink" href="#representing-expressions-as-dags" title="Permalink to this headline">¶</a></h2>
 <p>If we treat an expression as a tree, then any repeated subexpressions will be
 duplicated in the tree. Consider, for example, <span class="math notranslate nohighlight">\(x^2 + 3/x^2\)</span>. If we create
 a tree of this expression, then <span class="math notranslate nohighlight">\(x^2\)</span> will occur twice, and any operation
@@ -1003,7 +1059,7 @@ depth of nesting. This can easily make the difference between a computation that
 completes in a fraction of a second, and one which takes hours to complete or
 which exhausts the computer’s memory and therefore fails to complete at all!</p>
 <div class="section" id="building-expression-dags">
-<h3><span class="section-number">10.5.1. </span>Building expression <a class="reference internal" href="#term-DAG"><span class="xref std std-term">DAGs</span></a><a class="headerlink" href="#building-expression-dags" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.6.1. </span>Building expression <a class="reference internal" href="#term-DAG"><span class="xref std std-term">DAGs</span></a><a class="headerlink" href="#building-expression-dags" title="Permalink to this headline">¶</a></h3>
 <p>Using somewhat more complex data structures, it is possible to create
 expressions that automatically result in <a class="reference internal" href="#term-DAG"><span class="xref std std-term">DAGs</span></a> rather than
 <a class="reference internal" href="#term-tree"><span class="xref std std-term">trees</span></a>.  That is beyond the scope of this course, but we can
@@ -1032,7 +1088,7 @@ we have a tree. However, if we instead write:</p>
 refer to the same <code class="xref py py-obj docutils literal notranslate"><span class="pre">x**2</span></code> object.</p>
 </div>
 <div class="section" id="dag-visitors">
-<h3><span class="section-number">10.5.2. </span><a class="reference internal" href="#term-DAG"><span class="xref std std-term">DAG</span></a> visitors<a class="headerlink" href="#dag-visitors" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.6.2. </span><a class="reference internal" href="#term-DAG"><span class="xref std std-term">DAG</span></a> visitors<a class="headerlink" href="#dag-visitors" title="Permalink to this headline">¶</a></h3>
 <p>Even if we represent an expression as a DAG rather than a tree, the simple
 recursive tree visitors we have used thusfar will undo all of our good work,
 because common subexpressions will be visited via each parent expression, rather
@@ -1043,7 +1099,7 @@ next, and a <a class="reference external" href="https://docs.python.org/3/librar
 results of visiting them. <a class="reference internal" href="#nonrecursive-postvisit"><span class="std std-numref">Listing 10.8</span></a> illustrates one such
 algorithm.</p>
 <div class="literal-block-wrapper docutils container" id="id23">
-<span id="nonrecursive-postvisit"></span><div class="code-block-caption"><span class="caption-number">Listing 10.8 </span><span class="caption-text">Pythonic pseudocode for a non-recursive postorder <a class="reference internal" href="#term-DAG"><span class="xref std std-term">DAG</span></a> visitor.</span><a class="headerlink" href="#id23" title="Permalink to this code">¶</a></div>
+<span id="nonrecursive-postvisit"></span><div class="code-block-caption"><span class="caption-number">Listing 10.8 </span><span class="caption-text">Pythonic <a class="reference internal" href="3_objects.html#term-pseudocode"><span class="xref std std-term">pseudocode</span></a> for a non-recursive postorder <a class="reference internal" href="#term-DAG"><span class="xref std std-term">DAG</span></a> visitor.</span><a class="headerlink" href="#id23" title="Permalink to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1103,8 +1159,8 @@ outweighs any possible advantage of not creating new objects.</p>
 </div>
 </div>
 <div class="section" id="differentiation-as-an-expression-visitor">
-<h2><span class="section-number">10.6. </span>Differentiation as an expression visitor<a class="headerlink" href="#differentiation-as-an-expression-visitor" title="Permalink to this headline">¶</a></h2>
-<p>In <a class="reference internal" href="#expr-trees"><span class="std std-numref">Section 10.3</span></a> we showed how a tree visitor could implement the
+<h2><span class="section-number">10.7. </span>Differentiation as an expression visitor<a class="headerlink" href="#differentiation-as-an-expression-visitor" title="Permalink to this headline">¶</a></h2>
+<p>In <a class="reference internal" href="#expr-trees"><span class="std std-numref">Section 10.4</span></a> we showed how a tree visitor could implement the
 evaluation of a symbolic expression. You might very well protest that if the
 only thing you wanted to do was evaluate arithmetic expressions then you could
 have just written a Python function and avoided a lot of code. In fact, almost
@@ -1121,7 +1177,7 @@ differentiating will need to be passed in to the visitor. This can be achieved
 with a keyword argument in a manner analogous to <code class="xref py py-obj docutils literal notranslate"><span class="pre">tree_map</span></code> in
 <a class="reference internal" href="#tree-evaluate"><span class="std std-numref">Listing 10.6</span></a>.</p>
 <p>The differentiation of operators is achieved by an applying the chain rule. For
-an binary operator <span class="math notranslate nohighlight">\(\odot\)</span>, with operands <span class="math notranslate nohighlight">\(o_0\)</span> and <span class="math notranslate nohighlight">\(o_1\)</span>, the
+a binary operator <span class="math notranslate nohighlight">\(\odot\)</span>, with operands <span class="math notranslate nohighlight">\(o_0\)</span> and <span class="math notranslate nohighlight">\(o_1\)</span>, the
 chain rule is given by:</p>
 <div class="math notranslate nohighlight" id="equation-10-trees-and-directed-acyclic-graphs-0">
 <span class="eqno">(10.1)<a class="headerlink" href="#equation-10-trees-and-directed-acyclic-graphs-0" title="Permalink to this equation">¶</a></span>\[\frac{\partial\, (o_0 \odot o_1)}{\partial x} =
@@ -1139,7 +1195,7 @@ available from the operator object itself, and the results of differentiating
 the operands, which are given by the <code class="xref py py-obj docutils literal notranslate"><span class="pre">*o</span></code> argument to the visitor function.</p>
 </div>
 <div class="section" id="glossary">
-<h2><span class="section-number">10.7. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.8. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
 <dl class="glossary simple">
 <dt id="term-child-node">child node</dt><dd><p>The children of a node in a <a class="reference internal" href="#term-DAG"><span class="xref std std-term">DAG</span></a> are the targets of the edges
 emerging from that node. In this context, the node from which these
@@ -1181,8 +1237,10 @@ most one edge.</p>
 </dl>
 </div>
 <div class="section" id="exercises">
-<h2><span class="section-number">10.8. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<p>Obtain the <a class="reference internal" href="not_released.html"><span class="doc">skeleton code for these exercises from GitHub classroom</span></a>.</p>
+<h2><span class="section-number">10.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p>Obtain the <a class="reference external" href="https://classroom.github.com/a/DVDJ8r1y">skeleton code for these exercises from GitHub classroom</a>. You should also update your clone
+of the course repository to ensure you have the latest version of the
+<a class="reference internal" href="example_code.html#module-example_code" title="example_code"><code class="xref py py-mod docutils literal notranslate"><span class="pre">example_code</span></code></a> package.</p>
 <div class="proof proof-type-exercise" id="id24">
 <span id="ex-expr"></span>
     <div class="proof-title">
@@ -1191,7 +1249,7 @@ most one edge.</p>
     </div><div class="proof-content">
 <p>In the skeleton repository for this week, create a <a class="reference internal" href="2_programs_in_files.html#term-package"><span class="xref std std-term">package</span></a>
 <code class="xref py py-mod docutils literal notranslate"><span class="pre">expressions</span></code> which implements the class hierarchy in
-<a class="reference internal" href="#expr-hierarchy"><span class="std std-numref">Section 10.3.1</span></a>. When implementing <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a>, use the
+<a class="reference internal" href="#expr-hierarchy"><span class="std std-numref">Section 10.4.1</span></a>. When implementing <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a>, use the
 symbols <code class="xref py py-obj docutils literal notranslate"><span class="pre">+</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">-</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">/</span></code>, and <code class="xref py py-obj docutils literal notranslate"><span class="pre">^</span></code>. The names <code class="xref py py-class docutils literal notranslate"><span class="pre">Symbol</span></code>,
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Add</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Sub</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Mul</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Div</span></code>, and
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Pow</span></code> should be directly importable in the <code class="xref py py-mod docutils literal notranslate"><span class="pre">expressions</span></code> <a class="reference internal" href="2_programs_in_files.html#term-namespace"><span class="xref std std-term">namespace</span></a>.</p>
@@ -1202,7 +1260,7 @@ symbols <code class="xref py py-obj docutils literal notranslate"><span class="p
         
     </div><div class="proof-content">
 <p>Write a function importable as <code class="xref py py-func docutils literal notranslate"><span class="pre">expressions.postvisitor()</span></code> with the same
-interface as <a class="reference internal" href="#postorder-recursive"><span class="std std-numref">Listing 10.4</span></a>. Your implementation, however,
+interface as <a class="reference internal" href="#postorder-recursive-kwargs"><span class="std std-numref">Listing 10.7</span></a>. Your implementation, however,
 should not be recursive, and should only visit repeated subexpressions once,
 no matter how many times they occur in the expression.</p>
 </div></div><div class="proof proof-type-exercise" id="id26">
@@ -1214,17 +1272,21 @@ no matter how many times they occur in the expression.</p>
 <p>Write a <a class="reference internal" href="#term-single-dispatch-function"><span class="xref std std-term">single dispatch function</span></a> importable as
 <code class="xref py py-func docutils literal notranslate"><span class="pre">expressions.differentiate()</span></code> which has the correct interface to be
 passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">expressions.postvisitor()</span></code> or
-<code class="xref py py-func docutils literal notranslate"><span class="pre">example.code.graphs.postvisitor()</span></code> and which differentiates the
+<a class="reference internal" href="example_code.html#example_code.expression_tools.postvisitor" title="example_code.expression_tools.postvisitor"><code class="xref py py-func docutils literal notranslate"><span class="pre">example_code.expression_tools.postvisitor()</span></code></a> and which differentiates the
 expression provided with respect to a symbol whose name is passed as the
 string <a class="reference external" href="https://docs.python.org/3/glossary.html#term-argument" title="(in Python v3.9)"><span class="xref std std-term">keyword argument</span></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span></code>.</p>
+<p>As a simplification, the tests will assume that <code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span></code> does not appear in an
+exponent. As an extension, you could consider that case too, but you’d
+probably need to extend your symbolic language to include the natural
+logarithm as a symbolic function.</p>
 </div></div><p class="rubric">Footnotes</p>
 <dl class="footnote brackets">
-<dt class="label" id="tree-def"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dt class="label" id="tree-def"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
 <dd><p>This definition of a tree matches computer science usage and is
 the relevant one for the applications we will study. There is a slightly
 different definition of a tree common in mathematical graph theory.</p>
 </dd>
-<dt class="label" id="splat"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dt class="label" id="splat"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
 <dd><p>Python language pedants will observe that strictly speaking neither
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code> nor <code class="xref py py-obj docutils literal notranslate"><span class="pre">**</span></code> are operators, and that they are simply an unnamed syntax for
 argument packing and unpacking. This is both correct and unhelpful, since it
