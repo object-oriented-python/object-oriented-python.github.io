@@ -721,10 +721,10 @@ were to instantiate <code class="xref py py-class docutils literal notranslate">
 </pre></div>
 </div>
 <p>In fact, <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> is never supposed to be instantiated, it plays the role
-of an <a class="reference internal" href="11_further_object-oriented_features.html#term-abstract-class"><span class="xref std std-term">abstract class</span></a>. In other words, it’s role is to provide
+of an <a class="reference internal" href="11_further_object-oriented_features.html#term-abstract-base-class"><span class="xref std std-term">abstract base class</span></a>. In other words, it’s role is to provide
 functionality to classes that inherit from it, rather than to be the type of
 objects itself. We will return to this in more detail in
-<a class="reference internal" href="11_further_object-oriented_features.html#abstract-classes"><span class="std std-numref">Section 11.2</span></a>.</p>
+<a class="reference internal" href="11_further_object-oriented_features.html#abstract-base-classes"><span class="std std-numref">Section 11.2</span></a>.</p>
 <p>However, if we instead instantiate <a class="reference internal" href="example_code.html#example_code.groups.CyclicGroup" title="example_code.groups.CyclicGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code></a>
 then everything works:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.groups</span> <span class="kn">import</span> <span class="n">CyclicGroup</span>
