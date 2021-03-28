@@ -814,7 +814,7 @@ cancellation of expressions involving 1 or 0. You could implement expansion
 of brackets according to distributive laws. Finally you could canonicalise
 commutative operators such as <code class="xref py py-obj docutils literal notranslate"><span class="pre">+</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code> so that, for example <code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">x</span></code> is
 mapped to <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code>. Doing this over multiple layers of the tree
-(transforming <code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2*x</span> <span class="pre">+</span> <span class="pre">3*x**2</span></code> to <code class="xref py py-obj docutils literal notranslate"><span class="pre">3*x**2</span> <span class="pre">+</span> <span class="pre">2*x</span> <span class="pre">+</span> <span class="pre">1</span></code> is an additional
+(for example, transforming <code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2*x</span> <span class="pre">+</span> <span class="pre">3*x**2</span></code> to <code class="xref py py-obj docutils literal notranslate"><span class="pre">3*x**2</span> <span class="pre">+</span> <span class="pre">2*x</span> <span class="pre">+</span> <span class="pre">1</span></code>) is an additional
 challenge.</p>
 </div></div><p class="rubric">Footnotes</p>
 <dl class="footnote brackets">
