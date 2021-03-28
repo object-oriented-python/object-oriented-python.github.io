@@ -721,12 +721,102 @@ people attend then I will also run a group Q &amp; A session.</p>
 </div>
 <div class="section" id="practice-questions">
 <h3><span class="section-number">11.5.3. </span>Practice questions<a class="headerlink" href="#practice-questions" title="Permalink to this headline">¶</a></h3>
-<p>Some specifically-designed practice questions will be released at about the end
-of term. In addition to this, there are a lot of very good exercises in
+<p>Some specifically-designed practice questions are presented below. In addition to this, there are a lot of very good exercises in
 chapters 7 and 9 of <a class="reference external" href="https://link.springer.com/book/10.1007%2F978-3-662-49887-3">Hans Petter Langtangen, A Primer on Scientific Programming
 with Python</a>.
 You can access that book by logging in with your Imperial credentials.</p>
-<p class="rubric">Footnotes</p>
+<p>The first two questions are in exam format.</p>
+<div class="proof proof-type-exercise" id="id9">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 11.3</span>
+        
+    </div><div class="proof-content">
+<p>Obtain the <a class="reference external" href="https://classroom.github.com/a/HdgipMxw">practice problem from GitHub Classroom</a>. Follow the instructions in
+the README file that will be displayed on GitHub on your copy of the page.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This exercise is fully set up as an exam question, including provisional
+points on the autotests. It should be doable in 30 minutes, though the
+level of programming is a little more basic than the exam questions.</p>
+</div>
+</div></div><div class="proof proof-type-exercise" id="id10">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 11.4</span>
+        
+    </div><div class="proof-content">
+<p>Obtain the <a class="reference external" href="https://classroom.github.com/a/6usAsES4">practice problem from GitHub Classroom</a>. Follow the instructions in
+the README file that will be displayed on GitHub on your copy of the page.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This exercise is at the level of an exam question, though longer. An
+actual exam question would be pruned back to be achievable in 30
+minutes. Here the complete exercise is presented because the main thing
+you need to do is practice programming, and cutting out material
+doesn’t help with that. Marks are not given as the question is the
+wrong length, so dividing 20 marks over the question would just be
+misleading</p>
+</div>
+</div></div><p>In addition to these exam-style questions, you can also usefully practice
+programming by going beyond the specification of the exercises in the course.
+The following exercises are just ideas for how to do that. They do not come
+with additional code or tests.</p>
+<div class="proof proof-type-exercise" id="id11">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 11.5</span>
+        
+    </div><div class="proof-content">
+<p>Extend the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class from <a class="reference internal" href="3_objects.html#objects"><span class="std std-numref">Week 3</span></a> to
+support polynomial division. Polynomial division results in a quotient and
+a remainder, so you might choose to implement <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__floordiv__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__floordiv__()</span></code></a>
+to return the quotient and <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__mod__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mod__()</span></code></a> to return the remainder,
+in a manner analogous to integer division. You might also implement
+<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__truediv__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__truediv__()</span></code></a> and have it return the quotient if the
+polynomial division is exact, but raise <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a> if there is a
+remainder.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Don’t forget that repeating code is poor style, so you might need a
+helper method to implement the actual polynomial division.</p>
+</div>
+</div></div><div class="proof proof-type-exercise" id="id12">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 11.6</span>
+        
+    </div><div class="proof-content">
+<p>Extend the <code class="xref py py-class docutils literal notranslate"><span class="pre">Deque</span></code> class from <a class="reference internal" href="5_abstract_data_types.html#abstract-data-types"><span class="std std-numref">Week 5</span></a> to automatically resize the ring buffer by a
+proportion of its length when it is full, and when it becomes too empty.
+You can check the behaviour of your implementation against
+<a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.deque</span></code></a>.</p>
+</div></div><div class="proof proof-type-exercise" id="id13">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 11.7</span>
+        
+    </div><div class="proof-content">
+<p>For a real challenge, extend the groups implementation from <a class="reference internal" href="8_inheritance.html#inheritance"><span class="std std-numref">Week
+8</span></a> to support taking the quotient of two groups. What do the
+values and validation of a quotient group look like in code? You could
+implement <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__truediv__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__truediv__()</span></code></a> on <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> to provide the user
+interface.</p>
+</div></div><div class="proof proof-type-exercise" id="id14">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 11.8</span>
+        
+    </div><div class="proof-content">
+<p>Write additional single dispatch visitor functions to extend the
+capabilities of the symbolic algebra system you wrote in <a class="reference internal" href="10_trees_and_directed_acyclic_graphs.html#trees"><span class="std std-numref">Week 10</span></a>. You could, for example, write a visitor which performs
+cancellation of expressions involving 1 or 0. You could implement expansion
+of brackets according to distributive laws. Finally you could canonicalise
+commutative operators such as <code class="xref py py-obj docutils literal notranslate"><span class="pre">+</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code> so that, for example <code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">x</span></code> is
+mapped to <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code>. Doing this over multiple layers of the tree
+(transforming <code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2*x</span> <span class="pre">+</span> <span class="pre">3*x**2</span></code> to <code class="xref py py-obj docutils literal notranslate"><span class="pre">3*x**2</span> <span class="pre">+</span> <span class="pre">2*x</span> <span class="pre">+</span> <span class="pre">1</span></code> is an additional
+challenge.</p>
+</div></div><p class="rubric">Footnotes</p>
 <dl class="footnote brackets">
 <dt class="label" id="python-in-python"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
 <dd><p>Most of the <a class="reference external" href="https://docs.python.org/3/library/index.html#library-index" title="(in Python v3.9)"><span class="xref std std-ref">Python Standard Library</span></a> is written
