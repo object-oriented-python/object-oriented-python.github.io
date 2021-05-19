@@ -6,19 +6,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>9. Debugging and testing &#8212; Object oriented programming in Python for mathematicians 2021.0 documentation</title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/fenics.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/fenics.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/proof.js"></script>
-    <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="10. Trees and directed acyclic graphs" href="10_trees_and_directed_acyclic_graphs.html" />
@@ -75,12 +74,12 @@ package which supports data analysis in Python. It’s introduced here partly
 because it’s a very useful tool for applied mathematicians and statisticians
 who need to work with real data, and partly because it’s a convenient somewhat
 larger library on which to practice tools and techniques for debugging.</p>
-<p>At the core of pandas is the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> class, which is
+<p>At the core of pandas is the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> class, which is
 a two-dimensional dataset somewhat analogous to a spreadsheet. Unlike, for
-example, a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> is not indexed
+example, a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> is not indexed
 by a pair of numbers, but is instead organised as a collection of named
-one-dimensional <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> of data. One can think of a
-<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> as a column of data with a title. This perhaps best
+one-dimensional <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> of data. One can think of a
+<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> as a column of data with a title. This perhaps best
 illustrated with an example.</p>
 <span id="student-data"></span><table class="docutils align-default" id="id2" style="width: 70%">
 <caption><span class="caption-number">Table 9.1 </span><span class="caption-text">Extract from some fictional student records. The full records
@@ -150,8 +149,8 @@ Having installed pandas:</p>
 <span class="gh">Out[6]: </span><span class="go">pandas.core.series.Series</span>
 </pre></div>
 </div>
-<p>Observe that the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> acts as a dictionary of
-one-dimensional data <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></a>. A <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> can be
+<p>Observe that the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> acts as a dictionary of
+one-dimensional data <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></a>. A <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> can be
 indexed and sliced like any other Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq" title="(in Python v3.9)"><span class="xref std std-ref">sequence type</span></a>. This
 very high level introduction is all we’ll need to use pandas in demonstrations
 this week. Much more documentation is available on the <a class="reference external" href="https://pandas.pydata.org/docs/">pandas website</a>.</p>
@@ -715,22 +714,22 @@ your bisection session and that your repository is up to date with the
 <h2><span class="section-number">9.8. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><dl class="glossary simple">
-<dt id="term-breakpoint">breakpoint</dt><dd><p>A line of code at which the debugger is instructed to
+<dt id="term-breakpoint">breakpoint<a class="headerlink" href="#term-breakpoint" title="Permalink to this term">¶</a></dt><dd><p>A line of code at which the debugger is instructed to
 stop. The debugger will stop every time the breakpoint is executed.</p>
 </dd>
-<dt id="term-debugger">debugger</dt><dd><p>A piece of software which enables an interactive Python command
+<dt id="term-debugger">debugger<a class="headerlink" href="#term-debugger" title="Permalink to this term">¶</a></dt><dd><p>A piece of software which enables an interactive Python command
 line to be attached to a running, or just terminated, Python
 program. This enables the state of the program to be examined
 to determine the cause of problems.</p>
 </dd>
-<dt id="term-minimal-failing-example">minimal failing example</dt><dd><p>The shortest piece of code which exhibits a particular bug. A true
+<dt id="term-minimal-failing-example">minimal failing example<a class="headerlink" href="#term-minimal-failing-example" title="Permalink to this term">¶</a></dt><dd><p>The shortest piece of code which exhibits a particular bug. A true
 minimal failing example contains no code which can be removed without
 the bug disappearing.</p>
 </dd>
-<dt id="term-postmortem-debugging">postmortem debugging</dt><dd><p>Running a <a class="reference internal" href="#term-debugger"><span class="xref std std-term">debugger</span></a> on a piece of code after an exception has
+<dt id="term-postmortem-debugging">postmortem debugging<a class="headerlink" href="#term-postmortem-debugging" title="Permalink to this term">¶</a></dt><dd><p>Running a <a class="reference internal" href="#term-debugger"><span class="xref std std-term">debugger</span></a> on a piece of code after an exception has
 occurred (i.e. after the program has “died”).</p>
 </dd>
-<dt id="term-regression">regression</dt><dd><p>A bug which occurs in the current version of a program which did not
+<dt id="term-regression">regression<a class="headerlink" href="#term-regression" title="Permalink to this term">¶</a></dt><dd><p>A bug which occurs in the current version of a program which did not
 occur in a previous version. The functionality of the software has
 “gone backwards”.</p>
 </dd>
@@ -812,7 +811,7 @@ questions.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019-2021, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.0.
     </div>
   </body>
 </html>

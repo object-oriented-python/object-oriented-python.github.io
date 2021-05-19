@@ -6,14 +6,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>6. Errors and exceptions &#8212; Object oriented programming in Python for mathematicians 2021.0 documentation</title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/fenics.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/fenics.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -425,35 +425,22 @@ integer rather than the type actually provided.</p>
 <span id="typesafe-fib"></span><div class="code-block-caption"><span class="caption-number">Listing 6.1 </span><span class="caption-text">A version of the Fibonacci function which raises an
 exception if a non-integer type is passed as the
 argument.</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Integral</span>
-
-<span class="k">def</span> <span class="nf">typesafe_fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Return the n-th Fibonacci number, raising an exception if a</span>
-<span class="sd">    non-integer is passed as n.&quot;&quot;&quot;</span>
-<span class="hll">    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">Integral</span><span class="p">):</span>
-</span><span class="hll">            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-</span><span class="hll">                    <span class="sa">f</span><span class="s2">&quot;fib expects an integer, not a </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Integral</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">def</span> <span class="nf">typesafe_fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos"> 4</span>    <span class="sd">&quot;&quot;&quot;Return the n-th Fibonacci number, raising an exception if a</span>
+<span class="linenos"> 5</span><span class="sd">    non-integer is passed as n.&quot;&quot;&quot;</span>
+<span class="linenos"> 6</span><span class="hll">    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">Integral</span><span class="p">):</span>
+</span><span class="linenos"> 7</span><span class="hll">            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+</span><span class="linenos"> 8</span><span class="hll">                    <span class="sa">f</span><span class="s2">&quot;fib expects an integer, not a </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span class="linenos"> 9</span>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">10</span>        <span class="k">return</span> <span class="mi">0</span>
+<span class="linenos">11</span>    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos">12</span>        <span class="k">return</span> <span class="mi">1</span>
+<span class="linenos">13</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">14</span>        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </div>
 <p>If we now pass a non-integer value to this function, we observe the following:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">fibonacci</span> <span class="kn">import</span> <span class="n">typesafe_fib</span>
@@ -572,17 +559,13 @@ instead. <a class="reference internal" href="#gcd"><span class="std std-numref">
 <span id="gcd"></span><div class="code-block-caption"><span class="caption-number">Listing 6.2 </span><span class="caption-text">A recursive implementation of Euclid’s algorithm which
 catches the <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a> to implement the
 base case.</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<span class="hll">    <span class="k">try</span><span class="p">:</span>
-</span>        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
-<span class="hll">    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-</span><span class="hll">        <span class="k">return</span> <span class="n">a</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="linenos">2</span><span class="hll">    <span class="k">try</span><span class="p">:</span>
+</span><span class="linenos">3</span>        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
+<span class="linenos">4</span><span class="hll">    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+</span><span class="linenos">5</span><span class="hll">        <span class="k">return</span> <span class="n">a</span>
 </span></pre></div>
-</td></tr></table></div>
+</div>
 </div>
 <p>The new structure here is the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.9)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a>… <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.9)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a>
 block. The <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.9)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> keyword defines a block of code, in this
@@ -647,35 +630,22 @@ a practical example may help. <a class="reference internal" href="#except-demo">
 message for each type of clause.</p>
 <div class="literal-block-wrapper docutils container" id="id7">
 <span id="except-demo"></span><div class="code-block-caption"><span class="caption-number">Listing 6.3 </span><span class="caption-text">A demonstration of all the clauses of the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.9)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block.</span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">except_demo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;A simple demonstration of all the clauses of a :keyword:`try` block.&quot;&quot;&quot;</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempting division by </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="mf">0.</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zero division&quot;</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Can&#39;t divide by a </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Division successful.&quot;</span><span class="p">)</span>
-    <span class="k">finally</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finishing up.&quot;</span><span class="p">)</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">except_demo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos"> 2</span>    <span class="sd">&quot;&quot;&quot;A simple demonstration of all the clauses of a :keyword:`try` block.&quot;&quot;&quot;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempting division by </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos"> 5</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 6</span>        <span class="nb">print</span><span class="p">(</span><span class="mf">0.</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+<span class="linenos"> 7</span>    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+<span class="linenos"> 8</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zero division&quot;</span><span class="p">)</span>
+<span class="linenos"> 9</span>    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="linenos">10</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Can&#39;t divide by a </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="linenos">11</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">12</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Division successful.&quot;</span><span class="p">)</span>
+<span class="linenos">13</span>    <span class="k">finally</span><span class="p">:</span>
+<span class="linenos">14</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finishing up.&quot;</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </div>
 <p>If we execute <a class="reference internal" href="example_code.html#example_code.try_except.except_demo" title="example_code.try_except.except_demo"><code class="xref py py-func docutils literal notranslate"><span class="pre">except_demo()</span></code></a> for a variety of
 arguments, we can observe this complete <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.9)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block in action. First,
@@ -754,12 +724,12 @@ the next item.</p>
 <h2><span class="section-number">6.7. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><dl class="glossary simple">
-<dt id="term-call-stack">call stack</dt><dt id="term-execution-stack">execution stack</dt><dt id="term-interpreter-stack">interpreter stack</dt><dd><p>The <a class="reference internal" href="5_abstract_data_types.html#term-stack"><span class="xref std std-term">stack</span></a> of <a class="reference internal" href="#term-stack-frame"><span class="xref std std-term">stack frames</span></a> in existence. The
+<dt id="term-call-stack">call stack<a class="headerlink" href="#term-call-stack" title="Permalink to this term">¶</a></dt><dt id="term-execution-stack">execution stack<a class="headerlink" href="#term-execution-stack" title="Permalink to this term">¶</a></dt><dt id="term-interpreter-stack">interpreter stack<a class="headerlink" href="#term-interpreter-stack" title="Permalink to this term">¶</a></dt><dd><p>The <a class="reference internal" href="5_abstract_data_types.html#term-stack"><span class="xref std std-term">stack</span></a> of <a class="reference internal" href="#term-stack-frame"><span class="xref std std-term">stack frames</span></a> in existence. The
 current item on the stack is the currently executing function,
 while the deepest item is the stack frame corresponding to the
 user script or interpreter.</p>
 </dd>
-<dt id="term-exception">exception</dt><dd><p>An object representing an out of the ordinary event which has
+<dt id="term-exception">exception<a class="headerlink" href="#term-exception" title="Permalink to this term">¶</a></dt><dd><p>An object representing an out of the ordinary event which has
 occurred during the execution of some Python code. When an
 exception is <a class="reference internal" href="#raising-exceptions"><span class="std std-ref">raised</span></a> the
 <a class="reference internal" href="2_programs_in_files.html#term-Python-interpreter"><span class="xref std std-term">Python interpreter</span></a> doesn’t continue to execute the
@@ -767,23 +737,23 @@ following line of code. Instead, the exception is either
 <a class="reference internal" href="#handling-exceptions"><span class="std std-ref">handled</span></a> or execution stops and a
 <a class="reference internal" href="#term-traceback"><span class="xref std std-term">traceback</span></a> is printed.</p>
 </dd>
-<dt id="term-stack-frame">stack frame</dt><dd><p>An object encapsulating the set of variables which define the
+<dt id="term-stack-frame">stack frame<a class="headerlink" href="#term-stack-frame" title="Permalink to this term">¶</a></dt><dd><p>An object encapsulating the set of variables which define the
 execution of a Python script or function. This information
 includes the code being executed, all the local and global
 names which are visible, the last instruction that was
 executed, and a reference to the stack frame which called this
 function.</p>
 </dd>
-<dt id="term-syntax">syntax</dt><dd><p>The set of rules which define what is a well-formed Python
+<dt id="term-syntax">syntax<a class="headerlink" href="#term-syntax" title="Permalink to this term">¶</a></dt><dd><p>The set of rules which define what is a well-formed Python
 statement. For example the rule that statements which start
 blocks must end with a colon (:) is a syntax rule.</p>
 </dd>
-<dt id="term-syntax-error">syntax error</dt><dd><p>The <a class="reference internal" href="#term-exception"><span class="xref std std-term">exception</span></a> which occurs when a statement violates
+<dt id="term-syntax-error">syntax error<a class="headerlink" href="#term-syntax-error" title="Permalink to this term">¶</a></dt><dd><p>The <a class="reference internal" href="#term-exception"><span class="xref std std-term">exception</span></a> which occurs when a statement violates
 the <a class="reference internal" href="#term-syntax"><span class="xref std std-term">syntax</span></a> rules of Python. Mismatched brackets,
 missing commas, and incorrect indentation are all examples of
 syntax errors.</p>
 </dd>
-<dt id="term-traceback">traceback</dt><dt id="term-stack-trace">stack trace</dt><dt id="term-back-trace">back trace</dt><dd><p>A text representation of the <a class="reference internal" href="#term-call-stack"><span class="xref std std-term">call stack</span></a>. A traceback
+<dt id="term-traceback">traceback<a class="headerlink" href="#term-traceback" title="Permalink to this term">¶</a></dt><dt id="term-stack-trace">stack trace<a class="headerlink" href="#term-stack-trace" title="Permalink to this term">¶</a></dt><dt id="term-back-trace">back trace<a class="headerlink" href="#term-back-trace" title="Permalink to this term">¶</a></dt><dd><p>A text representation of the <a class="reference internal" href="#term-call-stack"><span class="xref std std-term">call stack</span></a>. A traceback
 shows a few lines of code around the current execution point
 in each <a class="reference internal" href="#term-stack-frame"><span class="xref std std-term">stack frame</span></a>, with the current frame at the
 bottom and the outermost frame at the top.</p>
@@ -880,7 +850,7 @@ operations implemented using a <a class="reference internal" href="3_objects.htm
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019-2021, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.0.
     </div>
   </body>
 </html>

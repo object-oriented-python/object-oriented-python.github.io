@@ -6,14 +6,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3. Objects and abstraction &#8212; Object oriented programming in Python for mathematicians 2021.0 documentation</title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/fenics.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/fenics.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -443,41 +443,25 @@ method name for the human readable string representation of an object is
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code>. This takes into account the usual conventions for
 writing polynomials, including writing the highest degree terms first, and
 omitting zero terms and unit coefficients.</span><a class="headerlink" href="#polynomial-str" title="Permalink to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-    <span class="n">coefs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span>
-    <span class="n">terms</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="c1"># Degree 0 and 1 terms conventionally have different representation.</span>
-    <span class="k">if</span> <span class="n">coefs</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-        <span class="n">terms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">coefs</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">coefs</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
-        <span class="n">terms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">coefs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">x&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Remaining terms look like cx^d, though factors of 1 are dropped.</span>
-    <span class="n">terms</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">c</span><span class="si">}</span><span class="s2">x^</span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">&quot;</span>
-              <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">coefs</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">start</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">c</span><span class="p">]</span>
-
-    <span class="c1"># Sum polynomial terms from high to low exponent.</span>
-    <span class="k">return</span> <span class="s2">&quot; + &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">terms</span><span class="p">))</span> <span class="ow">or</span> <span class="s2">&quot;0&quot;</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>    <span class="n">coefs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span>
+<span class="linenos"> 4</span>    <span class="n">terms</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span>    <span class="c1"># Degree 0 and 1 terms conventionally have different representation.</span>
+<span class="linenos"> 7</span>    <span class="k">if</span> <span class="n">coefs</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+<span class="linenos"> 8</span>        <span class="n">terms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">coefs</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="linenos"> 9</span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">coefs</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+<span class="linenos">10</span>        <span class="n">terms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">coefs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">x&quot;</span><span class="p">)</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>    <span class="c1"># Remaining terms look like cx^d, though factors of 1 are dropped.</span>
+<span class="linenos">13</span>    <span class="n">terms</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">c</span><span class="si">}</span><span class="s2">x^</span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="linenos">14</span>              <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">coefs</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">start</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">c</span><span class="p">]</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>    <span class="c1"># Sum polynomial terms from high to low exponent.</span>
+<span class="linenos">17</span>    <span class="k">return</span> <span class="s2">&quot; + &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">terms</span><span class="p">))</span> <span class="ow">or</span> <span class="s2">&quot;0&quot;</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </div>
 <p>This slightly longer piece of code results from the fact that the
 linear and constant terms in a polynomial are usually represented
@@ -666,45 +650,27 @@ whether the other operand is a number. We will consider
 <p>Putting all this together, <a class="reference internal" href="#polynomial-add"><span class="std std-numref">Listing 3.2</span></a> defines polynomial addition.</p>
 <div class="literal-block-wrapper docutils container" id="polynomial-add">
 <div class="code-block-caption"><span class="caption-number">Listing 3.2 </span><span class="caption-text">An implementation of addition for <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code>.</span><a class="headerlink" href="#polynomial-add" title="Permalink to this code">¶</a></div>
-<div class="highlight-ipython3 notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Polynomial</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">other</span><span class="p">,)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Polynomial</span><span class="p">):</span>
-        <span class="c1"># Work out how many coefficient places the two polynomials have in common.</span>
-        <span class="n">common</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">(),</span> <span class="n">other</span><span class="o">.</span><span class="n">degree</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="c1"># Sum the common coefficient positions.</span>
-        <span class="n">coefs</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[:</span><span class="n">common</span><span class="p">],</span>
-                                             <span class="n">other</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[:</span><span class="n">common</span><span class="p">]))</span>
-
-        <span class="c1"># Append the high degree coefficients from the higher degree summand.</span>
-        <span class="n">coefs</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="n">common</span><span class="p">:]</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="n">common</span><span class="p">:]</span>
-
-        <span class="k">return</span> <span class="n">Polynomial</span><span class="p">(</span><span class="n">coefs</span><span class="p">)</span>
-
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">NotImplemented</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
+<span class="linenos"> 4</span>        <span class="k">return</span> <span class="n">Polynomial</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">other</span><span class="p">,)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span>    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Polynomial</span><span class="p">):</span>
+<span class="linenos"> 7</span>        <span class="c1"># Work out how many coefficient places the two polynomials have in common.</span>
+<span class="linenos"> 8</span>        <span class="n">common</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">(),</span> <span class="n">other</span><span class="o">.</span><span class="n">degree</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="linenos"> 9</span>        <span class="c1"># Sum the common coefficient positions.</span>
+<span class="linenos">10</span>        <span class="n">coefs</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[:</span><span class="n">common</span><span class="p">],</span>
+<span class="linenos">11</span>                                             <span class="n">other</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[:</span><span class="n">common</span><span class="p">]))</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>        <span class="c1"># Append the high degree coefficients from the higher degree summand.</span>
+<span class="linenos">14</span>        <span class="n">coefs</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="n">common</span><span class="p">:]</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="n">common</span><span class="p">:]</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>        <span class="k">return</span> <span class="n">Polynomial</span><span class="p">(</span><span class="n">coefs</span><span class="p">)</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">19</span>        <span class="k">return</span> <span class="bp">NotImplemented</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </div>
 <p>Notice that we create a new <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> object for the result
 each time: the sum of two polynomials is a different polynomial, it
@@ -810,59 +776,59 @@ pieces of data and a large number of complex functions.</p>
 <h2><span class="section-number">3.5. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><dl class="glossary simple">
-<dt id="term-abstraction">abstraction</dt><dd><p>A mathematical concept with a limited set of defined
+<dt id="term-abstraction">abstraction<a class="headerlink" href="#term-abstraction" title="Permalink to this term">¶</a></dt><dd><p>A mathematical concept with a limited set of defined
 properties. For the purposes of the abstraction, any other
 properties that an object may have are disregarded.</p>
 </dd>
-<dt id="term-attribute">attribute</dt><dd><p>A value encapsulated in another object, such as a
+<dt id="term-attribute">attribute<a class="headerlink" href="#term-attribute" title="Permalink to this term">¶</a></dt><dd><p>A value encapsulated in another object, such as a
 <a class="reference internal" href="#term-class"><span class="xref std std-term">class</span></a>. Attributes are accessed using dot syntax, so if
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">b</span></code> is an attribute of <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> then its value is accessed using the
 syntax <code class="xref py py-obj docutils literal notranslate"><span class="pre">a.b</span></code>. <a class="reference internal" href="#term-method"><span class="xref std std-term">Methods</span></a> are a special case of attributes.</p>
 </dd>
-<dt id="term-class">class</dt><dt id="term-type">type</dt><dd><p>An abstraction defined by a set of possible values, and a set
+<dt id="term-class">class<a class="headerlink" href="#term-class" title="Permalink to this term">¶</a></dt><dt id="term-type">type<a class="headerlink" href="#term-type" title="Permalink to this term">¶</a></dt><dd><p>An abstraction defined by a set of possible values, and a set
 of operators valid for objects of that type. <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.9)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">Class</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> are essentially synonymous, though
 the two words have different roles in Python code.</p>
 </dd>
-<dt id="term-concatenation">concatenation</dt><dd><p>The combination of two <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq" title="(in Python v3.9)"><span class="xref std std-ref">sequences</span></a> by creating a new sequence containing
+<dt id="term-concatenation">concatenation<a class="headerlink" href="#term-concatenation" title="Permalink to this term">¶</a></dt><dd><p>The combination of two <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq" title="(in Python v3.9)"><span class="xref std std-ref">sequences</span></a> by creating a new sequence containing
 all of the items in the first sequence, followed by all of the items in
 the second sequence. For example <code class="xref py py-obj docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">(3,</span> <span class="pre">4)</span></code> is <code class="xref py py-obj docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4)</span></code>.</p>
 </dd>
-<dt id="term-constructor">constructor</dt><dd><p>The <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> method of a <a class="reference internal" href="#term-class"><span class="xref std std-term">class</span></a>. The constructor
+<dt id="term-constructor">constructor<a class="headerlink" href="#term-constructor" title="Permalink to this term">¶</a></dt><dd><p>The <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.9)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> method of a <a class="reference internal" href="#term-class"><span class="xref std std-term">class</span></a>. The constructor
 is passed the new object as its first argument (<code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>) and is
 responsible for setting up the object. The constructor modifies
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code> in place: constructors never return a value.</p>
 </dd>
-<dt id="term-data-attribute">data attribute</dt><dd><p>An <a class="reference internal" href="#term-attribute"><span class="xref std std-term">attribute</span></a> which is not a <a class="reference internal" href="#term-method"><span class="xref std std-term">method</span></a>. As the name
+<dt id="term-data-attribute">data attribute<a class="headerlink" href="#term-data-attribute" title="Permalink to this term">¶</a></dt><dd><p>An <a class="reference internal" href="#term-attribute"><span class="xref std std-term">attribute</span></a> which is not a <a class="reference internal" href="#term-method"><span class="xref std std-term">method</span></a>. As the name
 suggests, these are used to store data in an object.</p>
 </dd>
-<dt id="term-encapsulation">encapsulation</dt><dd><p>The bundling up of attributes and methods into an object which
+<dt id="term-encapsulation">encapsulation<a class="headerlink" href="#term-encapsulation" title="Permalink to this term">¶</a></dt><dd><p>The bundling up of attributes and methods into an object which
 can be dealt with as a single unit.</p>
 </dd>
-<dt id="term-infix-operator">infix operator</dt><dd><p>A mathematical operator whose symbol is written between its <a class="reference internal" href="#term-operands"><span class="xref std std-term">operands</span></a>.
+<dt id="term-infix-operator">infix operator<a class="headerlink" href="#term-infix-operator" title="Permalink to this term">¶</a></dt><dd><p>A mathematical operator whose symbol is written between its <a class="reference internal" href="#term-operands"><span class="xref std std-term">operands</span></a>.
 Examples include addition, subtraction, division and multiplication.</p>
 </dd>
-<dt id="term-instance">instance</dt><dd><p>An object of a particular class. <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> is an instance of
+<dt id="term-instance">instance<a class="headerlink" href="#term-instance" title="Permalink to this term">¶</a></dt><dd><p>An object of a particular class. <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> is an instance of
 <code class="xref py py-class docutils literal notranslate"><span class="pre">MyClass</span></code> means that <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> has class <code class="xref py py-obj docutils literal notranslate"><span class="pre">MyClass</span></code>. We will
 return to this concept when we learn about <a class="reference internal" href="8_inheritance.html#inheritance"><span class="std std-ref">inheritance</span></a>.</p>
 </dd>
-<dt id="term-instantiate">instantiate</dt><dd><p>To create an <a class="reference internal" href="#term-instance"><span class="xref std std-term">instance</span></a> of a <a class="reference internal" href="#term-class"><span class="xref std std-term">class</span></a> by
+<dt id="term-instantiate">instantiate<a class="headerlink" href="#term-instantiate" title="Permalink to this term">¶</a></dt><dd><p>To create an <a class="reference internal" href="#term-instance"><span class="xref std std-term">instance</span></a> of a <a class="reference internal" href="#term-class"><span class="xref std std-term">class</span></a> by
 calling its <a class="reference internal" href="#term-constructor"><span class="xref std std-term">constructor</span></a>.</p>
 </dd>
-<dt id="term-method">method</dt><dt id="term-instance-method">instance method</dt><dd><p>A function defined within a <a class="reference internal" href="#term-class"><span class="xref std std-term">class</span></a>. If <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> is an
+<dt id="term-method">method<a class="headerlink" href="#term-method" title="Permalink to this term">¶</a></dt><dt id="term-instance-method">instance method<a class="headerlink" href="#term-instance-method" title="Permalink to this term">¶</a></dt><dd><p>A function defined within a <a class="reference internal" href="#term-class"><span class="xref std std-term">class</span></a>. If <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> is an
 instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">MyClass</span></code>, and <code class="xref py py-class docutils literal notranslate"><span class="pre">MyClass</span></code> has a <code class="xref py py-meth docutils literal notranslate"><span class="pre">foo()</span></code> method then
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">a.foo()</span></code> is equivalent to <code class="xref py py-obj docutils literal notranslate"><span class="pre">MyClass.foo(a)</span></code>. The first parameter
 of an instance method is always named <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>.</p>
 </dd>
-<dt id="term-operands">operands</dt><dd><p>The input values to an operator. For example the operands to <code class="xref py py-obj docutils literal notranslate"><span class="pre">+</span></code> are the
+<dt id="term-operands">operands<a class="headerlink" href="#term-operands" title="Permalink to this term">¶</a></dt><dd><p>The input values to an operator. For example the operands to <code class="xref py py-obj docutils literal notranslate"><span class="pre">+</span></code> are the
 numbers being added (the summands), while the operands to exponentiation
 are the base and exponent.</p>
 </dd>
-<dt id="term-pseudocode">pseudocode</dt><dd><p>A description of an algorithm given in the form of a computer
+<dt id="term-pseudocode">pseudocode<a class="headerlink" href="#term-pseudocode" title="Permalink to this term">¶</a></dt><dd><p>A description of an algorithm given in the form of a computer
 program but without conforming to the rules of a particular
 programming language, and employing mathematical notation or
 plain text to express the algorithm in a human-readable form.</p>
 </dd>
-<dt id="term-special-method">special method</dt><dt id="term-magic-method">magic method</dt><dd><p>A method which has special meaning in the Python
+<dt id="term-special-method">special method<a class="headerlink" href="#term-special-method" title="Permalink to this term">¶</a></dt><dt id="term-magic-method">magic method<a class="headerlink" href="#term-magic-method" title="Permalink to this term">¶</a></dt><dd><p>A method which has special meaning in the Python
 language. Special method names are used to define operations on
 a <a class="reference internal" href="#term-class"><span class="xref std std-term">class</span></a> such as arithmetic operators, indexing, or the
 class <a class="reference internal" href="#term-constructor"><span class="xref std std-term">constructor</span></a>. Special methods have names starting and ending
@@ -971,7 +937,7 @@ GitHub and check that the autograding tests pass there.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019-2021, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.0.
     </div>
   </body>
 </html>
