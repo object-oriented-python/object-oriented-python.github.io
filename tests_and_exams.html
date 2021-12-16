@@ -1,0 +1,537 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>How to do this course &#8212; Object-oriented Programming  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/fenics.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/proof.js"></script>
+    <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFVH5C4DC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0EFVH5C4DC');
+</script>
+<link rel="stylesheet" href="_static/featured.css">
+
+
+<link rel="shortcut icon" href="_static/icon.ico" />
+
+
+  </head><body>
+<div class="wrapper">
+  <a href="index.html"><img src="_static/banner.png" width="900px" alt="FInAT Project Banner" /></a>
+  <div id="access">
+    <div class="menu">
+      <ul>
+          <li class="page_item"><a href="index.html" title="Book">Book</a></li>
+          <li class="page_item"><a href="videos.html" title="Videos">Videos</a></li>
+          <li class="page_item"><a href="exercises.html"
+          title="Exercises">Exercises</a></li>
+          <li class="page_item"><a href="installation.html" title="Installation">Installation</a></li>
+
+      </ul>
+    </div><!-- .menu -->
+  </div><!-- #access -->
+</div><!-- #wrapper -->
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="how-to-do-this-course">
+<h1>How to do this course<a class="headerlink" href="#how-to-do-this-course" title="Permalink to this headline">¶</a></h1>
+<p>Programming, like mathematics, is a practical, problem solving discipline. It’s
+not possible to learn to program just by reading notes and watching lectures. To
+learn to program you need to put the content of the course into practice by
+writing code. The structure of this course is designed to help you to really
+understand new concepts in programming by putting them into practice. Each week,
+we run through the same cycle:</p>
+<ol class="arabic simple">
+<li><p>Read the notes</p></li>
+<li><p>Watch the videos</p></li>
+<li><p>Do the quiz</p></li>
+<li><p>Write the code</p></li>
+</ol>
+<section id="the-notes">
+<h2>The notes<a class="headerlink" href="#the-notes" title="Permalink to this headline">¶</a></h2>
+<p>All of the new material we cover in this course is presented in these notes.
+Each chapter contains the material for one week of term, so in week <span class="math notranslate nohighlight">\(n\)</span>,
+you work through chapter <span class="math notranslate nohighlight">\(n\)</span>. The notes always the starting point for your work.
+Each chapter will introduce new concepts in programming, often tied back to
+related mathematical concepts, and always illustrated by practical code
+examples. Python has excellent <a class="reference external" href="https://docs.python.org/3/">official online documentation</a>, and we link to that throughout the text.
+External links show up in orange while <a class="reference internal" href="1_introduction.html#introduction"><span class="std std-ref">internal links to other parts of
+the notes</span></a> are red. Sometimes we introduce counterexamples:
+illustrations of code errors or bad implementation ideas. These will be flagged
+with a big red cross:</p>
+<div class="badcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s2">&quot;Hello World&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>Conversely, if it’s necessary in context to highlight which approach is the
+correct one, the code will come with a big green tick:</p>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>At the end of each chapter there is a glossary containing key new concepts
+introduced in that chapter. Always check the glossary and convince yourself that
+you understand all the terms introduced there, this is a good check on whether
+you have understood the chapter as a whole. However, there is more to learning
+new concepts than just the vocabulary, so don’t be tempted to skip reading the
+chapter and just jump to the glossary!</p>
+<p>The chapters broadly alternate between introducing new programming concepts,
+such as <a class="reference internal" href="3_objects.html#objects"><span class="std std-ref">objects</span></a>, <a class="reference internal" href="5_abstract_data_types.html#abstract-data-types"><span class="std std-ref">abstract data types</span></a>, or <a class="reference internal" href="7_inheritance.html#inheritance"><span class="std std-ref">inheritance</span></a>, and
+covering various aspects of the craft of programming, such as <a class="reference internal" href="7_inheritance.html#inheritance"><span class="std std-ref">style</span></a> and <a class="reference internal" href="8_debugging.html#debugging"><span class="std std-ref">debugging</span></a>. In this way the course combines specific programming knowledge
+with more general coding skills.</p>
+</section>
+<section id="the-videos">
+<h2>The videos<a class="headerlink" href="#the-videos" title="Permalink to this headline">¶</a></h2>
+<p>Throughout the notes are links to videos. These aren’t typical lecture videos in
+that they’re not primarily focussed on delivering the new ideas in the course.
+In particular, the videos don’t set out to duplicate the delivery of the
+material in the notes. Instead, the videos focus on putting the concepts into
+practice, often by showing live coding sessions. Usually you’ll want to watch
+the video for a given section <em>after</em> reading the corresponding notes.</p>
+</section>
+<section id="the-quizzes">
+<h2>The quizzes<a class="headerlink" href="#the-quizzes" title="Permalink to this headline">¶</a></h2>
+<p>Towards the end of each chapter is a link back to a quiz on Imperial’s
+Blackboard system. The quizzes are designed to allow you to convince yourself
+that you’ve understood the material in the chapter. Sometimes they will simply
+be multiple choice questions testing your understanding of the material, but
+sometimes you will need to open up Python and try things out in order to work
+out the right answer. The quizzes do not contribute to your module grade, but how
+well you are doing on them is an indication of your progress on the module.</p>
+</section>
+<section id="the-exercises">
+<h2>The exercises<a class="headerlink" href="#the-exercises" title="Permalink to this headline">¶</a></h2>
+<p>As we’ve already noted, really learning to program better is only achieved by
+writing code. The core of each week’s activities is therefore to put the new
+concepts and programming structures you’ve learned into practice. The
+programming exercises are given at the end of each chapter, just before the
+glossary. Each time there will be a skeleton code available from
+<a class="reference external" href="https://imperial-fons-computing.github.io/git.html#github-classroom-exercise" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">GitHub Classroom</span></a> which provides the starting
+point. Sometimes you might be asked to complete a piece of code while on other
+occasions you’ll need to write a whole Python module from scratch. Each set of
+exercises will come with a matching set of tests. These are small programs which
+check whether your code produces the correct responses to a range of inputs.
+Tests like this provide immediate feedback and enable you to know how you are
+doing without having to wait for code to be submitted and marked.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Solutions to exercises will not be issued. The notes and accompanying
+example code contain examples of the same programming constructs that the
+exercises require you to implement, and the tests provide a mechanism to
+know when you have a correct answer. There are also help mechanisms via the
+course forum and the lab sessions. Issuing solutions to problems would
+simply encourage students to study the solutions rather than write code, and
+the only way to learn to program is to write code.</p>
+</div>
+</section>
+<section id="assessment">
+<h2>Assessment<a class="headerlink" href="#assessment" title="Permalink to this headline">¶</a></h2>
+<p>The weekly quiz and exercises are not assessable: they are formative activities
+designed to help you learn the module. Instead, the module will be assessed by
+two controlled programming assessments, effectively programming exams. The first
+programming assessment will be held in week 7 and will be worth 20% of the
+marks for the course. This provides an opportunity to receive feedback in the
+middle of the term, and is a practice for the main exam. The <a class="reference internal" href="#midterm"><span class="std std-ref">course contents for
+week 7</span></a> will comprise practice programming exercises for this midterm test.
+The second programming assessment will be held in the main May exam period and
+will count for the other 80% of the course.</p>
+<p>The instructions and skeleton code for the programming exercises will be
+released at a fixed time on GitHub Classroom, and the code which you have
+committed to GitHub by the end of the allotted time will be marked.</p>
+<p>The exam questions will be similar to the weekly exercises in the course,
+and may include new programmes to write from specification, modifications or
+extensions to be made to code which is provided, and debugging exercises in
+which defective code is provided which you need to correct. Marks will be
+allocated both for the functional correctness of the code written, and for
+good style and following Python coding conventions.</p>
+<section id="midterm-test-preparation">
+<span id="midterm"></span><h3>Midterm test preparation<a class="headerlink" href="#midterm-test-preparation" title="Permalink to this headline">¶</a></h3>
+<p>This week you will take a programming test worth 20% of the course. The format
+of this test is deliberately similar to the programming exam in May that makes
+up the other 80% of the assessment. This test therefore provides both some feedback
+on how you are progressing in the course, and an opportunity to practice for the
+end of term exam. This is a programming module, so the midterm test will consist
+of programming exercises. The content which will be examined in the test is
+everything covered up to and including week 6. There won’t be any new concepts
+introduced during the test, however the questions may suggest that you use
+Python modules, classes, or functions that haven’t previously been introduced in
+the course. These will always be similar in character to ones that have
+previously been mentioned, and the test instructions will explicitly link to the
+Python documentation for any features they suggest.</p>
+</section>
+</section>
+</section>
+<section id="test-format">
+<h1>Test format<a class="headerlink" href="#test-format" title="Permalink to this headline">¶</a></h1>
+<p>The final exam will be two hours long and comprise 4 questions, each of which
+will be marked out of 20. The midterm test will be 40 minutes long, so to keep
+the question format consistent with the final exam, there will a single
+question. The extra 10 minutes is to give you some flexibility, because in the
+final exam you could spend more time on some questions than others. The
+question will be subdivided into identified parts with a specified number of
+marks associated with each.</p>
+<p>The test will work using GitHub Classroom. The link to accept the test
+“assignment” will be distributed at the start time of the test, simultaneously in the
+course Teams channel, by email, and in the Piazza forum. The test repository
+will contain a file <code class="file docutils literal notranslate"><span class="pre">README.rst</span></code> containing the questions, skeleton code
+appropriate to the questions, and tests. GitHub shows <code class="file docutils literal notranslate"><span class="pre">README.rst</span></code> files on
+the repository web page, and the instructions will be easier to read there since
+any links will be clickable.</p>
+</section>
+<section id="the-mark-scheme">
+<h1>The mark scheme<a class="headerlink" href="#the-mark-scheme" title="Permalink to this headline">¶</a></h1>
+<p>Of the 20 marks for each question, 4 will be explicitly for basic style. 2 marks
+will be for passing flake8 with no errors. If there are only a handful of minor
+flake8 errors then you will receive 1 mark, and if there are more than that you
+will receive 0. flake8 is an imperfect tool, so the marker will check the output
+of flake8 and disregard any false positives. The other 2 marks will be allocated
+on a similar basis for basic style matters that flake8 cannot check, such as
+conforming with naming conventions and commenting appropriately.</p>
+<p>The remaining 16 marks will be allocated to the various parts of the questions. As with a
+written maths test, getting the correct final answer is necessary but not
+sufficient. A full marks answer to a question will be functionally correct, have
+optimal <a class="reference internal" href="5_abstract_data_types.html#term-algorithmic-complexity"><span class="xref std std-term">algorithmic complexity</span></a>, and be elegant and readable. The tests
+provided are an aid to writing correct code: passing the tests does not prove
+that your answer is correct. For example, your code could produce the correct
+output in the cases tested but nonetheless fail to implement the specification in
+the question. For the avoidance of doubt, a correct answer is one which
+correctly implements the specification, not simply one which passes the tests
+provided.</p>
+<p>As a rough guide, a solution which produced the correct output but was very
+inelegantly written (for example taking many too many steps to achieve simple
+functionality) and which used a suboptimal algorithm could be expected to earn
+half of the marks available for a question.</p>
+</section>
+<section id="using-git-in-the-test">
+<h1>Using git in the test<a class="headerlink" href="#using-git-in-the-test" title="Permalink to this headline">¶</a></h1>
+<p>You should accept the test from GitHub classroom, and clone the test repository
+into the folder you created for the course, just like you have been doing for
+the exercise repositories. This will help ensure that you are programming in
+the same environment you have been using all along, and therefore avoid any
+unfortunate misconfiguration surprises in the test.</p>
+<p>This is a test of programming as a whole, so using git correctly is a part of
+the test. This has some consequences for how you should go about the test:</p>
+<ol class="arabic simple">
+<li><p>Commit <em>and</em> push your work as you go along. Do not rely on committing once
+at the end of the test. You will be marked on what you have pushed to GitHub
+at the end of the test period. If the first time that you try to push
+something to GitHub is at the end of the test time, and something goes wrong, then
+you will receive 0% for the test, because you will not have pushed any
+answers.</p></li>
+<li><p>Don’t forget to <code class="xref py py-obj docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> any files you need to create. If you don’t add them
+to the repository, they won’t be pushed and therefore they won’t be marked.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you commit and push often as you go through the test then not only will
+you know that you have some marks in the bank already, but you will have a
+record of what you had done at each point in time. In the unlikely event of a failure outside your
+control, such as your network failing or GitHub going down, it will be very
+easy to assign the correct marks to students who have already pushed a large
+part of their work to GitHub. At the other extreme, it will be difficult to
+ascribe any credit at all to students with no pushed work who then push a
+single commit to GitHub after the time has expired.</p>
+</div>
+</section>
+<section id="preparing-for-the-test">
+<h1>Preparing for the test<a class="headerlink" href="#preparing-for-the-test" title="Permalink to this headline">¶</a></h1>
+<p>The way to prepare for the test is to program. In the first instance, you should
+make sure you have completed all of the programming exercises for the previous
+weeks. Ensure that you can run and pass all the tests locally on your machine,
+and also ensure that you have pushed everything to GitHub and that the tests
+show as passing there.</p>
+<p>Once you’ve gone through the previous exercises, you should attempt the practice
+questions here. Each of these is a question similar in format and length to the
+questions on the exam. Just like on the exam, the question is specified in the
+<code class="file docutils literal notranslate"><span class="pre">README.rst</span></code> file in the exercise repository. When you first attempt each
+of these exercises, you should set yourself a 40 minute timer and see what you
+can get done (and committed and pushed!) in the time you would have in the test.
+After that, if you haven’t finished, then go on and finish the exercise.
+Programming is a practical discipline, and finishing one exercise will make you
+faster and more capable when you attempt the next one.</p>
+</section>
+<section id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<div class="proof proof-type-exercise" id="id1">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise </span>
+        
+    </div><div class="proof-content">
+<p>Obtain the <a class="reference external" href="https://classroom.github.com/a/wNgTuHeo">first practice problem from GitHub Classroom</a>. Follow the instructions in
+the README file that will be displayed on GitHub on your copy of the page.</p>
+</div></div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not forget to commit and push as you go. Do not leave this until the end
+of the test.</p>
+</div>
+<div class="proof proof-type-exercise" id="id2">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise </span>
+        
+    </div><div class="proof-content">
+<p>Obtain the <a class="reference external" href="https://classroom.github.com/a/fQmijiXp">second practice problem from GitHub Classroom</a>. Follow the instructions in
+the README file that will be displayed on GitHub on your copy of the page.</p>
+</div></div></section>
+<section id="midterm-test-instructions">
+<h1>Midterm test instructions<a class="headerlink" href="#midterm-test-instructions" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p>The midterm test will start at 0900 UTC (London time) on Friday 26 February 2021 and will run for 40
+minutes. Students with additional time will be contacted about this separately.</p></li>
+<li><p>The test will take the form of a GitHub classroom assignment, just like all of
+the exercises. The URL to accept the assignment will be posted at the start
+of the test on the <a class="reference external" href="https://teams.microsoft.com/l/team/19%3ae96b9a199b15419281f55f454d240249%40thread.tacv2/conversations?groupId=1b12939c-d8c9-4e4d-a291-0ff35d57869f&amp;tenantId=2b897507-ee8c-4575-830b-4f8267c3d307">module Team</a>, as Blackboard announcement, and posted on
+Piazza. Of these, the Team is the most instant form of communication so you
+are advised to look there and use the other sources as a backup.</p></li>
+<li><p>The test instructions are in the <code class="file docutils literal notranslate"><span class="pre">README.md</span></code> in the repository.
+GitHub will show this to you on the repository website. The instructions
+are very similar to those for the practice problems above, so you should
+make sure you have tried those in advance of the test.</p></li>
+<li><p>You submit your work by committing and pushing to the repository on GitHub
+created when you accept the GitHub Classroom assignment. You must commit and
+push as you go along. <strong>There is no additional upload time at the end of the test period.</strong></p></li>
+<li><p>If you have a problem during the midterm test, you should post a question
+<a class="reference external" href="https://piazza.com/class/kjob8in6eox1bp">on Piazza</a>. During the test,
+Piazza will be configured so that student posts can only be seen by the
+instructors. Other than this difference you should follow <a class="reference external" href="_static/If_you_have_a_problem.pdf">the instructions
+on what to do in case of problems</a>
+provided by the maths exams office in their
+email of 11 February. In particular, if those instructions require you to
+<a class="reference external" href="mailto:maths&#46;exams&#37;&#52;&#48;imperial&#46;ac&#46;uk">email the exam team</a> after the test
+then you should do so. Posting on Piazza is only a mechanism for getting
+immediate help during the exam.</p></li>
+<li><p>The usual <a class="reference external" href="_static/Academic_Integrity.pdf">academic integrity rules for remote assessments</a>
+apply. In
+particular, you may consult any resource published on the internet, but you may
+not seek help from anyone else, whether in person, by email, chat message,
+forum post or any other means.</p></li>
+</ol>
+</section>
+<section id="exam-preparation">
+<h1>Exam preparation<a class="headerlink" href="#exam-preparation" title="Permalink to this headline">¶</a></h1>
+<p>The exam will be similar in format to the <a class="reference internal" href="#midterm"><span class="std std-ref">midterm test</span></a>, so all
+of the advice about preparing applies there too. As with all second year
+elective modules, the exam will comprise four questions, each marked out of 20.</p>
+<p>As with everything in this course, the one thing you can do to effectively
+prepare for the exam is to program. You should complete any of the exercises in
+the course that you have not yet done, and more exercises are given below.</p>
+<p>Everything we have covered in the course up to and including week 10 will be
+fully examinable. The week 11 material is not examinable with the
+following exceptions:</p>
+<ol class="arabic simple">
+<li><p>You may need to use <a class="reference internal" href="10_further_object-oriented_features.html#term-abstract-base-class"><span class="xref std std-term">abstract base classes</span></a> from
+the standard library to check the type of variables. This is simply what you
+have been doing all term, for example using <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a> to check
+that a value is numeric.</p></li>
+<li><p>The skeleton code may include <a class="reference internal" href="10_further_object-oriented_features.html#term-abstract-base-class"><span class="xref std std-term">abstract base classes</span></a> from which your classes may need to inherit. This is actually a help
+to you in the exam, because the <a class="reference internal" href="10_further_object-oriented_features.html#term-abstract-method"><span class="xref std std-term">abstract methods</span></a>
+will provide information about what you need to implement, and a helpful
+error message if you haven’t done so.</p></li>
+</ol>
+<p>The module Piazza forum will remain open throughout the revision period and we
+will be very happy to respond to your questions. There will also be a live
+revision session during week 1 of summer term in the module team. This will be
+an opportunity to ask individual questions just like in the labs. If enough
+people attend then I will also run a group Q &amp; A session.</p>
+<p>Some specifically-designed practice questions are presented below. In addition to this, there are a lot of very good exercises in
+chapters 7 and 9 of <a class="reference external" href="https://link.springer.com/book/10.1007%2F978-3-662-49887-3">Hans Petter Langtangen, A Primer on Scientific Programming
+with Python</a>.
+You can access that book by logging in with your Imperial credentials.</p>
+<p>The first two questions are in exam format.</p>
+<div class="proof proof-type-exercise" id="id3">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise </span>
+        
+    </div><div class="proof-content">
+<p>Obtain the <a class="reference external" href="https://classroom.github.com/a/HdgipMxw">practice problem from GitHub Classroom</a>. Follow the instructions in
+the README file that will be displayed on GitHub on your copy of the page.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This exercise is fully set up as an exam question, including provisional
+points on the autotests. It should be doable in 30 minutes, though the
+level of programming is a little more basic than the exam questions.</p>
+</div>
+</div></div><div class="proof proof-type-exercise" id="id4">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise </span>
+        
+    </div><div class="proof-content">
+<p>Obtain the <a class="reference external" href="https://classroom.github.com/a/6usAsES4">practice problem from GitHub Classroom</a>. Follow the instructions in
+the README file that will be displayed on GitHub on your copy of the page.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This exercise is at the level of an exam question, though longer. An
+actual exam question would be pruned back to be achievable in 30
+minutes. Here the complete exercise is presented because the main thing
+you need to do is practice programming, and cutting out material
+doesn’t help with that. Marks are not given as the question is the
+wrong length, so dividing 20 marks over the question would just be
+misleading</p>
+</div>
+</div></div><p>In addition to these exam-style questions, you can also usefully practice
+programming by going beyond the specification of the exercises in the course.
+The following exercises are just ideas for how to do that. They do not come
+with additional code or tests.</p>
+<div class="proof proof-type-exercise" id="id5">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise </span>
+        
+    </div><div class="proof-content">
+<p>Extend the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class from <a class="reference internal" href="3_objects.html#objects"><span class="std std-numref">Chapter 3</span></a> to
+support polynomial division. Polynomial division results in a quotient and
+a remainder, so you might choose to implement <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__floordiv__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__floordiv__()</span></code></a>
+to return the quotient and <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__mod__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mod__()</span></code></a> to return the remainder,
+in a manner analogous to integer division. You might also implement
+<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__truediv__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__truediv__()</span></code></a> and have it return the quotient if the
+polynomial division is exact, but raise <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a> if there is a
+remainder.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Don’t forget that repeating code is poor style, so you might need a
+helper method to implement the actual polynomial division.</p>
+</div>
+</div></div><div class="proof proof-type-exercise" id="id6">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise </span>
+        
+    </div><div class="proof-content">
+<p>Extend the <code class="xref py py-class docutils literal notranslate"><span class="pre">Deque</span></code> class from <a class="reference internal" href="5_abstract_data_types.html#abstract-data-types"><span class="std std-numref">Week 5</span></a> to automatically resize the ring buffer by a
+proportion of its length when it is full, and when it becomes too empty.
+You can check the behaviour of your implementation against
+<a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.deque</span></code></a>.</p>
+</div></div><div class="proof proof-type-exercise" id="id7">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise </span>
+        
+    </div><div class="proof-content">
+<p>For a real challenge, extend the groups implementation from <a class="reference internal" href="7_inheritance.html#inheritance"><span class="std std-numref">Week
+7</span></a> to support taking the quotient of two groups. What do the
+values and validation of a quotient group look like in code? You could
+implement <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__truediv__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__truediv__()</span></code></a> on <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> to provide the user
+interface.</p>
+</div></div><div class="proof proof-type-exercise" id="id8">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise </span>
+        
+    </div><div class="proof-content">
+<p>Write additional single dispatch visitor functions to extend the
+capabilities of the symbolic algebra system you wrote in <a class="reference internal" href="9_trees_and_directed_acyclic_graphs.html#trees"><span class="std std-numref">Week 9</span></a>. You could, for example, write a visitor which performs
+cancellation of expressions involving 1 or 0. You could implement expansion
+of brackets according to distributive laws. Finally you could canonicalise
+commutative operators such as <code class="xref py py-obj docutils literal notranslate"><span class="pre">+</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code> so that, for example <code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">x</span></code> is
+mapped to <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code>. Doing this over multiple layers of the tree
+(for example, transforming <code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2*x</span> <span class="pre">+</span> <span class="pre">3*x**2</span></code> to <code class="xref py py-obj docutils literal notranslate"><span class="pre">3*x**2</span> <span class="pre">+</span> <span class="pre">2*x</span> <span class="pre">+</span> <span class="pre">1</span></code>) is an additional
+challenge.</p>
+</div></div></section>
+<section id="exam-instructions">
+<h1>Exam instructions<a class="headerlink" href="#exam-instructions" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p>The exam will start at 0900 UTC (London time) on Monday 24 May 2021 and will run for
+2 hours. Students with additional time will be contacted about this separately.</p></li>
+<li><p>The exam will take the form of a GitHub classroom assignment, just like all of
+the exercises. The URL to accept the assignment will be posted at the start
+of the exam on the <a class="reference external" href="https://teams.microsoft.com/l/team/19%3ae96b9a199b15419281f55f454d240249%40thread.tacv2/conversations?groupId=1b12939c-d8c9-4e4d-a291-0ff35d57869f&amp;tenantId=2b897507-ee8c-4575-830b-4f8267c3d307">module Team</a>, as Blackboard announcement, and posted on
+Piazza. Of these, the Team is the most instant form of communication so you
+are advised to look there and use the other sources as a backup.</p></li>
+<li><p>The exam instructions are in the <code class="file docutils literal notranslate"><span class="pre">README.md</span></code> in the repository.
+GitHub will show this to you on the repository website. The instructions
+are very similar to those for the practice problems above, so you should
+make sure you have tried those in advance of the exam.</p></li>
+<li><p>There are 4 questions, each marked out of 20 marks. The exam is marked out
+of 80 and your attempts at all four questions will count.</p></li>
+<li><p>You submit your work by committing and pushing to the repository on GitHub
+created when you accept the GitHub Classroom assignment. You must commit as
+you go along, and it is strongly advisable to also push as you go. <strong>Only commits
+made during the exam period will count.</strong> Please note that you do not need a
+network connection in order to commit, so you can still do so even if you have
+network problems.</p></li>
+<li><p>The upload time at the end of the exam is only there to enable you to push
+your work. <strong>Commits made during the upload time will not be marked.</strong></p></li>
+<li><p>If you have a problem during the exam, you should post a question
+<a class="reference external" href="https://piazza.com/class/kjob8in6eox1bp">on Piazza</a>. During the exam,
+Piazza will be configured so that student posts can only be seen by the
+instructors. Other than this difference you should follow <a class="reference external" href="_static/If_you_have_a_problem.pdf">the instructions
+on what to do in case of problems</a>
+provided by the maths exams office in their
+email of 11 February. In particular, if those instructions require you to
+<a class="reference external" href="mailto:maths&#46;exams&#37;&#52;&#48;imperial&#46;ac&#46;uk">email the exam team</a> after the exam
+then you should do so. Posting on Piazza is only a mechanism for getting
+immediate help during the exam.</p></li>
+<li><p>If you have a problem during the exam which prevents you from working, for
+example you cannot clone the repository or your computer crashes,  then you
+should do the following:</p>
+<ol class="loweralpha simple">
+<li><p>Take note of the time when the problem starts.</p></li>
+<li><p>If possible, post <a class="reference external" href="https://piazza.com/class/kjob8in6eox1bp">on Piazza</a> to ask for help.
+If you cannot immediately post on Piazza, do so as soon as you are able. This establishes
+an external record of your issue.</p></li>
+<li><p>Take note of the time when you are able to resume work.</p></li>
+<li><p>Ensure that you commit your work before the published end time of the exam.</p></li>
+<li><p>Having committed (and, if at all possible, pushed), continue to work past the end time of the
+exam, committing at least every 5 minutes until you have recovered the time you lost.</p></li>
+<li><p>Straight after the exam submit a mitigating circumstances claim explaining the situation.</p></li>
+</ol>
+<p>It is critical that you have committed your work before the end of the original exam time, because
+no commitments can be made during the exam that late work will be accepted. This will be decided in
+the light of the mitigating circumstances claim.</p>
+</li>
+<li><p>The usual <a class="reference external" href="_static/Academic_Integrity.pdf">academic integrity rules for remote assessments</a>
+apply. In
+particular, you may consult any resource published on the internet, but you may
+not seek help from anyone else, whether in person, by email, chat message,
+forum post or any other means.</p></li>
+</ol>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019-2021, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+    </div>
+  </body>
+</html>
