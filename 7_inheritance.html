@@ -183,7 +183,7 @@ methods which check that element values are allowed for that group, and a method
 which implements the group operation. Element objects will then <a class="reference internal" href="#term-delegation"><span class="xref std std-term">delegate</span></a> validation and the group operation back to the group object.</p>
 <p>Finally, we will want an <a class="reference internal" href="3_objects.html#term-infix-operator"><span class="xref std std-term">infix operator</span></a> representing the group
 operation. Group theorists often use a dot, but we need to choose one of the
-infix operators that Python supports. We’ll chose <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code>, which is possibly the
+infix operators that Python supports. We’ll choose <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code>, which is possibly the
 closest match among Python’s operators. One could easily envisage a more
 complete implementation of a group, with support for group properties such as
 generators and element features such as inverses. Our objective here is to
@@ -305,7 +305,7 @@ integer between 0 and 5, an exception is raised.</p>
 <span class="ne">ValueError</span><span class="p">:</span> <span class="n">Element</span> <span class="n">value</span> <span class="n">must</span> <span class="n">be</span> <span class="n">an</span> <span class="n">integer</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">range</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="#cyclic-group"><span class="std std-numref">Listing 7.1</span></a> illustrates <a class="reference internal" href="#term-composition"><span class="xref std std-term">composition</span></a>: on line 4
+<p><a class="reference internal" href="#cyclic-group"><span class="std std-numref">Listing 7.1</span></a> illustrates <a class="reference internal" href="#term-composition"><span class="xref std std-term">composition</span></a>: on line 13
 <a class="reference internal" href="example_code.html#example_code.groups_basic.Element" title="example_code.groups_basic.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a>, is associated with a group object.
 This is a classic <em>has a</em> relationship: an element has a group. We might have
 attempted to construct this the other way around with classes having elements,
@@ -316,8 +316,8 @@ defined.</p>
 <p>This code also demonstrates <a class="reference internal" href="#term-delegation"><span class="xref std std-term">delegation</span></a>. In order to avoid having to
 define different element classes for different groups, the element class does
 not in substance implement either value validation, or the group operation.
-Instead, at line 3, validation is delegated to the group by calling
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">group._validate()</span></code> and at line 10 the implementation of the group
+Instead, at line 12, validation is delegated to the group by calling
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">group._validate()</span></code> and at line 19 the implementation of the group
 operation is delegated to the group by calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">self.group.operation()</span></code>.</p>
 </section>
 <section id="general-linear-groups">
@@ -367,7 +367,7 @@ degree.</span><a class="headerlink" href="#general-linear-group" title="Permalin
 <span class="linenos">28</span>
 <span class="linenos">29</span>    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">30</span>        <span class="sd">&quot;&quot;&quot;Return the canonical string representation of the group.&quot;&quot;&quot;</span>
-<span class="linenos">31</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">sxelf</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
+<span class="linenos">31</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -713,7 +713,7 @@ directly or indirectly. That is, if <code class="xref py py-obj docutils literal
 </section>
 <section id="exercises">
 <h2><span class="section-number">7.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<p>Using the information on the <a class="reference external" href="https://object-oriented-programming.github.io/edition1/exercises.html">book website</a>
+<p>Using the information on the <a class="reference external" href="https://object-oriented-python.github.io/edition1/exercises.html">book website</a>
 obtain the skeleton code for these exercises.</p>
 <div class="proof proof-type-exercise" id="id5">
 
@@ -732,7 +732,7 @@ order <code class="xref py py-obj docutils literal notranslate"><span class="pre
 validation of group element values. Group elements can be represented by
 sequences containing permutations of the integers from 0 to <code class="xref py py-obj docutils literal notranslate"><span class="pre">n-1</span></code>. You will
 find it advantageous to represent these permutations as
-<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> because the indexing rules for that type mean that
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> because the indexing rules for that type mean that
 the group operation can simply be implemented by indexing the first
 permutation with the second: <code class="xref py py-obj docutils literal notranslate"><span class="pre">a[b]</span></code>.</p>
 <p>You will also need to set the <a class="reference internal" href="#term-class-attribute"><span class="xref std std-term">class attribute</span></a> <code class="xref py py-attr docutils literal notranslate"><span class="pre">symbol</span></code>. For this
@@ -795,7 +795,7 @@ operation would add a duplicate value to the <code class="xref py py-class docut
 </div></div><p class="rubric">Footnotes</p>
 <dl class="footnote brackets">
 <dt class="label" id="exercise-page"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
-<dd><p><a class="reference external" href="https://object-oriented-programming.github.io/edition1/exercises.html">https://object-oriented-programming.github.io/edition1/exercises.html</a></p>
+<dd><p><a class="reference external" href="https://object-oriented-python.github.io/edition1/exercises.html">https://object-oriented-python.github.io/edition1/exercises.html</a></p>
 </dd>
 </dl>
 </section>

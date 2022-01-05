@@ -5,20 +5,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>example_code.expression_tools &#8212; Object oriented programming in Python for mathematicians 2021.0 documentation</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/fenics.css" type="text/css" />
+    <title>example_code.expression_tools &#8212; Object-oriented Programming  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fenics.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/proof.js"></script>
-    <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
 <!--[if lte IE 6]>
@@ -45,7 +44,12 @@
   <div id="access">
     <div class="menu">
       <ul>
-          <li class="page_item"><a href="https://github.com/object-oriented-python/object-oriented-programming" title="GitHub">GitHub</a></li>
+          <li class="page_item"><a href="../../index.html" title="Book">Book</a></li>
+          <li class="page_item"><a href="../../videos.html" title="Videos">Videos</a></li>
+          <li class="page_item"><a href="../../exercises.html"
+          title="Exercises">Exercises</a></li>
+          <li class="page_item"><a href="../../installation.html" title="Installation">Installation</a></li>
+
       </ul>
     </div><!-- .menu -->
   </div><!-- #access -->
@@ -76,7 +80,8 @@
 <span class="sd">        Any keyword arguments required to evaluate specific types of</span>
 <span class="sd">        expression.</span>
 <span class="sd">    symbol_map: dict</span>
-<span class="sd">        A dictionary mapping Symbol names to numerical values, for example:</span>
+<span class="sd">        A dictionary mapping Symbol names to numerical values, for</span>
+<span class="sd">        example:</span>
 
 <span class="sd">        {&#39;x&#39;: 1}</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -120,22 +125,21 @@
 
 
 <div class="viewcode-block" id="postvisitor"><a class="viewcode-back" href="../../example_code.html#example_code.expression_tools.postvisitor">[docs]</a><span class="k">def</span> <span class="nf">postvisitor</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Traverse an Expression in postorder applying a function to every node.</span>
+    <span class="sd">&#39;&#39;&#39;Visit an Expression in postorder applying a function to every node.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    expr: Expression</span>
 <span class="sd">        The expression to be visited.</span>
 <span class="sd">    fn: `function(node, *o, **kwargs)`</span>
-<span class="sd">        A function to be applied at each node. The function should take the</span>
-<span class="sd">        node to be visited as its first argument, and the results of visiting</span>
-<span class="sd">        its operands as any further positional arguments. Any additional</span>
-<span class="sd">        information that the visitor requires can be passed in as keyword</span>
-<span class="sd">        arguments.</span>
+<span class="sd">        A function to be applied at each node. The function should take</span>
+<span class="sd">        the node to be visited as its first argument, and the results of</span>
+<span class="sd">        visiting its operands as any further positional arguments. Any</span>
+<span class="sd">        additional information that the visitor requires can be passed in</span>
+<span class="sd">        as keyword arguments.</span>
 <span class="sd">    **kwargs:</span>
 <span class="sd">        Any additional keyword arguments to be passed to fn.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-
     <span class="k">return</span> <span class="n">fn</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span>
               <span class="o">*</span><span class="p">(</span><span class="n">postvisitor</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">expr</span><span class="o">.</span><span class="n">operands</span><span class="p">),</span>
               <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
@@ -149,7 +153,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019-2021, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
     </div>
   </body>
 </html>

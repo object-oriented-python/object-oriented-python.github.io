@@ -356,14 +356,14 @@ are to be used frequently or in the middle of expressions: you probably
 don’t really want to write <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> in every trig formula you
 ever write. One alternative is to rename the module on import. This is
 achieved using the keyword <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">as</span></code></a> in an import statement. For example,
-it is usual to import the numerical Python module <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.21)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> in the
+it is usual to import the numerical Python module <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.22)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> in the
 following way:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
-<p>This creates the local name <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.21)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">np</span></code></a> instead of <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.21)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>,
+<p>This creates the local name <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.22)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">np</span></code></a> instead of <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.22)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>,
 so that the function for creating an evenly spaced sequence of values
-between to end points is now accessible as <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="(in NumPy v1.21)"><code class="xref py py-func docutils literal notranslate"><span class="pre">np.linspace</span></code></a>.</p>
+between to end points is now accessible as <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="(in NumPy v1.22)"><code class="xref py py-func docutils literal notranslate"><span class="pre">np.linspace</span></code></a>.</p>
 <p>A second option is to import particular names from a module directly
 into the current namespace. For example, if we planned to use the
 functions <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/math.html#math.cos" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.cos()</span></code></a> a lot in our script, we
@@ -610,10 +610,10 @@ installed. The <code class="xref py py-obj docutils literal notranslate"><span c
 takes a list of Pip package names. Pip will install any of these packages that
 are not already available before installing the package itself.
 <a class="reference internal" href="#dependency-setup-py"><span class="std std-numref">Listing 2.3</span></a> illustrates this by adding a dependency on
-<a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.21)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>.</p>
+<a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.22)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>.</p>
 <div class="literal-block-wrapper docutils container" id="id10">
 <span id="dependency-setup-py"></span><div class="code-block-caption"><span class="caption-number">Listing 2.3 </span><span class="caption-text">An extension to the <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> from
-<a class="reference internal" href="#minimal-setup-py"><span class="std std-numref">Listing 2.2</span></a> to require that <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.21)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> is installed.</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<a class="reference internal" href="#minimal-setup-py"><span class="std std-numref">Listing 2.2</span></a> to require that <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.22)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> is installed.</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_packages</span>
 <span class="n">setup</span><span class="p">(</span>
     <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my_package&quot;</span><span class="p">,</span>
@@ -646,7 +646,7 @@ need to test the code we write, so we will cover the practical details of
 including tests in your code here.</p>
 <p>There are a number of Python packages which support code testing. The concepts
 are largely similar so rather than get bogged down in the details of multiple
-frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v7.1.0.dev46+g47df71d23)"><span class="xref std std-doc">Pytest</span></a>, which is one of the
+frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v7.1.0.dev95+g71baf24b6)"><span class="xref std std-doc">Pytest</span></a>, which is one of the
 most widely used. Pytest is simply a Python package, so you can install it into
 your current environment using:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(PoP_venv)</span> <span class="gp">$ </span>python -m pip install pytest
@@ -864,7 +864,7 @@ installed correctly by installing Pytest, and running:</p>
         <span class="proof-type">Exercise 2.2</span>
         
     </div><div class="proof-content">
-<p>Using the information on the <a class="reference external" href="https://object-oriented-programming.github.io/edition1/exercises.html">book website</a>
+<p>Using the information on the <a class="reference external" href="https://object-oriented-python.github.io/edition1/exercises.html">book website</a>
 create your first exercise repository for this module and clone it
 into your working folder. The exercise repository just contains a
 <code class="file docutils literal notranslate"><span class="pre">README</span></code> and some tests. Your job in the following exercises will be
@@ -940,7 +940,7 @@ code will work:</p>
 <dd><p><a class="reference external" href="https://github.com/object-oriented-python/object-oriented-programming">https://github.com/object-oriented-python/object-oriented-programming</a></p>
 </dd>
 <dt class="label" id="exercise-page"><span class="brackets"><a class="fn-backref" href="#id7">5</a></span></dt>
-<dd><p><a class="reference external" href="https://object-oriented-programming.github.io/edition1/exercises.html">https://object-oriented-programming.github.io/edition1/exercises.html</a></p>
+<dd><p><a class="reference external" href="https://object-oriented-python.github.io/edition1/exercises.html">https://object-oriented-python.github.io/edition1/exercises.html</a></p>
 </dd>
 </dl>
 </section>
