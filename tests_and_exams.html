@@ -225,7 +225,7 @@ following exceptions:</p>
 <ol class="arabic simple">
 <li><p>You may need to use <a class="reference internal" href="10_further_object-oriented_features.html#term-abstract-base-class"><span class="xref std std-term">abstract base classes</span></a> from
 the standard library to check the type of variables. This is simply what you
-have been doing all term, for example using <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a> to check
+have been doing all term, for example using <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a> to check
 that a value is numeric.</p></li>
 <li><p>The skeleton code may include <a class="reference internal" href="10_further_object-oriented_features.html#term-abstract-base-class"><span class="xref std std-term">abstract base classes</span></a> from which your classes may need to inherit. This is actually a help
 to you in the exam, because the <a class="reference internal" href="10_further_object-oriented_features.html#term-abstract-method"><span class="xref std std-term">abstract methods</span></a>
@@ -306,11 +306,11 @@ with additional code or tests.</p>
     </div><div class="proof-content">
 <p>Extend the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class from <a class="reference internal" href="3_objects.html#objects"><span class="std std-numref">Chapter 3</span></a> to
 support polynomial division. Polynomial division results in a quotient and
-a remainder, so you might choose to implement <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__floordiv__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__floordiv__()</span></code></a>
-to return the quotient and <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__mod__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mod__()</span></code></a> to return the remainder,
+a remainder, so you might choose to implement <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__floordiv__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__floordiv__()</span></code></a>
+to return the quotient and <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__mod__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mod__()</span></code></a> to return the remainder,
 in a manner analogous to integer division. You might also implement
-<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__truediv__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__truediv__()</span></code></a> and have it return the quotient if the
-polynomial division is exact, but raise <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a> if there is a
+<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__truediv__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__truediv__()</span></code></a> and have it return the quotient if the
+polynomial division is exact, but raise <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a> if there is a
 remainder.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -326,7 +326,7 @@ helper method to implement the actual polynomial division.</p>
 <p>Extend the <code class="xref py py-class docutils literal notranslate"><span class="pre">Deque</span></code> class from <a class="reference internal" href="5_abstract_data_types.html#abstract-data-types"><span class="std std-numref">Week 5</span></a> to automatically resize the ring buffer by a
 proportion of its length when it is full, and when it becomes too empty.
 You can check the behaviour of your implementation against
-<a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.deque</span></code></a>.</p>
+<a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.deque</span></code></a>.</p>
 </div></div><div class="proof proof-type-exercise" id="id10">
 
     <div class="proof-title">
@@ -336,7 +336,7 @@ You can check the behaviour of your implementation against
 <p>For a real challenge, extend the groups implementation from <a class="reference internal" href="7_inheritance.html#inheritance"><span class="std std-numref">Week
 7</span></a> to support taking the quotient of two groups. What do the
 values and validation of a quotient group look like in code? You could
-implement <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__truediv__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__truediv__()</span></code></a> on <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> to provide the user
+implement <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__truediv__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__truediv__()</span></code></a> on <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> to provide the user
 interface.</p>
 </div></div><div class="proof proof-type-exercise" id="id11">
 
@@ -363,8 +363,8 @@ challenge.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019-2021, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+        &#169; Copyright 2019-2023, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

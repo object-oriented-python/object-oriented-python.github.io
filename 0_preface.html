@@ -66,7 +66,7 @@
             
   <section id="preface">
 <h1>Preface<a class="headerlink" href="#preface" title="Permalink to this headline">¶</a></h1>
-<p>Computers have revolutionised mathematics and the many scientific, engineering
+<p>Computers have revolutionised mathematics and the many scientific, engineering,
 and economic fields in which mathematics is applied. In the applications of
 mathematics the role of computation has long been obvious and prominent. Now,
 the development of theorem proving software is increasing the prominence of
@@ -125,7 +125,7 @@ who would like to learn to be a more capable programmer. The mathematical
 examples assume that you know how to differentiate functions of one variable,
 but very little beyond that. Where examples or exercises employ other
 mathematics, such as cellular automata in <a class="reference internal" href="4_style.html#style"><span class="std std-numref">Chapter 4</span></a> and
-groups in <a class="reference internal" href="5_abstract_data_types.html#abstract-data-types"><span class="std std-numref">Chapter 5</span></a>, enough of the mathematics
+groups in <a class="reference internal" href="7_inheritance.html#inheritance"><span class="std std-numref">Chapter 7</span></a>, enough of the mathematics
 will be introduced that the reader should be able to understand the programming
 concept being explained, without necessarily understanding all of the
 mathematical details of the example.</p>
@@ -134,7 +134,7 @@ the sort of basic Python usually covered in a first programming or
 computational methods course. In particular the reader will be assumed to be
 familiar with writing functions, variable assignments, loops, and list
 comprehensions. The reader is also assumed to have used numeric and string data
-values, as well as dictionaries, lists, and tuples.</p>
+values, as well as dictionaries, sets, lists, and tuples.</p>
 <p>Many introductory Python courses exclusively use Jupyter notebooks, so nothing
 beyond that is assumed. Getting set up with a working Python installation is
 covered in <a class="reference internal" href="1_introduction.html#introduction"><span class="std std-numref">Chapter 1</span></a> while the Python command line
@@ -167,7 +167,7 @@ correct responses to a range of inputs. Tests like this provide immediate
 feedback and enable you to know how you are doing. Links to the skeleton code
 for each chapter are provided at:</p>
 <blockquote>
-<div><p><a class="reference external" href="https://object-oriented-python.github.io/edition1/exercises.html">https://object-oriented-python.github.io/edition1/exercises.html</a></p>
+<div><p><a class="reference external" href="https://object-oriented-python.github.io/edition2/exercises.html">https://object-oriented-python.github.io/edition2/exercises.html</a></p>
 </div></blockquote>
 </section>
 </section>
@@ -216,8 +216,8 @@ outstanding. Pulling out all the stops to deliver the written and video
 materials for online learning meant a lot of evenings and weekends. I am
 exceptionally grateful to my wife Gebina Ham for disproportionately picking up
 our childcare responsibilities in that period in order to make this possible.
-I’d also like to thank Dr Aaron Pereira for his eagle-eyed corrections to the
-text.</p>
+I’d also like to thank Dr Aaron Pereira and Reuben Nixon-Hill for their
+eagle-eyed corrections to the text.</p>
 <p>This is a textbook about programming in Python, so it would be remiss of me not
 to also thank the developers of the Python language, its CPython reference
 implementation, and all the third party packages which on which this book
@@ -227,6 +227,16 @@ IPython deserve particular mention.</p>
 this facilitates generating the web, PDF, and print versions of the book from a
 single source. Thanks are due to its authors as well as those of the underlying
 LaTeX and TeX typesetting systems.</p>
+</section>
+<section id="changes-in-the-second-edition">
+<h2>Changes in the second edition<a class="headerlink" href="#changes-in-the-second-edition" title="Permalink to this headline">¶</a></h2>
+<p>The second edition is a minor update correcting numerous small issues that have
+been pointed out over the last year. A more substantive change is that the
+explanation of packaging in <a class="reference internal" href="2_programs_in_files.html#programs-files"><span class="std std-numref">Section 2</span></a> has been modernised to use
+<code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> in place of <code class="xref py py-obj docutils literal notranslate"><span class="pre">setup.py</span></code>.
+<a class="reference internal" href="3_objects.html#assignment-and-instantiation"><span class="std std-numref">Section 3.5</span></a> has been added in response to confusion
+expressed by a number of students about the distinction between instantiating
+new objects and assigning new variable names to existing objects.</p>
 </section>
 </section>
 
@@ -238,8 +248,8 @@ LaTeX and TeX typesetting systems.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019-2021, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+        &#169; Copyright 2019-2023, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

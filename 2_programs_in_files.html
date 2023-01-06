@@ -126,13 +126,6 @@ active, we can install it by running:</p>
 </pre></div>
 </div>
 <p>This will result in output similar to the following:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="go">Python 3.9.4 (default, Apr  5 2021, 01:50:46)</span>
-<span class="go">Type &#39;copyright&#39;, &#39;credits&#39; or &#39;license&#39; for more information</span>
-<span class="go">IPython 7.19.0 -- An enhanced Interactive Python. Type &#39;?&#39; for help.</span>
-
-<span class="gp">In [1]:</span>
-</pre></div>
-</div>
 <p>Just as in a Jupyter notebook, this last line is the Python prompt at which
 you can type any Python you like. If you press return after a complete Python
 statement, the statement will execute immediately. Unlike in a Jupyter
@@ -316,20 +309,19 @@ then run, and any names defined in that code (such as the function
 we begin to compose together code from different parts of mathematics,
 the ability to separate identically named but different objects from
 each other is essential. For example, Python has a module containing
-core real-valued maths functions called <a class="reference external" href="https://docs.python.org/3/library/math.html#module-math" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">math</span></code></a>, and one
+core real-valued maths functions called <a class="reference external" href="https://docs.python.org/3/library/math.html#module-math" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">math</span></code></a>, and one
 containing complex maths functions called
-<a class="reference external" href="https://docs.python.org/3/library/cmath.html#module-cmath" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">cmath</span></code></a>. Clearly, it’s important that we can distinguish
-between <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">math.sin()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/cmath.html#cmath.sin" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">cmath.sin()</span></code></a>. Here the
-module names <a class="reference external" href="https://docs.python.org/3/library/math.html#module-math" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">math</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/cmath.html#module-cmath" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cmath</span></code></a> form the namespaces that
-differentiate between the two <code class="xref py py-func docutils literal notranslate"><span class="pre">sin()</span></code> functions. There are
-essentially only two core namespace concepts. One of them is that
-every name is in a namespace, and any given time points to a unique
-value. The second one is that namespaces can be nested, so a name in a
-namespace can itself be another namespace. For example, the math
-namespace contains the value <a class="reference external" href="https://docs.python.org/3/library/math.html#math.pi" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">math.pi</span></code></a>, which itself defines a
-namespace for some operations that are built into Python numbers. The
-(somewhat uninteresting) imaginary part of π can be accessed as
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">math.pi.imag</span></code>.</p>
+<a class="reference external" href="https://docs.python.org/3/library/cmath.html#module-cmath" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">cmath</span></code></a>. Clearly, it’s important that we can distinguish
+between <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">math.sin()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/cmath.html#cmath.sin" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">cmath.sin()</span></code></a>. Here the
+module names <a class="reference external" href="https://docs.python.org/3/library/math.html#module-math" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">math</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/cmath.html#module-cmath" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cmath</span></code></a> form the namespaces that
+differentiate between the two <code class="xref py py-func docutils literal notranslate"><span class="pre">sin()</span></code> functions.</p>
+<p>There are essentially only two core namespace concepts. One of them is that
+every name is in a namespace, and any given time points to a unique value. The
+second one is that namespaces can be nested, so a name in a namespace can
+itself be another namespace. For example, the math namespace contains the value
+<a class="reference external" href="https://docs.python.org/3/library/math.html#math.pi" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">math.pi</span></code></a>, which itself defines a namespace for some operations that are
+built into Python numbers. The (somewhat uninteresting) imaginary part of π can
+be accessed as <code class="xref py py-obj docutils literal notranslate"><span class="pre">math.pi.imag</span></code>.</p>
 <p>Namespaces are a simple but fundamental concept in programming. To
 quote one of the key developers of the Python language:</p>
 <blockquote>
@@ -353,25 +345,25 @@ have defined ourselves, and makes it very obvious to a reader where
 the names come from. The downside is that names in namespaces can be
 quite long and cumbersome, which is particularly inconvenient if names
 are to be used frequently or in the middle of expressions: you probably
-don’t really want to write <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> in every trig formula you
+don’t really want to write <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> in every trig formula you
 ever write. One alternative is to rename the module on import. This is
-achieved using the keyword <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">as</span></code></a> in an import statement. For example,
-it is usual to import the numerical Python module <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.22)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> in the
+achieved using the keyword <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">as</span></code></a> in an import statement. For example,
+it is usual to import the numerical Python module <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.24)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> in the
 following way:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
-<p>This creates the local name <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.22)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">np</span></code></a> instead of <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.22)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>,
+<p>This creates the local name <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.24)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">np</span></code></a> instead of <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.24)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>,
 so that the function for creating an evenly spaced sequence of values
-between to end points is now accessible as <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="(in NumPy v1.22)"><code class="xref py py-func docutils literal notranslate"><span class="pre">np.linspace</span></code></a>.</p>
+between to end points is now accessible as <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="(in NumPy v1.24)"><code class="xref py py-func docutils literal notranslate"><span class="pre">np.linspace</span></code></a>.</p>
 <p>A second option is to import particular names from a module directly
 into the current namespace. For example, if we planned to use the
-functions <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/math.html#math.cos" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.cos()</span></code></a> a lot in our script, we
+functions <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/math.html#math.cos" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.cos()</span></code></a> a lot in our script, we
 might use the following import statement:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
 </pre></div>
 </div>
-<p>Now we can use the names <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sin</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/math.html#math.cos" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">cos</span></code></a> directly. What if we also wanted to use a short name for
+<p>Now we can use the names <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sin</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/math.html#math.cos" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">cos</span></code></a> directly. What if we also wanted to use a short name for
 their complex counterparts? We can’t have two functions with the same
 name in a single <a class="reference internal" href="#term-namespace"><span class="xref std std-term">namespace</span></a>. Fortunately, the keyword <code class="xref py py-obj docutils literal notranslate"><span class="pre">as</span></code>
 comes to our rescue again:</p>
@@ -402,7 +394,7 @@ from the module (without any warning or error). This is a frequent
 source of confusion. For this reason, importing <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code> is usually a bad
 idea.</p>
 <p>The full details of all the ways that the import statement can be used
-is in <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.10)"><span class="xref std std-ref">the official Python Language Reference.</span></a></p>
+is in <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.11)"><span class="xref std std-ref">the official Python Language Reference.</span></a></p>
 </section>
 </section>
 <section id="packages">
@@ -432,7 +424,7 @@ package is shown in <a class="reference internal" href="#package-layout"><span c
 │   └── subpackage
 │       ├── __init__.py
 │       └── module_3.py
-└── setup.py
+└── pyproject.toml
 </pre></div>
 </div>
 </div>
@@ -470,8 +462,8 @@ as <code class="xref py py-obj docutils literal notranslate"><span class="pre">m
 containing a file <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code>. It can also contain modules and
 further subpackages.</p>
 </dd>
-<dt><code class="file docutils literal notranslate"><span class="pre">setup.py</span></code></dt><dd><p>This file is outside the package folder and is not
-actually a part of the package. The role of <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> will be
+<dt><code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code></dt><dd><p>This file is outside the package folder and is not
+actually a part of the package. The role of <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> will be
 covered in <a class="reference internal" href="#installable-packages"><span class="std std-numref">Section 2.4.2</span></a>.</p>
 </dd>
 </dl>
@@ -522,41 +514,52 @@ reader that the import is from the current package.</p>
 </section>
 <section id="making-packages-installable">
 <span id="installable-packages"></span><h3><span class="section-number">2.4.2. </span>Making packages installable<a class="headerlink" href="#making-packages-installable" title="Permalink to this headline">¶</a></h3>
-<p>In order for the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.10)"><span class="xref std std-ref">import statement</span></a> to work, Python needs
+<p>In order for the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.11)"><span class="xref std std-ref">import statement</span></a> to work, Python needs
 to know that the package being imported exists, and where to find it. This is
-achieved by installing the package. In order to make a package installable, we
-need to provide Python with a bit more information about it. This information
-can be provided in a Python script which must be called <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>. This
-file isn’t part of the package and does not go in the package folder. Instead,
-it should be placed in the top-level folder of your git repository, so that the
-Python package installer will be able to find it.</p>
+achieved by installing the package using Pip. In order to make a package
+installable, we need to provide Pip with a bit more information about it. The
+modern way to provide this information is using a configuration file which must
+be called <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. This file isn’t part of the package and does
+not go in the package folder. Instead, it should be placed in the top-level
+folder of your git repository, so that the Python package installer will be
+able to find it.</p>
 <div class="literal-block-wrapper docutils container" id="id9">
-<span id="minimal-setup-py"></span><div class="code-block-caption"><span class="caption-number">Listing 2.2 </span><span class="caption-text">A minimal <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> which will make all the Python
-packages found in subfolders of the folder containing <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>
-installable.</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_packages</span>
-<span class="n">setup</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my_package&quot;</span><span class="p">,</span>
-    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.1&quot;</span><span class="p">,</span>
-    <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">(),</span>
-<span class="p">)</span>
+<span id="minimal-pyproject-toml"></span><div class="code-block-caption"><span class="caption-number">Listing 2.2 </span><span class="caption-text">A minimal <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> which will make all the Python
+packages found in subfolders of the folder containing
+<code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> installable.</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">build</span><span class="o">-</span><span class="n">system</span><span class="p">]</span>
+<span class="n">requires</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hatchling&quot;</span><span class="p">]</span>
+<span class="n">build</span><span class="o">-</span><span class="n">backend</span> <span class="o">=</span> <span class="s2">&quot;hatchling.build&quot;</span>
+
+<span class="p">[</span><span class="n">project</span><span class="p">]</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;my_package&quot;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;0.1&quot;</span>
 </pre></div>
 </div>
 </div>
-<p><a class="reference internal" href="#minimal-setup-py"><span class="std std-numref">Listing 2.2</span></a> shows a very basic <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> which uses
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">setuptools</span></code> to make packages installable. <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/index.html">Setuptools</a>
-is a Python package which exists to help with the packaging and
-installation of Python packages. The <code class="xref py py-func docutils literal notranslate"><span class="pre">setup()</span></code>
-function records metadata such as the installation name to be given to
-your whole set of packages, and the version. It also needs to know
-about all of the packages in the current repository, but this can be
-automated with the <code class="xref py py-func docutils literal notranslate"><span class="pre">find_packages()</span></code> function, which
-will return a list of folders containing a file named <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code>.</p>
-<p>This very simple <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> will suffice for packages that you only
-intend to use yourself. Should you wish to publish packages for use by other
-people, then you’ll need to provide significantly more information in
-<code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> and, potentially, in other places too. The canonical guide to
-this is the <a class="reference external" href="https://packaging.python.org/tutorials/packaging-projects/">Python Packaging User Guide</a>.</p>
+<p><a class="reference internal" href="#minimal-pyproject-toml"><span class="std std-numref">Listing 2.2</span></a> shows a very basic <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.
+This isn’t a Python file, instead it’s a configuration file written in a
+language called <a class="reference external" href="https://toml.io/en/">TOML</a>. In our case, the TOML file
+comprises two sections, which TOML calls “tables”.</p>
+<p>The first table is called <code class="xref py py-obj docutils literal notranslate"><span class="pre">build-system</span></code>, and enables us to choose which of the
+various Python project management packages we wish to use. For our very simple
+package we’ll use <code class="xref py py-obj docutils literal notranslate"><span class="pre">hatchling</span></code> which is part of the Python project management
+system <code class="xref py py-obj docutils literal notranslate"><span class="pre">Hatch</span></code>. There are a number of other packages
+we could have used for this, but for our simple purposes it doesn’t much matter
+which we use. Inside tables, TOML records configuration information as
+key-value pairs. There are two keys that we must set in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">build-system</span></code>
+table. <code class="xref py py-obj docutils literal notranslate"><span class="pre">requires</span></code> is a list of packages that Pip should install in order to
+build this package. In this case, that is just <code class="xref py py-obj docutils literal notranslate"><span class="pre">hatchling</span></code>. The second key we
+need is <code class="xref py py-obj docutils literal notranslate"><span class="pre">build-backend</span></code>. This is the name of the Python module that will be
+used to build the package. For <code class="xref py py-obj docutils literal notranslate"><span class="pre">hatchling</span></code> this is the <code class="xref py py-obj docutils literal notranslate"><span class="pre">build</span></code> module in so we
+write <code class="xref py py-obj docutils literal notranslate"><span class="pre">hatchling.build</span></code>.</p>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">project</span></code> table contains information about the Pip package we’re creating.
+At a minimum, we need to give our Pip package a name and a version number.</p>
+<p>This very simple <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> will suffice for packages that you
+only intend to use yourself. Should you wish to publish packages for use by
+other people, then you’ll need to provide significantly more information in
+<code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> and, potentially, in other places too. The canonical
+guide to this is the <a class="reference external" href="https://packaging.python.org/tutorials/packaging-projects/">Python Packaging User Guide</a>.</p>
 </section>
 <section id="installing-a-package-from-local-code">
 <h3><span class="section-number">2.4.3. </span>Installing a package from local code<a class="headerlink" href="#installing-a-package-from-local-code" title="Permalink to this headline">¶</a></h3>
@@ -567,14 +570,22 @@ you would type:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(PoP_venv)</span> <span class="gp">$ </span>python -m pip install -e folder/
 </pre></div>
 </div>
-<p>replacing <code class="xref py py-obj docutils literal notranslate"><span class="pre">folder</span></code> with the name of the top-level folder of your
-repository: the folder containing <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>. The option flag <code class="xref py py-obj docutils literal notranslate"><span class="pre">-e</span></code>
-tells Pip to install the package in ‘editable’ mode. This means that
-instead of copying the package files to your venv’s Python packages
-folder, symbolic links will be created. This means that any changes
-that you make to your package will show up the next time the package
-is imported in a new Python process, avoiding the need to reinstall
-the package every time you change it.</p>
+<p>replacing <code class="file docutils literal notranslate"><span class="pre">folder</span></code> with the name of the top-level folder of your
+repository: the folder containing <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. The option flag <code class="xref py py-obj docutils literal notranslate"><span class="pre">-e</span></code> tells
+Pip to install the package in ‘editable’ mode. This means that instead of
+copying the package files to your venv’s Python packages folder, symbolic links
+will be created. This means that any changes that you make to your package will
+show up the next time the package is imported in a new Python process, avoiding
+the need to reinstall the package every time you change it.</p>
+<p>The name <code class="xref py py-obj docutils literal notranslate"><span class="pre">folder</span></code> in the example above is an example of a relative path. This
+means that <code class="xref py py-obj docutils literal notranslate"><span class="pre">folder</span></code> is located relative to the folder in which the command
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span></code> is run. It often happens that a user wants to install the
+package whose <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> is in the current folder. In this case
+it’s helpful to know that the special relative path <code class="file docutils literal notranslate"><span class="pre">.</span></code> refers to the
+current folder. So to install the package defined in the current folder, type:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(PoP_venv)</span> <span class="gp">$ </span>python -m pip install -e .
+</pre></div>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If you edit a package, even one installed in editable mode, an
@@ -593,10 +604,10 @@ guaranteed to be up to date.</p>
 installing them is that Pip and Python have slightly different definitions of
 what constitutes a package. A Python package, as we have just learned, is a
 folder containing (at least) a file called <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code>. For Pip,
-however, a package is everything that <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> installs. In particular,
-this can include multiple Python packages. Indeed, <a class="reference internal" href="#minimal-setup-py"><span class="std std-numref">Listing 2.2</span></a>
+however, a package is everything that <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> installs. In particular,
+this can include multiple Python packages. Indeed, <a class="reference internal" href="#minimal-pyproject-toml"><span class="std std-numref">Listing 2.2</span></a>
 is sufficient to install any number of Python packages contained in subfolders
-of the folder containing <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>.</p>
+of the folder containing <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.</p>
 </section>
 <section id="package-dependencies">
 <h3><span class="section-number">2.4.5. </span>Package dependencies<a class="headerlink" href="#package-dependencies" title="Permalink to this headline">¶</a></h3>
@@ -606,28 +617,40 @@ package themselves import other packages, then a user will need those packages
 to be installed in their Python environment, or your package will not work. If
 your package depends on other packages that need to be installed from PyPI then
 steps need to be taken to ensure that your users will have the correct packages
-installed. The <code class="xref py py-obj docutils literal notranslate"><span class="pre">install_requires</span></code> keyword argument to <code class="xref py py-func docutils literal notranslate"><span class="pre">setuptools.setup()</span></code>
-takes a list of Pip package names. Pip will install any of these packages that
-are not already available before installing the package itself.
-<a class="reference internal" href="#dependency-setup-py"><span class="std std-numref">Listing 2.3</span></a> illustrates this by adding a dependency on
-<a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.22)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>.</p>
+installed. The <code class="xref py py-obj docutils literal notranslate"><span class="pre">dependencies</span></code> key in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">project</span></code> table provides a list of
+packages on which the current package depends. Pip will install any of these
+packages that are not already available before installing the package itself.
+<a class="reference internal" href="#dependency-pyproject-toml"><span class="std std-numref">Listing 2.3</span></a> illustrates this by adding a dependency on
+<a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.24)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>.</p>
 <div class="literal-block-wrapper docutils container" id="id10">
-<span id="dependency-setup-py"></span><div class="code-block-caption"><span class="caption-number">Listing 2.3 </span><span class="caption-text">An extension to the <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> from
-<a class="reference internal" href="#minimal-setup-py"><span class="std std-numref">Listing 2.2</span></a> to require that <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.22)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> is installed.</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_packages</span>
-<span class="n">setup</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my_package&quot;</span><span class="p">,</span>
-    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.1&quot;</span><span class="p">,</span>
-    <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">(),</span>
-    <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;numpy&quot;</span><span class="p">]</span>
-<span class="p">)</span>
+<span id="dependency-pyproject-toml"></span><div class="code-block-caption"><span class="caption-number">Listing 2.3 </span><span class="caption-text">An extension to the <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> from
+<a class="reference internal" href="#minimal-pyproject-toml"><span class="std std-numref">Listing 2.2</span></a> to require that <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.24)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> is installed.</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">build</span><span class="o">-</span><span class="n">system</span><span class="p">]</span>
+<span class="n">requires</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hatchling&quot;</span><span class="p">]</span>
+<span class="n">build</span><span class="o">-</span><span class="n">backend</span> <span class="o">=</span> <span class="s2">&quot;hatchling.build&quot;</span>
+
+<span class="p">[</span><span class="n">project</span><span class="p">]</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;my_package&quot;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;0.1&quot;</span>
+<span class="n">dependencies</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;numpy&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is important to understand the difference between the <code class="xref py py-obj docutils literal notranslate"><span class="pre">requires</span></code> key in
+the <code class="xref py py-obj docutils literal notranslate"><span class="pre">build-system</span></code> table and the <code class="xref py py-obj docutils literal notranslate"><span class="pre">dependencies</span></code> key in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">project</span></code> table.
+The former is a list of packages needed to build the package, while the
+latter is a list of packages needed to use the current package. You will
+often need to specify <code class="xref py py-obj docutils literal notranslate"><span class="pre">dependencies</span></code> but, unless you are doing something
+quite advanced such as writing Python packages in another language, you
+will not need to add to <code class="xref py py-obj docutils literal notranslate"><span class="pre">requires</span></code>.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">install_requires</span></code> should not list packages from the Python Standard
-Library. These are always available, and listing them will cause Pip to error.</p>
+<p>Neither <code class="xref py py-obj docutils literal notranslate"><span class="pre">dependencies</span></code> nor <code class="xref py py-obj docutils literal notranslate"><span class="pre">requires</span></code> should list packages from the Python
+Standard Library. These are always available, and listing them will cause
+Pip to error.</p>
 </div>
 </section>
 </section>
@@ -646,7 +669,7 @@ need to test the code we write, so we will cover the practical details of
 including tests in your code here.</p>
 <p>There are a number of Python packages which support code testing. The concepts
 are largely similar so rather than get bogged down in the details of multiple
-frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v7.1.0.dev166+g90b1c93f7)"><span class="xref std std-doc">Pytest</span></a>, which is one of the
+frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v0.1.dev435+g3ad4344)"><span class="xref std std-doc">Pytest</span></a>, which is one of the
 most widely used. Pytest is simply a Python package, so you can install it into
 your current environment using:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(PoP_venv)</span> <span class="gp">$ </span>python -m pip install pytest
@@ -662,16 +685,15 @@ behaviour might at first seem surprising - we don’t just want the code to run,
 it has to get the right answer. However, if we think about it the other way
 around, we certainly want the test to fail if an error occurs. It’s also very
 easy to arrange things such that an error occurs when the wrong answer is
-reached. This is most readily achieved using <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#assert" title="(in Python v3.10)"><span class="xref std std-ref">the assert statement</span></a>. This simply consists of <code class="xref py py-obj docutils literal notranslate"><span class="pre">assert</span></code> followed by a Python
+reached. This is most readily achieved using <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#assert" title="(in Python v3.11)"><span class="xref std std-ref">the assert statement</span></a>. This simply consists of <code class="xref py py-obj docutils literal notranslate"><span class="pre">assert</span></code> followed by a Python
 expression. If the expression is true, then execution just continues, but if
 it’s false, then an error occurs. For example:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="k">assert</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">e99f91a18d62</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">assert</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">--------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span>                           <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="k">assert</span> <span class="mi">1</span><span class="o">==</span><span class="mi">0</span>
 
-<span class="ne">AssertionError</span>:
+<span class="ne">AssertionError</span><span class="p">:</span>
 </pre></div>
 </div>
 </section>
@@ -696,7 +718,7 @@ are usually gathered in a separate tests folder. For example:</p>
 │   └── fibonacci.py
 ├── tests
 │   └── test_fibonacci.py
-└── setup.py
+└── pyproject.toml
 </pre></div>
 </div>
 <p>We can then invoke the tests from the shell:</p>
@@ -785,7 +807,7 @@ people, and others will call code written by you. This can only work if the
 caller and the callee agree exactly on the interface: what are the names of the
 <a class="reference internal" href="#term-package"><span class="xref std std-term">packages</span></a>, <a class="reference internal" href="#term-module"><span class="xref std std-term">modules</span></a> and functions being
 called. How many arguments do they take? What are the names of the
-<a class="reference external" href="https://docs.python.org/3/glossary.html#term-parameter" title="(in Python v3.10)"><span class="xref std std-term">keyword parameters</span></a>? Computer languages are notoriously
+<a class="reference external" href="https://docs.python.org/3/glossary.html#term-parameter" title="(in Python v3.11)"><span class="xref std std-term">keyword parameters</span></a>? Computer languages are notoriously
 pedantic about such things: they have no capability to simply read through
 small differences as a human would. You have doubtless already encountered the
 frustrating situation of spending extended periods repeatedly getting errors
@@ -815,7 +837,7 @@ to code to specification is therefore an important programming skill.</p>
 <blockquote>
 <div><dl class="glossary simple">
 <dt id="term-module">module<a class="headerlink" href="#term-module" title="Permalink to this term">¶</a></dt><dd><p>A text file containing Python code which is accessed using the
-<a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.10)"><span class="xref std std-ref">import statement</span></a>.</p>
+<a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.11)"><span class="xref std std-ref">import statement</span></a>.</p>
 </dd>
 <dt id="term-namespace">namespace<a class="headerlink" href="#term-namespace" title="Permalink to this term">¶</a></dt><dd><p>A collection of names. Within a single namespace, each name has a single
 defined meaning. Names in different spaces can be referred to using the
@@ -864,8 +886,8 @@ installed correctly by installing Pytest, and running:</p>
         <span class="proof-type">Exercise 2.2</span>
         
     </div><div class="proof-content">
-<p>Using the information on the <a class="reference external" href="https://object-oriented-python.github.io/edition1/exercises.html">book website</a>
-create your first exercise repository for this module and clone it
+<p>Using the information on the <a class="reference external" href="https://object-oriented-python.github.io/edition2/exercises.html">book website</a>
+create your chapter 2 exercise repository for this module and clone it
 into your working folder. The exercise repository just contains a
 <code class="file docutils literal notranslate"><span class="pre">README</span></code> and some tests. Your job in the following exercises will be
 to populate it with the remaining content.</p>
@@ -878,7 +900,7 @@ to populate it with the remaining content.</p>
 <p>Create a new Python <a class="reference internal" href="#term-package"><span class="xref std std-term">package</span></a> named <code class="xref py py-mod docutils literal notranslate"><span class="pre">math_utils</span></code> containing a
 <a class="reference internal" href="#term-module"><span class="xref std std-term">module</span></a> called <code class="xref py py-mod docutils literal notranslate"><span class="pre">primes</span></code>. In the <code class="xref py py-mod docutils literal notranslate"><span class="pre">primes</span></code> module define a
 function <code class="xref py py-func docutils literal notranslate"><span class="pre">isprime()</span></code> which takes in a single integer argument and
-returns <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> depending on whether or not the argument is
+returns <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> depending on whether or not the argument is
 prime. There is no need use a sophisticated algorithm, simply checking
 whether the number is zero modulo any of the integers less than its square
 root will be fine. Test your code by running the following in the exercise
@@ -908,9 +930,9 @@ about how to do any of these, refer to <a class="reference internal" href="a2_gi
         <span class="proof-type">Exercise 2.4</span>
         
     </div><div class="proof-content">
-<p>Following <a class="reference internal" href="#installable-packages"><span class="std std-numref">Section 2.4.2</span></a>, create a <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> file in
-your exercise repository, so that the <code class="xref py py-mod docutils literal notranslate"><span class="pre">math_utils</span></code> <a class="reference internal" href="#term-package"><span class="xref std std-term">package</span></a> is
-installable.</p>
+<p>Following <a class="reference internal" href="#installable-packages"><span class="std std-numref">Section 2.4.2</span></a>, create a <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code>
+file in your exercise repository, so that the <code class="xref py py-mod docutils literal notranslate"><span class="pre">math_utils</span></code>
+<a class="reference internal" href="#term-package"><span class="xref std std-term">package</span></a> is installable.</p>
 <p>Pytest can’t easily test installability for you, so once you have managed to
 install your package yourself, commit and push to GitHub to check that the
 tests there are also able to install your package.</p>
@@ -920,7 +942,7 @@ tests there are also able to install your package.</p>
         <span class="proof-type">Exercise 2.5</span>
         
     </div><div class="proof-content">
-<p>Add an <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> to <code class="file docutils literal notranslate"><span class="pre">math_utils.__init__.py</span></code> so that the following
+<p>Add an <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> to <code class="file docutils literal notranslate"><span class="pre">math_utils.__init__.py</span></code> so that the following
 code will work:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math_utils</span> <span class="kn">import</span> <span class="n">isprime</span>
 </pre></div>
@@ -940,7 +962,7 @@ code will work:</p>
 <dd><p><a class="reference external" href="https://github.com/object-oriented-python/object-oriented-programming">https://github.com/object-oriented-python/object-oriented-programming</a></p>
 </dd>
 <dt class="label" id="exercise-page"><span class="brackets"><a class="fn-backref" href="#id7">5</a></span></dt>
-<dd><p><a class="reference external" href="https://object-oriented-python.github.io/edition1/exercises.html">https://object-oriented-python.github.io/edition1/exercises.html</a></p>
+<dd><p><a class="reference external" href="https://object-oriented-python.github.io/edition2/exercises.html">https://object-oriented-python.github.io/edition2/exercises.html</a></p>
 </dd>
 </dl>
 </section>
@@ -954,8 +976,8 @@ code will work:</p>
       <div class="clearer"></div>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019-2021, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+        &#169; Copyright 2019-2023, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

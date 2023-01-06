@@ -122,7 +122,7 @@ but you don’t need to install those right now. The core tools you will need
 are:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li><p>Python version 3.6 or later.</p></li>
+<li><p>Python version 3.7 or later.</p></li>
 <li><p>Git (the revision control system we’re going to use).</p></li>
 <li><p>A Python-aware text editor or <a class="reference internal" href="#term-integrated-development-environment"><span class="xref std std-term">integrated development
 environment</span></a> (IDE). Visual Studio Code is recommended, and all the
@@ -146,17 +146,11 @@ made to that version. You should, therefore, only ever use Python 3, and all
 references in this book are to that version.</p>
 <p>Within Python 3, there is a minor version release approximately every year.
 Once released, this receives security updates for 5 years. At the time of
-writing, Python 3.10 is the newest release version, and Python 3.6 is the
+writing, Python 3.11 is the newest release version, and Python 3.7 is the
 oldest version that still receives security fixes. The user-facing differences
 between minor Python versions are usually fairly minimal, so for the purposes
 of this book it doesn’t matter which of the currently supported versions of
 Python you use.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The example code in the exercises uses <a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings" title="(in Python v3.10)"><span class="xref std std-ref">f-strings</span></a>
-which were introduced in Python 3.6, so the code will not work in earlier
-versions of Python.</p>
-</div>
 </section>
 </section>
 <section id="setting-up-a-python-virtual-environment">
@@ -212,7 +206,7 @@ be able to see a terminal window at the bottom of the screen. If it’s not
 there then open the <code class="xref py py-obj docutils literal notranslate"><span class="pre">View</span></code> menu and select <code class="xref py py-obj docutils literal notranslate"><span class="pre">Terminal</span></code> to make it appear.</p>
 <p>The most straightforward way to create a venv is on the terminal
 command line, not from within Python itself. This is accomplished
-using Python’s <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package. The venv has to be given a name. You will
+using Python’s <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package. The venv has to be given a name. You will
 want this to be short, but distinctive enough that you know which venv you are
 using. For example, to create a venv
 called <code class="xref py py-obj docutils literal notranslate"><span class="pre">PoP_venv</span></code> on Windows, you would type:</p>
@@ -279,7 +273,7 @@ that you are now using the venv. It might look something like:</p>
 <p>Any subsequent invocations of Python commands such as <code class="xref py py-obj docutils literal notranslate"><span class="pre">python3</span></code> will
 now use the version from the venv, with access to whatever packages
 you have installed in that venv. If you are using a terminal shell
-other than bash or zsh, then see the <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package documentation
+other than bash or zsh, then see the <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package documentation
 for the correct activation command.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -288,7 +282,7 @@ to run the activation script. This can be fixed by running:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</span>
 </pre></div>
 </div>
-<p>For further information, see <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(in Python v3.10)"><span class="xref std std-doc">the official Python venv documentation</span></a>.</p>
+<p>For further information, see <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(in Python v3.11)"><span class="xref std std-doc">the official Python venv documentation</span></a>.</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -304,7 +298,7 @@ check is whether you remembered to activate the venv.</p>
 <h2><span class="section-number">1.3. </span>Installing Python packages<a class="headerlink" href="#installing-python-packages" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we’ve created and activated a venv, and now there’s a Python package
 we’d like to have access to. Installation of Python packages is handled by the
-Python package <a class="reference external" href="https://pip.pypa.io/en/stable/" title="(in pip v22.0)"><span class="xref std std-doc">Pip</span></a>, which you will usually find
+Python package <a class="reference external" href="https://pip.pypa.io/en/stable/" title="(in pip v22.3)"><span class="xref std std-doc">Pip</span></a>, which you will usually find
 pre-installed in your Python installation. Pip has many usage options, which
 enable a large number of different installation configurations. However, for
 most users most of the time, a few simple pip commands suffice. As with
@@ -314,9 +308,9 @@ terminal and not from within Python itself. Don’t forget to activate the venv!
 <span id="install-from-pypi"></span><h3><span class="section-number">1.3.1. </span>Installing packages from PyPI<a class="headerlink" href="#installing-packages-from-pypi" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://pypi.org">PyPI</a> is the Python Package Index. It is the
 official download location for publicly released Python packages which
-aren’t themselves a part of the built-in <a class="reference external" href="https://docs.python.org/3/library/index.html" title="(in Python v3.10)"><span class="xref std std-doc">Python Standard Library</span></a>. Many important mathematical packages
-including <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.22)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://www.sympy.org">sympy</a> are
-distributed from PyPI. Suppose your venv doesn’t have <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.22)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>
+aren’t themselves a part of the built-in <a class="reference external" href="https://docs.python.org/3/library/index.html" title="(in Python v3.11)"><span class="xref std std-doc">Python Standard Library</span></a>. Many important mathematical packages
+including <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.24)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://www.sympy.org">sympy</a> are
+distributed from PyPI. Suppose your venv doesn’t have <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.24)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>
 installed and you need it. You would install it with the following
 terminal command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(PoP_venv)</span> <span class="gp">$ </span>python -m pip install numpy
@@ -357,8 +351,8 @@ Python packages installed.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019-2021, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+        &#169; Copyright 2019-2023, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>
