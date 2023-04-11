@@ -82,12 +82,12 @@ package which supports data analysis in Python. It’s introduced here partly
 because it’s a very useful tool for applied mathematicians and statisticians
 who need to work with real data, and partly because it’s a convenient somewhat
 larger library on which to practice tools and techniques for debugging.</p>
-<p>At the core of Pandas is the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> class, which is
+<p>At the core of Pandas is the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> class, which is
 a two-dimensional dataset somewhat analogous to a spreadsheet. Unlike, for
-example, a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> is not indexed
+example, a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> is not indexed
 by a pair of numbers, but is instead organised as a collection of named
-one-dimensional <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> of data. One can think of a
-<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> as a column of data with a title. This perhaps best
+one-dimensional <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> of data. One can think of a
+<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> as a column of data with a title. This perhaps best
 illustrated with an example.</p>
 <span id="student-data"></span><table class="docutils align-default" id="id6" style="width: 70%">
 <caption><span class="caption-number">Table 8.1 </span><span class="caption-text">Extract from some fictional student records. The full records
@@ -157,8 +157,8 @@ Having installed Pandas:</p>
 <span class="gh">Out[6]: </span><span class="go">pandas.core.series.Series</span>
 </pre></div>
 </div>
-<p>Observe that the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> acts as a dictionary of
-one-dimensional data <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></a>. A <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> can be
+<p>Observe that the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> acts as a dictionary of
+one-dimensional data <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></a>. A <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> can be
 indexed and sliced like any other Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq" title="(in Python v3.11)"><span class="xref std std-ref">sequence type</span></a>. This
 very high level introduction is all we’ll need to use pandas in demonstrations
 in this chapter. Much more documentation is available on the <a class="reference external" href="https://pandas.pydata.org/docs/">Pandas website</a>.</p>
@@ -217,7 +217,7 @@ called pdbpp.</p>
 <summary>
 Video: using a graphical debugger.</summary><div class="video_wrapper" style="">
 <iframe allowfullscreen="true" src="https://player.vimeo.com/video/520604326" style="border: 0; height: 345px; width: 560px">
-</iframe></div><p>Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=ab1c83e9-d1c8-42d1-821e-ace4010ae319">watch this video on Panopto</a>.</p>
+</iframe></div><p>Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=92987237-7c72-40e9-9efb-ae1c00db7b56">watch this video on Panopto</a>.</p>
 </details><p>Describing the use of a graphical debugger in text is problematic for at least
 two reasons. First, the details of the integration of a debugger into an
 <a class="reference internal" href="1_introduction.html#term-IDE"><span class="xref std std-term">IDE</span></a> will vary depending on the choice of debugger and IDE in question.
@@ -337,7 +337,7 @@ on the first instruction contained in that function.</p>
 <summary>
 Video: command line debuggers.</summary><div class="video_wrapper" style="">
 <iframe allowfullscreen="true" src="https://player.vimeo.com/video/520605730" style="border: 0; height: 345px; width: 560px">
-</iframe></div><p>Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=f9dd4578-b7af-4208-8b04-ace4010bf486">watch this video on Panopto</a>.</p>
+</iframe></div><p>Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=0270b15b-005f-4223-a45b-ae1c00db89d6">watch this video on Panopto</a>.</p>
 </details><p>A command-line debugger, by its very nature, is somewhat easier to explain in
 text than is a graphical debugger. Command-line debuggers are both stand-alone
 programs and Python modules that can be invoked from within a running program.
@@ -613,7 +613,7 @@ well-posed.</p>
 <summary>
 Video: minimal failing examples and bisection.</summary><div class="video_wrapper" style="">
 <iframe allowfullscreen="true" src="https://player.vimeo.com/video/520604328" style="border: 0; height: 345px; width: 560px">
-</iframe></div><p>Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4f499827-2cce-4cbf-8a2e-ace4010ad8df">watch this video on Panopto</a>.</p>
+</iframe></div><p>Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=89203c0c-3861-4a22-906b-afb80103be6d">watch this video on Panopto</a>.</p>
 </details><section id="creating-a-minimal-failing-example">
 <span id="debugging-mfe"></span><h3><span class="section-number">8.7.1. </span>Creating a minimal failing example<a class="headerlink" href="#creating-a-minimal-failing-example" title="Permalink to this headline">¶</a></h3>
 <p>One of the frequent problems encountered in debugging is that the program is
