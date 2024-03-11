@@ -228,7 +228,7 @@ instead to separate words with underscores (<code class="file docutils literal n
 <h3><span class="section-number">1.2.2. </span>Creating the venv<a class="headerlink" href="#creating-the-venv" title="Link to this heading">¶</a></h3>
 <p>The most straightforward way to create a venv is on the terminal
 command line, not from within Python itself. This is accomplished
-using Python’s <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package. The venv has to be given a name. You will
+using Python’s <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package. The venv has to be given a name. You will
 want this to be short, but distinctive enough that you know which venv you are
 using. For example, to create a venv
 called <code class="xref py py-obj docutils literal notranslate"><span class="pre">PoP_venv</span></code> on Windows, you would type:</p>
@@ -292,7 +292,7 @@ that you are now using the venv. It might look something like:</p>
 <p>Any subsequent invocations of Python commands such as <code class="xref py py-obj docutils literal notranslate"><span class="pre">python</span></code> will
 now use the version from the venv, with access to whatever packages
 you have installed in that venv. If you are using a terminal shell
-other than bash or zsh, then see the <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package documentation
+other than bash or zsh, then see the <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package documentation
 for the correct activation command.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -301,7 +301,7 @@ to run the activation script. This can be fixed by running:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</span>
 </pre></div>
 </div>
-<p>For further information, see <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(in Python v3.11)"><span class="xref std std-doc">the official Python venv
+<p>For further information, see <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(in Python v3.12)"><span class="xref std std-doc">the official Python venv
 documentation</span></a>.</p>
 </div>
 <div class="admonition hint">
@@ -318,7 +318,7 @@ check is whether you remembered to activate the venv.</p>
 <h2><span class="section-number">1.3. </span>Installing Python packages<a class="headerlink" href="#installing-python-packages" title="Link to this heading">¶</a></h2>
 <p>Suppose we’ve created and activated a venv, and now there’s a Python package
 we’d like to have access to. Installation of Python packages is handled by the
-Python package <a class="reference external" href="https://pip.pypa.io/en/stable/" title="(in pip v23.2)"><span class="xref std std-doc">Pip</span></a>, which you will usually find
+Python package <a class="reference external" href="https://pip.pypa.io/en/stable/" title="(in pip v24.0)"><span class="xref std std-doc">Pip</span></a>, which you will usually find
 pre-installed in your Python installation. Pip has many usage options, which
 enable a large number of different installation configurations. However, for
 most users most of the time, a few simple pip commands suffice. As with
@@ -328,7 +328,7 @@ terminal and not from within Python itself. Don’t forget to activate the venv!
 <span id="install-from-pypi"></span><h3><span class="section-number">1.3.1. </span>Installing packages from PyPI<a class="headerlink" href="#installing-packages-from-pypi" title="Link to this heading">¶</a></h3>
 <p><a class="reference external" href="https://pypi.org">PyPI</a> is the Python Package Index. It is the
 official download location for publicly released Python packages which
-aren’t themselves a part of the built-in <a class="reference external" href="https://docs.python.org/3/library/index.html" title="(in Python v3.11)"><span class="xref std std-doc">Python Standard Library</span></a>. Many important mathematical packages
+aren’t themselves a part of the built-in <a class="reference external" href="https://docs.python.org/3/library/index.html" title="(in Python v3.12)"><span class="xref std std-doc">Python Standard Library</span></a>. Many important mathematical packages
 including <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.26)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://www.sympy.org">sympy</a> are
 distributed from PyPI. Suppose your venv doesn’t have <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.26)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>
 installed and you need it. You would install it with the following

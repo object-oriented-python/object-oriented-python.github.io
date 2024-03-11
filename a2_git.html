@@ -383,7 +383,7 @@ folder is <code class="xref py py-obj docutils literal notranslate"><span class=
 </pre></div>
 </div>
 <p>We can now check that we’re in the folder we think we’re in by running the
-command <a class="reference external" href="https://docs.python.org/3/library/pwd.html#module-pwd" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pwd</span></code></a> (“print working directory”):</p>
+command <a class="reference external" href="https://docs.python.org/3/library/pwd.html#module-pwd" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pwd</span></code></a> (“print working directory”):</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">pwd</span>
 <span class="gp">$ </span>/Users/dham/hello
 </pre></div>
@@ -607,7 +607,8 @@ branch.</p>
 <span class="go">nothing to commit, working tree clean</span>
 </pre></div>
 </div>
-<p>If we turn back to the repository website on GitHub, we can also see that the commit has arrived:</p>
+<p>If we turn back to the repository website on GitHub, we can also see that the
+commit has arrived:</p>
 <img alt="_images/github_post_commit.png" src="_images/github_post_commit.png" />
 <p>Notice that we can see the commit message both in the bar at the top of the
 file list, and next to the file that we changed. By clicking on the little
@@ -662,6 +663,78 @@ as to what we have done wrong:</p>
 example, however the tests provided with the exercises in this book also
 attempt to provide useful feedback on what has gone wrong when a test is
 failed.</p>
+</section>
+<section id="doing-an-exercise-again">
+<h3><span class="section-number">2.6.9. </span>Doing an exercise again<a class="headerlink" href="#doing-an-exercise-again" title="Link to this heading">¶</a></h3>
+<p>Sometimes, such as when you are revising for an exam by doing past papers, you
+might want to start again with a fresh template repository. Using Git, this can
+be achieved by working on a new branch whose base is the commit before you
+started your work. First, commit and push your existing work. Verify that you
+have done so by running:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
+</pre></div>
+</div>
+<p>The result should be something like:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch main</span>
+<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+
+<span class="go">nothing to commit, working tree clean</span>
+</pre></div>
+</div>
+<p>If you don’t see <code class="xref py py-obj docutils literal notranslate"><span class="pre">nothing</span> <span class="pre">to</span> <span class="pre">commit</span></code> then commit your work. If you don’t see
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">up</span> <span class="pre">to</span> <span class="pre">date</span></code> then push.</p>
+<p>If your repository comes from GitHub classroom then your
+instructor may have set up a feedback branch for you, and you can use that as
+your starting point. To see if this is the case, run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>branch<span class="w"> </span>-a
+</pre></div>
+</div>
+<p>If you see <code class="xref py py-obj docutils literal notranslate"><span class="pre">remotes/origin/feedback</span></code> then you can simply use <code class="xref py py-obj docutils literal notranslate"><span class="pre">feedback</span></code> as the
+base for your new branch. If you don’t have a feedback branch then you need to
+search back through the history of your repository to find your first commit.
+Run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>log
+</pre></div>
+</div>
+<p>and scroll back to find the last commit <em>before</em> your first commit. Copy the
+commit hash. Now we’re ready to create the new branch. You need to choose a new
+name for your branch, which is not the same as any other branch name in this
+repository. For example, if you choose the branch name <code class="xref py py-obj docutils literal notranslate"><span class="pre">second_attempt</span></code> then
+you would create the branch by typing:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>branch<span class="w"> </span>feedback<span class="w"> </span>second_attempt
+</pre></div>
+</div>
+<p>If you don’t have a <code class="xref py py-obj docutils literal notranslate"><span class="pre">feedback</span></code> branch then you would instead use the commit
+hash of the last commit before your work, which you found above by searching
+the log.</p>
+<p>You switch your working repository to the new branch using:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>checkout<span class="w"> </span>second_attempt
+</pre></div>
+</div>
+<p>You could also switch back to your first attempt by running:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>checkout<span class="w"> </span>main
+</pre></div>
+</div>
+<p>When you come to push your new work to GitHub, you will find that this fails
+with a message such as:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">fatal: The current branch second_attempt has no upstream branch.</span>
+<span class="go">To push the current branch and set the remote as upstream, use</span>
+
+<span class="go">    git push --set-upstream origin second_attempt</span>
+
+<span class="go">To have this happen automatically for branches without a tracking</span>
+<span class="go">upstream, see &#39;push.autoSetupRemote&#39; in &#39;git help config&#39;.</span>
+</pre></div>
+</div>
+<p>Fortunately, this error message tells you exactly what to do, so run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git push --set-upstream origin second_attempt</span>
+</pre></div>
+</div>
+<p>When you look at your repository on GitHub, the default display is for the main
+branch. On the left near the top you will find a dropdown button that starts
+with the name <code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code> (or <code class="xref py py-obj docutils literal notranslate"><span class="pre">master</span></code> on old repositories). You use this to switch
+branch.</p>
+<img alt="_images/github_change_branch.png" src="_images/github_change_branch.png" />
 <p class="rubric">Footnotes</p>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="swcarpentry" role="doc-footnote">
