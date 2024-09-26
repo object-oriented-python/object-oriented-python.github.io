@@ -9,9 +9,9 @@
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/fenics.css?v=8c7d05f9" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
     <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/proof.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -213,7 +213,8 @@ select the <a class="reference external" href="https://docs.python.org/3/library
 workspace folder in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Explorer</span></code> tab. <a class="reference internal" href="#vscode-workspace"><span class="std std-numref">Fig. 2.1</span></a> shows a
 workspace in this configuration.</p>
 <figure class="align-default" id="id8">
-<span id="vscode-workspace"></span><a class="reference internal image-reference" href="_images/vscode_workspace.png"><img alt="_images/vscode_workspace.png" src="_images/vscode_workspace.png" style="width: 100%;" /></a>
+<span id="vscode-workspace"></span><a class="reference internal image-reference" href="_images/vscode_workspace.png"><img alt="_images/vscode_workspace.png" src="_images/vscode_workspace.png" style="width: 100%;" />
+</a>
 <figcaption>
 <p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">The Visual Studio Code debugging window showing a multi-root workspace
 containing the top level <code class="file docutils literal notranslate"><span class="pre">principles_of_programming</span></code> folder, as
@@ -389,14 +390,14 @@ are to be used frequently or in the middle of expressions: you probably
 don’t really want to write <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> in every trig formula you
 ever write. One alternative is to rename the module on import. This is
 achieved using the keyword <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.12)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">as</span></code></a> in an import statement. For example,
-it is usual to import the numerical Python module <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.26)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> in the
+it is usual to import the numerical Python module <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v2.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> in the
 following way:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
-<p>This creates the local name <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.26)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">np</span></code></a> instead of <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.26)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>,
+<p>This creates the local name <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v2.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">np</span></code></a> instead of <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v2.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>,
 so that the function for creating an evenly spaced sequence of values
-between to end points is now accessible as <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="(in NumPy v1.26)"><code class="xref py py-func docutils literal notranslate"><span class="pre">np.linspace</span></code></a>.</p>
+between to end points is now accessible as <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="(in NumPy v2.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">np.linspace</span></code></a>.</p>
 <p>A second option is to import particular names from a module directly
 into the current namespace. For example, if we planned to use the
 functions <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/math.html#math.cos" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.cos()</span></code></a> a lot in our script, we
@@ -664,10 +665,10 @@ installed. The <code class="xref py py-obj docutils literal notranslate"><span c
 packages on which the current package depends. Pip will install any of these
 packages that are not already available before installing the package itself.
 <a class="reference internal" href="#dependency-pyproject-toml"><span class="std std-numref">Listing 2.3</span></a> illustrates this by adding a dependency on
-<a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.26)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>.</p>
+<a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v2.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>.</p>
 <div class="literal-block-wrapper docutils container" id="id11">
 <span id="dependency-pyproject-toml"></span><div class="code-block-caption"><span class="caption-number">Listing 2.3 </span><span class="caption-text">An extension to the <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> from
-<a class="reference internal" href="#minimal-pyproject-toml"><span class="std std-numref">Listing 2.2</span></a> to require that <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.26)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> is installed.</span><a class="headerlink" href="#id11" title="Link to this code">¶</a></div>
+<a class="reference internal" href="#minimal-pyproject-toml"><span class="std std-numref">Listing 2.2</span></a> to require that <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v2.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> is installed.</span><a class="headerlink" href="#id11" title="Link to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">build</span><span class="o">-</span><span class="n">system</span><span class="p">]</span>
 <span class="n">requires</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hatchling&quot;</span><span class="p">]</span>
 <span class="n">build</span><span class="o">-</span><span class="n">backend</span> <span class="o">=</span> <span class="s2">&quot;hatchling.build&quot;</span>
@@ -715,7 +716,7 @@ need to test the code we write, so we will cover the practical details of
 including tests in your code here.</p>
 <p>There are a number of Python packages which support code testing. The concepts
 are largely similar so rather than get bogged down in the details of multiple
-frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v8.2.0.dev30+g0a442a9)"><span class="xref std std-doc">Pytest</span></a>, which is one of the
+frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v8.4.0.dev97)"><span class="xref std std-doc">Pytest</span></a>, which is one of the
 most widely used. Pytest is simply a Python package, so you can install it into
 your current environment using:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(PoP_venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pytest
@@ -943,14 +944,14 @@ to populate it with the remaining content.</p>
         <span class="proof-type">Exercise 2.3</span>
         
     </div><div class="proof-content">
-<p>Create a new Python <a class="reference internal" href="#term-package"><span class="xref std std-term">package</span></a> named <code class="xref py py-mod docutils literal notranslate"><span class="pre">math_utils</span></code> containing a
-<a class="reference internal" href="#term-module"><span class="xref std std-term">module</span></a> called <code class="xref py py-mod docutils literal notranslate"><span class="pre">primes</span></code>. In the <code class="xref py py-mod docutils literal notranslate"><span class="pre">primes</span></code> module define a
-function <code class="xref py py-func docutils literal notranslate"><span class="pre">isprime()</span></code> which takes in a single integer argument and
-returns <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> depending on whether or not the argument is
-prime. There is no need use a sophisticated algorithm, simply checking
-whether the number is zero modulo any of the integers less than its square
-root will be fine. Test your code by running the following in the exercise
-repository:</p>
+<p>In your week 2 exercise repository, create a new Python <a class="reference internal" href="#term-package"><span class="xref std std-term">package</span></a>
+named <code class="xref py py-mod docutils literal notranslate"><span class="pre">math_utils</span></code> containing a <a class="reference internal" href="#term-module"><span class="xref std std-term">module</span></a> called <code class="xref py py-mod docutils literal notranslate"><span class="pre">primes</span></code>.
+In the <code class="xref py py-mod docutils literal notranslate"><span class="pre">primes</span></code> module define a function <code class="xref py py-func docutils literal notranslate"><span class="pre">isprime()</span></code> which takes
+in a single integer argument and returns <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> depending on
+whether or not the argument is prime. There is no need use a sophisticated
+algorithm, simply checking whether the number is zero modulo any of the
+integers less than its square root will be fine. Test your code by running
+the following in the exercise repository:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(PoP_venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>tests/test_exercise_2_3.py
 </pre></div>
 </div>
@@ -1028,7 +1029,7 @@ code will work:</p>
     </div>
     <div class="footer" role="contentinfo">
     &#169; Copyright 2019-2023, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
     </div>
   </body>
 </html>
