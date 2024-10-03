@@ -141,7 +141,7 @@ made to that version. You should, therefore, only ever use Python 3, and all
 references in this book are to that version.</p>
 <p>Within Python 3, there is a minor version release approximately every year.
 Once released, this receives security updates for 5 years. At the time of
-writing, Python 3.11 is the newest release version, and Python 3.8 is the
+writing, Python 3.12 is the newest release version, and Python 3.9 is the
 oldest version that still receives security fixes. The user-facing differences
 between minor Python versions are usually fairly minimal, so for the purposes
 of this book it doesn’t matter which of the currently supported versions of
@@ -161,20 +161,20 @@ default:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; py --version</span>
 </pre></div>
 </div>
-<p>On the author’s computer, this prints <code class="xref py py-obj docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.11.4</span></code>, which is the version of
+<p>On the author’s computer, this prints <code class="xref py py-obj docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.12.6</span></code>, which is the version of
 Python I expect to be using. This means I can launch Python on Windows using
 just <code class="xref py py-obj docutils literal notranslate"><span class="pre">py</span></code>. If it printed a different version, then I could attempt to force it
 to use the version I want like this:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; py -3.11 --version</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; py -3.12 --version</span>
 </pre></div>
 </div>
 <p>If that fails, then there is an issue with your Python documentation and you
 need to go back to the start of this section to work out how to install the
 right version.</p>
 <p>On Mac or Linux, the safest way to ensure that you are running the right
-version of Python is to use the full version number, e.g. <code class="xref py py-obj docutils literal notranslate"><span class="pre">python3.11</span></code>. You can
+version of Python is to use the full version number, e.g. <code class="xref py py-obj docutils literal notranslate"><span class="pre">python3.12</span></code>. You can
 check this with, for example:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3.11<span class="w"> </span>--version
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3.12<span class="w"> </span>--version
 </pre></div>
 </div>
 <p>If this fails, then the relevant Python version isn’t (correctly) installed and
@@ -232,11 +232,11 @@ using Python’s <a class="reference external" href="https://docs.python.org/3/l
 want this to be short, but distinctive enough that you know which venv you are
 using. For example, to create a venv
 called <code class="xref py py-obj docutils literal notranslate"><span class="pre">PoP_venv</span></code> on Windows, you would type:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; py -3.11 -m venv PoP_venv</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; py -3.12 -m venv PoP_venv</span>
 </pre></div>
 </div>
 <p>while on Mac or Linux you would type:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3.11<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>PoP_venv
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3.12<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>PoP_venv
 </pre></div>
 </div>
 <p>If you’re using a different version of Python then modify the command according
