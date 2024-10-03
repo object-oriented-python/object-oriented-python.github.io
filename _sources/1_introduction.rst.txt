@@ -65,7 +65,7 @@ tools. At various points you'll also need install several more Python packages,
 but you don't need to install those right now. The core tools you will need
 are:
 
-    1. Python version 3.8 or later (3.11 or later recommended).
+    1. Python version 3.9 or later (3.11 or later recommended).
     2. Git (the revision control system we're going to use).
     3. A Python-aware text editor or :term:`integrated development
        environment` (IDE). Visual Studio Code is recommended, and all the
