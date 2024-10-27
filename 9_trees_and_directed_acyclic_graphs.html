@@ -9,9 +9,9 @@
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/fenics.css?v=8c7d05f9" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
     <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/proof.js"></script>
     <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -93,7 +93,7 @@ be able to take a variable number of children. We can do this by writing the
 relevant parameter as <code class="xref py py-obj docutils literal notranslate"><span class="pre">*children</span></code>. The character <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code> in this case is the
 argument packing operator, also known as the <em>splat</em> operator <a class="footnote-reference brackets" href="#splat" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. When
 used in the parameter list of a function, splat takes all of the remaining
-<a class="reference external" href="https://docs.python.org/3/glossary.html#term-argument" title="(in Python v3.12)"><span class="xref std std-term">positional arguments</span></a> provided by the caller and packs them
+<a class="reference external" href="https://docs.python.org/3/glossary.html#term-argument" title="(in Python v3.13)"><span class="xref std std-term">positional arguments</span></a> provided by the caller and packs them
 up in a tuple. In this case, this enables any number of child nodes to be
 specified for each node.</p>
 <p>The splat operator can also be used when calling a function. In that case it
@@ -116,10 +116,10 @@ arguments. For example:</p>
 </pre></div>
 </div>
 <p>The double splat operator, <code class="xref py py-obj docutils literal notranslate"><span class="pre">**</span></code> plays a similar role to the single splat
-operator, but packs and unpacks <a class="reference external" href="https://docs.python.org/3/glossary.html#term-argument" title="(in Python v3.12)"><span class="xref std std-term">keyword arguments</span></a> instead of
-positional arguments. When used in the <a class="reference external" href="https://docs.python.org/3/glossary.html#term-parameter" title="(in Python v3.12)"><span class="xref std std-term">parameter</span></a> list of a function,
+operator, but packs and unpacks <a class="reference external" href="https://docs.python.org/3/glossary.html#term-argument" title="(in Python v3.13)"><span class="xref std std-term">keyword arguments</span></a> instead of
+positional arguments. When used in the <a class="reference external" href="https://docs.python.org/3/glossary.html#term-parameter" title="(in Python v3.13)"><span class="xref std std-term">parameter</span></a> list of a function,
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">**</span></code> gathers all of the keyword arguments that the caller passes, other than any
-which are explicitly named in the interface. The result is a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> whose
+which are explicitly named in the interface. The result is a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> whose
 keys are the argument names, and whose values are the arguments.
 <a class="reference internal" href="#kwarg-packing"><span class="std std-numref">Listing 9.1</span></a> demonstrates the argument packing function of <code class="xref py py-obj docutils literal notranslate"><span class="pre">**</span></code>,
 while <a class="reference internal" href="#kwarg-unpacking"><span class="std std-numref">Listing 9.2</span></a> shows the unpacking function.</p>
@@ -449,7 +449,7 @@ nodes in the tree:</p>
 <span class="gh">Out[6]: </span><span class="go">7</span>
 </pre></div>
 </div>
-<p>This time the visitor <a class="reference external" href="https://docs.python.org/3/library/functions.html#sum" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sums</span></code></a> the results from its children, and adds
+<p>This time the visitor <a class="reference external" href="https://docs.python.org/3/library/functions.html#sum" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sums</span></code></a> the results from its children, and adds
 one for itself.</p>
 <p>What about preorder traversal? This time we need a little more code (not much)
 as <a class="reference internal" href="#preorder-recursive"><span class="std std-numref">Listing 9.6</span></a> shows. This time, we call <code class="xref py py-func docutils literal notranslate"><span class="pre">fn()</span></code> on the
@@ -587,10 +587,10 @@ parent does not refer to the child.</span><a class="headerlink" href="#id21" tit
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code> should implement everything that is the same for all nodes. What
 will that comprise?</p>
 <dl>
-<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></dt><dd><p>The constructor will take a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of operands, since every
+<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></dt><dd><p>The constructor will take a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of operands, since every
 expression has operands (even if terminals have zero operands).</p>
 </dd>
-<dt><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__add__" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__sub__" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__sub__()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__mul__" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mul__()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__truediv__" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__truediv__()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__pow__" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__pow__()</span></code></a></dt><dd><p>Implementing the <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special methods</span></a> for arithmetic is
+<dt><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__add__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__sub__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__sub__()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__mul__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mul__()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__truediv__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__truediv__()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__pow__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__pow__()</span></code></a></dt><dd><p>Implementing the <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special methods</span></a> for arithmetic is
 necessary for expressions to exhibit the correct symbolic mathematical
 behaviour. We met this idea already in <a class="reference internal" href="3_objects.html#object-arithmetic"><span class="std std-numref">Section 3.3.6</span></a>.
 Arithmetic operations involving symbolic expressions return other symbolic
@@ -613,18 +613,18 @@ and numbers also implies that it will also be necessary to implement the
 representations can be implemented here, because they will be the same for all
 operators but different for terminals.</p>
 <dl>
-<dt><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a></dt><dd><p>Remember that this is the canonical string representation, and is usually
+<dt><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a></dt><dd><p>Remember that this is the canonical string representation, and is usually
 the code that could be passed to the <a class="reference internal" href="2_programs_in_files.html#term-Python-interpreter"><span class="xref std std-term">Python interpreter</span></a> to construct
 the object. Something like the following would work:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">operands</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This approach is valid because the string representation of a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>
+<p>This approach is valid because the string representation of a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>
 is a pair of round brackets containing the string representation of each
 item in the tuple.</p>
 </dd>
-<dt><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a></dt><dd><p>This is the human-readable string output, using <a class="reference internal" href="3_objects.html#term-infix-operator"><span class="xref std std-term">infix operators</span></a>, so in the example above we would expect to see
+<dt><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a></dt><dd><p>This is the human-readable string output, using <a class="reference internal" href="3_objects.html#term-infix-operator"><span class="xref std std-term">infix operators</span></a>, so in the example above we would expect to see
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">y</span> <span class="pre">+</span> <span class="pre">4</span> <span class="pre">^</span> <span class="pre">(5</span> <span class="pre">+</span> <span class="pre">x)</span></code> This looks sort of straightforward, simply associate the correct
 symbol with each operator class as a <a class="reference internal" href="7_inheritance.html#term-class-attribute"><span class="xref std std-term">class attribute</span></a> and place the
 string representation of the operands on either side.</p>
@@ -633,7 +633,7 @@ is necessary to associate with every expression class a <a class="reference inte
 attribute</span></a> whose value is a number giving an operator precedence to that
 class. For example, the precedence of <code class="xref py py-class docutils literal notranslate"><span class="pre">Mul</span></code> should be higher than
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Add</span></code>. A full list of operators in precedence order is available in
-<a class="reference external" href="https://docs.python.org/3/reference/expressions.html#operator-summary" title="(in Python v3.12)"><span class="xref std std-ref">the official Python documentation</span></a>. An operand
+<a class="reference external" href="https://docs.python.org/3/reference/expressions.html#operator-summary" title="(in Python v3.13)"><span class="xref std std-ref">the official Python documentation</span></a>. An operand
 <span class="math notranslate nohighlight">\(a\)</span> of an operator <span class="math notranslate nohighlight">\(o\)</span> needs to be placed in brackets if the
 precedence of <span class="math notranslate nohighlight">\(a\)</span> is lower than the precedence of <span class="math notranslate nohighlight">\(o\)</span>.</p>
 </dd>
@@ -643,7 +643,7 @@ precedence of <span class="math notranslate nohighlight">\(a\)</span> is lower t
 one to set the symbol when printing the operator.</p>
 <p>Let’s now consider <code class="xref py py-class docutils literal notranslate"><span class="pre">Terminal</span></code>. What does it need to set?</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a></dt><dd><p>The <a class="reference internal" href="3_objects.html#term-constructor"><span class="xref std std-term">constructor</span></a> for <code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code> assumes that an expression is
+<dt><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a></dt><dd><p>The <a class="reference internal" href="3_objects.html#term-constructor"><span class="xref std std-term">constructor</span></a> for <code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code> assumes that an expression is
 defined by a series of operands. Terminals have an empty list of operands
 but do have something that other expressions lack: a value. In the case of
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code>, this is a number, while for <code class="xref py py-class docutils literal notranslate"><span class="pre">Symbol</span></code> the value is a
@@ -652,7 +652,7 @@ own <code class="xref py py-meth docutils literal notranslate"><span class="pre"
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Terminal.__init__</span></code> still has to call the <a class="reference internal" href="7_inheritance.html#term-superclass"><span class="xref std std-term">superclass</span></a>
 constructor in order to ensure that the operands tuple is initialised.</p>
 </dd>
-<dt><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a></dt><dd><p>The string representations of <code class="xref py py-class docutils literal notranslate"><span class="pre">Terminal</span></code> are straightforward, simply
+<dt><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a></dt><dd><p>The string representations of <code class="xref py py-class docutils literal notranslate"><span class="pre">Terminal</span></code> are straightforward, simply
 return <code class="xref py py-obj docutils literal notranslate"><span class="pre">repr(self.value)</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">str(self.value)</span></code> respectively. Note that in
 order for  <code class="xref py py-meth docutils literal notranslate"><span class="pre">Operator.__str__()</span></code> to function correctly, <code class="xref py py-class docutils literal notranslate"><span class="pre">Terminal</span></code>
 will need to advertise its operator precedence. The reader should think
@@ -661,8 +661,8 @@ carefully about what the precedence of a <code class="xref py py-class docutils 
 </dl>
 <p>The two <code class="xref py py-class docutils literal notranslate"><span class="pre">Terminal</span></code> subclasses need to do very little other than identify
 themselves. The only functionality they might provide would be to override
-<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> to check that their value is a <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>
-in the case of <code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code> and a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> in the case of <code class="xref py py-class docutils literal notranslate"><span class="pre">Symbol</span></code>.</p>
+<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> to check that their value is a <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>
+in the case of <code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code> and a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> in the case of <code class="xref py py-class docutils literal notranslate"><span class="pre">Symbol</span></code>.</p>
 </section>
 <section id="operations-on-expression-trees">
 <h3><span class="section-number">9.4.2. </span>Operations on expression trees<a class="headerlink" href="#operations-on-expression-trees" title="Link to this heading">¶</a></h3>
@@ -673,14 +673,14 @@ Video: evaluating expressions.</summary><div class="video_wrapper" style="">
 </iframe></div><p>Imperial students can also <a class="reference external" href="https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b9310ae7-0cf5-41f0-b0cc-ae1c00dbe39b">watch this video on Panopto</a>.</p>
 </details><p>Many operations on expression trees can be implemented using tree visitors, most
 frequently by visiting the tree in postorder. An example is
-expression evaluation. The user provides a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> mapping symbol names to
+expression evaluation. The user provides a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> mapping symbol names to
 numerical values, and we proceed from leaf nodes upwards. Every <code class="xref py py-class docutils literal notranslate"><span class="pre">Symbol</span></code>
 is replaced by a numerical value from the dictionary, every <code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code>
 stands for itself, and every <code class="xref py py-class docutils literal notranslate"><span class="pre">Operator</span></code> performs the appropriate
 computation on its operands (which are now guaranteed to be numbers).</p>
 <p>The leaf-first order of execution makes this a postorder tree visitor, but what
 is the visitor function? It seems we need a different function for every
-<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> of expression node we encounter. It turns out that this is exactly
+<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> of expression node we encounter. It turns out that this is exactly
 what is required, and Python provides this functionality in the form of the
 single dispatch function.</p>
 </section>
@@ -695,16 +695,16 @@ code to execute, depending on the type of the first argument <a class="footnote-
 <p><a class="reference internal" href="#tree-evaluate"><span class="std std-numref">Listing 9.7</span></a> shows a single dispatch function for a visitor function
 which evaluates a <code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code>. Start with lines 6-24. These define a
 function <a class="reference internal" href="example_code.html#example_code.expression_tools.evaluate" title="example_code.expression_tools.evaluate"><code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code></a> which will be used in
-the default case, that is, in the case where the <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> of the first
+the default case, that is, in the case where the <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> of the first
 argument doesn’t match any of the other implementations of
 <a class="reference internal" href="example_code.html#example_code.expression_tools.evaluate" title="example_code.expression_tools.evaluate"><code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code></a>. In this case, the first
 argument is the expression that we’re evaluating, so if the type doesn’t match
 then this means that we don’t know how to evaluate this object, and the only
 course of action available is to throw an <a class="reference internal" href="6_exceptions.html#term-exception"><span class="xref std std-term">exception</span></a>.</p>
 <p>The new feature that we haven’t met before appears on line 5.
-<a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.singledispatch" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.singledispatch()</span></code></a> turns a function into
+<a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.singledispatch" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.singledispatch()</span></code></a> turns a function into
 a single dispatch function. The <code class="xref py py-obj docutils literal notranslate"><span class="pre">&#64;</span></code> symbol marks
-<a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.singledispatch" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">singledispatch()</span></code></a> as a <a class="reference internal" href="10_further_object-oriented_features.html#term-decorator"><span class="xref std std-term">decorator</span></a>. We’ll return to them
+<a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.singledispatch" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">singledispatch()</span></code></a> as a <a class="reference internal" href="10_further_object-oriented_features.html#term-decorator"><span class="xref std std-term">decorator</span></a>. We’ll return to them
 in <a class="reference internal" href="10_further_object-oriented_features.html#decorators"><span class="std std-numref">Section 10.1</span></a>. For the moment, we just need to know that
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">&#64;singledispatch</span></code> turns the function it precedes into a single dispatch
 function.</p>
@@ -786,7 +786,7 @@ declared name. Instead, look at the decorator on line 28. The single dispatch
 function <a class="reference internal" href="example_code.html#example_code.expression_tools.evaluate" title="example_code.expression_tools.evaluate"><code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code></a> has a <a class="reference internal" href="3_objects.html#term-method"><span class="xref std std-term">method</span></a>
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">register()</span></code>. When used as a decorator, the <code class="xref py py-meth docutils literal notranslate"><span class="pre">register()</span></code> method of a
 single dispatch function registers the function that follows as implementation
-for the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.12)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">class</span></code></a> given as an argument to <code class="xref py py-meth docutils literal notranslate"><span class="pre">register()</span></code>. On this
+for the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.13)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">class</span></code></a> given as an argument to <code class="xref py py-meth docutils literal notranslate"><span class="pre">register()</span></code>. On this
 occasion, this is <code class="xref py py-class docutils literal notranslate"><span class="pre">expressions.Number</span></code>.</p>
 <p>Now look at lines 33-35. These contain the implementation of
 <a class="reference internal" href="example_code.html#example_code.expression_tools.evaluate" title="example_code.expression_tools.evaluate"><code class="xref py py-func docutils literal notranslate"><span class="pre">evaluate()</span></code></a> for <code class="xref py py-class docutils literal notranslate"><span class="pre">expressions.Symbol</span></code>.
@@ -862,7 +862,7 @@ programming languages (including Python), recursion is a relatively inefficient
 process. The reason for this is that it creates a deep <a class="reference internal" href="6_exceptions.html#term-call-stack"><span class="xref std std-term">call stack</span></a>
 requiring a new <a class="reference internal" href="6_exceptions.html#term-stack-frame"><span class="xref std std-term">stack frame</span></a> for every level of recursion. In extreme
 cases, this can exceed Python’s limit on recursion depth and result in a
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RecursionError" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">RecursionError</span></code></a>.</p>
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RecursionError" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">RecursionError</span></code></a>.</p>
 <p>In order to avoid this, we can think a little more about what a recursive
 function actually does. In fact, a recursive function is using the <a class="reference internal" href="6_exceptions.html#term-call-stack"><span class="xref std std-term">call
 stack</span></a> to control the order in which operations are evaluated. We could do the
@@ -969,7 +969,7 @@ because common subexpressions will be visited via each parent expression, rather
 than just once. This compounds the disadvantages of recursive visitors that we
 discussed above. Instead, we can construct a postorder DAG visitor using a
 <a class="reference internal" href="5_abstract_data_types.html#term-stack"><span class="xref std std-term">stack</span></a> to replace the recursion in keeping track of what to evaluate
-next, and a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> to record the nodes we have already visited, and the
+next, and a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> to record the nodes we have already visited, and the
 results of visiting them. <a class="reference internal" href="#nonrecursive-postvisit"><span class="std std-numref">Listing 9.9</span></a> illustrates one such
 algorithm.</p>
 <div class="literal-block-wrapper docutils container" id="id25">
@@ -1080,8 +1080,8 @@ node is visited <em>before</em> its <a class="reference internal" href="#term-ch
 </dd>
 <dt id="term-single-dispatch-function">single dispatch function<a class="headerlink" href="#term-single-dispatch-function" title="Link to this term">¶</a></dt><dd><p>A function with a single name but multiple implementations. The
 implementation which executes when the function is called is chosen
-based on the <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> of the first argument to the function. The
-<a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.singledispatch" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.singledispatch()</span></code></a> function facilitates the creation of
+based on the <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> of the first argument to the function. The
+<a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.singledispatch" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.singledispatch()</span></code></a> function facilitates the creation of
 single dispatch functions.</p>
 </dd>
 <dt id="term-tree">tree<a class="headerlink" href="#term-tree" title="Link to this term">¶</a></dt><dd><p>A <a class="reference internal" href="#term-DAG"><span class="xref std std-term">DAG</span></a> in which every vertex is the target of at
@@ -1097,19 +1097,19 @@ of the book repository which you installed in <a class="reference internal" href
 <div class="proof proof-type-exercise" id="id26">
 <span id="ex-expr"></span>
     <div class="proof-title">
-        <span class="proof-type">Exercise 9.6</span>
+        <span class="proof-type">Exercise </span>
         
     </div><div class="proof-content">
 <p>In the exercise repository, create a <a class="reference internal" href="2_programs_in_files.html#term-package"><span class="xref std std-term">package</span></a>
 <code class="xref py py-mod docutils literal notranslate"><span class="pre">expressions</span></code> which implements the class hierarchy in
-<a class="reference internal" href="#expr-hierarchy"><span class="std std-numref">Section 9.4.1</span></a>. When implementing <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a>, use the
+<a class="reference internal" href="#expr-hierarchy"><span class="std std-numref">Section 9.4.1</span></a>. When implementing <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a>, use the
 symbols <code class="xref py py-obj docutils literal notranslate"><span class="pre">+</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">-</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">/</span></code>, and <code class="xref py py-obj docutils literal notranslate"><span class="pre">^</span></code>. The names <code class="xref py py-class docutils literal notranslate"><span class="pre">Symbol</span></code>,
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Add</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Sub</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Mul</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Div</span></code>, and
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Pow</span></code> should be directly importable in the <code class="xref py py-mod docutils literal notranslate"><span class="pre">expressions</span></code> <a class="reference internal" href="2_programs_in_files.html#term-namespace"><span class="xref std std-term">namespace</span></a>.</p>
 </div></div><div class="proof proof-type-exercise" id="id27">
 
     <div class="proof-title">
-        <span class="proof-type">Exercise 9.7</span>
+        <span class="proof-type">Exercise </span>
         
     </div><div class="proof-content">
 <p>Write a function importable as <code class="xref py py-func docutils literal notranslate"><span class="pre">expressions.postvisitor()</span></code> with the same
@@ -1119,7 +1119,7 @@ no matter how many times they occur in the expression.</p>
 </div></div><div class="proof proof-type-exercise" id="id28">
 
     <div class="proof-title">
-        <span class="proof-type">Exercise 9.8</span>
+        <span class="proof-type">Exercise </span>
         
     </div><div class="proof-content">
 <p>Write a <a class="reference internal" href="#term-single-dispatch-function"><span class="xref std std-term">single dispatch function</span></a> importable as
@@ -1127,7 +1127,7 @@ no matter how many times they occur in the expression.</p>
 passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">expressions.postvisitor()</span></code> or
 <a class="reference internal" href="example_code.html#example_code.expression_tools.postvisitor" title="example_code.expression_tools.postvisitor"><code class="xref py py-func docutils literal notranslate"><span class="pre">example_code.expression_tools.postvisitor()</span></code></a> and which differentiates the
 expression provided with respect to a symbol whose name is passed as the
-string <a class="reference external" href="https://docs.python.org/3/glossary.html#term-argument" title="(in Python v3.12)"><span class="xref std std-term">keyword argument</span></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span></code>.</p>
+string <a class="reference external" href="https://docs.python.org/3/glossary.html#term-argument" title="(in Python v3.13)"><span class="xref std std-term">keyword argument</span></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span></code>.</p>
 <p>As a simplification, the tests will assume that <code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span></code> does not appear in an
 exponent. As an extension, you could consider that case too, but you’d
 probably need to extend your symbolic language to include the natural
@@ -1173,7 +1173,7 @@ also possible, and is a key feature of <a class="reference external" href="https
     </div>
     <div class="footer" role="contentinfo">
     &#169; Copyright 2019-2023, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     </div>
   </body>
 </html>

@@ -9,9 +9,9 @@
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/fenics.css?v=8c7d05f9" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
     <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/proof.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -149,7 +149,7 @@ Having installed Pandas:</p>
 </div>
 <p>Observe that the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> acts as a dictionary of
 one-dimensional data <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></a>. A <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> can be
-indexed and sliced like any other Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq" title="(in Python v3.12)"><span class="xref std std-ref">sequence type</span></a>. This
+indexed and sliced like any other Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq" title="(in Python v3.13)"><span class="xref std std-ref">sequence type</span></a>. This
 very high level introduction is all we’ll need to use pandas in demonstrations
 in this chapter. Much more documentation is available on the <a class="reference external" href="https://pandas.pydata.org/docs/">Pandas website</a>.</p>
 <div class="admonition note">
@@ -172,13 +172,13 @@ to stop and examine a running, or just crashed, program. A debugger enables us
 to look at or set variables in any of the <a class="reference internal" href="6_exceptions.html#term-stack-frame"><span class="xref std std-term">frames</span></a> on the
 <a class="reference internal" href="6_exceptions.html#term-call-stack"><span class="xref std std-term">call stack</span></a>, or even type and run Python code. This is exceptionally
 useful in determining the source of errors.</p>
-<p>Python has an inbuilt debugger, <a class="reference external" href="https://docs.python.org/3/library/pdb.html#module-pdb" title="(in Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a>, which is part of the Python
+<p>Python has an inbuilt debugger, <a class="reference external" href="https://docs.python.org/3/library/pdb.html#module-pdb" title="(in Python v3.13)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a>, which is part of the Python
 standard library. This is a highly capable debugger, however its command line
 interface is essentially that of the default Python shell, with all the
 limitations that brings. Just as <a class="reference external" href="https://ipython.readthedocs.io">IPython</a>
 provides a more powerful Python command line including features such as colour
 syntax highlighting, tab completion, and better-formatted tracebacks, <a class="reference external" href="https://github.com/gotcha/ipdb#ipython-pdb">ipdb</a> provides a somewhat friendlier
-command line to the same set of debugger commands as <a class="reference external" href="https://docs.python.org/3/library/pdb.html#module-pdb" title="(in Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a>. ipdb has the
+command line to the same set of debugger commands as <a class="reference external" href="https://docs.python.org/3/library/pdb.html#module-pdb" title="(in Python v3.13)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a>. ipdb has the
 advantage that integrates well with IPython.</p>
 <p>The alternative to a command-line debugger is to use a graphical debugger
 integrated with your <a class="reference internal" href="1_introduction.html#term-IDE"><span class="xref std std-term">IDE</span></a>. Visual Studio Code integrates with the
@@ -267,10 +267,10 @@ the bright red dot, or temporarily disabled by clicking on the blue tick in the
 breakpoint list (item 8 of <a class="reference internal" href="#debug-screen"><span class="std std-numref">Fig. 8.1</span></a>).</p>
 <p>The breakpoint list also controls whether the raising of an exception should be
 treated as a breakpoint. By default, uncaught exceptions, which is to say
-exceptions not contained in a matching <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.12)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> clause are treated as
+exceptions not contained in a matching <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.13)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> clause are treated as
 breakpoints and cause execution to stop. Selecting <code class="xref py py-obj docutils literal notranslate"><span class="pre">Raised</span> <span class="pre">Exceptions</span></code> will
 treat any exception as a breakpoint, even if it is subsequently caught by an
-<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.12)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> clause.</p>
+<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.13)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> clause.</p>
 </section>
 <section id="examining-variables-and-the-stack">
 <h3><span class="section-number">8.3.4. </span>Examining variables and the stack<a class="headerlink" href="#examining-variables-and-the-stack" title="Link to this heading">¶</a></h3>
@@ -388,7 +388,7 @@ in an IDE window, insert a line of code. For ipdb, the line to insert is:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipdb</span><span class="p">;</span> <span class="n">ipdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>while pdb can use the built-in <a class="reference external" href="https://docs.python.org/3/library/functions.html#breakpoint" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">breakpoint()</span></code></a> function or use their own
+<p>while pdb can use the built-in <a class="reference external" href="https://docs.python.org/3/library/functions.html#breakpoint" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">breakpoint()</span></code></a> function or use their own
 function:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pdb</span><span class="p">;</span> <span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
 </pre></div>
@@ -917,7 +917,7 @@ The online quiz will tell you if you are correct.</p>
     </div>
     <div class="footer" role="contentinfo">
     &#169; Copyright 2019-2023, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     </div>
   </body>
 </html>
