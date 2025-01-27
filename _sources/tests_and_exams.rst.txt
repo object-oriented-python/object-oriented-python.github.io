@@ -154,152 +154,163 @@ Exercises
     Note that these instructions are only applicable to the practice problems.
     The test this year will be conducted using a new system.
 
-.. Exam preparation
-.. ----------------
+Exam preparation
+----------------
 
-.. The final exam will be similar in format to the :ref:`midterm test <midterm>`, so all
-.. of the advice about preparing applies there too. As with all second year
-.. elective modules, the exam will comprise four questions, each marked out of 20.
+The final exam will be similar in format to the :ref:`midterm test <midterm>`,
+so all of the advice about preparing applies there too. This year, the exam
+will comprise **3 questions**, each marked out of 20. This is a change from
+previous years, when the exam comprised 4 questions.
 
-.. As with everything in this course, the one thing you can do to effectively
-.. prepare for the exam is to program. You should complete any of the exercises in
-.. the course that you have not yet done, and more exercises are given below.
+As with everything in this course, the one thing you can do to effectively
+prepare for the exam is to program. You should complete any of the exercises in
+the course that you have not yet done, and more exercises are given below.
 
-.. Exam scope
-.. ~~~~~~~~~~
+Exam scope
+~~~~~~~~~~
 
-.. Everything we have covered in the course up to and including week 11
-.. (chapter 10) will be fully examinable. 
+Everything we have covered in the course up to and including week 11
+(chapter 10) will be fully examinable. 
 
-.. .. Allowed materials
-.. .. ~~~~~~~~~~~~~~~~~
+.. Allowed materials
+.. ~~~~~~~~~~~~~~~~~
 
-.. .. 1. You may take the exam using your own laptop or a College PC.
-.. .. 2. You may consult static websites such as https://python.org, and the course
-.. ..    text https://object-oriented-python.github.io. If you wish, you may use
-.. ..    search engines without embedded conversational AI capabilities such as
-.. ..    Google.
-.. .. 3. You must not attempt to communicate with anyone other than an invigilator.
-.. ..    This includes, but is not limited to:
+.. 1. You may take the exam using your own laptop or a College PC.
+.. 2. You may consult static websites such as https://python.org, and the course
+..    text https://object-oriented-python.github.io. If you wish, you may use
+..    search engines without embedded conversational AI capabilities such as
+..    Google.
+.. 3. You must not attempt to communicate with anyone other than an invigilator.
+..    This includes, but is not limited to:
 
-.. ..    a. sending or receiving emails,
+..    a. sending or receiving emails,
 
-.. ..    b. sending or receiving instant messages on any platform, and
+..    b. sending or receiving instant messages on any platform, and
 
-.. ..    c. posting on any web forum.
+..    c. posting on any web forum.
 
-.. .. 4. You must not attempt to employ conversational AI tools such as ChatGPT,
-.. ..   Microsoft Bing, or GitHub Copilot.
+.. 4. You must not attempt to employ conversational AI tools such as ChatGPT,
+..   Microsoft Bing, or GitHub Copilot.
 
-.. .. Using unauthorised materials or attempting to communicate with anyone other
-.. .. than an invigilator are exam offences and will be dealt with under the academic
-.. .. misconduct policy and procedures.
+.. Using unauthorised materials or attempting to communicate with anyone other
+.. than an invigilator are exam offences and will be dealt with under the academic
+.. misconduct policy and procedures.
 
-.. Support while revising
-.. ~~~~~~~~~~~~~~~~~~~~~~
+Support while revising
+~~~~~~~~~~~~~~~~~~~~~~
 
-.. The module Ed forum will remain open throughout the revision period and we
-.. will be very happy to respond to your questions. There will also be a revision
-.. lecture at the start of the summer term.
+The module Ed forum will remain open throughout the revision period and we
+will be very happy to respond to your questions. There will also be a revision
+lecture at the start of the summer term.
 
-.. .. Past papers
-.. .. ~~~~~~~~~~~
+Past papers
+~~~~~~~~~~~
 
-.. .. .. proof:exercise::
+.. proof:exercise::
 
-.. ..     Obtain the `practice problem from GitHub Classroom
-.. ..     <https://classroom.github.com/a/T2uShUW8>`__. Follow the instructions in
-.. ..     the README file that will be displayed on GitHub on your copy of the page.
+    Obtain the `practice problem from GitHub Classroom
+    <https://classroom.github.com/a/2zw_s9Y2>`__. Follow the instructions in
+    the README file that will be displayed on GitHub on your copy of the page.
 
-.. ..     .. note::
+    .. note::
 
-.. ..         This was the August 2021 exam.
+        This was the August 2021 exam.
 
-.. .. .. proof:exercise::
+.. proof:exercise::
 
-.. ..     Obtain the `practice problem from GitHub Classroom
-.. ..     <https://classroom.github.com/a/lHkZo7H0>`__. Follow the instructions in
-.. ..     the README file that will be displayed on GitHub on your copy of the page.
+    Obtain the `practice problem from GitHub Classroom
+    <https://classroom.github.com/a/0z6-4vck>`__. Follow the instructions in
+    the README file that will be displayed on GitHub on your copy of the page.
 
-.. ..     .. note::
+    .. note::
 
-.. ..         This was the May 2022 exam.
+        This was the May 2022 exam.
 
-.. .. .. proof:exercise::
+.. proof:exercise::
 
-.. ..     Obtain the `practice problem from GitHub Classroom
-.. ..     <https://classroom.github.com/a/6CNSDTzo>`__. Follow the instructions in
-.. ..     the README file that will be displayed on GitHub on your copy of the page.
+    Obtain the `practice problem from GitHub Classroom
+    <https://classroom.github.com/a/Yo0Y5L-V>`__. Follow the instructions in
+    the README file that will be displayed on GitHub on your copy of the page.
 
-.. ..     .. note::
+    .. note::
 
-.. ..         This was the August 2022 exam.
+        This was the August 2022 exam.
 
-.. .. .. proof:exercise::
+.. proof:exercise::
 
-.. ..     Obtain the `practice problem from GitHub Classroom
-.. ..     <https://classroom.github.com/a/ian0yjPK>`__. Follow the instructions in
-.. ..     the README file that will be displayed on GitHub on your copy of the page.
+    Obtain the `practice problem from GitHub Classroom
+    <https://classroom.github.com/a/tMaLtqdP>`__. Follow the instructions in
+    the README file that will be displayed on GitHub on your copy of the page.
 
-.. ..     .. note::
+    .. note::
 
-.. ..         This was the May 2023 exam.
+        This was the May 2023 exam.
 
-.. .. .. proof:exercise::
+.. proof:exercise::
 
-.. ..     Obtain the `practice problem from GitHub Classroom
-.. ..     <https://classroom.github.com/a/p-JqEA4w>`__. Follow the instructions in
-.. ..     the README file that will be displayed on GitHub on your copy of the page.
+    Obtain the `practice problem from GitHub Classroom
+    <https://classroom.github.com/a/tMaLtqdP>`__. Follow the instructions in
+    the README file that will be displayed on GitHub on your copy of the page.
 
-.. ..     .. note::
+    .. note::
 
-.. ..         This was the January 2024 exam.
+        This was the January 2024 exam.
+
+.. proof:exercise::
+
+    Obtain the `practice problem from GitHub Classroom
+    <https://classroom.github.com/a/5brB1XCc>`__. Follow the instructions in
+    the README file that will be displayed on GitHub on your copy of the page.
+
+    .. note::
+
+        This was the May 2024 exam.
 
 
-.. .. Further programming practice ideas
-.. .. ----------------------------------
+.. Further programming practice ideas
+.. ----------------------------------
 
-.. .. In addition to these exam-style questions, you can also usefully practice
-.. .. programming by going beyond the specification of the exercises in the course.
-.. .. The following exercises are just ideas for how to do that. They do not come
-.. .. with additional code or tests.
+.. In addition to these exam-style questions, you can also usefully practice
+.. programming by going beyond the specification of the exercises in the course.
+.. The following exercises are just ideas for how to do that. They do not come
+.. with additional code or tests.
 
-.. .. In addition to this, there are a lot of very good exercises in
-.. .. chapters 7 and 9 of `Hans Petter Langtangen, A Primer on Scientific Programming
-.. .. with Python <https://link.springer.com/book/10.1007%2F978-3-662-49887-3>`__.
-.. .. You can access that book by logging in with your Imperial credentials.
+.. In addition to this, there are a lot of very good exercises in
+.. chapters 7 and 9 of `Hans Petter Langtangen, A Primer on Scientific Programming
+.. with Python <https://link.springer.com/book/10.1007%2F978-3-662-49887-3>`__.
+.. You can access that book by logging in with your Imperial credentials.
 
-.. .. .. proof:exercise::
+.. .. proof:exercise::
 
-.. ..     Extend the :class:`Polynomial` class from :numref:`Chapter %s <objects>` to
-.. ..     support polynomial division. Polynomial division results in a quotient and
-.. ..     a remainder, so you might choose to implement :meth:`~object.__floordiv__`
-.. ..     to return the quotient and :meth:`~object.__mod__` to return the remainder,
-.. ..     in a manner analogous to integer division. You might also implement
-.. ..     :meth:`~object.__truediv__` and have it return the quotient if the
-.. ..     polynomial division is exact, but raise :class:`ValueError` if there is a
-.. ..     remainder.
+..     Extend the :class:`Polynomial` class from :numref:`Chapter %s <objects>` to
+..     support polynomial division. Polynomial division results in a quotient and
+..     a remainder, so you might choose to implement :meth:`~object.__floordiv__`
+..     to return the quotient and :meth:`~object.__mod__` to return the remainder,
+..     in a manner analogous to integer division. You might also implement
+..     :meth:`~object.__truediv__` and have it return the quotient if the
+..     polynomial division is exact, but raise :class:`ValueError` if there is a
+..     remainder.
 
-.. ..     .. hint::
+..     .. hint::
 
-.. ..         Don't forget that repeating code is poor style, so you might need a
-.. ..         helper method to implement the actual polynomial division.
-    
-.. .. .. proof:exercise::
+..         Don't forget that repeating code is poor style, so you might need a
+..         helper method to implement the actual polynomial division.
 
-.. ..     Extend the :class:`Deque` class from :numref:`Week %s
-.. ..     <abstract_data_types>` to automatically resize the ring buffer by a
-.. ..     proportion of its length when it is full, and when it becomes too empty.
-.. ..     You can check the behaviour of your implementation against
-.. ..     :class:`collections.deque`.
+.. .. proof:exercise::
 
-.. .. .. proof:exercise::
+..     Extend the :class:`Deque` class from :numref:`Week %s
+..     <abstract_data_types>` to automatically resize the ring buffer by a
+..     proportion of its length when it is full, and when it becomes too empty.
+..     You can check the behaviour of your implementation against
+..     :class:`collections.deque`.
 
-.. ..     For a real challenge, extend the groups implementation from :numref:`Week
-.. ..     %s <inheritance>` to support taking the quotient of two groups. What do the
-.. ..     values and validation of a quotient group look like in code? You could
-.. ..     implement :meth:`~object.__truediv__` on :class:`Group` to provide the user
-.. ..     interface.
+.. .. proof:exercise::
+
+..     For a real challenge, extend the groups implementation from :numref:`Week
+..     %s <inheritance>` to support taking the quotient of two groups. What do the
+..     values and validation of a quotient group look like in code? You could
+..     implement :meth:`~object.__truediv__` on :class:`Group` to provide the user
+..     interface.
 
 .. .. .. proof:exercise::
 
