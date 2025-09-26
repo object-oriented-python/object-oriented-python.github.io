@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>7. Inheritance and composition &#8212; Object-oriented Programming  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/fenics.css?v=8c7d05f9" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
@@ -79,7 +79,7 @@ by modifying another class. Typically this is employed to make a more
 specialised <a class="reference internal" href="3_objects.html#term-class"><span class="xref std std-term">class</span></a> from a more general one. In fact, we have
 already seen this in the case of number classes. Recall that all
 numbers are instances of <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Number</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">numbers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Number</span>
 
 <span class="gp">In [2]: </span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Number</span><span class="p">)</span>
 <span class="gh">Out[2]: </span><span class="go">True</span>
@@ -108,7 +108,7 @@ a <a class="reference internal" href="3_objects.html#term-class"><span class="xr
 </div>
 <p>In fact, there is a whole hierarchy of
 numeric types in <a class="reference external" href="https://docs.python.org/3/library/numbers.html#module-numbers" title="(in Python v3.13)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numbers</span></code></a>:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="kn">import</span> <span class="nn">numbers</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="kn">import</span><span class="w"> </span><span class="nn">numbers</span>
 
 <span class="gp">In [7]: </span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">)</span>
 <span class="gh">Out[7]: </span><span class="go">True</span>
@@ -187,7 +187,7 @@ minimal characterisation of a group will suffice.</p>
 <div class="literal-block-wrapper docutils container" id="cyclic-group">
 <div class="code-block-caption"><span class="caption-number">Listing 7.1 </span><span class="caption-text">A simple implementation of a cyclic group class, and a generic
 group element.</span><a class="headerlink" href="#cyclic-group" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 7</span><span class="k">class</span> <span class="nc">Element</span><span class="p">:</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 7</span><span class="k">class</span><span class="w"> </span><span class="nc">Element</span><span class="p">:</span>
 <span class="linenos"> 8</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;An element of the specified group.</span>
 <span class="linenos"> 9</span>
 <span class="linenos">10</span><span class="sd">    Parameters</span>
@@ -197,52 +197,52 @@ group element.</span><a class="headerlink" href="#cyclic-group" title="Link to t
 <span class="linenos">14</span><span class="sd">    value:</span>
 <span class="linenos">15</span><span class="sd">        The individual element value.</span>
 <span class="linenos">16</span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="linenos">17</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="linenos">17</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="linenos">18</span>        <span class="n">group</span><span class="o">.</span><span class="n">_validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 <span class="linenos">19</span>        <span class="bp">self</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="n">group</span>
 <span class="linenos">20</span>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
 <span class="linenos">21</span>
-<span class="linenos">22</span>    <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="linenos">22</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="linenos">23</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Use * to represent the group operation.&quot;&quot;&quot;</span>
 <span class="linenos">24</span>        <span class="k">return</span> <span class="n">Element</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="p">,</span>
 <span class="linenos">25</span>                       <span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">operation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
 <span class="linenos">26</span>
-<span class="linenos">27</span>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">27</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">28</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a string of the form value_group.&quot;&quot;&quot;</span>
 <span class="linenos">29</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="linenos">30</span>
-<span class="linenos">31</span>    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">31</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">32</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the canonical string representation of the element.&quot;&quot;&quot;</span>
 <span class="linenos">33</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="p">,</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">!r}</span><span class="s2">&quot;</span>
 <span class="linenos">34</span>
 <span class="linenos">35</span>
-<span class="linenos">36</span><span class="k">class</span> <span class="nc">CyclicGroup</span><span class="p">:</span>
+<span class="linenos">36</span><span class="k">class</span><span class="w"> </span><span class="nc">CyclicGroup</span><span class="p">:</span>
 <span class="linenos">37</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;A cyclic group represented by addition modulo group order.&quot;&quot;&quot;</span>
-<span class="linenos">38</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
+<span class="linenos">38</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
 <span class="linenos">39</span>        <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="n">order</span>
 <span class="linenos">40</span>
-<span class="linenos">41</span>    <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="linenos">41</span>    <span class="k">def</span><span class="w"> </span><span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="linenos">42</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Ensure that value is an allowed element value in this group.&quot;&quot;&quot;</span>
 <span class="linenos">43</span>        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Integral</span><span class="p">)</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">):</span>
 <span class="linenos">44</span>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Element value must be an integer&quot;</span>
 <span class="linenos">45</span>                             <span class="sa">f</span><span class="s2">&quot; in the range [0, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 <span class="linenos">46</span>
-<span class="linenos">47</span>    <span class="k">def</span> <span class="nf">operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="linenos">47</span>    <span class="k">def</span><span class="w"> </span><span class="nf">operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="linenos">48</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform the group operation on two values.</span>
 <span class="linenos">49</span>
 <span class="linenos">50</span><span class="sd">        The group operation is addition modulo n.</span>
 <span class="linenos">51</span><span class="sd">        &quot;&quot;&quot;</span>
 <span class="linenos">52</span>        <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span>
 <span class="linenos">53</span>
-<span class="linenos">54</span>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="linenos">54</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="linenos">55</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an element of this group.&quot;&quot;&quot;</span>
 <span class="linenos">56</span>        <span class="k">return</span> <span class="n">Element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 <span class="linenos">57</span>
-<span class="linenos">58</span>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">58</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">59</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Represent the group as Gd.&quot;&quot;&quot;</span>
 <span class="linenos">60</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="linenos">61</span>
-<span class="linenos">62</span>    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">62</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">63</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the canonical string representation of the group.&quot;&quot;&quot;</span>
 <span class="linenos">64</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="si">!r}</span><span class="s2">)&quot;</span>
 </pre></div>
@@ -251,7 +251,7 @@ group element.</span><a class="headerlink" href="#cyclic-group" title="Link to t
 <p><a class="reference internal" href="#cyclic-group"><span class="std std-numref">Listing 7.1</span></a> shows an implementation of our minimal conception of
 cyclic groups. Before considering it in any detail let’s try it out to observe
 the concrete effects of the classes:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.groups_basic</span> <span class="kn">import</span> <span class="n">CyclicGroup</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">example_code.groups_basic</span><span class="w"> </span><span class="kn">import</span> <span class="n">CyclicGroup</span>
 
 <span class="gp">In [2]: </span><span class="n">C</span> <span class="o">=</span> <span class="n">CyclicGroup</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
@@ -276,12 +276,12 @@ integer between 0 and 5, an exception is raised.</p>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">C</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 
 <span class="nn">File ~/docs/principles_of_programming/object-oriented-programming/example_code/groups_basic.py:56,</span> in <span class="ni">CyclicGroup.__call__</span><span class="nt">(self, value)</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="g g-Whitespace">     </span><span class="mi">55</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Create an element of this group.&quot;&quot;&quot;</span>
 <span class="ne">---&gt; </span><span class="mi">56</span>     <span class="k">return</span> <span class="n">Element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
 <span class="nn">File ~/docs/principles_of_programming/object-oriented-programming/example_code/groups_basic.py:18,</span> in <span class="ni">Element.__init__</span><span class="nt">(self, group, value)</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="ne">---&gt; </span><span class="mi">18</span>     <span class="n">group</span><span class="o">.</span><span class="n">_validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="bp">self</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="n">group</span>
 <span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
@@ -327,12 +327,12 @@ follows:</p>
 <div class="literal-block-wrapper docutils container" id="general-linear-group">
 <div class="code-block-caption"><span class="caption-number">Listing 7.2 </span><span class="caption-text">A basic implementation of the general linear group of a given
 degree.</span><a class="headerlink" href="#general-linear-group" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">GeneralLinearGroup</span><span class="p">:</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">GeneralLinearGroup</span><span class="p">:</span>
 <span class="linenos"> 2</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;The general linear group represented by degree square matrices.&quot;&quot;&quot;</span>
-<span class="linenos"> 3</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree</span><span class="p">):</span>
+<span class="linenos"> 3</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree</span><span class="p">):</span>
 <span class="linenos"> 4</span>        <span class="bp">self</span><span class="o">.</span><span class="n">degree</span> <span class="o">=</span> <span class="n">degree</span>
 <span class="linenos"> 5</span>
-<span class="linenos"> 6</span>    <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="linenos"> 6</span>    <span class="k">def</span><span class="w"> </span><span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="linenos"> 7</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Ensure that value is an allowed element value in this group.&quot;&quot;&quot;</span>
 <span class="linenos"> 8</span>        <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 <span class="linenos"> 9</span>        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)):</span>
@@ -340,22 +340,22 @@ degree.</span><a class="headerlink" href="#general-linear-group" title="Link to 
 <span class="linenos">11</span>                             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="linenos">12</span>                             <span class="s2">&quot;square array.&quot;</span><span class="p">)</span>
 <span class="linenos">13</span>
-<span class="linenos">14</span>    <span class="k">def</span> <span class="nf">operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="linenos">14</span>    <span class="k">def</span><span class="w"> </span><span class="nf">operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="linenos">15</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform the group operation on two values.</span>
 <span class="linenos">16</span>
 <span class="linenos">17</span><span class="sd">        The group operation is matrix multiplication.</span>
 <span class="linenos">18</span><span class="sd">        &quot;&quot;&quot;</span>
 <span class="linenos">19</span>        <span class="k">return</span> <span class="n">a</span> <span class="o">@</span> <span class="n">b</span>
 <span class="linenos">20</span>
-<span class="linenos">21</span>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="linenos">21</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="linenos">22</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an element of this group.&quot;&quot;&quot;</span>
 <span class="linenos">23</span>        <span class="k">return</span> <span class="n">Element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 <span class="linenos">24</span>
-<span class="linenos">25</span>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">25</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">26</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Represent the group as Gd.&quot;&quot;&quot;</span>
 <span class="linenos">27</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;G</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="linenos">28</span>
-<span class="linenos">29</span>    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">29</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">30</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the canonical string representation of the group.&quot;&quot;&quot;</span>
 <span class="linenos">31</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="si">!r}</span><span class="s2">)&quot;</span>
 </pre></div>
@@ -385,7 +385,7 @@ does.</p>
 <div class="code-block-caption"><span class="caption-number">Listing 7.3 </span><span class="caption-text">Implementation of a base class for a generic group, and
 subclasses for the cyclic groups and general linear groups. This code
 is available in the book repository in <code class="file docutils literal notranslate"><span class="pre">example_code/groups.py</span></code></span><a class="headerlink" href="#groups-inheritance" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">Group</span><span class="p">:</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">Group</span><span class="p">:</span>
 <span class="linenos"> 2</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;A base class containing methods common to many groups.</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="sd">    Each subclass represents a family of parametrised groups.</span>
@@ -396,33 +396,33 @@ is available in the book repository in <code class="file docutils literal notran
 <span class="linenos"> 9</span><span class="sd">        The primary group parameter, such as order or degree. The</span>
 <span class="linenos">10</span><span class="sd">        precise meaning of n changes from subclass to subclass.</span>
 <span class="linenos">11</span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="linenos">12</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="linenos">12</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
 <span class="linenos">13</span>        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
 <span class="linenos">14</span>
-<span class="linenos">15</span>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="linenos">15</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="linenos">16</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an element of this group.&quot;&quot;&quot;</span>
 <span class="linenos">17</span>        <span class="k">return</span> <span class="n">Element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 <span class="linenos">18</span>
-<span class="linenos">19</span>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">19</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">20</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a string in the form symbol then group parameter.&quot;&quot;&quot;</span>
 <span class="linenos">21</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">symbol</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="linenos">22</span>
-<span class="linenos">23</span>    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">23</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">24</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the canonical string representation of the element.&quot;&quot;&quot;</span>
 <span class="linenos">25</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="si">!r}</span><span class="s2">)&quot;</span>
 <span class="linenos">26</span>
 <span class="linenos">27</span>
-<span class="linenos">28</span><span class="k">class</span> <span class="nc">CyclicGroup</span><span class="p">(</span><span class="n">Group</span><span class="p">):</span>
+<span class="linenos">28</span><span class="k">class</span><span class="w"> </span><span class="nc">CyclicGroup</span><span class="p">(</span><span class="n">Group</span><span class="p">):</span>
 <span class="linenos">29</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;A cyclic group represented by integer addition modulo n.&quot;&quot;&quot;</span>
 <span class="linenos">30</span>    <span class="n">symbol</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span>
 <span class="linenos">31</span>
-<span class="linenos">32</span>    <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="linenos">32</span>    <span class="k">def</span><span class="w"> </span><span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="linenos">33</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Ensure that value is an allowed element value in this group.&quot;&quot;&quot;</span>
 <span class="linenos">34</span>        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Integral</span><span class="p">)</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">):</span>
 <span class="linenos">35</span>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Element value must be an integer&quot;</span>
 <span class="linenos">36</span>                            <span class="sa">f</span><span class="s2">&quot; in the range [0, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 <span class="linenos">37</span>
-<span class="linenos">38</span>    <span class="k">def</span> <span class="nf">operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="linenos">38</span>    <span class="k">def</span><span class="w"> </span><span class="nf">operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="linenos">39</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform the group operation on two values.</span>
 <span class="linenos">40</span>
 <span class="linenos">41</span><span class="sd">        The group operation is addition modulo n.</span>
@@ -430,12 +430,12 @@ is available in the book repository in <code class="file docutils literal notran
 <span class="linenos">43</span>        <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span>
 <span class="linenos">44</span>
 <span class="linenos">45</span>
-<span class="linenos">46</span><span class="k">class</span> <span class="nc">GeneralLinearGroup</span><span class="p">(</span><span class="n">Group</span><span class="p">):</span>
+<span class="linenos">46</span><span class="k">class</span><span class="w"> </span><span class="nc">GeneralLinearGroup</span><span class="p">(</span><span class="n">Group</span><span class="p">):</span>
 <span class="linenos">47</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;The general linear group represented by n x n matrices.&quot;&quot;&quot;</span>
 <span class="linenos">48</span>
 <span class="linenos">49</span>    <span class="n">symbol</span> <span class="o">=</span> <span class="s2">&quot;G&quot;</span>
 <span class="linenos">50</span>
-<span class="linenos">51</span>    <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="linenos">51</span>    <span class="k">def</span><span class="w"> </span><span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="linenos">52</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Ensure that value is an allowed element value in this group.&quot;&quot;&quot;</span>
 <span class="linenos">53</span>        <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 <span class="linenos">54</span>        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)):</span>
@@ -443,7 +443,7 @@ is available in the book repository in <code class="file docutils literal notran
 <span class="linenos">56</span>                            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="linenos">57</span>                            <span class="s2">&quot;square array.&quot;</span><span class="p">)</span>
 <span class="linenos">58</span>
-<span class="linenos">59</span>    <span class="k">def</span> <span class="nf">operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="linenos">59</span>    <span class="k">def</span><span class="w"> </span><span class="nf">operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="linenos">60</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform the group operation on two values.</span>
 <span class="linenos">61</span>
 <span class="linenos">62</span><span class="sd">        The group operation is matrix multiplication.</span>
@@ -464,7 +464,7 @@ highlight the features of this code which make this work.</p>
 <h3><span class="section-number">7.2.1. </span>Inheritance syntax<a class="headerlink" href="#inheritance-syntax" title="Link to this heading">¶</a></h3>
 <p>Look again at the definition of <a class="reference internal" href="example_code.html#example_code.groups.CyclicGroup" title="example_code.groups.CyclicGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code></a> on
 line 28:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">28</span><span class="k">class</span> <span class="nc">CyclicGroup</span><span class="p">(</span><span class="n">Group</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">28</span><span class="k">class</span><span class="w"> </span><span class="nc">CyclicGroup</span><span class="p">(</span><span class="n">Group</span><span class="p">):</span>
 </pre></div>
 </div>
 <p>This differs from the previous class definitions we’ve seen in that the
@@ -505,7 +505,7 @@ single attribute that is common to all objects of this class. This is called a
 <section id="attributes-resolve-at-runtime">
 <span id="runtime-attributes"></span><h3><span class="section-number">7.2.3. </span>Attributes resolve at runtime<a class="headerlink" href="#attributes-resolve-at-runtime" title="Link to this heading">¶</a></h3>
 <p>Consider the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code> method of <a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a>:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">19</span><span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">19</span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">20</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a string in the form symbol then group parameter.&quot;&quot;&quot;</span>
 <span class="linenos">21</span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">symbol</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
@@ -514,7 +514,7 @@ single attribute that is common to all objects of this class. This is called a
 <a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a>. Why doesn’t this cause an
 <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AttributeError" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributeError</span></code></a> to be raised? One answer is that it indeed would if we
 were to instantiate <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> itself:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.groups</span> <span class="kn">import</span> <span class="n">Group</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">example_code.groups</span><span class="w"> </span><span class="kn">import</span> <span class="n">Group</span>
 
 <span class="gp">In [2]: </span><span class="n">g</span> <span class="o">=</span> <span class="n">Group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
@@ -525,7 +525,7 @@ were to instantiate <code class="xref py py-class docutils literal notranslate">
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
 
 <span class="nn">File ~/docs/principles_of_programming/object-oriented-programming/example_code/groups.py:62,</span> in <span class="ni">Group.__str__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="g g-Whitespace">     </span><span class="mi">61</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return a string in the form symbol then group parameter.&quot;&quot;&quot;</span>
 <span class="ne">---&gt; </span><span class="mi">62</span>     <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">symbol</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span>
 
@@ -539,7 +539,7 @@ objects itself. We will return to this in more detail in
 <a class="reference internal" href="10_further_object-oriented_features.html#abstract-base-classes"><span class="std std-numref">Section 10.2</span></a>.</p>
 <p>However, if we instead instantiate <a class="reference internal" href="example_code.html#example_code.groups.CyclicGroup" title="example_code.groups.CyclicGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code></a>
 then everything works:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.groups</span> <span class="kn">import</span> <span class="n">CyclicGroup</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">example_code.groups</span><span class="w"> </span><span class="kn">import</span> <span class="n">CyclicGroup</span>
 
 <span class="gp">In [2]: </span><span class="n">g</span> <span class="o">=</span> <span class="n">CyclicGroup</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
@@ -580,16 +580,16 @@ it by calling it.</p>
 <h2><span class="section-number">7.3. </span>Calling parent class methods<a class="headerlink" href="#calling-parent-class-methods" title="Link to this heading">¶</a></h2>
 <div class="literal-block-wrapper docutils container" id="id3">
 <span id="rectangle-class"></span><div class="code-block-caption"><span class="caption-number">Listing 7.4 </span><span class="caption-text">The elementary rectangle class from <a class="reference internal" href="example_code.html#module-example_code.shapes" title="example_code.shapes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">example_code.shapes</span></code></a>.</span><a class="headerlink" href="#id3" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">Rectangle</span><span class="p">:</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+<span class="linenos"> 3</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
 <span class="linenos"> 4</span>        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">length</span>
 <span class="linenos"> 5</span>        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
 <span class="linenos"> 6</span>
-<span class="linenos"> 7</span>    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 7</span>    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos"> 8</span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span>
 <span class="linenos"> 9</span>
-<span class="linenos">10</span>    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">10</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">11</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="si">!r}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
@@ -619,12 +619,12 @@ the <code class="xref py py-func docutils literal notranslate"><span class="pre"
 <span id="square-class"></span><div class="code-block-caption"><span class="caption-number">Listing 7.5 </span><span class="caption-text"><a class="reference internal" href="example_code.html#example_code.shapes.Square" title="example_code.shapes.Square"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.shapes.Square</span></code></a> inherits from
 <a class="reference internal" href="example_code.html#example_code.shapes.Rectangle" title="example_code.shapes.Rectangle"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rectangle</span></code></a> and calls the latter’s
 <a class="reference internal" href="3_objects.html#term-constructor"><span class="xref std std-term">constructor</span></a> using <code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code>.</span><a class="headerlink" href="#id4" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">class</span><span class="w"> </span><span class="nc">Square</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">):</span>
 <span class="linenos">2</span>
-<span class="linenos">3</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+<span class="linenos">3</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
 <span class="linenos">4</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
 <span class="linenos">5</span>
-<span class="linenos">6</span>    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">6</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">7</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="si">!r}</span><span class="s2">)&quot;</span>
 </pre></div>
 </div>
@@ -661,7 +661,7 @@ simply does nothing. For example, suppose we need to be able to distinguish the
 catch exactly these errors. In this case, we’re still talking about some form
 of value error, so we’ll want our new error class to inherit from
 <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a>. We could achieve this as follows:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GroupValidationError</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">GroupValidationError</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
@@ -723,7 +723,7 @@ order <code class="xref py py-obj docutils literal notranslate"><span class="pre
 validation of group element values. Group elements can be represented by
 sequences containing permutations of the integers from 0 to <code class="xref py py-obj docutils literal notranslate"><span class="pre">n-1</span></code>. You will
 find it advantageous to represent these permutations as
-<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> because the indexing rules for that type mean that
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> because the indexing rules for that type mean that
 the group operation can simply be implemented by indexing the first
 permutation with the second: <code class="xref py py-obj docutils literal notranslate"><span class="pre">a[b]</span></code>.</p>
 <p>You will also need to set the <a class="reference internal" href="#term-class-attribute"><span class="xref std std-term">class attribute</span></a> <code class="xref py py-attr docutils literal notranslate"><span class="pre">symbol</span></code>. For this

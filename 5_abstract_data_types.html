@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>5. Abstract data types &#8212; Object-oriented Programming  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/fenics.css?v=8c7d05f9" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
@@ -349,19 +349,19 @@ data structure.</p>
 <span id="badstack"></span><div class="code-block-caption"><span class="caption-number">Listing 5.2 </span><span class="caption-text">A poorly designed stack implementation in which push and pop cost
 <span class="math notranslate nohighlight">\(O(n)\)</span> operations, where <span class="math notranslate nohighlight">\(n\)</span> is the current
 number of objects on the stack.</span><a class="headerlink" href="#id11" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">BadStack</span><span class="p">:</span>
-<span class="linenos"> 2</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">BadStack</span><span class="p">:</span>
+<span class="linenos"> 2</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos"> 3</span>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">()</span>
 <span class="linenos"> 4</span>
-<span class="linenos"> 5</span>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="linenos"> 5</span>    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="linenos"> 6</span>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">+=</span> <span class="p">(</span><span class="n">value</span><span class="p">,)</span>
 <span class="linenos"> 7</span>
-<span class="linenos"> 8</span>    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 8</span>    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos"> 9</span>        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="linenos">10</span>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="linenos">11</span>        <span class="k">return</span> <span class="n">value</span>
 <span class="linenos">12</span>
-<span class="linenos">13</span>    <span class="k">def</span> <span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">13</span>    <span class="k">def</span><span class="w"> </span><span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">14</span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -448,9 +448,9 @@ demonstrates this.</p>
 <span id="byte-size"></span><div class="code-block-caption"><span class="caption-number">Listing 5.3 </span><span class="caption-text">Code to progressively lengthen a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> and observe the
 impact on its memory consumption. This function is available as
 <a class="reference internal" href="example_code.html#example_code.linked_list.byte_size" title="example_code.linked_list.byte_size"><code class="xref py py-func docutils literal notranslate"><span class="pre">example_code.linked_list.byte_size()</span></code></a>.</span><a class="headerlink" href="#id13" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="k">def</span> <span class="nf">byte_size</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos"> 3</span><span class="k">def</span><span class="w"> </span><span class="nf">byte_size</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="linenos"> 4</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Print the size in bytes of lists up to length n.&quot;&quot;&quot;</span>
 <span class="linenos"> 5</span>    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="linenos"> 6</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -464,7 +464,7 @@ impact on its memory consumption. This function is available as
 <div class="literal-block-wrapper docutils container" id="id14">
 <span id="byte-size-demo"></span><div class="code-block-caption"><span class="caption-number">Listing 5.4 </span><span class="caption-text">The memory consumption of lists of length 0 to 19. We can infer
 that the list is reallocated at lengths 1, 5, 9, and 17.</span><a class="headerlink" href="#id14" title="Link to this code">¶</a></div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.linked_list</span> <span class="kn">import</span> <span class="n">byte_size</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">example_code.linked_list</span><span class="w"> </span><span class="kn">import</span> <span class="n">byte_size</span>
 
 <span class="gp">In [2]: </span><span class="n">byte_size</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 <span class="go">Length:0; Size in bytes:56</span>
@@ -573,12 +573,12 @@ the link reference from <code class="xref py py-obj docutils literal notranslate
 </figure>
 <div class="literal-block-wrapper docutils container" id="linked-list">
 <div class="code-block-caption"><span class="caption-number">Listing 5.5 </span><span class="caption-text">A simple singly linked list implementation.</span><a class="headerlink" href="#linked-list" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">class</span> <span class="nc">Link</span><span class="p">:</span>
-<span class="linenos">2</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">class</span><span class="w"> </span><span class="nc">Link</span><span class="p">:</span>
+<span class="linenos">2</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="linenos">3</span>       <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
 <span class="linenos">4</span>       <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">next</span>
 <span class="linenos">5</span>
-<span class="linenos">6</span>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">):</span>
+<span class="linenos">6</span>    <span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">):</span>
 <span class="linenos">7</span><span class="w">       </span><span class="sd">&#39;&#39;&#39;Insert a new link after the current one.&#39;&#39;&#39;</span>
 <span class="linenos">8</span>       <span class="n">link</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next</span>
 <span class="linenos">9</span>       <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">link</span>
@@ -625,26 +625,26 @@ familiar with looping over sequences such as lists:</p>
 </div>
 <p>Python offers a useful abstraction of this concept. By implementing the correct
 <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special methods</span></a>, a container class can provide the
-ability to be iterated over. This is a great example of abstraction in action:
-the user doesn’t need to know or care how a particular container is implemented
-and therefore how to find all of its contents, they can simply write a for loop
-to access every item in turn.</p>
+ability to be iterated over. Such a class is called an <a class="reference internal" href="#term-iterable"><span class="xref std std-term">iterable</span></a>. This
+is a great example of abstraction in action: the user doesn’t need to know or
+care how a particular container is implemented and therefore how to find all of
+its contents, they can simply write a for loop to access every item in turn.</p>
 <p>There are two <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special methods</span></a> required for iteration.
 Neither take any arguments beyond the object itself. The first,
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#container.__iter__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a>, needs to be implemented by the container type. Its
-role is to return an object which implements iteration. This could be the
-container itself, or it could be a special iteration object (for example
-because it is necessary to store a number recording where the iteration is up
-to).</p>
-<p>The object returned by <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#container.__iter__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> is called an iterator. It
-also needs to implement <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__iter__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> (for example it could simply
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">return</span> <span class="pre">self</span></code>). In addition, it needs to implement the
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> method. This is called by Python repeatedly to
-obtain the next object in the iteration sequence. Once the sequence is
-exhausted, subsequent calls to <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> should raise the
-built-in <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopIteration" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopIteration</span></code></a> exception. This tells Python that the iteration
-is over. This arrangement is called the iterator protocol, and it’s further
-documented in the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typeiter" title="(in Python v3.13)"><span class="xref std std-ref">official Python documentation</span></a>.</p>
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#container.__iter__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a>, needs to be implemented by the <a class="reference internal" href="#term-iterable"><span class="xref std std-term">iterable</span></a>
+type. Its role is to return an object which implements iteration. Usually this
+will be a new object which keeps track of the iteration.</p>
+<p>The object returned by <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#container.__iter__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> is called an
+<a class="reference internal" href="#term-iterator"><span class="xref std std-term">iterator</span></a>. It also needs to implement <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__iter__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a>, for
+the technical reason that it should be possible to interate over either the
+iterable or the corresponding iterator. The <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__iter__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> method
+of an <a class="reference internal" href="#term-iterator"><span class="xref std std-term">iterator</span></a> will usually simply <code class="xref py py-obj docutils literal notranslate"><span class="pre">return</span> <span class="pre">self</span></code>. In addition,
+iterators must implement the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> method. This is called
+by Python repeatedly to obtain the next object in the iteration sequence. Once
+the sequence is exhausted, subsequent calls to <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a>
+should raise the built-in <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopIteration" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopIteration</span></code></a> exception. This tells Python
+that the iteration is over. This arrangement is called the iterator protocol,
+and it’s further documented in the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typeiter" title="(in Python v3.13)"><span class="xref std std-ref">official Python documentation</span></a>.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>Raising exceptions is the subject of <a class="reference internal" href="6_exceptions.html#raising-exceptions"><span class="std std-numref">Section 6.4</span></a>,
@@ -664,28 +664,28 @@ of the iteration.</p>
 <div class="literal-block-wrapper docutils container" id="id17">
 <span id="iterating-linked-list"></span><div class="code-block-caption"><span class="caption-number">Listing 5.6 </span><span class="caption-text">A simple linked list implementation that supports the iterator
 protocol.</span><a class="headerlink" href="#id17" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">Link</span><span class="p">:</span>
-<span class="linenos"> 2</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">Link</span><span class="p">:</span>
+<span class="linenos"> 2</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="linenos"> 3</span>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
 <span class="linenos"> 4</span>        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">next</span>
 <span class="linenos"> 5</span>
-<span class="linenos"> 6</span>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">):</span>
+<span class="linenos"> 6</span>    <span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">):</span>
 <span class="linenos"> 7</span><span class="w">        </span><span class="sd">&#39;&#39;&#39;Insert a new link after the current one.&#39;&#39;&#39;</span>
 <span class="linenos"> 8</span>        <span class="n">link</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next</span>
 <span class="linenos"> 9</span>        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">link</span>
 <span class="linenos">10</span>
-<span class="linenos">11</span>    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">11</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">12</span>        <span class="k">return</span> <span class="n">LinkIterator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 <span class="linenos">13</span>
 <span class="linenos">14</span>
-<span class="linenos">15</span><span class="k">class</span> <span class="nc">LinkIterator</span><span class="p">:</span>
-<span class="linenos">16</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">):</span>
+<span class="linenos">15</span><span class="k">class</span><span class="w"> </span><span class="nc">LinkIterator</span><span class="p">:</span>
+<span class="linenos">16</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">):</span>
 <span class="linenos">17</span>        <span class="bp">self</span><span class="o">.</span><span class="n">here</span> <span class="o">=</span> <span class="n">link</span>
 <span class="linenos">18</span>
-<span class="linenos">19</span>    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">19</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">20</span>        <span class="k">return</span> <span class="bp">self</span>
 <span class="linenos">21</span>
-<span class="linenos">22</span>    <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">22</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">23</span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">here</span><span class="p">:</span>
 <span class="linenos">24</span>            <span class="nb">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">here</span>
 <span class="linenos">25</span>            <span class="bp">self</span><span class="o">.</span><span class="n">here</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">here</span><span class="o">.</span><span class="n">next</span>
@@ -714,13 +714,46 @@ automatically:</p>
 </pre></div>
 </div>
 </section>
+<section id="generator-expressions">
+<h2><span class="section-number">5.7. </span>Generator expressions<a class="headerlink" href="#generator-expressions" title="Link to this heading">¶</a></h2>
+<p>In addition to the iterator protocol, Python also includes an intrinsic syntax
+for creating a simple iterator. These iterators are called generator
+expressions and their syntax is very similar to that of the comprehensions with
+which you are already familiar. As a trivial example, one could loop over the
+first 5 square numbers with:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)):</span>
+<span class="gp">   ...: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="gp">   ...:</span>
+<span class="go">0</span>
+<span class="go">1</span>
+<span class="go">4</span>
+<span class="go">9</span>
+<span class="go">16</span>
+</pre></div>
+</div>
+<p>The difference between the generator expression <code class="xref py py-obj docutils literal notranslate"><span class="pre">(i**2</span> <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(5))</span></code> and
+the list comprehension <code class="xref py py-obj docutils literal notranslate"><span class="pre">[i**2</span> <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(5)]</span></code> is that the loop in the list
+comprehension is immediately executed and the results put into a list object.
+In contrast, the generator expression produces an iterator object which is
+iterated over as it is used. Generator expressions are mostly useful when the
+sequence is to be used only once. The following slightly frivolous example
+function removes the vowels from a string:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">no_vowels</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">char</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s2">&quot;aeiou&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This example illustrates another feature of the generator expression syntax:
+the brackets surrounding the expression can be omitted if it is the only
+argument to a function. In this case, that function is the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.join" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">join()</span></code></a>
+method of the empty string (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>).</p>
+</section>
 <section id="other-abstract-data-types">
-<h2><span class="section-number">5.7. </span>Other abstract data types<a class="headerlink" href="#other-abstract-data-types" title="Link to this heading">¶</a></h2>
-<p>Here we have introduced in some detail a few relatively simple abstract data
-types that illustrate the distinction between the mathematical properties of a
-type and the concrete details of its implementation. There are many other
-abstract data types, some of which you will have already met, and we will
-encounter a few more in this course. For context, here are a few other
+<h2><span class="section-number">5.8. </span>Other abstract data types<a class="headerlink" href="#other-abstract-data-types" title="Link to this heading">¶</a></h2>
+<p>In this chapter we have introduced in some detail a few relatively simple
+abstract data types that illustrate the distinction between the mathematical
+properties of a type and the concrete details of its implementation. There are
+many other abstract data types, some of which you will have already met, and we
+will encounter a few more in this course. For context, here are a few other
 examples.</p>
 <dl class="simple">
 <dt>set</dt><dd><p>A set is an unordered collection of objects with the property that objects
@@ -744,7 +777,7 @@ and related structures can be used in symbolic maths in <a class="reference inte
 </dl>
 </section>
 <section id="glossary">
-<h2><span class="section-number">5.8. </span>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">5.9. </span>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple glossary">
 <dt id="term-abstract-data-type">abstract data type<a class="headerlink" href="#term-abstract-data-type" title="Link to this term">¶</a></dt><dd><p>A mathematical <a class="reference internal" href="3_objects.html#term-type"><span class="xref std std-term">type</span></a>, defined independently of any
@@ -778,6 +811,13 @@ and the original buffer is returned to the system.</p>
 <dt id="term-introspection">introspection<a class="headerlink" href="#term-introspection" title="Link to this term">¶</a></dt><dd><p>The ability to inspect the implementation of a program from inside that
 program while it is running.</p>
 </dd>
+<dt id="term-iterable">iterable<a class="headerlink" href="#term-iterable" title="Link to this term">¶</a></dt><dd><p>An object over which iteration is possible. Iterators have an
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#container.__iter__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> method which returns an <a class="reference internal" href="#term-iterator"><span class="xref std std-term">iterator</span></a>.</p>
+</dd>
+<dt id="term-iterator">iterator<a class="headerlink" href="#term-iterator" title="Link to this term">¶</a></dt><dd><p>An object encoding the progress of an iteration. Python internally
+implements iteration by successively calling the
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> method of an iterator.</p>
+</dd>
 <dt id="term-queue">queue<a class="headerlink" href="#term-queue" title="Link to this term">¶</a></dt><dt id="term-FIFO-first-in-first-out">FIFO (first in, first out)<a class="headerlink" href="#term-FIFO-first-in-first-out" title="Link to this term">¶</a></dt><dd><p>An <a class="reference internal" href="#term-abstract-data-type"><span class="xref std std-term">abstract data type</span></a> representing an ordered sequence
 of objects in which objects are accessed in the order in which
 they were added.</p>
@@ -807,7 +847,7 @@ worst case complexity can be expected to occur.</p>
 </div></blockquote>
 </section>
 <section id="exercises">
-<h2><span class="section-number">5.9. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">5.10. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
 <p>Using the information on the <a class="reference external" href="https://object-oriented-python.github.io/edition3/exercises.html">book website</a>
 obtain the skeleton code for these exercises. You will also need to install
 the pytest-timeout package.</p>
@@ -823,7 +863,7 @@ the pytest-timeout package.</p>
 in editable mode. Create a class <code class="xref py py-class docutils literal notranslate"><span class="pre">Fib</span></code> implementing the iterator
 protocol which returns the Fibonacci numbers. In other words, the following
 code should print the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Fibonacci</span></code> numbers under 100:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">adt_examples.fibonacci</span> <span class="kn">import</span> <span class="n">Fib</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">adt_examples.fibonacci</span><span class="w"> </span><span class="kn">import</span> <span class="n">Fib</span>
 
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">Fib</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>

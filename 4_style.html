@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>4. A matter of style &#8212; Object-oriented Programming  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/fenics.css?v=8c7d05f9" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
@@ -230,7 +230,7 @@ that this is an unnecessary import.</p>
 <p>One way to suppress linter errors is using a special comment at the end of the
 line which causes the error. For example, <code class="file docutils literal notranslate"><span class="pre">fibonacci/__init__.py</span></code>
 contains the following line:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.fibonacci</span> <span class="kn">import</span> <span class="n">fib</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.fibonacci</span><span class="w"> </span><span class="kn">import</span> <span class="n">fib</span>
 </pre></div>
 </div>
 <p>This causes the following Flake8 error:</p>
@@ -239,7 +239,7 @@ contains the following line:</p>
 </pre></div>
 </div>
 <p>We suppress this error by adding this comment:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.fibonacci</span> <span class="kn">import</span> <span class="n">fib</span>  <span class="c1"># noqa F401</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.fibonacci</span><span class="w"> </span><span class="kn">import</span> <span class="n">fib</span>  <span class="c1"># noqa F401</span>
 </pre></div>
 </div>
 <p>The comment starts with the keyword <code class="xref py py-obj docutils literal notranslate"><span class="pre">noqa</span></code>, which stands for “no questions
@@ -569,13 +569,13 @@ lower case, with underscores separating words. Even proper nouns are
 usually spelt with lower case letters to avoid being confused with
 class names.</p>
 <div class="badcode docutils container">
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Euler</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> <span class="c1"># Don&#39;t capitalise function names.</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Euler</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> <span class="c1"># Don&#39;t capitalise function names.</span>
 <span class="n">MaxRadius</span> <span class="o">=</span> <span class="mf">10.</span>  <span class="c1"># No CamelCase.</span>
 </pre></div>
 </div>
 </div>
 <div class="goodcode docutils container">
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>  <span class="c1"># Lower case, even for names.</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">euler</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>  <span class="c1"># Lower case, even for names.</span>
 <span class="n">max_radius</span> <span class="o">=</span> <span class="mf">10.</span>  <span class="c1"># Separate words with _.</span>
 </pre></div>
 </div>
@@ -584,17 +584,17 @@ class names.</p>
 <dt>method parameters</dt><dd><p>The first parameter to an <a class="reference internal" href="3_objects.html#term-instance-method"><span class="xref std std-term">instance method</span></a> is the class
 itself. <em>Always and without exception</em> name this parameter <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>.</p>
 <div class="badcode docutils container">
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
 </div>
 </div>
 <div class="goodcode docutils container">
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
 </div>
@@ -605,9 +605,9 @@ from outside the class, it should have a name starting with an
 underscore. This provides a clear distinction between the public
 interface of a class and its internal implementation.</p>
 <div class="goodcode docutils container">
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="nf">_internal_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg1</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_internal_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg1</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
 </div>
@@ -953,7 +953,7 @@ Python documentation in this course is generated by this system. For example,
 recall that we met the function <a class="reference internal" href="fibonacci.html#fibonacci.fibonacci.fib" title="fibonacci.fibonacci.fib"><code class="xref py py-func docutils literal notranslate"><span class="pre">fib()</span></code></a>, which
 calculates Fibonacci numbers, in <a class="reference internal" href="2_programs_in_files.html#modules"><span class="std std-numref">Section 2.3</span></a>. We can ask
 <a class="reference internal" href="fibonacci.html#fibonacci.fibonacci.fib" title="fibonacci.fibonacci.fib"><code class="xref py py-func docutils literal notranslate"><span class="pre">fib()</span></code></a> for its documentation:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">fibonacci</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span><span class="w"> </span><span class="nn">fibonacci</span>
 <span class="gp">In [2]: </span><span class="n">help</span><span class="p">(</span><span class="n">fibonacci</span><span class="o">.</span><span class="n">fib</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1001,15 +1001,15 @@ line docstring which simply says what the function does. The Fibonacci example a
 is a typical case. The single line should be an imperative sentence and end with
 a full stop.</p>
 <div class="badcode docutils container">
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="s2">&quot;Return the n-th Fibonacci number&quot;</span>  <span class="c1"># Single quotes,</span>
                                         <span class="c1"># no full stop.</span>
 
-<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the n-th Fibonacci number.&quot;&quot;&quot;</span>  <span class="c1"># Sentence not</span>
                                               <span class="c1"># imperative.</span>
 
-<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;fib(n)</span>
 <span class="sd">    Return the n-th Fibonacci number.&quot;&quot;&quot;</span>  <span class="c1"># Don&#39;t include the</span>
                                           <span class="c1"># function signature.</span>
@@ -1017,7 +1017,7 @@ a full stop.</p>
 </div>
 </div>
 <div class="goodcode docutils container">
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the n-th Fibonacci number.&quot;&quot;&quot;</span>
 </pre></div>
 </div>
@@ -1027,7 +1027,7 @@ a full stop.</p>
 <h3><span class="section-number">4.7.4. </span>Long docstrings<a class="headerlink" href="#long-docstrings" title="Link to this heading">¶</a></h3>
 <p>Conversely, a more complex object will require much more information in its
 docstring. <a class="reference internal" href="#docstring-det"><span class="std std-numref">Listing 4.2</span></a> shows the full docstring of the function
-<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.det.html#numpy.linalg.det" title="(in NumPy v2.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.linalg.det()</span></code></a>. This covers the type and shape of the input
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.det.html#numpy.linalg.det" title="(in NumPy v2.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.linalg.det()</span></code></a>. This covers the type and shape of the input
 parameter and return value, references to other implementations, and examples
 of usage.</p>
 <p>There is no single universal standard for the layout of a long docstring,
@@ -1037,9 +1037,9 @@ and the other from the <a class="reference external" href="https://numpydoc.read
 consistently use one of these styles across a whole project. Clearly if you are
 contributing code to an existing project then you should follow their style.</p>
 <div class="literal-block-wrapper docutils container" id="id6">
-<span id="docstring-det"></span><div class="code-block-caption"><span class="caption-number">Listing 4.2 </span><span class="caption-text">The <a class="reference internal" href="#term-docstring"><span class="xref std std-term">docstring</span></a> for <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.det.html#numpy.linalg.det" title="(in NumPy v2.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.linalg.det()</span></code></a>. This is a long
+<span id="docstring-det"></span><div class="code-block-caption"><span class="caption-number">Listing 4.2 </span><span class="caption-text">The <a class="reference internal" href="#term-docstring"><span class="xref std std-term">docstring</span></a> for <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.det.html#numpy.linalg.det" title="(in NumPy v2.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.linalg.det()</span></code></a>. This is a long
 docstring using the Numpy convention.</span><a class="headerlink" href="#id6" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">det</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">det</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the determinant of an array.</span>
 
@@ -1233,7 +1233,7 @@ horizontally flipped glider, and a transposed glider.</span><a class="headerlink
 reflected or rotated.</p>
 <ol class="arabic">
 <li><p>Add a class <code class="xref py py-class docutils literal notranslate"><span class="pre">Pattern</span></code> to <code class="xref py py-mod docutils literal notranslate"><span class="pre">life.life</span></code>. The <a class="reference internal" href="3_objects.html#term-constructor"><span class="xref std std-term">constructor</span></a> should
-take in a <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v2.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> array containing a pattern of 1s and 0s, and
+take in a <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v2.3)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> array containing a pattern of 1s and 0s, and
 assign it to the <a class="reference internal" href="3_objects.html#term-attribute"><span class="xref std std-term">attribute</span></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">grid</span></code>.</p></li>
 <li><p>Add <code class="xref py py-class docutils literal notranslate"><span class="pre">Pattern</span></code> to the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.13)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> statement in
 <code class="xref py py-mod docutils literal notranslate"><span class="pre">life.__init__</span></code>.</p></li>

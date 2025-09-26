@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>6. Errors and exceptions &#8212; Object-oriented Programming  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/fenics.css?v=8c7d05f9" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
@@ -220,7 +220,7 @@ script. However, what happens if an error occurs in a function call or
 even several functions down? Consider the following code, which uses
 the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class from
 <a class="reference internal" href="3_objects.html#objects"><span class="std std-numref">Chapter 3</span></a>:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">example_code.polynomial</span><span class="w"> </span><span class="kn">import</span> <span class="n">Polynomial</span>
 
 <span class="gp">In [2]: </span><span class="n">p</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">((</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">))</span>
 
@@ -239,11 +239,11 @@ trouble:</p>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">p</span><span class="p">)</span>
 
 <span class="nn">File ~/docs/principles_of_programming/object-oriented-programming/example_code/polynomial.py:59,</span> in <span class="ni">Polynomial.__radd__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">    </span><span class="mi">58</span> <span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">58</span> <span class="k">def</span><span class="w"> </span><span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="ne">---&gt; </span><span class="mi">59</span>     <span class="k">return</span> <span class="bp">self</span> <span class="o">+</span> <span class="n">other</span>
 
 <span class="nn">File ~/docs/principles_of_programming/object-oriented-programming/example_code/polynomial.py:38,</span> in <span class="ni">Polynomial.__add__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">    </span><span class="mi">36</span> <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">36</span> <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="g g-Whitespace">    </span><span class="mi">37</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
 <span class="ne">---&gt; </span><span class="mi">38</span>         <span class="k">return</span> <span class="n">Polynomial</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">other</span><span class="p">,)</span>
 <span class="g g-Whitespace">    </span><span class="mi">39</span>                           <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
@@ -315,11 +315,11 @@ time.</p>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">p</span><span class="p">)</span>
 
 <span class="nn">File ~/docs/principles_of_programming/object-oriented-programming/example_code/polynomial.py:59,</span> in <span class="ni">Polynomial.__radd__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">    </span><span class="mi">58</span> <span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">58</span> <span class="k">def</span><span class="w"> </span><span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="ne">---&gt; </span><span class="mi">59</span>     <span class="k">return</span> <span class="bp">self</span> <span class="o">+</span> <span class="n">other</span>
 
 <span class="nn">File ~/docs/principles_of_programming/object-oriented-programming/example_code/polynomial.py:38,</span> in <span class="ni">Polynomial.__add__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">    </span><span class="mi">36</span> <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">36</span> <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="g g-Whitespace">    </span><span class="mi">37</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
 <span class="ne">---&gt; </span><span class="mi">38</span>         <span class="k">return</span> <span class="n">Polynomial</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">other</span><span class="p">,)</span>
 <span class="g g-Whitespace">    </span><span class="mi">39</span>                           <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
@@ -395,10 +395,10 @@ integer rather than the type actually provided.</p>
 <span id="typesafe-fib"></span><div class="code-block-caption"><span class="caption-number">Listing 6.1 </span><span class="caption-text">A version of the Fibonacci function which raises an
 exception if a non-integer type is passed as the
 argument.</span><a class="headerlink" href="#id7" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Integral</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">numbers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Integral</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="k">def</span> <span class="nf">typesafe_fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">typesafe_fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="linenos"> 5</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the n-th Fibonacci number, raising an exception if a</span>
 <span class="linenos"> 6</span><span class="sd">    non-integer is passed as n.&quot;&quot;&quot;</span>
 <span class="linenos"> 7</span>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">Integral</span><span class="p">):</span>
@@ -415,7 +415,7 @@ argument.</span><a class="headerlink" href="#id7" title="Link to this code">¶</
 </div>
 </div>
 <p>If we now pass a non-integer value to this function, we observe the following:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">fibonacci.typesafe_fibonacci</span> <span class="kn">import</span> <span class="n">typesafe_fib</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">fibonacci.typesafe_fibonacci</span><span class="w"> </span><span class="kn">import</span> <span class="n">typesafe_fib</span>
 <span class="gp">In [2]: </span><span class="n">typesafe_fib</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 <span class="gt">--------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
@@ -482,7 +482,7 @@ sometimes an exception is a valid result of a valid input, and we just need the
 program to do something out of the ordinary to deal with the situation. For
 example, Euclid’s algorithm for finding the greatest common divisor of
 <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> can very nearly be written recursively as:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -496,17 +496,17 @@ happens if we run this code? Let’s try:</p>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">gcd</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
 
 <span class="nn">Cell In[1], line 2,</span> in <span class="ni">gcd</span><span class="nt">(a, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">1</span> <span class="k">def</span><span class="w"> </span><span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
 
 <span class="nn">Cell In[1], line 2,</span> in <span class="ni">gcd</span><span class="nt">(a, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">1</span> <span class="k">def</span><span class="w"> </span><span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
 
     <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">similar</span> <span class="n">frames</span><span class="p">:</span> <span class="n">gcd</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">2</span> <span class="p">(</span><span class="mi">1</span> <span class="n">times</span><span class="p">)]</span>
 
 <span class="nn">Cell In[1], line 2,</span> in <span class="ni">gcd</span><span class="nt">(a, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">1</span> <span class="k">def</span><span class="w"> </span><span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
 
 <span class="ne">ZeroDivisionError</span>: integer modulo by zero
@@ -524,7 +524,7 @@ instead. <a class="reference internal" href="#gcd"><span class="std std-numref">
 <span id="gcd"></span><div class="code-block-caption"><span class="caption-number">Listing 6.2 </span><span class="caption-text">A recursive implementation of Euclid’s algorithm which
 catches the <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a> to implement the
 base case.</span><a class="headerlink" href="#id8" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="hll"><span class="linenos">2</span>    <span class="k">try</span><span class="p">:</span>
 </span><span class="linenos">3</span>        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
 <span class="hll"><span class="linenos">4</span>    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
@@ -604,7 +604,7 @@ confusing, so a practical example may help. <a class="reference internal" href="
 different message for each type of clause.</p>
 <div class="literal-block-wrapper docutils container" id="id9">
 <span id="except-demo"></span><div class="code-block-caption"><span class="caption-number">Listing 6.3 </span><span class="caption-text">A demonstration of all the clauses of the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.13)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block.</span><a class="headerlink" href="#id9" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">except_demo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">except_demo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="linenos"> 2</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Demonstrate all the clauses of a `try` block.&quot;&quot;&quot;</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempting division by </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -622,7 +622,7 @@ different message for each type of clause.</p>
 <p>If we execute <a class="reference internal" href="example_code.html#example_code.try_except.except_demo" title="example_code.try_except.except_demo"><code class="xref py py-func docutils literal notranslate"><span class="pre">except_demo()</span></code></a> for a variety of
 arguments, we can observe this complete <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.13)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block in action. First,
 we provide an input which is a valid divisor:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.try_except</span> <span class="kn">import</span> <span class="n">except_demo</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">example_code.try_except</span><span class="w"> </span><span class="kn">import</span> <span class="n">except_demo</span>
 <span class="gp">In [2]: </span><span class="n">except_demo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">Attempting division by 1</span>
 <span class="go">0.0</span>

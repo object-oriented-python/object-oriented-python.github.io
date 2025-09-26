@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>9. Trees and directed acyclic graphs &#8212; Object-oriented Programming  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/fenics.css?v=8c7d05f9" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
@@ -127,7 +127,7 @@ while <a class="reference internal" href="#kwarg-unpacking"><span class="std std
 <span id="kwarg-packing"></span><div class="code-block-caption"><span class="caption-number">Listing 9.1 </span><span class="caption-text">An illustration of keyword argument packing. All of the keyword
 arguments are packed into the dictionary <code class="xref py py-data docutils literal notranslate"><span class="pre">kwargs</span></code>, except for <code class="xref py py-obj docutils literal notranslate"><span class="pre">b</span></code>,
 because that explicitly appears in the parameter list of <code class="xref py py-func docutils literal notranslate"><span class="pre">fn()</span></code>.</span><a class="headerlink" href="#id5" title="Link to this code">¶</a></div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="k">def</span><span class="w"> </span><span class="nf">fn</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="gp">   ...: </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 <span class="gp">   ...: </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b:&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="gp">   ...: </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;kwargs:&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
@@ -159,7 +159,7 @@ function that will accept any combination of positional and keyword arguments.
 This is often useful if the function is intended to pass these arguments through
 to another function, without knowing anything about that inner function. For
 example:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="o">...</span>
     <span class="n">a</span> <span class="o">=</span>  <span class="n">inner_fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="o">...</span>
@@ -329,7 +329,7 @@ become apparent that it is not always possible to do so.</p>
 <div class="literal-block-wrapper docutils container" id="id16">
 <span id="treenode"></span><div class="code-block-caption"><span class="caption-number">Listing 9.3 </span><span class="caption-text">A basic tree implementation. This code is available as the
 <a class="reference internal" href="example_code.html#example_code.graphs.TreeNode" title="example_code.graphs.TreeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.graphs.TreeNode</span></code></a> class.</span><a class="headerlink" href="#id16" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">TreeNode</span><span class="p">:</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">TreeNode</span><span class="p">:</span>
 <span class="linenos"> 2</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;A basic tree implementation.</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="sd">    Observe that a tree is simply a collection of connected TreeNodes.</span>
@@ -342,15 +342,15 @@ become apparent that it is not always possible to do so.</p>
 <span class="linenos">11</span><span class="sd">        The TreeNodes which are the children of this node.</span>
 <span class="linenos">12</span><span class="sd">    &quot;&quot;&quot;</span>
 <span class="linenos">13</span>
-<span class="linenos">14</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">*</span><span class="n">children</span><span class="p">):</span>
+<span class="linenos">14</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">*</span><span class="n">children</span><span class="p">):</span>
 <span class="linenos">15</span>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
 <span class="linenos">16</span>        <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="n">children</span>
 <span class="linenos">17</span>
-<span class="linenos">18</span>    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">18</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">19</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the canonical string representation.&quot;&quot;&quot;</span>
 <span class="linenos">20</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}{</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="linenos">21</span>
-<span class="linenos">22</span>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">22</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">23</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Serialise the tree recursively as parent -&gt; (children).&quot;&quot;&quot;</span>
 <span class="linenos">24</span>        <span class="n">childstring</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">))</span>
 <span class="linenos">25</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">!s}</span><span class="s2"> -&gt; (</span><span class="si">{</span><span class="n">childstring</span><span class="si">}</span><span class="s2">)&quot;</span>
@@ -359,7 +359,7 @@ become apparent that it is not always possible to do so.</p>
 </div>
 <p><a class="reference internal" href="#treenode"><span class="std std-numref">Listing 9.3</span></a> shows a very simple class which implements a tree. For
 example, we can represent the tree in <a class="reference internal" href="#tree-image"><span class="std std-numref">Fig. 9.4</span></a> using:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.graphs</span> <span class="kn">import</span> <span class="n">TreeNode</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">example_code.graphs</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreeNode</span>
 
 <span class="gp">In [2]: </span><span class="n">tree</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span>
 <span class="gp">   ...: </span>    <span class="s2">&quot;a&quot;</span><span class="p">,</span>
@@ -394,7 +394,7 @@ do when we get there.</p>
 <div class="literal-block-wrapper docutils container" id="id17">
 <span id="postorder-recursive"></span><div class="code-block-caption"><span class="caption-number">Listing 9.4 </span><span class="caption-text">A basic postorder tree visitor. This code is also available as
 <a class="reference internal" href="example_code.html#example_code.graphs.postvisitor" title="example_code.graphs.postvisitor"><code class="xref py py-func docutils literal notranslate"><span class="pre">example_code.graphs.postvisitor()</span></code></a>.</span><a class="headerlink" href="#id17" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">postvisitor</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">fn</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">postvisitor</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">fn</span><span class="p">):</span>
 <span class="linenos"> 2</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Traverse tree in postorder applying a function to every node.</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="sd">    Parameters</span>
@@ -420,7 +420,7 @@ node, <em>before</em> calling <code class="xref py py-func docutils literal notr
 <span id="linenos-postorder"></span><div class="code-block-caption"><span class="caption-number">Listing 9.5 </span><span class="caption-text">A trivial postorder tree traversal which simply prints the node
 values in order. Observe that d, e, and f are printed before b; g is
 printed before c; and both b and c are printed before a.</span><a class="headerlink" href="#id18" title="Link to this code">¶</a></div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.graphs</span> <span class="kn">import</span> <span class="n">TreeNode</span><span class="p">,</span> <span class="n">postvisitor</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">In [1]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">example_code.graphs</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreeNode</span><span class="p">,</span> <span class="n">postvisitor</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="gp">In [2]: </span><span class="n">tree</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">),</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;e&quot;</span><span class="p">),</span>
 <span class="linenos"> 4</span><span class="gp">   ...: </span>                                   <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">)),</span>
@@ -458,7 +458,7 @@ call <code class="xref py py-func docutils literal notranslate"><span class="pre
 <div class="literal-block-wrapper docutils container" id="id19">
 <span id="preorder-recursive"></span><div class="code-block-caption"><span class="caption-number">Listing 9.6 </span><span class="caption-text">The simple preorder visitor from
 <a class="reference internal" href="example_code.html#example_code.graphs.previsitor" title="example_code.graphs.previsitor"><code class="xref py py-func docutils literal notranslate"><span class="pre">example_code.graphs.previsitor()</span></code></a>.</span><a class="headerlink" href="#id19" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">previsitor</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">fn_parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">previsitor</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">fn_parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="linenos"> 2</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Traverse tree in preorder applying a function to every node.</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="sd">    Parameters</span>
@@ -479,9 +479,9 @@ call <code class="xref py py-func docutils literal notranslate"><span class="pre
 </div>
 <p>What can we do with a preorder traversal? As an example, we can measure
 the depth in the tree of every node:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="kn">from</span> <span class="nn">example_code.graphs</span> <span class="kn">import</span> <span class="n">previsitor</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">example_code.graphs</span><span class="w"> </span><span class="kn">import</span> <span class="n">previsitor</span>
 
-<span class="gp">In [8]: </span><span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+<span class="gp">In [8]: </span><span class="k">def</span><span class="w"> </span><span class="nf">fn</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
 <span class="gp">   ...: </span>    <span class="n">depth</span> <span class="o">=</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">p</span> <span class="k">else</span> <span class="mi">1</span>
 <span class="gp">   ...: </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">node</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">depth</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="gp">   ...: </span>    <span class="k">return</span> <span class="n">depth</span>
@@ -616,7 +616,7 @@ operators but different for terminals.</p>
 <dt><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a></dt><dd><p>Remember that this is the canonical string representation, and is usually
 the code that could be passed to the <a class="reference internal" href="2_programs_in_files.html#term-Python-interpreter"><span class="xref std std-term">Python interpreter</span></a> to construct
 the object. Something like the following would work:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">operands</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -713,12 +713,12 @@ function.</p>
 a single <code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code> node. The implementation of the
 expressions language itself, in the <code class="xref py py-mod docutils literal notranslate"><span class="pre">expressions</span></code> module, is
 <a class="reference internal" href="#ex-expr"><span class="std std-ref">left as an exercise</span></a>.</span><a class="headerlink" href="#id22" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">singledispatch</span>
-<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">expressions</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">singledispatch</span>
+<span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">expressions</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span>
 <span class="linenos"> 5</span><span class="nd">@singledispatch</span>
-<span class="linenos"> 6</span><span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos"> 6</span><span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="linenos"> 7</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Evaluate an expression node.</span>
 <span class="linenos"> 8</span>
 <span class="linenos"> 9</span><span class="sd">    Parameters</span>
@@ -741,37 +741,37 @@ expressions language itself, in the <code class="xref py py-mod docutils literal
 <span class="linenos">26</span>
 <span class="linenos">27</span>
 <span class="linenos">28</span><span class="nd">@evaluate</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">expressions</span><span class="o">.</span><span class="n">Number</span><span class="p">)</span>
-<span class="linenos">29</span><span class="k">def</span> <span class="nf">_</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">29</span><span class="k">def</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="linenos">30</span>    <span class="k">return</span> <span class="n">expr</span><span class="o">.</span><span class="n">value</span>
 <span class="linenos">31</span>
 <span class="linenos">32</span>
 <span class="linenos">33</span><span class="nd">@evaluate</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">expressions</span><span class="o">.</span><span class="n">Symbol</span><span class="p">)</span>
-<span class="linenos">34</span><span class="k">def</span> <span class="nf">_</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="n">symbol_map</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">34</span><span class="k">def</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="n">symbol_map</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="linenos">35</span>    <span class="k">return</span> <span class="n">symbol_map</span><span class="p">[</span><span class="n">expr</span><span class="o">.</span><span class="n">value</span><span class="p">]</span>
 <span class="linenos">36</span>
 <span class="linenos">37</span>
 <span class="linenos">38</span><span class="nd">@evaluate</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">expressions</span><span class="o">.</span><span class="n">Add</span><span class="p">)</span>
-<span class="linenos">39</span><span class="k">def</span> <span class="nf">_</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">39</span><span class="k">def</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="linenos">40</span>    <span class="k">return</span> <span class="n">o</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">o</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="linenos">41</span>
 <span class="linenos">42</span>
 <span class="linenos">43</span><span class="nd">@evaluate</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">expressions</span><span class="o">.</span><span class="n">Sub</span><span class="p">)</span>
-<span class="linenos">44</span><span class="k">def</span> <span class="nf">_</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">44</span><span class="k">def</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="linenos">45</span>    <span class="k">return</span> <span class="n">o</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">o</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="linenos">46</span>
 <span class="linenos">47</span>
 <span class="linenos">48</span><span class="nd">@evaluate</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">expressions</span><span class="o">.</span><span class="n">Mul</span><span class="p">)</span>
-<span class="linenos">49</span><span class="k">def</span> <span class="nf">_</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">49</span><span class="k">def</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="linenos">50</span>    <span class="k">return</span> <span class="n">o</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">o</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="linenos">51</span>
 <span class="linenos">52</span>
 <span class="linenos">53</span><span class="nd">@evaluate</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">expressions</span><span class="o">.</span><span class="n">Div</span><span class="p">)</span>
-<span class="linenos">54</span><span class="k">def</span> <span class="nf">_</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">54</span><span class="k">def</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="linenos">55</span>    <span class="k">return</span> <span class="n">o</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">o</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="linenos">56</span>
 <span class="linenos">57</span>
 <span class="linenos">58</span><span class="nd">@evaluate</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">expressions</span><span class="o">.</span><span class="n">Pow</span><span class="p">)</span>
-<span class="linenos">59</span><span class="k">def</span> <span class="nf">_</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">59</span><span class="k">def</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="linenos">60</span>    <span class="k">return</span> <span class="n">o</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="n">o</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -811,7 +811,7 @@ through to the visitor function. This is available as
 <code class="xref py py-func docutils literal notranslate"><span class="pre">example_code.expression_tools.post_visitor()</span></code>. We also account
 for the name changes between <a class="reference internal" href="example_code.html#example_code.graphs.TreeNode" title="example_code.graphs.TreeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeNode</span></code></a>
 and <code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code>.</span><a class="headerlink" href="#id23" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">postvisitor</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">postvisitor</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="linenos"> 2</span><span class="w">    </span><span class="sd">&#39;&#39;&#39;Visit an Expression in postorder applying a function to every node.</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="sd">    Parameters</span>
@@ -835,9 +835,9 @@ and <code class="xref py py-class docutils literal notranslate"><span class="pre
 </div>
 <p>Assuming we have an implementation of our simple expression language, we are now
 in a position to try out our expression evaluator:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">expressions</span> <span class="kn">import</span> <span class="n">Symbol</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">expressions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Symbol</span>
 
-<span class="gp">In [2]: </span><span class="kn">from</span> <span class="nn">example_code.expression_tools</span> <span class="kn">import</span> <span class="n">evaluate</span><span class="p">,</span> <span class="n">postvisitor</span>
+<span class="gp">In [2]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">example_code.expression_tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">evaluate</span><span class="p">,</span> <span class="n">postvisitor</span>
 
 <span class="gp">In [3]: </span><span class="n">x</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 
@@ -940,7 +940,7 @@ expressions that automatically result in <a class="reference internal" href="#te
 construct expression DAGs using our existing tools, at the expense of a little
 extra code. Take as an example the expression we used above: <span class="math notranslate nohighlight">\(x^2 +
 3/x^2\)</span>. If we write:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">expressions</span> <span class="kn">import</span> <span class="n">Symbol</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">expressions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Symbol</span>
 
 <span class="gp">In [2]: </span><span class="n">x</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 
@@ -949,7 +949,7 @@ extra code. Take as an example the expression we used above: <span class="math n
 </div>
 <p>then each occurrence of <code class="xref py py-obj docutils literal notranslate"><span class="pre">x**2</span></code> creates a separate <code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code> object and
 we have a tree. However, if we instead write:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">expressions</span> <span class="kn">import</span> <span class="n">Symbol</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">expressions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Symbol</span>
 
 <span class="gp">In [2]: </span><span class="n">x</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 
@@ -974,12 +974,12 @@ results of visiting them. <a class="reference internal" href="#nonrecursive-post
 algorithm.</p>
 <div class="literal-block-wrapper docutils container" id="id25">
 <span id="nonrecursive-postvisit"></span><div class="code-block-caption"><span class="caption-number">Listing 9.9 </span><span class="caption-text">Pythonic <a class="reference internal" href="3_objects.html#term-pseudocode"><span class="xref std std-term">pseudocode</span></a> for a non-recursive postorder <a class="reference internal" href="#term-DAG"><span class="xref std std-term">DAG</span></a> visitor.</span><a class="headerlink" href="#id25" title="Link to this code">¶</a></div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">visit</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">visitor</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">visit</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">visitor</span><span class="p">):</span>
 <span class="linenos"> 2</span>    <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="linenos"> 3</span>    <span class="n">visited</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="linenos"> 4</span>    <span class="n">push</span> <span class="n">expr</span> <span class="n">onto</span> <span class="n">stack</span>
 <span class="linenos"> 5</span>    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
-<span class="linenos"> 6</span>        <span class="n">e</span> <span class="o">=</span> <span class="n">pop</span> <span class="kn">from</span> <span class="nn">stack</span>
+<span class="linenos"> 6</span>        <span class="n">e</span> <span class="o">=</span> <span class="n">pop</span> <span class="kn">from</span><span class="w"> </span><span class="nn">stack</span>
 <span class="linenos"> 7</span>        <span class="n">unvisited_children</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="linenos"> 8</span>        <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">e</span><span class="o">.</span><span class="n">operands</span><span class="p">:</span>
 <span class="linenos"> 9</span>            <span class="k">if</span> <span class="n">o</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
