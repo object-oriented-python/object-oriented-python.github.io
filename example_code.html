@@ -81,8 +81,61 @@ implementation of Euclid’s algorithm.</p>
 </dd></dl>
 
 </section>
-<section id="example-code-expression-tools-module">
-<h2>example_code.expression_tools module<a class="headerlink" href="#example-code-expression-tools-module" title="Link to this heading">¶</a></h2>
+<section id="module-example_code.expression_tools">
+<span id="example-code-expression-tools-module"></span><h2>example_code.expression_tools module<a class="headerlink" href="#module-example_code.expression_tools" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="example_code.expression_tools.evaluate">
+<span class="sig-prename descclassname"><span class="pre">example_code.expression_tools.</span></span><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/expression_tools.html#evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#example_code.expression_tools.evaluate" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">example_code.expression_tools.</span></span><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Number</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">example_code.expression_tools.</span></span><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Symbol</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbol_map</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">example_code.expression_tools.</span></span><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Add</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">example_code.expression_tools.</span></span><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sub</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">example_code.expression_tools.</span></span><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Mul</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">example_code.expression_tools.</span></span><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Div</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">example_code.expression_tools.</span></span><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Pow</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Evaluate an expression node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>expr</strong> (<em>Expression</em>) – The expression node to be evaluated.</p></li>
+<li><p><strong>*o</strong> (<a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.14)"><em>numbers.Number</em></a>) – The results of evaluating the operands of expr.</p></li>
+<li><p><strong>**kwargs</strong> – Any keyword arguments required to evaluate specific types of
+expression.</p></li>
+<li><p><strong>symbol_map</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – <p>A dictionary mapping Symbol names to numerical values, for
+example:</p>
+<p>{‘x’: 1}</p>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="example_code.expression_tools.postvisitor">
+<span class="sig-prename descclassname"><span class="pre">example_code.expression_tools.</span></span><span class="sig-name descname"><span class="pre">postvisitor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/example_code/expression_tools.html#postvisitor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#example_code.expression_tools.postvisitor" title="Link to this definition">¶</a></dt>
+<dd><p>Visit an Expression in postorder applying a function to every node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>expr</strong> (<em>Expression</em>) – The expression to be visited.</p></li>
+<li><p><strong>fn</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">function(node,</span> <span class="pre">*o,</span> <span class="pre">**kwargs)</span></code>) – A function to be applied at each node. The function should take
+the node to be visited as its first argument, and the results of
+visiting its operands as any further positional arguments. Any
+additional information that the visitor requires can be passed in
+as keyword arguments.</p></li>
+<li><p><strong>**kwargs</strong> – Any additional keyword arguments to be passed to fn.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-example_code.graphs">
 <span id="example-code-graphs-module"></span><h2>example_code.graphs module<a class="headerlink" href="#module-example_code.graphs" title="Link to this heading">¶</a></h2>
