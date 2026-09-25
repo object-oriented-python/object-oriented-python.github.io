@@ -220,7 +220,7 @@ an arithmetic expression.</p>
 <section id="implementing-stacks-in-python">
 <h3><span class="section-number">5.1.2. </span>Implementing stacks in Python<a class="headerlink" href="#implementing-stacks-in-python" title="Link to this heading">¶</a></h3>
 <p>While it is strictly true that Python does not have a stack type, the
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> class functions as a perfectly good stack. The
+<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> class functions as a perfectly good stack. The
 relationship between the two is shown in <a class="reference internal" href="#list-stack"><span class="std std-numref">Table 5.2</span></a>.</p>
 <span id="list-stack"></span><table class="docutils align-default" id="id9">
 <caption><span class="caption-number">Table 5.2 </span><span class="caption-text">Correspondence between abstract stack operations, and
@@ -266,9 +266,9 @@ stack operation, but often useful.</p></td>
 complication of what, at the end of the day, are just operations on
 some objects. Instead of talking about stacks, why don’t we just say
 that a reverse Polish calculator can be implemented using a
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>?</p>
+<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>?</p>
 <p>The critical conceptual difference here is that a
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> is a Python construct, while a stack is a mathematical
+<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> is a Python construct, while a stack is a mathematical
 concept with universal applicability. If you understand the concept of
 a stack, then you will be able to use this to design algorithms and
 write programs in other languages where the concrete implementation
@@ -329,15 +329,15 @@ because we are primarily interested in characterising the number of
 primitive operations or the amount of memory that an algorithm will
 use as a function of the number of objects stored in the relevant
 abstract data type.</p>
-<p>For example, in the Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> implementation, all of
+<p>For example, in the Python <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> implementation, all of
 the stack operations are, on average, <span class="math notranslate nohighlight">\(O(1)\)</span>. This means that
 each of pushing, popping, and peeking has an approximately fixed cost
 that does not depend on the current size of the stack. This does not
 obviously have to be the case, especially for the push and pop
 operations, which modify the stack. <a class="reference internal" href="#badstack"><span class="std std-numref">Listing 5.2</span></a> provides an
 implementation of a stack in which the data is stored as a Python
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>. Here, every time item is pushed onto or popped from
-the stack, a new copy of the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> has to be made. This
+<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>. Here, every time item is pushed onto or popped from
+the stack, a new copy of the <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> has to be made. This
 touches every one of the <span class="math notranslate nohighlight">\(n\)</span> items currently in the stack, and
 therefore costs <span class="math notranslate nohighlight">\(O(n)\)</span> operations. It is often useful to
 distinguish between time complexity, which is an indication of the
@@ -381,7 +381,7 @@ cost is very expensive indeed!</p>
 </div>
 <section id="amortised-complexity-and-worst-case-complexity">
 <h3><span class="section-number">5.3.1. </span>Amortised complexity and worst case complexity<a class="headerlink" href="#amortised-complexity-and-worst-case-complexity" title="Link to this heading">¶</a></h3>
-<p>The actual implementation of a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> is of a contiguous
+<p>The actual implementation of a <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> is of a contiguous
 sequence of locations in memory, each of which can hold a reference to
 a Python object. How, then, can appending an item to a list work? The
 next location in memory might already be in use for some other
@@ -404,7 +404,7 @@ called a <a class="reference internal" href="#term-dynamic-array"><span class="x
 <figure class="align-default" id="id12">
 <span id="dynamicarray"></span><img alt="_images/dynamic_array.svg" src="_images/dynamic_array.svg" />
 <figcaption>
-<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">A dynamic array implementation of a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>. The existing
+<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">A dynamic array implementation of a <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>. The existing
 memory buffer is full, so when 11 is appended to the list, a larger
 buffer is created and the whole list is copied into it. When 13 is
 subsequently appended to the list, there is still space in the buffer so
@@ -445,18 +445,18 @@ object consumes. The function in <a class="reference internal" href="#byte-size"
 memory consumption of progressively longer lists, and <a class="reference internal" href="#byte-size-demo"><span class="std std-numref">Listing 5.4</span></a>
 demonstrates this.</p>
 <div class="literal-block-wrapper docutils container" id="id13">
-<span id="byte-size"></span><div class="code-block-caption"><span class="caption-number">Listing 5.3 </span><span class="caption-text">Code to progressively lengthen a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> and observe the
+<span id="byte-size"></span><div class="code-block-caption"><span class="caption-number">Listing 5.3 </span><span class="caption-text">Code to progressively lengthen a <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> and observe the
 impact on its memory consumption. This function is available as
 <a class="reference internal" href="example_code.html#example_code.linked_list.byte_size" title="example_code.linked_list.byte_size"><code class="xref py py-func docutils literal notranslate"><span class="pre">example_code.linked_list.byte_size()</span></code></a>.</span><a class="headerlink" href="#id13" title="Link to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="k">def</span><span class="w"> </span><span class="nf">byte_size</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="linenos"> 4</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Print the size in bytes of lists up to length n.&quot;&quot;&quot;</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="sd">"""Print the size in bytes of lists up to length n."""</span>
 <span class="linenos"> 5</span>    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="linenos"> 6</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="linenos"> 7</span>        <span class="n">a</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="linenos"> 8</span>        <span class="n">b</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="linenos"> 9</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Length:</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">; Size in bytes:</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos"> 9</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Length:</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">; Size in bytes:</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="linenos">10</span>        <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -579,7 +579,7 @@ the link reference from <code class="xref py py-obj docutils literal notranslate
 <span class="linenos">4</span>       <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">next</span>
 <span class="linenos">5</span>
 <span class="linenos">6</span>    <span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">):</span>
-<span class="linenos">7</span><span class="w">       </span><span class="sd">&#39;&#39;&#39;Insert a new link after the current one.&#39;&#39;&#39;</span>
+<span class="linenos">7</span><span class="w">       </span><span class="sd">'''Insert a new link after the current one.'''</span>
 <span class="linenos">8</span>       <span class="n">link</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next</span>
 <span class="linenos">9</span>       <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">link</span>
 </pre></div>
@@ -615,8 +615,8 @@ objects in the collection and perform some action for each one. This
 operation is sufficiently common that Python provides a special syntax
 for it: the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#for" title="(in Python v3.14)"><span class="xref std std-ref">for loop</span></a>. You will already be very
 familiar with looping over sequences such as lists:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="k">for</span> <span class="n">planet</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;World&quot;</span><span class="p">,</span> <span class="s2">&quot;Mars&quot;</span><span class="p">,</span> <span class="s2">&quot;Venus&quot;</span><span class="p">]:</span>
-<span class="gp">   ...: </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="k">for</span> <span class="n">planet</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"World"</span><span class="p">,</span> <span class="s2">"Mars"</span><span class="p">,</span> <span class="s2">"Venus"</span><span class="p">]:</span>
+<span class="gp">   ...: </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Hello </span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="gp">   ...:</span>
 <span class="go">Hello World</span>
 <span class="go">Hello Mars</span>
@@ -631,25 +631,25 @@ care how a particular container is implemented and therefore how to find all of
 its contents, they can simply write a for loop to access every item in turn.</p>
 <p>There are two <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special methods</span></a> required for iteration.
 Neither take any arguments beyond the object itself. The first,
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#container.__iter__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a>, needs to be implemented by the <a class="reference internal" href="#term-iterable"><span class="xref std std-term">iterable</span></a>
+<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#container.__iter__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a>, needs to be implemented by the <a class="reference internal" href="#term-iterable"><span class="xref std std-term">iterable</span></a>
 type. Its role is to return an object which implements iteration. Usually this
 will be a new object which keeps track of the iteration.</p>
-<p>The object returned by <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#container.__iter__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> is called an
-<a class="reference internal" href="#term-iterator"><span class="xref std std-term">iterator</span></a>. It also needs to implement <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__iter__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a>, for
+<p>The object returned by <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#container.__iter__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> is called an
+<a class="reference internal" href="#term-iterator"><span class="xref std std-term">iterator</span></a>. It also needs to implement <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#iterator.__iter__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a>, for
 the technical reason that it should be possible to interate over either the
-iterable or the corresponding iterator. The <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__iter__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> method
+iterable or the corresponding iterator. The <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#iterator.__iter__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> method
 of an <a class="reference internal" href="#term-iterator"><span class="xref std std-term">iterator</span></a> will usually simply <code class="xref py py-obj docutils literal notranslate"><span class="pre">return</span> <span class="pre">self</span></code>. In addition,
-iterators must implement the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> method. This is called
+iterators must implement the <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#iterator.__next__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> method. This is called
 by Python repeatedly to obtain the next object in the iteration sequence. Once
-the sequence is exhausted, subsequent calls to <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a>
-should raise the built-in <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopIteration" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopIteration</span></code></a> exception. This tells Python
+the sequence is exhausted, subsequent calls to <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#iterator.__next__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a>
+should raise the built-in <a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#StopIteration" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopIteration</span></code></a> exception. This tells Python
 that the iteration is over. This arrangement is called the iterator protocol,
-and it’s further documented in the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typeiter" title="(in Python v3.14)"><span class="xref std std-ref">official Python documentation</span></a>.</p>
+and it’s further documented in the <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#typeiter" title="(in Python v3.14)"><span class="xref std std-ref">official Python documentation</span></a>.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>Raising exceptions is the subject of <a class="reference internal" href="6_exceptions.html#raising-exceptions"><span class="std std-numref">Section 6.4</span></a>,
 to which we will turn presently. For current purposes, it is
-sufficient to know that iteration is halted when <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a>
+sufficient to know that iteration is halted when <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#iterator.__next__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a>
 executes this line of code:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">StopIteration</span>
 </pre></div>
@@ -670,7 +670,7 @@ protocol.</span><a class="headerlink" href="#id17" title="Link to this code">¶<
 <span class="linenos"> 4</span>        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">next</span>
 <span class="linenos"> 5</span>
 <span class="linenos"> 6</span>    <span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">):</span>
-<span class="linenos"> 7</span><span class="w">        </span><span class="sd">&#39;&#39;&#39;Insert a new link after the current one.&#39;&#39;&#39;</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="sd">'''Insert a new link after the current one.'''</span>
 <span class="linenos"> 8</span>        <span class="n">link</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next</span>
 <span class="linenos"> 9</span>        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">link</span>
 <span class="linenos">10</span>
@@ -707,7 +707,7 @@ protocol.</span><a class="headerlink" href="#id17" title="Link to this code">¶<
 </pre></div>
 </div>
 <p>Indeed, since Python now knows how to iterate over our linked list,
-converting it to a sequence type such as a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> will now work
+converting it to a sequence type such as a <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> will now work
 automatically:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="nb">tuple</span><span class="p">(</span><span class="n">linked_list</span><span class="p">)</span>
 <span class="gh">Out[5]: </span><span class="go">(1, 2, 3)</span>
@@ -739,12 +739,12 @@ iterated over as it is used. Generator expressions are mostly useful when the
 sequence is to be used only once. The following slightly frivolous example
 function removes the vowels from a string:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">no_vowels</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">char</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s2">&quot;aeiou&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">char</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s2">"aeiou"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This example illustrates another feature of the generator expression syntax:
 the brackets surrounding the expression can be omitted if it is the only
-argument to a function. In this case, that function is the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.join" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">join()</span></code></a>
+argument to a function. In this case, that function is the <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str.join" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">join()</span></code></a>
 method of the empty string (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>).</p>
 </section>
 <section id="other-abstract-data-types">
@@ -759,11 +759,11 @@ examples.</p>
 <dt>set</dt><dd><p>A set is an unordered collection of objects with the property that objects
 that compare equal can only occur once in the set. Inserting or accessing a
 set member has <span class="math notranslate nohighlight">\(O(1)\)</span> <a class="reference internal" href="#term-amortised-complexity"><span class="xref std std-term">amortised complexity</span></a>. Python provides the
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> built in class as an implementation.</p>
+<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#set" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> built in class as an implementation.</p>
 </dd>
 <dt>dictionary or map</dt><dd><p>A generalised function in which unique (up to equality) keys are mapped to
 arbitrary values. Again, insertion and deletion cost <span class="math notranslate nohighlight">\(O(1)\)</span>
-operations on average. The Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> type is an implementation.</p>
+operations on average. The Python <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> type is an implementation.</p>
 </dd>
 <dt>graph</dt><dd><p>A general relation between a set and itself defined by a set of vertices
 and a set of edges, where each edge connects exactly two vertices. Graphs
@@ -812,11 +812,11 @@ and the original buffer is returned to the system.</p>
 program while it is running.</p>
 </dd>
 <dt id="term-iterable">iterable<a class="headerlink" href="#term-iterable" title="Link to this term">¶</a></dt><dd><p>An object over which iteration is possible. Iterators have an
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#container.__iter__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> method which returns an <a class="reference internal" href="#term-iterator"><span class="xref std std-term">iterator</span></a>.</p>
+<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#container.__iter__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> method which returns an <a class="reference internal" href="#term-iterator"><span class="xref std std-term">iterator</span></a>.</p>
 </dd>
 <dt id="term-iterator">iterator<a class="headerlink" href="#term-iterator" title="Link to this term">¶</a></dt><dd><p>An object encoding the progress of an iteration. Python internally
 implements iteration by successively calling the
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> method of an iterator.</p>
+<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#iterator.__next__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> method of an iterator.</p>
 </dd>
 <dt id="term-queue">queue<a class="headerlink" href="#term-queue" title="Link to this term">¶</a></dt><dt id="term-FIFO-first-in-first-out">FIFO (first in, first out)<a class="headerlink" href="#term-FIFO-first-in-first-out" title="Link to this term">¶</a></dt><dd><p>An <a class="reference internal" href="#term-abstract-data-type"><span class="xref std std-term">abstract data type</span></a> representing an ordered sequence
 of objects in which objects are accessed in the order in which
@@ -872,7 +872,7 @@ code should print the <code class="xref py py-obj docutils literal notranslate">
 </pre></div>
 </div>
 <p>Obviously the Fibonacci sequence is infinite, so your iterator will never
-raise <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopIteration" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopIteration</span></code></a>. Make sure that calculating the next number is
+raise <a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#StopIteration" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopIteration</span></code></a>. Make sure that calculating the next number is
 always a <span class="math notranslate nohighlight">\(O(1)\)</span> operation: don’t recalculate from 1 each time.</p>
 </div></div><div class="proof proof-type-exercise" id="id19">
 
@@ -941,7 +941,7 @@ starting from the first to the last. Iterating over the
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>You can create a list of length <code class="xref py py-obj docutils literal notranslate"><span class="pre">n</span></code> containing only
-<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">None</span></code></a> using the following syntax:</p>
+<a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">None</span></code></a> using the following syntax:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
 </pre></div>
 </div>
@@ -952,7 +952,7 @@ to be very useful.</p>
 <p class="admonition-title">Hint</p>
 <p>When removing an item from the <code class="xref py py-class docutils literal notranslate"><span class="pre">Deque</span></code>, it is important to
 actually overwrite the place in the ring buffer occupied by that item,
-perhaps with <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>. Failing to do so can cause a program to “leak”
+perhaps with <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>. Failing to do so can cause a program to “leak”
 memory (i.e. fail to free memory that is no longer needed).</p>
 </div>
 <div class="admonition note">

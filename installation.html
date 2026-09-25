@@ -71,7 +71,7 @@ Chromebook</a>.</p>
 install the Homebrew package manager. Open a terminal (press <kbd class="kbd docutils literal notranslate">⌘</kbd> +
 <kbd class="kbd docutils literal notranslate">space</kbd> to open Spotlight Search and then type <code class="xref py py-obj docutils literal notranslate"><span class="pre">terminal</span></code> in the search
 window) and run the following command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">"</span>
 </pre></div>
 </div>
 <p>Don’t type the <kbd class="kbd docutils literal notranslate">$</kbd>. That’s the terminal prompt (it might appear as another
@@ -95,7 +95,7 @@ sufficiently recent Python should be sufficient.</p>
 <h3>MacOS<a class="headerlink" href="#macos" title="Link to this heading">¶</a></h3>
 <p>MacOS comes with Python 3, but it’s a cut down version not suitable for our
 purposes. Instead, install Python from Homebrew:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>brew<span class="w"> </span>install<span class="w"> </span>python3.12
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>brew<span class="w"> </span>install<span class="w"> </span>python@3.13
 </pre></div>
 </div>
 </section>
@@ -121,8 +121,8 @@ For example on Ubuntu or Debian you would run:</p>
 <p>Git is a revision control system. Revision control systems enable you to keep
 track of the different versions of a piece of code as you work on them, and to
 have these versions on different computers as well as backed up in the cloud. We
-will use Git and GitHub classroom as a mechanism for distributing, working with
-and submitting code exercises.</p>
+will use Git and GitHub, together with a classroom service such as Classroom 50,
+as a mechanism for distributing, working with and submitting code exercises.</p>
 <section id="id1">
 <h3>Windows<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <p>Download and install the <a class="reference external" href="https://git-scm.com/download/win">Git package</a>.</p>
@@ -143,7 +143,7 @@ Debian:</p>
 </pre></div>
 </div>
 <p>On Fedora:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt install git-all
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo dnf install git-all
 </pre></div>
 </div>
 </section>

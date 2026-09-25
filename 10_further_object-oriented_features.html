@@ -92,7 +92,7 @@ in removing the need for boiler-plate code at the top of functions. For
 example, your code for <a class="reference internal" href="9_trees_and_directed_acyclic_graphs.html#ex-expr"><span class="std std-numref">Exercise 9.6</span></a> probably contains a lot
 of repeated code a similar to the following:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the Expr for the sum of this Expr and another.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Return the Expr for the sum of this Expr and another."""</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">):</span>
         <span class="n">other</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
@@ -105,7 +105,7 @@ to an <code class="xref py py-obj docutils literal notranslate"><span class="pre
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wraps</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="k">def</span><span class="w"> </span><span class="nf">make_other_expr</span><span class="p">(</span><span class="n">meth</span><span class="p">):</span>
-<span class="linenos"> 4</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Cast the second argument of a method to Number when needed.&quot;&quot;&quot;</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="sd">"""Cast the second argument of a method to Number when needed."""</span>
 <span class="linenos"> 5</span>    <span class="nd">@wraps</span><span class="p">(</span><span class="n">meth</span><span class="p">)</span>
 <span class="linenos"> 6</span>    <span class="k">def</span><span class="w"> </span><span class="nf">fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="linenos"> 7</span>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">):</span>
@@ -119,7 +119,7 @@ to an <code class="xref py py-obj docutils literal notranslate"><span class="pre
 instead write something like the following:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@make_other_expr</span>
 <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the Expr for the sum of this Expr and another.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Return the Expr for the sum of this Expr and another."""</span>
     <span class="k">return</span> <span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -138,7 +138,7 @@ include more code after line 9.</p>
 <p>Finally, notice that we have wrapped <code class="xref py py-obj docutils literal notranslate"><span class="pre">fn</span></code> in another decorator,
 <a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.wraps" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.wraps()</span></code></a>. The purpose of this decorator is to copy the name and
 docstring from <code class="xref py py-func docutils literal notranslate"><span class="pre">meth()</span></code> to <code class="xref py py-func docutils literal notranslate"><span class="pre">fn()</span></code>. The effect of this is that if the
-user calls <a class="reference external" href="https://docs.python.org/3/library/functions.html#help" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">help()</span></code></a> on a decorated function then they will see the name and
+user calls <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#help" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">help()</span></code></a> on a decorated function then they will see the name and
 docstring for the original function, and not that of the decorator.</p>
 <section id="decorators-which-take-arguments">
 <h3><span class="section-number">10.1.1. </span>Decorators which take arguments<a class="headerlink" href="#decorators-which-take-arguments" title="Link to this heading">¶</a></h3>
@@ -178,7 +178,7 @@ shouldn’t know or care from the outside whether
 <a class="reference internal" href="3_objects.html#term-data-attribute"><span class="xref std std-term">data attribute</span></a>. Indeed, the developer of the
 <a class="reference internal" href="example_code.html#module-example_code.polynomial" title="example_code.polynomial"><code class="xref py py-mod docutils literal notranslate"><span class="pre">polynomial</span></code></a> module should be able to change that
 implementation without changing the interface. This is where the
-built-in <a class="reference external" href="https://docs.python.org/3/library/functions.html#property" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">property</span></code></a> decorator comes in. <a class="reference external" href="https://docs.python.org/3/library/functions.html#property" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">property</span></code></a> transforms
+built-in <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#property" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">property</span></code></a> decorator comes in. <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#property" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">property</span></code></a> transforms
 methods that take no arguments other than the object itself into attributes.
 So, if we had instead defined:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@property</span>
@@ -279,7 +279,7 @@ implemented by the <a class="reference internal" href="7_inheritance.html#term-c
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="k">class</span><span class="w"> </span><span class="nc">Group</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-<span class="linenos"> 4</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;A base class containing methods common to many groups.</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="sd">"""A base class containing methods common to many groups.</span>
 <span class="linenos"> 5</span>
 <span class="linenos"> 6</span><span class="sd">    Each subclass represents a family of parametrised groups.</span>
 <span class="linenos"> 7</span>
@@ -288,7 +288,7 @@ implemented by the <a class="reference internal" href="7_inheritance.html#term-c
 <span class="linenos">10</span><span class="sd">    n: int</span>
 <span class="linenos">11</span><span class="sd">        The primary group parameter, such as order or degree. The</span>
 <span class="linenos">12</span><span class="sd">        precise meaning of n changes from subclass to subclass.</span>
-<span class="linenos">13</span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos">13</span><span class="sd">    """</span>
 <span class="linenos">14</span>
 <span class="linenos">15</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
 <span class="linenos">16</span>        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
@@ -296,30 +296,30 @@ implemented by the <a class="reference internal" href="7_inheritance.html#term-c
 <span class="linenos">18</span>    <span class="nd">@property</span>
 <span class="linenos">19</span>    <span class="nd">@abstractmethod</span>
 <span class="linenos">20</span>    <span class="k">def</span><span class="w"> </span><span class="nf">symbol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">21</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Represent the group name as a character.&quot;&quot;&quot;</span>
+<span class="linenos">21</span><span class="w">        </span><span class="sd">"""Represent the group name as a character."""</span>
 <span class="linenos">22</span>        <span class="k">pass</span>
 <span class="linenos">23</span>
 <span class="linenos">24</span>    <span class="nd">@abstractmethod</span>
 <span class="linenos">25</span>    <span class="k">def</span><span class="w"> </span><span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="linenos">26</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Ensure that value is an allowed element value in this group.&quot;&quot;&quot;</span>
+<span class="linenos">26</span><span class="w">        </span><span class="sd">"""Ensure that value is an allowed element value in this group."""</span>
 <span class="linenos">27</span>        <span class="k">pass</span>
 <span class="linenos">28</span>
 <span class="linenos">29</span>    <span class="nd">@abstractmethod</span>
 <span class="linenos">30</span>    <span class="k">def</span><span class="w"> </span><span class="nf">operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<span class="linenos">31</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a ∘ b using the group operation ∘.&quot;&quot;&quot;</span>
+<span class="linenos">31</span><span class="w">        </span><span class="sd">"""Return a ∘ b using the group operation ∘."""</span>
 <span class="linenos">32</span>        <span class="k">pass</span>
 <span class="linenos">33</span>
 <span class="linenos">34</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="linenos">35</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an element of this group.&quot;&quot;&quot;</span>
+<span class="linenos">35</span><span class="w">        </span><span class="sd">"""Create an element of this group."""</span>
 <span class="linenos">36</span>        <span class="k">return</span> <span class="n">Element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 <span class="linenos">37</span>
 <span class="linenos">38</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">39</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a string in the form symbol then group parameter.&quot;&quot;&quot;</span>
-<span class="linenos">40</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">symbol</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="linenos">39</span><span class="w">        </span><span class="sd">"""Return a string in the form symbol then group parameter."""</span>
+<span class="linenos">40</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">symbol</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span>
 <span class="linenos">41</span>
 <span class="linenos">42</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">43</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the canonical string representation of the element.&quot;&quot;&quot;</span>
-<span class="linenos">44</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
+<span class="linenos">43</span><span class="w">        </span><span class="sd">"""Return the canonical string representation of the element."""</span>
+<span class="linenos">44</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span>
 </pre></div>
 </div>
 </div>
@@ -340,7 +340,7 @@ be observed if we try to instantiate <a class="reference internal" href="example
 <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">Group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="ne">TypeError</span>: Can&#39;t instantiate abstract class Group with abstract methods _validate, operation, symbol
+<span class="ne">TypeError</span>: Can't instantiate abstract class Group with abstract methods _validate, operation, symbol
 </pre></div>
 </div>
 <p>The combination of inheriting from <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a> and the
@@ -348,7 +348,7 @@ be observed if we try to instantiate <a class="reference internal" href="example
 an error, and we are told why. We have skipped over the <code class="xref py py-obj docutils literal notranslate"><span class="pre">symbol</span></code> attribute.
 There is no <code class="xref py py-obj docutils literal notranslate"><span class="pre">abstractattribute</span></code> decorator, but the same effect can be achieved
 by creating an <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.abstractmethod" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abstractmethod</span></code></a> and converting it into a data attribute using
-<a class="reference external" href="https://docs.python.org/3/library/functions.html#property" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">property</span></code></a>. In this case, the order of decorators is important:
+<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#property" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">property</span></code></a>. In this case, the order of decorators is important:
 <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.abstractmethod" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abstractmethod</span></code></a> always needs to be the last, innermost, decorator.</p>
 <p>The subclasses of <a class="reference internal" href="example_code.html#example_code.groups_abc.Group" title="example_code.groups_abc.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a> that we defined,
 define all three of these attributes, so they can still be instantiated. For
@@ -393,7 +393,7 @@ Video: virtual subclasses.</summary><div class="video_wrapper" style="">
 </details><p>We learned in <a class="reference internal" href="3_objects.html#objects"><span class="std std-numref">Chapter 3</span></a> that we can determine if a type is a
 number by checking if it is an instance of <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>. This is a
 slightly different usage of abstract base classes. Rather than providing part
-of the implementation of types such as <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a> provides
+of the implementation of types such as <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a> provides
 a categorisation of objects into numbers and non-numbers. This aids duck
 typing, by enabling much more general type checking.</p>
 <p>The <a class="reference external" href="https://docs.python.org/3/library/index.html#library-index" title="(in Python v3.14)"><span class="xref std std-ref">Standard Library</span></a> contains many abstract base classes
@@ -423,7 +423,7 @@ there is no code explicitly claiming <a class="reference internal" href="example
 subclass of <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code></a>. Instead, <em>any</em> class which
 implements the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__iter__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> special method is a subclass of
 <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code></a>. How does this work? Well,
-<a class="reference external" href="https://docs.python.org/3/library/functions.html#isinstance" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">isinstance()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/functions.html#issubclass" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">issubclass()</span></code></a> are implemented with the help of, you
+<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#isinstance" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">isinstance()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#issubclass" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">issubclass()</span></code></a> are implemented with the help of, you
 guessed it, yet another <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special method</span></a>. This time the special method is
 <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABCMeta.__subclasshook__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__subclasshook__()</span></code></a>.</p>
 <div class="literal-block-wrapper docutils container" id="id7">
@@ -460,7 +460,7 @@ implementation</a>.</span><a class="headerlink" href="#id7" title="Link to this 
 <span class="linenos">28</span>    <span class="nd">@classmethod</span>
 <span class="linenos">29</span>    <span class="k">def</span><span class="w"> </span><span class="nf">__subclasshook__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
 <span class="linenos">30</span>        <span class="k">if</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="n">Iterable</span><span class="p">:</span>
-<span class="linenos">31</span>            <span class="k">return</span> <span class="n">_check_methods</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="s2">&quot;__iter__&quot;</span><span class="p">)</span>
+<span class="linenos">31</span>            <span class="k">return</span> <span class="n">_check_methods</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="s2">"__iter__"</span><span class="p">)</span>
 <span class="linenos">32</span>        <span class="k">return</span> <span class="bp">NotImplemented</span>
 <span class="linenos">33</span>
 <span class="linenos">34</span>    <span class="n">__class_getitem__</span> <span class="o">=</span> <span class="nb">classmethod</span><span class="p">(</span><span class="n">GenericAlias</span><span class="p">)</span>
@@ -483,18 +483,18 @@ of the object. It is conventional to signal this difference by calling the
 first parameter <code class="xref py py-obj docutils literal notranslate"><span class="pre">cls</span></code> instead of <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>. The second parameter, <code class="xref py py-obj docutils literal notranslate"><span class="pre">C</span></code> is the class
 to be tested.</p>
 <p>In common with the special methods for arithmetic,
-<a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABCMeta.__subclasshook__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__subclasshook__()</span></code></a> returns <a class="reference external" href="https://docs.python.org/3/library/constants.html#NotImplemented" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">NotImplemented</span></code></a> to
+<a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABCMeta.__subclasshook__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__subclasshook__()</span></code></a> returns <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#NotImplemented" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">NotImplemented</span></code></a> to
 indicate cases that it cannot deal with. In this case, if the current class is
 not <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code></a> (this would happen if the method were
 called on a subclass of <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code></a>) then
-<a class="reference external" href="https://docs.python.org/3/library/constants.html#NotImplemented" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">NotImplemented</span></code></a> is returned. If we really are checking <code class="xref py py-obj docutils literal notranslate"><span class="pre">C</span></code> against
+<a class="reference external" href="https://docs.python.org/3/builtins/constants.html#NotImplemented" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">NotImplemented</span></code></a> is returned. If we really are checking <code class="xref py py-obj docutils literal notranslate"><span class="pre">C</span></code> against
 <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code></a> then the <code class="xref py py-obj docutils literal notranslate"><span class="pre">_check_methods</span></code> helper function is
 called. The fine details of how this works are a little technical, but in
 essence the function loops over <code class="xref py py-obj docutils literal notranslate"><span class="pre">C</span></code> and its superclasses in order (<code class="xref py py-obj docutils literal notranslate"><span class="pre">C.__mro__</span></code>
 is the <a class="reference internal" href="#term-method-resolution-order"><span class="xref std std-term">method resolution order</span></a>) and checks if the relevant methods are
-defined. If they are all found then <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">True</span></code></a> is returned, otherwise the
-result is <a class="reference external" href="https://docs.python.org/3/library/constants.html#NotImplemented" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">NotImplemented</span></code></a>. An implementation of
-<a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABCMeta.__subclasshook__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__subclasshook__()</span></code></a> could also return <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">False</span></code></a> to
+defined. If they are all found then <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#True" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">True</span></code></a> is returned, otherwise the
+result is <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#NotImplemented" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">NotImplemented</span></code></a>. An implementation of
+<a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABCMeta.__subclasshook__" title="(in Python v3.14)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__subclasshook__()</span></code></a> could also return <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#False" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">False</span></code></a> to
 indicate that <code class="xref py py-obj docutils literal notranslate"><span class="pre">C</span></code> is definitely not a subclass.</p>
 </section>
 </section>
@@ -511,7 +511,7 @@ but for which concrete subclasses are required to provide the implementation.</p
 </dd>
 <dt id="term-class-method">class method<a class="headerlink" href="#term-class-method" title="Link to this term">¶</a></dt><dd><p>A <a class="reference internal" href="3_objects.html#term-method"><span class="xref std std-term">method</span></a> which belongs to the class itself, rather than to the
 instances of the class. Class methods are declared using the
-<a class="reference external" href="https://docs.python.org/3/library/functions.html#classmethod" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classmethod</span></code></a> <a class="reference internal" href="#term-decorator"><span class="xref std std-term">decorator</span></a> and take the class (<code class="xref py py-obj docutils literal notranslate"><span class="pre">cls</span></code>) as their first
+<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#classmethod" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classmethod</span></code></a> <a class="reference internal" href="#term-decorator"><span class="xref std std-term">decorator</span></a> and take the class (<code class="xref py py-obj docutils literal notranslate"><span class="pre">cls</span></code>) as their first
 argument, instead of the instance (<code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>). See also: <a class="reference internal" href="7_inheritance.html#term-class-attribute"><span class="xref std std-term">class attribute</span></a>.</p>
 </dd>
 <dt id="term-decorator">decorator<a class="headerlink" href="#term-decorator" title="Link to this term">¶</a></dt><dd><p>A syntax for applying <a class="reference internal" href="#term-higher-order-function"><span class="xref std std-term">higher order functions</span></a> when defining functions. A decorator is applied by writing
@@ -564,7 +564,7 @@ the built-in <a class="reference external" href="https://docs.python.org/3/libra
 the log message.</p>
 <p>The log message should comprise the string <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;Calling:</span> <span class="pre">&quot;</span></code> followed by the
 function name (accessible using the <code class="xref py py-obj docutils literal notranslate"><span class="pre">__name__</span></code> attribute), followed by
-round brackets containing first the <a class="reference external" href="https://docs.python.org/3/library/functions.html#repr" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> of the positional
+round brackets containing first the <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#repr" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> of the positional
 arguments, followed by the key=value pairs the keyword arguments.</p>
 </div></div><div class="proof proof-type-exercise" id="id9">
 

@@ -77,12 +77,12 @@ package which supports data analysis in Python. It’s introduced here partly
 because it’s a very useful tool for applied mathematicians and statisticians
 who need to work with real data, and partly because it’s a convenient somewhat
 larger library on which to practice tools and techniques for debugging.</p>
-<p>At the core of Pandas is the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> class, which is
+<p>At the core of Pandas is the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v3.0.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> class, which is
 a two-dimensional dataset somewhat analogous to a spreadsheet. Unlike, for
-example, a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> is not indexed
+example, a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v3.0.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> is not indexed
 by a pair of numbers, but is instead organised as a collection of named
-one-dimensional <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> of data. One can think of a
-<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> as a column of data with a title. This perhaps best
+one-dimensional <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v3.0.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> of data. One can think of a
+<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v3.0.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> as a column of data with a title. This perhaps best
 illustrated with an example.</p>
 <span id="student-data"></span><table class="docutils align-default" id="id6" style="width: 70%">
 <caption><span class="caption-number">Table 8.1 </span><span class="caption-text">Extract from some fictional student records. The full records
@@ -125,15 +125,15 @@ Having installed Pandas:</p>
 <p>the following code enables us to access the data from within Python:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="gp">In [2]: </span><span class="n">students</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/students.csv&quot;</span><span class="p">)</span>
+<span class="gp">In [2]: </span><span class="n">students</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/students.csv"</span><span class="p">)</span>
 
 <span class="gp">In [3]: </span><span class="nb">type</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
 <span class="gh">Out[3]: </span><span class="go">pandas.core.frame.DataFrame</span>
 
 <span class="gp">In [4]: </span><span class="n">students</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-<span class="gh">Out[4]: </span><span class="go">Index([&#39;FirstName&#39;, &#39;Surname&#39;, &#39;Username&#39;], dtype=&#39;object&#39;)</span>
+<span class="gh">Out[4]: </span><span class="go">Index(['FirstName', 'Surname', 'Username'], dtype='object')</span>
 
-<span class="gp">In [5]: </span><span class="n">students</span><span class="p">[</span><span class="s1">&#39;FirstName&#39;</span><span class="p">][:</span><span class="mi">6</span><span class="p">]</span>
+<span class="gp">In [5]: </span><span class="n">students</span><span class="p">[</span><span class="s1">'FirstName'</span><span class="p">][:</span><span class="mi">6</span><span class="p">]</span>
 <span class="gh">Out[5]:</span>
 <span class="go">0      Patrick</span>
 <span class="go">1       Lorene</span>
@@ -143,13 +143,13 @@ Having installed Pandas:</p>
 <span class="go">5       Morgan</span>
 <span class="go">Name: FirstName, dtype: object</span>
 
-<span class="gp">In [6]: </span><span class="nb">type</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="s1">&#39;FirstName&#39;</span><span class="p">])</span>
+<span class="gp">In [6]: </span><span class="nb">type</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="s1">'FirstName'</span><span class="p">])</span>
 <span class="gh">Out[6]: </span><span class="go">pandas.core.series.Series</span>
 </pre></div>
 </div>
-<p>Observe that the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> acts as a dictionary of
-one-dimensional data <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></a>. A <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> can be
-indexed and sliced like any other Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq" title="(in Python v3.14)"><span class="xref std std-ref">sequence type</span></a>. This
+<p>Observe that the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v3.0.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> acts as a dictionary of
+one-dimensional data <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v3.0.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></a>. A <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v3.0.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> can be
+indexed and sliced like any other Python <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#typesseq" title="(in Python v3.14)"><span class="xref std std-ref">sequence type</span></a>. This
 very high level introduction is all we’ll need to use pandas in demonstrations
 in this chapter. Much more documentation is available on the <a class="reference external" href="https://pandas.pydata.org/docs/">Pandas website</a>.</p>
 <div class="admonition note">
@@ -369,7 +369,7 @@ for example:</p>
 to add the <code class="xref py py-obj docutils literal notranslate"><span class="pre">--pdbcls</span></code> argument to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">setup.cfg</span></code> file in the top folder of the
 repository. Add the following section to that file:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[tool:pytest]</span>
-<span class="na">addopts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;--pdbcls=IPython.terminal.debugger:Pdb&quot;</span>
+<span class="na">addopts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"--pdbcls=IPython.terminal.debugger:Pdb"</span>
 </pre></div>
 </div>
 <p>Ipdb can now be invoked on a failing test using:</p>
@@ -388,7 +388,7 @@ in an IDE window, insert a line of code. For ipdb, the line to insert is:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ipdb</span><span class="p">;</span> <span class="n">ipdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>while pdb can use the built-in <a class="reference external" href="https://docs.python.org/3/library/functions.html#breakpoint" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">breakpoint()</span></code></a> function or use their own
+<p>while pdb can use the built-in <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#breakpoint" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">breakpoint()</span></code></a> function or use their own
 function:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pdb</span><span class="p">;</span> <span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
 </pre></div>
@@ -734,7 +734,7 @@ check out the branch name we started from. For example:</p>
 branch with a clean working tree:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$  </span>git<span class="w"> </span>status
 <span class="go">On branch main</span>
-<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+<span class="go">Your branch is up to date with 'origin/main'.</span>
 
 <span class="go">nothing to commit, working tree clean</span>
 </pre></div>
@@ -879,7 +879,7 @@ numerical technique called the finite element method. Clone the <a class="refere
 fork of the UFL repository</a>. At some point in
 the past, the following code worked:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ufl</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">FiniteElement</span><span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="n">cell</span><span class="o">=</span><span class="n">ufl</span><span class="o">.</span><span class="n">triangle</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">FiniteElement</span><span class="p">(</span><span class="s2">"R"</span><span class="p">,</span> <span class="n">cell</span><span class="o">=</span><span class="n">ufl</span><span class="o">.</span><span class="n">triangle</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">r</span><span class="o">.</span><span class="n">sobolev_space</span><span class="p">()</span> <span class="ow">is</span> <span class="n">ufl</span><span class="o">.</span><span class="n">L2</span>
 </pre></div>
 </div>

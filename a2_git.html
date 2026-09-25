@@ -64,14 +64,15 @@
 repositories hosted on <a class="reference external" href="https://github.com">GitHub</a>. This is a deliberate
 choice, because learning to use a revision control system such as Git is an
 important part of learning to be a good programmer. If you’re doing these
-exercises as a part of a formal course, then GitHub classroom provides
-additional support for automatically creating your personal repository for each
+exercises as a part of a formal course, then a classroom service such as
+Classroom 50 provides additional support for automatically creating your personal repository for each
 exercise, for submitting your work, and providing feedback through autotesting.
 If you’re working through this book yourself, you’ll be able to use the
 template repositories on GitHub to access everything you need to do the
 exercises.</p>
 <p>This introduction just provides enough information to enable you to set up
-and use Git, GitHub, and GitHub Classroom for the exercises in this book.
+and use Git, GitHub, and a classroom service such as Classroom 50 for the
+exercises in this book.
 For a more in-depth introduction to Git and GitHub, you are encouraged to
 work through the excellent <a class="reference external" href="http://swcarpentry.github.io/git-novice/">Git tutorial provided by the Software Carpentry
 project</a>.</p>
@@ -131,8 +132,8 @@ software development platform. Depending on the module you are taking, you may
 also use some of these extra features of GitHub, but we will mostly focus on how
 to use the core feature of storing a copy of your repository online.</p>
 </section>
-<section id="what-is-github-classroom">
-<h2><span class="section-number">2.3. </span>What is GitHub Classroom?<a class="headerlink" href="#what-is-github-classroom" title="Link to this heading">¶</a></h2>
+<section id="what-is-a-classroom-service">
+<h2><span class="section-number">2.3. </span>What is a classroom service?<a class="headerlink" href="#what-is-a-classroom-service" title="Link to this heading">¶</a></h2>
 <p>All of the collaborative features of Git and GitHub might sound like overkill
 when all you need to do is complete coding assignments that only you work on.
 However in software development terms, you always have at least one
@@ -141,9 +142,11 @@ provides some initial skeleton code, such as some incomplete source files or
 Jupyter notebooks. During the course of the work, you might need to show your
 code to the lecturer or a teaching assistant in order to get help, and at the
 end you need to share your work with the module staff to get it marked.</p>
-<p>GitHub Classroom is a service that works with GitHub to provide every student
-doing a particular coding exercise with their own repository on GitHub that’s
-prepopulated with the lecturer’s skeleton code and ready to work with. As we’ll
+<p>Classroom services such as <a class="reference external" href="https://classroom50.org">Classroom 50</a>  work with
+GitHub to provide every student doing a particular
+coding exercise with their own repository on GitHub that’s prepopulated with
+the lecturer’s skeleton code and ready to work with. Principles of Programming
+at Imperial College London uses Classroom 50. As we’ll
 see below, this makes it really easy to obtain the exercise and work with it.</p>
 </section>
 <section id="configuring-git">
@@ -167,8 +170,8 @@ save on a great deal of confusion later, you should register the actual name
 that you usually go by. The email address simply needs to be a working email
 address which will reach you. <a class="reference external" href="https://imperial-fons-computing.github.io/terminal.html#terminal" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">Open a terminal</span></a> and run the
 following commands, replacing your name as appropriate:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Jo Student&quot;</span>
-<span class="gp">$ </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;Jo.Student20@imperial.ac.uk&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Jo Student"</span>
+<span class="gp">$ </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">"Jo.Student20@imperial.ac.uk"</span>
 </pre></div>
 </div>
 </section>
@@ -201,7 +204,7 @@ set up Git to automatically clean up this mess in most cases.</p>
 launch a text editor to enable you to type the comment in. If you don’t have
 strong preferences for a particular editor, then <code class="xref py py-obj docutils literal notranslate"><span class="pre">nano</span></code> is a good choice, so run
 the following line in the terminal:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">&quot;nano -w&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">"nano -w"</span>
 </pre></div>
 </div>
 <p>If you have Visual Studio Code set up to run from the terminal, then this is
@@ -216,7 +219,7 @@ Visual Studio Code from the terminal:</p>
 <p>You will almost certainly see different version information, and this is fine.
 Assuming that worked, run the following to set Visual Studio Code as your Git
 editor:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git config --global core.editor &quot;code --wait&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git config --global core.editor "code --wait"</span>
 </pre></div>
 </div>
 <p>If you have a different favourite text editor, you can set it using the
@@ -279,61 +282,60 @@ may be nice to have if you intend to do more software development. You can
 register for these benefits at <a class="reference external" href="https://education.github.com/benefits">https://education.github.com/benefits</a>.</p>
 </section>
 </section>
-<section id="doing-exercises-using-github-or-github-classroom">
-<span id="github-classroom-exercise"></span><h2><span class="section-number">2.6. </span>Doing exercises using GitHub or GitHub Classroom<a class="headerlink" href="#doing-exercises-using-github-or-github-classroom" title="Link to this heading">¶</a></h2>
+<section id="doing-exercises-using-github-or-a-classroom-service">
+<span id="github-classroom-exercise"></span><h2><span class="section-number">2.6. </span>Doing exercises using GitHub or a classroom service<a class="headerlink" href="#doing-exercises-using-github-or-a-classroom-service" title="Link to this heading">¶</a></h2>
 <p>The exercises in this book are available as GitHub repositories, including
 skeleton code and automated testing. The way that you use Git and GitHub to
 access and do these exercises is always the same, though there are two
 different ways of initially generating your personal exercise repository on
 GitHub, depending on whether you are doing these exercises as a part of a
-formal course which the instructor has set up using GitHub classroom, or you
-are doing the exercises by yourself in private study. If you’re using GitHub
-classroom as a part of a formal course where the instructor will be using
-GitHub classroom then follow the instructions in <a class="reference internal" href="#accept-classroom"><span class="std std-numref">Section 2.6.1</span></a>.
+formal course which the instructor has set up using a classroom service such
+as Classroom 50, or you are doing the exercises by yourself in private study.
+If you’re doing the exercises as part of a formal course where the instructor
+has set up a classroom service, then follow the instructions in
+<a class="reference internal" href="#accept-classroom"><span class="std std-numref">Section 2.6.1</span></a>.
 If you’re working on the exercises by yourself then follow the instructions in
 <a class="reference internal" href="#accept-template"><span class="std std-numref">Section 2.6.2</span></a>.</p>
 <div class="vimeo docutils container">
 <iframe src="https://player.vimeo.com/video/458609356"
 frameborder="0" allow="autoplay; fullscreen"
 allowfullscreen></iframe></div>
-<section id="accepting-the-assignment-on-github-classroom">
-<span id="accept-classroom"></span><h3><span class="section-number">2.6.1. </span>Accepting the assignment on GitHub Classroom<a class="headerlink" href="#accepting-the-assignment-on-github-classroom" title="Link to this heading">¶</a></h3>
-<p>For each exercise, your module will provide access to a link that you can use
-to accept the corresponding GitHub classroom assignment. In this case, there is
-a tiny toy assignment created just for this exercise. The assignment acceptance
-link is available at:
-<a class="reference external" href="https://classroom.github.com/a/Ve9truKA">https://classroom.github.com/a/Ve9truKA</a></p>
-<p>When you click on the assignment, if you’re not already logged into your <a class="reference external" href="https://GitHub.com">GitHub</a> account then you will be prompted to do so. If this is
-your first GitHub Classroom assignment, you’ll also be asked to give GitHub
-Classroom permission to access your GitHub account. You should do so.</p>
-<p>You will now be asked to accept the assignment. Do so by clicking on the large
-green button. GitHub Classroom will now create a new repository containing your
-personal copy of the assignment. You can click on the link provided to navigate
-to your new GitHub repository. You will also receive an email inviting you to
-this repository. You can now skip forward to <a class="reference internal" href="#exercise-instructions"><span class="std std-numref">Section 2.6.3</span></a>.</p>
+<section id="accepting-the-assignment-on-classroom-50">
+<span id="accept-classroom"></span><h3><span class="section-number">2.6.1. </span>Accepting the assignment on Classroom 50<a class="headerlink" href="#accepting-the-assignment-on-classroom-50" title="Link to this heading">¶</a></h3>
+<p>If your course uses <a class="reference external" href="https://classroom50.org">Classroom 50</a>, your instructor
+will first invite you to the course’s GitHub organisation. This invitation
+arrives by email from GitHub, and you must accept it before you can use
+Classroom 50. Then:</p>
+<ol class="arabic simple">
+<li><p>Go to the Classroom 50 page for your course and click
+<kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Sign</kbd> <kbd class="kbd docutils literal notranslate">in</kbd> <kbd class="kbd docutils literal notranslate">with</kbd> <kbd class="kbd docutils literal notranslate">GitHub</kbd></kbd>. For Principles of Programming at Imperial
+College London, this page is
+<a class="reference external" href="https://classroom50.org/Imperial-MATH50009">https://classroom50.org/Imperial-MATH50009</a>.
+The first time you sign in, you will be asked to give Classroom 50
+permission to act on your behalf. You should do so.</p></li>
+<li><p>Open the assignment and accept it. Classroom 50 will create a new
+repository containing your personal copy of the assignment, named after
+the classroom, the assignment, and your GitHub username.</p></li>
+<li><p>Follow the link to your new repository on GitHub. You can now skip forward
+to <a class="reference internal" href="#exercise-instructions"><span class="std std-numref">Section 2.6.3</span></a>.</p></li>
+</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When attempt to accept an assignment you might instead receive an error
-message starting:</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Your GitHub account cannot this invitation at this time. The
-Classroom’s Organization restricts membership to users within the same
-enterprise.</p>
-</div>
+<p>When you try to accept the invitation to the course’s GitHub
+organisation, you might instead receive an error message saying that the
+organisation restricts membership to users within the same enterprise.</p>
 <p>If this is the case, then your institution is using GitHub Enterprise, and
 it’s necessary for you to associate your GitHub username with the
 Enterprise. You will need to ask your instructor how to do this. For
 students at Imperial College London, you should click on the Imperial
 GitHub <a class="reference external" href="https://github.com/orgs/ImperialCollegeLondon/sso">single sign on page</a> and sign in using your
 Imperial credentials. If prompted to do so, also sign in with your GitHub
-username. You should now be able to go back and click on the assignment
-acceptance link.</p>
+username. You should now be able to go back and accept the invitation.</p>
 </div>
 </section>
 <section id="accessing-the-exercise-using-the-template-repository">
 <span id="accept-template"></span><h3><span class="section-number">2.6.2. </span>Accessing the exercise using the template repository<a class="headerlink" href="#accessing-the-exercise-using-the-template-repository" title="Link to this heading">¶</a></h3>
-<p>If you don’t have an instructor who has set up GitHub Classroom exercises for
+<p>If you don’t have an instructor who has set up classroom exercises for
 your course then you will obtain your copy of the exercise by creating a new
 repository in your GitHub account using the template provided. To use the
 template, navigate to the exercise repository, which in this case is:
@@ -384,7 +386,7 @@ terminal type (without pressing <kbd class="kbd docutils literal notranslate">en
 If you are asked for your GitHub username and password, enter them, and the
 repository will download. The process should look a little like this:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dham/hello.git
-<span class="go">Cloning into &#39;hello&#39;...</span>
+<span class="go">Cloning into 'hello'...</span>
 <span class="go">info: please complete authentication in your browser...</span>
 <span class="go">remote: Enumerating objects: 13, done.</span>
 <span class="go">remote: Counting objects: 100% (13/13), done.</span>
@@ -467,14 +469,14 @@ to command whenever you’re not quite sure what’s going on in your Git
 repository, is:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
 <span class="go">On branch main</span>
-<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+<span class="go">Your branch is up to date with 'origin/main'.</span>
 
 <span class="go">Changes not staged for commit:</span>
-<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
-<span class="go">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go">  (use "git add &lt;file&gt;..." to update what will be committed)</span>
+<span class="go">  (use "git restore &lt;file&gt;..." to discard changes in working directory)</span>
 <span class="go">        modified:   exercise.txt</span>
 
-<span class="go">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span>
+<span class="go">no changes added to commit (use "git add" and/or "git commit -a")</span>
 </pre></div>
 </div>
 <p>Let’s pull this apart line by line. The first line says that we’re on the
@@ -510,10 +512,10 @@ list of files to be committed:</p>
 <p>We can check what that did by running <code class="xref py py-obj docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
 <span class="go">On branch main</span>
-<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+<span class="go">Your branch is up to date with 'origin/main'.</span>
 
 <span class="go">Changes to be committed:</span>
-<span class="go">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
+<span class="go">  (use "git restore --staged &lt;file&gt;..." to unstage)</span>
 <span class="go">        modified:   exercise.txt</span>
 </pre></div>
 </div>
@@ -544,7 +546,7 @@ another machine. Don’t use <code class="xref py py-obj docutils literal notran
 <h4><span class="section-number">2.6.6.2. </span>The actual commit<a class="headerlink" href="#the-actual-commit" title="Link to this heading">¶</a></h4>
 <p>Having staged the file(s) for commit, we need to actually make the commit. We do
 this with the following command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Changed World to Mars&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Changed World to Mars"</span>
 <span class="go">[main 316a22c] Changed World to Mars</span>
 <span class="go"> 1 file changed, 1 insertion(+), 1 deletion(-)</span>
 </pre></div>
@@ -558,8 +560,8 @@ message and quit the editor, after which the commit would go ahead as above.</p>
 <p>Let’s use our go to command, <code class="xref py py-obj docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> to see what we’ve done:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
 <span class="go">On branch main</span>
-<span class="go">Your branch is ahead of &#39;origin/main&#39; by 1 commit.</span>
-<span class="go">  (use &quot;git push&quot; to publish your local commits)</span>
+<span class="go">Your branch is ahead of 'origin/main' by 1 commit.</span>
+<span class="go">  (use "git push" to publish your local commits)</span>
 
 <span class="go">nothing to commit, working tree clean</span>
 </pre></div>
@@ -580,7 +582,7 @@ knows about. In these circumstances, there’s a shortcut command, and it’s on
 that Git already hinted to us about. Instead of separately running <code class="xref py py-obj docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>
 followed by <code class="xref py py-obj docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>, we can use <code class="xref py py-obj docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-a</span></code>. We still need to provide
 a commit message, so the equivalent to the two commands above would be:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s2">&quot;Changed World to Mars&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s2">"Changed World to Mars"</span>
 <span class="go">[main 316a22c] Changed World to Mars</span>
 <span class="go"> 1 file changed, 1 insertion(+), 1 deletion(-)</span>
 </pre></div>
@@ -589,8 +591,8 @@ a commit message, so the equivalent to the two commands above would be:</p>
 when we type the two commands separately:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
 <span class="go">On branch main</span>
-<span class="go">Your branch is ahead of &#39;origin/main&#39; by 1 commit.</span>
-<span class="go">  (use &quot;git push&quot; to publish your local commits)</span>
+<span class="go">Your branch is ahead of 'origin/main' by 1 commit.</span>
+<span class="go">  (use "git push" to publish your local commits)</span>
 
 <span class="go">nothing to commit, working tree clean</span>
 </pre></div>
@@ -621,7 +623,7 @@ branch.</p>
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">origin/main</span></code>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
 <span class="go">On branch main</span>
-<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+<span class="go">Your branch is up to date with 'origin/main'.</span>
 
 <span class="go">nothing to commit, working tree clean</span>
 </pre></div>
@@ -696,14 +698,14 @@ have done so by running:</p>
 </div>
 <p>The result should be something like:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch main</span>
-<span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
+<span class="go">Your branch is up to date with 'origin/main'.</span>
 
 <span class="go">nothing to commit, working tree clean</span>
 </pre></div>
 </div>
 <p>If you don’t see <code class="xref py py-obj docutils literal notranslate"><span class="pre">nothing</span> <span class="pre">to</span> <span class="pre">commit</span></code> then commit your work. If you don’t see
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">up</span> <span class="pre">to</span> <span class="pre">date</span></code> then push.</p>
-<p>If your repository comes from GitHub classroom then your
+<p>If your repository was created by a classroom service then your
 instructor may have set up a feedback branch for you, and you can use that as
 your starting point. To see if this is the case, run:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>branch<span class="w"> </span>-a
@@ -743,7 +745,7 @@ with a message such as:</p>
 <span class="go">    git push --set-upstream origin second_attempt</span>
 
 <span class="go">To have this happen automatically for branches without a tracking</span>
-<span class="go">upstream, see &#39;push.autoSetupRemote&#39; in &#39;git help config&#39;.</span>
+<span class="go">upstream, see 'push.autoSetupRemote' in 'git help config'.</span>
 </pre></div>
 </div>
 <p>Fortunately, this error message tells you exactly what to do, so run:</p>
@@ -763,12 +765,7 @@ branch.</p>
 </aside>
 <aside class="footnote brackets" id="swcarpentry-editor" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
-<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">https://swcarpentry.github.io/git-novice/02-setup/</span></code></p>
-</aside>
-<aside class="footnote brackets" id="chrome" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
-<p>To use these installation instructions for Chrome OS you first
-need to <a class="reference external" href="https://imperial-fons-computing.github.io/linux.html#linux-chrome" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">set up Linux on your Chromebook</span></a>.</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">https://swcarpentry.github.io/git-novice/02-setup.html</span></code></p>
 </aside>
 </aside>
 </section>
